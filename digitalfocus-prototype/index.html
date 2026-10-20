@@ -148,7 +148,7 @@ input[type=range]{width:100%;accent-color:var(--red)}
 form.card{gap:12px}
 .ok{background:var(--indigo-soft);border-radius:10px;padding:12px 14px;font-size:.92rem}
 /* header extras */
-.icon-btn{appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;min-width:44px;min-height:40px;padding:0 10px;font:600 .85rem/1 var(--head);cursor:pointer}
+.icon-btn{display:inline-grid;place-content:center;text-decoration:none;appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;min-width:44px;min-height:40px;padding:0 10px;font:600 .85rem/1 var(--head);cursor:pointer}
 .menu-btn{display:inline-grid;place-content:center;gap:4px}
 .menu-btn i{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px}
 @media(min-width:900px){.menu-btn{display:none}}
@@ -235,7 +235,7 @@ footer .wrap{display:grid;gap:24px}
       <a href="#contact">ติดต่อ</a>
     </nav>
     <div class="hdr-cta">
-      <button class="icon-btn" id="lang" type="button" aria-label="Switch to English">EN</button>
+      <a class="icon-btn" id="lang" href="en.html" hreflang="en" lang="en" aria-label="Switch to English">EN</a>
       <a class="btn btn-red" href="#contact">ขอคำปรึกษา</a>
       <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="เปิดเมนู"><i></i><i></i><i></i></button>
     </div>
@@ -261,7 +261,7 @@ footer .wrap{display:grid;gap:24px}
       <div>
         <p class="eyebrow" id="h-eye">AIoT &amp; Robotics Solution Provider for Sustainable Society</p>
         <h1 style="margin-top:12px" id="h-title">ผู้นำ <em>AI Security</em> และ AIoT Solutions ของไทย กว่า 24 ปี</h1>
-        <p class="lead" id="h-lead">จากกล้องวงจรปิดสู่ระบบอัจฉริยะครบวงจร ทั้ง AI วิเคราะห์ภาพ IoT หุ่นยนต์บริการ และโดรน ด้วยเครือข่ายตัวแทนและช่างบริการมากกว่า 500 รายทั่วประเทศ</p>
+        <p class="lead" id="h-lead">จากกล้องวงจรปิดสู่ระบบอัจฉริยะครบวงจร ทั้ง AI วิเคราะห์ภาพ IoT หุ่นยนต์บริการ และพลังงานอัจฉริยะ ด้วยเครือข่ายตัวแทนและช่างบริการมากกว่า 500 รายทั่วประเทศ</p>
       </div>
       <div class="ring-box" aria-hidden="true">
         <div class="ring"></div>
@@ -355,7 +355,7 @@ footer .wrap{display:grid;gap:24px}
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">แบรนด์พันธมิตร</p>
-      <h2>แบรนด์ระดับโลก ครบทั้งระบบรักษาความปลอดภัย หุ่นยนต์ และโดรน</h2>
+      <h2>แบรนด์ระดับโลก ครบทั้งระบบรักษาความปลอดภัย Smart Home หุ่นยนต์ และพลังงาน</h2>
     </div>
     <div class="brands">
       <div class="brand-card first"><span class="badge">ตัวแทนจำหน่ายรายแรกของไทย</span><b>Hikvision</b><span>ผู้นำโลกด้านกล้องวงจรปิดและ AIoT · ก่อตั้งปี 2001 พนักงานกว่า 58,000 คน</span></div>
@@ -363,7 +363,7 @@ footer .wrap{display:grid;gap:24px}
       <div class="brand-card"><b>DSPPA</b><span>ระบบเสียงประกาศและเสียงสาธารณะ</span></div>
       <div class="brand-card"><b>BroadLink</b><span>AI Smart Home ควบคุมเครื่องใช้ไฟฟ้าผ่านแอป</span></div>
       <div class="brand-card"><b>Geeklink</b><span>อุปกรณ์ Smart Home และ IoT</span></div>
-      <div class="brand-card"><b>Huawei Smart Energy</b><span>ระบบพลังงานอัจฉริยะสำหรับบ้าน</span></div>
+      <div class="brand-card"><b>Huawei Digital Power</b><span>ระบบพลังงานอัจฉริยะสำหรับบ้าน</span></div>
       <div class="brand-card"><b>Keenon</b><span>หุ่นยนต์บริการ ส่งอาหารและของ</span></div>
       <div class="brand-card"><b>Xiaodu</b><span>อุปกรณ์อัจฉริยะสั่งงานด้วยเสียง</span></div>
       <div class="brand-card"><b>BrainCo</b><span>Brain-Computer Interface และอุปกรณ์ EEG neurofeedback</span></div>
@@ -371,7 +371,6 @@ footer .wrap{display:grid;gap:24px}
       <div class="brand-card"><b>ICT</b><span>[ประเภทสินค้า]</span></div>
       <div class="brand-card first"><span class="badge">แบรนด์ของ Digital Focus</span><b>DGF</b><span>DGF Smart Transport · DGF 4G Mobile CCTV · DGF C33 / AMA3</span></div>
     </div>
-    <p class="note" style="margin-top:14px">เว็บไซต์เดิมยังระบุ DJI, Uniview และ Uniarch ซึ่งไม่อยู่ในรายชื่อ Company Profile <span class="demo-flag">ยืนยันก่อนเผยแพร่</span></p>
   </div>
 </section>
 
@@ -430,7 +429,7 @@ footer .wrap{display:grid;gap:24px}
           <div class="checks">
             <label><input type="checkbox" id="ai" checked> AI วิเคราะห์ภาพ (คน ยานพาหนะ ป้ายทะเบียน)</label>
             <label><input type="checkbox" id="robot"> หุ่นยนต์บริการ</label>
-            <label><input type="checkbox" id="drone"> โดรนตรวจพื้นที่</label>
+            <label><input type="checkbox" id="energy"> ระบบพลังงานอัจฉริยะ (Huawei Digital Power)</label>
           </div>
         </div>
       </div>
@@ -629,6 +628,7 @@ footer .wrap{display:grid;gap:24px}
       <dl style="display:grid;gap:14px;margin:0">
         <div><dt>บริษัท</dt><dd>บริษัท ดิจิตอลโฟกัส จำกัด</dd></div>
         <div><dt>Hotline</dt><dd>02 136 8989</dd></div>
+        <div><dt>เว็บไซต์</dt><dd><a href="https://www.digitalfocus.co.th/" target="_blank" rel="noopener">www.digitalfocus.co.th</a></dd></div>
         <div><dt>LINE OA</dt><dd><a href="https://lin.ee/Ajw1OZw" target="_blank" rel="noopener">lin.ee/Ajw1OZw</a></dd></div>
         <div><dt>ร้านค้าออนไลน์</dt><dd><a href="https://shopee.co.th/digitalfocus_thailand" target="_blank" rel="noopener">Shopee: digitalfocus_thailand</a></dd></div>
         <div><dt>แฟกซ์</dt><dd>02 733 9075</dd></div>
@@ -658,6 +658,7 @@ footer .wrap{display:grid;gap:24px}
       <div><h4>โซลูชัน</h4><ul><li><a href="#solutions">ตามอุตสาหกรรม</a></li><li><a href="#services">บริการแบบรายเดือน</a></li><li><a href="#configurator">เครื่องมือแนะนำชุดโซลูชัน</a></li><li><a href="#showroom">ศูนย์สาธิต</a></li></ul></div>
       <div><h4>บริษัท</h4><ul><li><a href="#about">เกี่ยวกับเรา</a></li><li><a href="#milestones">เส้นทาง 24 ปี</a></li><li><a href="#clients">ลูกค้าและพันธมิตร</a></li><li><a href="#certs">มาตรฐานและรางวัล</a></li><li><a href="#cases">ผลงาน</a></li><li><a href="#csr">ความรับผิดชอบต่อสังคม</a></li><li><a href="#careers">ร่วมงานกับเรา</a></li></ul></div>
       <div><h4>ติดตามเรา</h4><ul>
+        <li><a href="https://www.digitalfocus.co.th/" target="_blank" rel="noopener">www.digitalfocus.co.th</a></li>
         <li><a href="https://www.facebook.com/profile.php?id=61581609465585" target="_blank" rel="noopener">Facebook</a></li>
         <li><a href="https://lin.ee/Ajw1OZw" target="_blank" rel="noopener">LINE OA</a></li>
         <li><a href="https://shopee.co.th/digitalfocus_thailand" target="_blank" rel="noopener">Shopee</a></li>
@@ -704,7 +705,7 @@ footer .wrap{display:grid;gap:24px}
     {n:"Smart Building",d:"รวมกล้อง ระบบควบคุมการเข้าออก และอุปกรณ์ IoT ของอาคารไว้ในระบบเดียว",i:["building"],a:["biz","si"]},
     {n:"Smart City / Traffic",d:"กล้องอ่านป้ายทะเบียนและระบบจราจรอัจฉริยะ เช่น โครงการของการทางพิเศษฯ และรัฐสภา",i:["gov"],a:["gov","si"]},
     {n:"Smart Education",d:"ระบบความปลอดภัย ห้องเรียนอัจฉริยะ และการรับรองทักษะดิจิทัล ICDL สำหรับสถาบันการศึกษา",i:["edu"],a:["gov","biz","si"]},
-    {n:"Smart AI Luxury House · ใหม่ 2026",d:"บ้านอัจฉริยะระดับพรีเมียม รวม Hikvision AI CCTV, BroadLink Smart Home และ Huawei Smart Energy",i:["home"],a:["partner","si","biz"]},
+    {n:"Smart AI Luxury House · ใหม่ 2026",d:"บ้านอัจฉริยะระดับพรีเมียม รวม Hikvision AI CCTV, BroadLink Smart Home และ Huawei Digital Power",i:["home"],a:["partner","si","biz"]},
     {n:"Smart Home",d:"อุปกรณ์ IoT ควบคุมเครื่องใช้ไฟฟ้าและความปลอดภัยภายในบ้าน",i:["home"],a:["partner"]},
     {n:"Smart Factory",d:"เฝ้าระวังการบุกรุกพื้นที่โรงงาน และตรวจความปลอดภัยในไลน์ผลิต",i:["factory"],a:["biz","si"]},
     {n:"Smart Retail",d:"กล้องนับคนและวิเคราะห์ทราฟฟิกในร้าน ช่วยเพิ่มโอกาสทางธุรกิจ",i:["retail"],a:["biz","partner"]},
@@ -712,7 +713,6 @@ footer .wrap{display:grid;gap:24px}
     {n:"Smart Transport (DGF)",d:"กล้อง AI + GPS Tracking บนรถบรรทุก รถโดยสาร และรถพยาบาล ตรวจจับพฤติกรรมผู้ขับขี่ และรายงานเรียลไทม์ผ่าน 4G",i:["transport"],a:["biz","si","partner"]},
     {n:"Robotics",d:"หุ่นยนต์บริการ Keenon และระบบอัตโนมัติ ลดงานซ้ำซ้อนของพนักงาน ต่อยอดสู่ Robotics Control Platform",i:["building","retail","edu"],a:["biz","partner"]}
   ];
-  var AUDLABEL={partner:"ตัวแทน",si:"SI",biz:"เอกชน",gov:"ภาครัฐ"};
   var ind="all";
   var chips=document.getElementById('chips');
   chips.innerHTML=IND.map(function(x){return '<button class="chip" data-k="'+x[0]+'" aria-pressed="'+(x[0]==="all")+'">'+x[1]+'</button>'}).join('');
@@ -746,11 +746,11 @@ footer .wrap{display:grid;gap:24px}
     r.push(base);
     if(document.getElementById('ai').checked) r.push('ซอฟต์แวร์ AI วิเคราะห์ภาพ (คน ยานพาหนะ ป้ายทะเบียน)');
     if(document.getElementById('robot').checked) r.push('หุ่นยนต์บริการสำหรับงานส่งของและบริการ');
-    if(document.getElementById('drone').checked) r.push('โดรนสำหรับตรวจตราพื้นที่กว้าง');
+    if(document.getElementById('energy').checked) r.push('ระบบพลังงานอัจฉริยะและโซลาร์ Huawei Digital Power');
     r.push('สำรวจหน้างานและออกแบบโดยวิศวกร ติดตั้งโดยทีมช่าง และรับบริการหลังการขาย');
     document.getElementById('res').innerHTML=r.map(function(x){return '<li>'+x+'</li>'}).join('');
   }
-  ['biz','cams','ai','robot','drone'].forEach(function(id){document.getElementById(id).addEventListener('input',cfg)});
+  ['biz','cams','ai','robot','energy'].forEach(function(id){document.getElementById(id).addEventListener('input',cfg)});
 
   document.getElementById('form').addEventListener('submit',function(e){
     e.preventDefault(); document.getElementById('ok').hidden=false;
@@ -763,19 +763,6 @@ footer .wrap{display:grid;gap:24px}
 
   document.getElementById('bookDemo').addEventListener('click',function(){document.getElementById('f-req').selectedIndex=1});
 
-  var HERO={
-    th:{eye:"AIoT & Robotics Solution Provider for Sustainable Society",title:'ผู้นำ <em>AI Security</em> และ AIoT Solutions ของไทย กว่า 24 ปี',lead:"จากกล้องวงจรปิดสู่ระบบอัจฉริยะครบวงจร ทั้ง AI วิเคราะห์ภาพ IoT หุ่นยนต์บริการ และโดรน ด้วยเครือข่ายตัวแทนและช่างบริการมากกว่า 500 รายทั่วประเทศ",btn:"EN",aria:"Switch to English"},
-    en:{eye:"AIoT & Robotics Solution Provider for Sustainable Society",title:"Thailand's <em>AI Security</em> and AIoT leader for over 24 years",lead:"From CCTV to fully intelligent systems: AI video analytics, IoT, service robots and drones, backed by 500+ authorised dealers and service technicians nationwide. (English preview of the hero only.)",btn:"TH",aria:"เปลี่ยนเป็นภาษาไทย"}
-  };
-  var lang="th",langBtn=document.getElementById('lang');
-  langBtn.addEventListener('click',function(){
-    lang=lang==="th"?"en":"th"; var h=HERO[lang];
-    document.getElementById('h-eye').textContent=h.eye;
-    document.getElementById('h-title').innerHTML=h.title;
-    document.getElementById('h-lead').textContent=h.lead;
-    langBtn.textContent=h.btn; langBtn.setAttribute('aria-label',h.aria);
-    document.documentElement.lang=lang;
-  });
 
   setAud(0); cfg();
 })();
