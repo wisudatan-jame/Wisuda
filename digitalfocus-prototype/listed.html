@@ -24,6 +24,7 @@
   --blue:#5b93ff; --blue-2:#3d7af0; --blue-soft:#152a4d; color-scheme:dark}
 
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font:1rem/1.75 var(--body);margin:0}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
@@ -203,6 +204,16 @@ a.ch:hover{border-color:var(--blue);box-shadow:0 12px 28px -16px rgba(47,111,237
 .social a:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4)}
 .social svg{width:19px;height:19px;fill:none;stroke:#dbe4f8;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 
+.phero{padding-block:24px 0}
+.hero-in.sm{padding-bottom:clamp(36px,6vw,72px)}
+.phero h1{color:#fff;font-size:clamp(2rem,5vw,3.2rem);line-height:1.22}
+.phero .lead{font-size:clamp(1.02rem,2vw,1.18rem);color:#d3dcf0;max-width:62ch}
+.crumb a{color:inherit;text-decoration:none}
+.crumb a:hover{color:#fff}
+.nav a.on,.snav a.on{color:var(--blue);background:var(--blue-soft)}
+.subpage section[data-pages]:not(.phero){padding-top:56px}
+.subpage section.alt{background:var(--bg)}
+
 /* footer */
 footer{background:var(--deep);color:var(--on-deep-muted);padding-block:64px 26px;font-size:.95rem}
 footer .top{display:grid;gap:36px}
@@ -226,7 +237,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
 
 <header>
   <div class="wrap bar">
-    <a class="logo" href="#top" aria-label="Digital Focus หน้าแรก"><img class="lb" src="img/logo.png" alt="Digital Focus" width="773" height="347"><img class="lw" src="img/logo-white.png" alt="" width="773" height="347"></a>
+    <a class="logo" href="#home" aria-label="Digital Focus หน้าแรก"><img class="lb" src="img/logo.png" alt="Digital Focus" width="773" height="347"><img class="lw" src="img/logo-white.png" alt="" width="773" height="347"></a>
     <nav class="nav" aria-label="เมนูหลัก">
       <a href="#business">ธุรกิจ</a><a href="#projects">ผลงาน</a><a href="#clients">ลูกค้า</a><a href="#brands">แบรนด์</a><a href="#esg">ความยั่งยืน</a><a href="#ir">นักลงทุนสัมพันธ์</a><a href="#news">ข่าวสาร</a><a href="#contact">ติดต่อเรา</a>
     </nav>
@@ -238,7 +249,19 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
 </header>
 
 <main id="top">
-<section class="hero">
+<section class="phero" id="phero" data-pages="" hidden>
+  <div class="wrap">
+    <div class="hero-panel">
+      <img src="img/hq.jpg" alt="">
+      <div class="hero-in sm">
+        <p class="crumb"><a href="#home">หน้าแรก</a> / <span id="pcrumb"></span></p>
+        <h1 id="ptitle"></h1>
+        <p class="lead" id="plead"></p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hero" data-pages="home">
   <div class="wrap">
     <div class="hero-panel">
       <img src="img/hq.jpg" alt="อาคารสำนักงานใหญ่ Digital Focus ซอยลาดพร้าว 130">
@@ -257,7 +280,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
   </div>
 </section>
 
-<section style="padding-top:64px">
+<section style="padding-top:64px" data-pages="home">
   <div class="wrap">
     <div class="stats">
       <div><b>24<i>+</i></b><span>ปีของประสบการณ์ในอุตสาหกรรม</span></div>
@@ -268,7 +291,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
   </div>
 </section>
 
-<section id="business" class="alt">
+<section id="business" class="alt" data-pages="home business">
   <div class="wrap">
     <div class="sec-head"><span class="kicker">ธุรกิจของเรา</span><h2>ครบตั้งแต่อุปกรณ์ วางระบบ จนถึงแพลตฟอร์ม</h2><p>Digital Focus เติบโตจากผู้จำหน่ายกล้องวงจรปิด สู่ผู้ให้บริการ Security &amp; Smart Solutions ที่รวมฮาร์ดแวร์ ซอฟต์แวร์ และบริการไว้ด้วยกัน</p></div>
     <div class="cards">
@@ -280,7 +303,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
   </div>
 </section>
 
-<section id="projects">
+<section id="projects" data-pages="home projects">
   <div class="wrap">
     <div class="sec-head"><span class="kicker">ผลงานและโครงการ</span><h2>โครงการที่เราวางระบบ</h2><p>จากเครือข่ายค้าปลีกหลายพันสาขา ถึงระบบอ่านป้ายทะเบียนของหน่วยงานรัฐ</p></div>
     <div class="projects">
@@ -293,7 +316,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
   </div>
 </section>
 
-<section id="clients" class="alt">
+<section id="clients" class="alt" data-pages="home clients">
   <div class="wrap">
     <div class="sec-head"><span class="kicker">กลุ่มลูกค้า</span><h2>ได้รับความไว้วางใจจากทั้งภาครัฐและเอกชน</h2></div>
     <div class="cards two">
@@ -305,7 +328,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
   </div>
 </section>
 
-<section id="brands">
+<section id="brands" data-pages="brands">
   <div class="wrap">
     <div class="sec-head"><span class="kicker">แบรนด์ที่จัดจำหน่าย</span><h2>พันธมิตรเทคโนโลยีระดับโลก</h2></div>
     <div class="brands">
@@ -315,7 +338,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
   </div>
 </section>
 
-<section id="esg" class="alt">
+<section id="esg" class="alt" data-pages="esg">
   <div class="wrap">
     <div class="sec-head"><span class="kicker">ความยั่งยืน</span><h2>ความยั่งยืนที่อยู่ในทุกกระบวนการดำเนินงาน</h2><p>เทคโนโลยีที่เราติดตั้งช่วยให้เมืองปลอดภัยขึ้นและใช้พลังงานคุ้มค่าขึ้น ควบคู่กับการพัฒนาคนและการกำกับดูแลกิจการที่โปร่งใส</p></div>
     <div class="cards">
@@ -326,7 +349,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
   </div>
 </section>
 
-<section id="ir">
+<section id="ir" data-pages="ir">
   <div class="wrap">
     <div class="sec-head"><span class="kicker">นักลงทุนสัมพันธ์</span><h2>จุดเด่นในการลงทุน <span class="flag">อยู่ระหว่างเตรียม IPO</span></h2></div>
     <div class="highlights">
@@ -349,7 +372,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
   </div>
 </section>
 
-<section id="news" class="alt">
+<section id="news" class="alt" data-pages="home news">
   <div class="wrap">
     <div class="sec-head"><span class="kicker">ห้องข่าว</span><h2>ข่าวสารและกิจกรรม</h2></div>
     <div class="news">
@@ -361,7 +384,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
   </div>
 </section>
 
-<section id="contact">
+<section id="contact" data-pages="contact">
   <div class="wrap">
     <div class="sec-head"><span class="kicker">ติดต่อเรา</span><h2>คุยกับเราเรื่องระบบความปลอดภัยขององค์กรคุณ</h2><p>บอกเราว่าพื้นที่ของคุณเป็นแบบไหนและต้องการอะไร ทีมวิศวกรจะประเมินและเสนอแนวทางที่เหมาะสม</p></div>
     <div class="cards" style="margin-bottom:40px">
@@ -407,7 +430,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
   <div class="wrap">
     <div class="top">
       <div class="about">
-        <a class="logo" href="#top" aria-label="Digital Focus หน้าแรก"><img src="img/logo-white.png" alt="Digital Focus" width="773" height="347" style="height:56px"></a>
+        <a class="logo" href="#home" aria-label="Digital Focus หน้าแรก"><img src="img/logo-white.png" alt="Digital Focus" width="773" height="347" style="height:56px"></a>
         <div class="social"><a href="https://www.digitalfocus.co.th/" target="_blank" rel="noopener" aria-label="เว็บไซต์"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></a><a href="https://www.facebook.com/profile.php?id=61581609465585" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h-2.5A3.5 3.5 0 009 6.5V9H6.5v3.5H9V21h3.5v-8.5H15l.5-3.5h-3V7a1 1 0 011-1H15z"/></svg></a><a href="https://lin.ee/Ajw1OZw" target="_blank" rel="noopener" aria-label="LINE Official"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4C7 4 3 7.2 3 11.2c0 3.6 3.2 6.6 7.5 7.1l-.4 2.2 3.2-2.1C18 18 21 14.9 21 11.2 21 7.2 17 4 12 4z"/></svg></a><a href="https://shopee.co.th/digitalfocus_thailand" target="_blank" rel="noopener" aria-label="Shopee"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 016 0v2"/></svg></a><a href="https://www.instagram.com/brainco.digitalfocus" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></svg></a><a href="https://www.tiktok.com/@brainco.by.digita" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 11-3.5-3.5M14 3c.5 2.6 2.3 4.3 5 4.5"/></svg></a><a href="https://www.youtube.com/channel/UCzA12znBYsygJ5KW2JYhG2g" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="M10 9.5v5l4.5-2.5z"/></svg></a></div>
         <p>บริษัท ดิจิตอลโฟกัส จำกัด ผู้ให้บริการ Security &amp; Smart Solutions ครบวงจร ด้วยประสบการณ์กว่า 24 ปี และแพลตฟอร์ม DGF ที่พัฒนาเอง</p>
       </div>
@@ -423,6 +446,41 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
 
 <script>
 (function(){
+  var PAGES={
+    business:['ธุรกิจของเรา','ผู้ให้บริการ Security &amp; Smart Solutions ครบวงจร','จัดจำหน่ายอุปกรณ์ ออกแบบและวางระบบ แพลตฟอร์มที่พัฒนาเอง และบริการรายเดือน ด้วยทีมวิศวกรที่มีประสบการณ์กว่า 24 ปี'],
+    projects:['ผลงาน','ผลงานที่ส่งมอบให้องค์กรชั้นนำทั่วประเทศ','ระบบรักษาความปลอดภัยและ AI ที่ติดตั้งให้ทั้งภาครัฐและเอกชน ตั้งแต่ค้าปลีกหลายพันสาขาถึงหน่วยงานรัฐ'],
+    clients:['ลูกค้า','ลูกค้าของเรา','ด้วยประสบการณ์กว่า 24 ปี บริษัทได้รับความไว้วางใจในคุณภาพสินค้า ความเป็นมืออาชีพของทีมงาน และบริการหลังการขาย'],
+    brands:['แบรนด์','แบรนด์ชั้นนำระดับโลกที่เราจัดจำหน่าย','ตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย พร้อมพันธมิตรด้าน AIoT, Smart Home และ Robotics'],
+    esg:['ความยั่งยืน','เทคโนโลยีเพื่อเมืองที่ปลอดภัยและยั่งยืน','ดูแลสิ่งแวดล้อม พัฒนาคนและชุมชน และกำกับดูแลกิจการอย่างโปร่งใส'],
+    ir:['นักลงทุนสัมพันธ์','นักลงทุนสัมพันธ์','ข้อมูลสำหรับนักลงทุน ระหว่างที่บริษัทเตรียมเข้าจดทะเบียนในตลาดหลักทรัพย์แห่งประเทศไทย'],
+    news:['ข่าวสาร','ความเคลื่อนไหวล่าสุดของ Digital Focus','กิจกรรม งานสัมมนา ความร่วมมือกับพันธมิตร และกิจกรรมเพื่อสังคม'],
+    contact:['ติดต่อเรา','ติดต่อเรา','ทีมขายและวิศวกรพร้อมให้คำปรึกษาเรื่องระบบความปลอดภัยขององค์กรคุณ']
+  };
+  var secs=[].slice.call(document.querySelectorAll('main section[data-pages]')),phero=document.getElementById('phero');
+  var navLinks=[].slice.call(document.querySelectorAll('.nav a,.snav a'));
+  function go(page,scroll){
+    if(!PAGES[page]) page='home';
+    secs.forEach(function(el){
+      if(el===phero){el.hidden=page==='home';return}
+      el.hidden=el.getAttribute('data-pages').split(' ').indexOf(page)<0;
+    });
+    if(page!=='home'){var d=PAGES[page];document.getElementById('pcrumb').textContent=d[0];document.getElementById('ptitle').innerHTML=d[1];document.getElementById('plead').textContent=d[2]}
+    document.body.classList.toggle('subpage',page!=='home');
+    navLinks.forEach(function(a){var on=a.getAttribute('href')==='#'+page;a.classList.toggle('on',on);if(on)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+    document.title=(page==='home'?'':PAGES[page][0]+' | ')+'Digital Focus';
+    if(scroll!==false) window.scrollTo(0,0);
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="#"]'); if(!a) return;
+    var id=a.getAttribute('href').slice(1);
+    if(id!=='home'&&!PAGES[id]) return;
+    e.preventDefault(); go(id);
+    try{history.pushState(null,'','#'+id)}catch(err){}
+  });
+  window.addEventListener('popstate',function(){go((location.hash||'#home').slice(1))});
+  go((location.hash||'#home').slice(1),false);
+  if(location.hash){window.addEventListener('load',function(){window.scrollTo(0,0)});setTimeout(function(){window.scrollTo(0,0)},0)}
+
   document.getElementById('irForm').addEventListener('submit',function(e){e.preventDefault();document.getElementById('irOk').hidden=false});
   var ck=document.getElementById('cookie'),saved=null;
   try{saved=localStorage.getItem('df-cookie')}catch(e){}
