@@ -62,7 +62,11 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rg
 :root[data-theme="dark"] header{background:rgba(8,17,31,.9)}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:74px}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-.logo svg{width:38px;height:34px;flex:none}
+.logo img{height:52px;width:auto;flex:none}
+.logo .lw{display:none}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) header .logo .lb{display:none}:root:not([data-theme="light"]) header .logo .lw{display:block}}
+:root[data-theme="dark"] header .logo .lb{display:none}
+:root[data-theme="dark"] header .logo .lw{display:block}
 .logo b{display:block;font:700 1.2rem/1 'IBM Plex Sans',sans-serif;color:var(--ink);letter-spacing:.01em}
 .logo small{display:block;font:500 .6rem/1.5 'IBM Plex Sans',sans-serif;letter-spacing:.14em;color:var(--muted)}
 .nav{display:none;gap:4px}
@@ -222,10 +226,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
 
 <header>
   <div class="wrap bar">
-    <a class="logo" href="#top" aria-label="Digital Focus หน้าแรก">
-      <svg viewBox="0 0 40 36" aria-hidden="true"><path d="M20 0 0 36h20V22z" fill="#283c96"/><path d="M20 0l20 36H20V22z" fill="#e3262b"/><path d="M0 36h40L20 22z" fill="#1f9a4b"/></svg>
-      <span><b>DIGITAL FOCUS</b><small>AIoT &amp; ROBOTICS SOLUTIONS</small></span>
-    </a>
+    <a class="logo" href="#top" aria-label="Digital Focus หน้าแรก"><img class="lb" src="img/logo.png" alt="Digital Focus" width="773" height="347"><img class="lw" src="img/logo-white.png" alt="" width="773" height="347"></a>
     <nav class="nav" aria-label="เมนูหลัก">
       <a href="#business">ธุรกิจ</a><a href="#projects">ผลงาน</a><a href="#clients">ลูกค้า</a><a href="#brands">แบรนด์</a><a href="#esg">ความยั่งยืน</a><a href="#ir">นักลงทุนสัมพันธ์</a><a href="#news">ข่าวสาร</a><a href="#contact">ติดต่อเรา</a>
     </nav>
@@ -394,13 +395,11 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
       <div class="channels">
         <a class="ch" href="https://www.digitalfocus.co.th/" target="_blank" rel="noopener"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></span><span><b>เว็บไซต์</b><small>www.digitalfocus.co.th</small></span></a>
         <a class="ch" href="https://www.facebook.com/profile.php?id=61581609465585" target="_blank" rel="noopener"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h-2.5A3.5 3.5 0 009 6.5V9H6.5v3.5H9V21h3.5v-8.5H15l.5-3.5h-3V7a1 1 0 011-1H15z"/></svg></span><span><b>Facebook</b><small>Digital Focus</small></span></a>
-        <a class="ch" href="https://lin.ee/Ajw1OZw" target="_blank" rel="noopener"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4C7 4 3 7.2 3 11.2c0 3.6 3.2 6.6 7.5 7.1l-.4 2.2 3.2-2.1C18 18 21 14.9 21 11.2 21 7.2 17 4 12 4z"/></svg></span><span><b>LINE Official</b><small>@ Digital Focus</small></span></a>
+        <a class="ch" href="https://lin.ee/Ajw1OZw" target="_blank" rel="noopener"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4C7 4 3 7.2 3 11.2c0 3.6 3.2 6.6 7.5 7.1l-.4 2.2 3.2-2.1C18 18 21 14.9 21 11.2 21 7.2 17 4 12 4z"/></svg></span><span><b>LINE Official</b><small>lin.ee/Ajw1OZw</small></span></a>
         <a class="ch" href="https://shopee.co.th/digitalfocus_thailand" target="_blank" rel="noopener"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 016 0v2"/></svg></span><span><b>Shopee</b><small>digitalfocus_thailand</small></span></a>
         <a class="ch" href="https://www.instagram.com/brainco.digitalfocus" target="_blank" rel="noopener"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></svg></span><span><b>Instagram</b><small>brainco.digitalfocus</small></span></a>
         <a class="ch" href="https://www.tiktok.com/@brainco.by.digita" target="_blank" rel="noopener"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 11-3.5-3.5M14 3c.5 2.6 2.3 4.3 5 4.5"/></svg></span><span><b>TikTok</b><small>@brainco.by.digita</small></span></a>
         <a class="ch" href="https://www.youtube.com/channel/UCzA12znBYsygJ5KW2JYhG2g" target="_blank" rel="noopener"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="M10 9.5v5l4.5-2.5z"/></svg></span><span><b>YouTube</b><small>Digital Focus</small></span></a>
-        <div class="ch off" title="ส่งลิงก์มาเพื่อเปิดใช้"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20"/></svg></span><span><b>X</b><small>[รอลิงก์]</small></span></div>
-        <div class="ch off" title="ส่งลิงก์มาเพื่อเปิดใช้"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="2.5"/><path d="M8 10.5V16M8 7.8v.2M11.5 16v-5.5M11.5 13c0-1.6 1-2.5 2.3-2.5S16 11.4 16 13v3"/></svg></span><span><b>LinkedIn</b><small>[รอลิงก์]</small></span></div>
       </div>
     </div>
   </div>
@@ -411,7 +410,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
   <div class="wrap">
     <div class="top">
       <div class="about">
-        <a class="logo" href="#top" aria-label="Digital Focus"><svg viewBox="0 0 40 36" aria-hidden="true"><path d="M20 0 0 36h20V22z" fill="#5b6cff"/><path d="M20 0l20 36H20V22z" fill="#e3262b"/><path d="M0 36h40L20 22z" fill="#1f9a4b"/></svg><span><b>DIGITAL FOCUS</b><small>AIoT &amp; ROBOTICS SOLUTIONS</small></span></a>
+        <a class="logo" href="#top" aria-label="Digital Focus หน้าแรก"><img src="img/logo-white.png" alt="Digital Focus" width="773" height="347" style="height:56px"></a>
         <div class="social"><a href="https://www.digitalfocus.co.th/" target="_blank" rel="noopener" aria-label="เว็บไซต์"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></a><a href="https://www.facebook.com/profile.php?id=61581609465585" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h-2.5A3.5 3.5 0 009 6.5V9H6.5v3.5H9V21h3.5v-8.5H15l.5-3.5h-3V7a1 1 0 011-1H15z"/></svg></a><a href="https://lin.ee/Ajw1OZw" target="_blank" rel="noopener" aria-label="LINE Official"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4C7 4 3 7.2 3 11.2c0 3.6 3.2 6.6 7.5 7.1l-.4 2.2 3.2-2.1C18 18 21 14.9 21 11.2 21 7.2 17 4 12 4z"/></svg></a><a href="https://shopee.co.th/digitalfocus_thailand" target="_blank" rel="noopener" aria-label="Shopee"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 016 0v2"/></svg></a><a href="https://www.instagram.com/brainco.digitalfocus" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></svg></a><a href="https://www.tiktok.com/@brainco.by.digita" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 11-3.5-3.5M14 3c.5 2.6 2.3 4.3 5 4.5"/></svg></a><a href="https://www.youtube.com/channel/UCzA12znBYsygJ5KW2JYhG2g" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="M10 9.5v5l4.5-2.5z"/></svg></a></div>
         <p>บริษัท ดิจิตอลโฟกัส จำกัด ผู้ให้บริการ Security &amp; Smart Solutions ครบวงจร ด้วยประสบการณ์กว่า 24 ปี และแพลตฟอร์ม DGF ที่พัฒนาเอง</p>
       </div>
