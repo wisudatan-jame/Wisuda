@@ -161,15 +161,7 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rg
 .panel.dark form{display:flex;gap:8px;flex-wrap:wrap}
 .panel.dark input{flex:1 1 180px;min-width:0;border:0;border-radius:999px;padding:12px 18px;font:inherit;min-height:48px}
 .ok{font-size:.86rem;color:#a7f0c4}
-.fin{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.fin div{background:var(--alt);border-radius:14px;padding:14px;display:grid;gap:2px}
-.fin span{font-size:.8rem;color:var(--muted)}
-.fin b{font:600 1rem/1.3 var(--head);color:var(--muted)}
 .empty{background:var(--alt);border-radius:14px;padding:18px;color:var(--muted);font-size:.93rem}
-.dl{display:grid;gap:0}
-.dl div{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:.95rem}
-.dl div:last-child{border-bottom:0}
-.dl span{color:var(--muted);font-size:.85rem}
 .highlights{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-bottom:28px}
 .hl{border-radius:22px;padding:28px;background:linear-gradient(160deg,var(--deep-2),var(--deep));color:#fff;display:grid;gap:10px;align-content:start}
 .hl b{font:700 2.4rem/1 'IBM Plex Sans',sans-serif}
@@ -195,6 +187,18 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rg
 @media(max-width:560px){.info div{grid-template-columns:1fr;gap:2px}}
 .contact-btns{display:grid;gap:14px;margin-top:22px}
 @media(min-width:700px){.contact-btns{grid-template-columns:1fr 1fr}}
+
+.channels{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.ch{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px;text-decoration:none;min-width:0;transition:border-color .2s,box-shadow .2s}
+a.ch:hover{border-color:var(--blue);box-shadow:0 12px 28px -16px rgba(47,111,237,.5)}
+.ch .ico{width:44px;height:44px;flex:none}
+.ch b{display:block;font:600 1rem/1.3 var(--head);color:var(--ink)}
+.ch small{display:block;font-size:.84rem;color:var(--muted);overflow-wrap:anywhere}
+.ch.off{border-style:dashed;opacity:.6}
+.social{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.social a{width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.18);display:grid;place-content:center}
+.social a:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4)}
+.social svg{width:19px;height:19px;fill:none;stroke:#dbe4f8;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 
 /* footer */
 footer{background:var(--deep);color:var(--on-deep-muted);padding-block:64px 26px;font-size:.95rem}
@@ -309,7 +313,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
     <div class="sec-head"><span class="kicker">แบรนด์ที่จัดจำหน่าย</span><h2>พันธมิตรเทคโนโลยีระดับโลก</h2></div>
     <div class="brands">
       <div class="lead-b"><b>HIKVISION</b><span>ตัวแทนจำหน่ายอย่างเป็นทางการรายแรกของประเทศไทย ตั้งแต่ปี 2006 ผู้นำโลกด้านระบบรักษาความปลอดภัยและ AIoT</span></div>
-      <div><b>Tiandy</b><span>กล้องวงจรปิด</span></div><div><b>DSPPA</b><span>ระบบเสียงประกาศ</span></div><div><b>BroadLink</b><span>AI Smart Home</span></div><div><b>Huawei</b><span>Digital Power</span></div><div><b>Keenon</b><span>หุ่นยนต์บริการ</span></div><div><b>Xiaodu</b><span>อุปกรณ์สั่งงานด้วยเสียง</span></div><div><b>Geeklink</b><span>Smart Home</span></div><div><b>BrainCo</b><span>EEG neurofeedback</span></div><div><b>ICDL</b><span>มาตรฐานทักษะดิจิทัล</span></div><div><b>DGF</b><span>แบรนด์ของบริษัท</span></div>
+      <div><b>DSPPA</b><span>ระบบเสียงประกาศ</span></div><div><b>BroadLink</b><span>AI Smart Home</span></div><div><b>Keenon</b><span>หุ่นยนต์บริการ</span></div><div><b>Xiaodu</b><span>อุปกรณ์สั่งงานด้วยเสียง</span></div><div><b>Geeklink</b><span>Smart Home</span></div><div><b>BrainCo</b><span>EEG neurofeedback</span></div><div><b>ICDL</b><span>มาตรฐานทักษะดิจิทัล</span></div>
     </div>
   </div>
 </section>
@@ -335,27 +339,18 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
     </div>
     <div class="ir">
       <div class="panel">
-        <h3>ข้อมูลสำคัญทางการเงิน</h3>
-        <div class="fin"><div><span>รายได้รวม</span><b>รอเปิดเผย</b></div><div><span>กำไรสุทธิ</span><b>รอเปิดเผย</b></div><div><span>สินทรัพย์รวม</span><b>รอเปิดเผย</b></div></div>
-        <p style="font-size:.85rem;color:var(--muted)">แสดงหลังแบบแสดงรายการข้อมูลการเสนอขายหลักทรัพย์ (Filing) มีผลบังคับใช้</p>
         <h3>ข่าวแจ้งตลาดหลักทรัพย์</h3>
-        <p class="empty">ยังไม่มีข่าวแจ้งตลาดหลักทรัพย์ฯ</p>
+        <p class="empty">ยังไม่มีข่าวแจ้งตลาดหลักทรัพย์ฯ ข่าวจะแสดงที่นี่หลังบริษัทเข้าจดทะเบียน</p>
       </div>
-      <div class="panel">
-        <h3>เอกสารดาวน์โหลด</h3>
-        <div class="dl"><div>แบบ 56-1 One Report<span>รอเผยแพร่</span></div><div>งบการเงิน<span>รอเผยแพร่</span></div><div>คำอธิบายและการวิเคราะห์ของฝ่ายจัดการ<span>รอเผยแพร่</span></div><div>หนังสือชี้ชวน<span>รอเผยแพร่</span></div><div>นโยบายการกำกับดูแลกิจการ<span>รอเผยแพร่</span></div></div>
+      <div class="panel dark">
+        <h3>อีเมลรับข่าวสาร</h3>
+        <p>ติดตามความเคลื่อนไหวล่าสุดของบริษัท และความคืบหน้าการเข้าจดทะเบียน</p>
+        <form id="irForm" novalidate><label for="irEmail" style="position:absolute;left:-9999px">อีเมล</label><input type="email" id="irEmail" placeholder="อีเมลของคุณ" autocomplete="email"><button class="btn btn-blue" type="submit">สมัครรับข่าวสาร</button></form>
+        <p class="ok" id="irOk" hidden>นี่คือต้นแบบ ระบบสมัครรับข่าวสารยังไม่ได้เชื่อมต่อ</p>
       </div>
-      <div style="display:grid;gap:22px;align-content:start">
-        <div class="panel dark">
-          <h3>อีเมลรับข่าวสาร</h3>
-          <p>ติดตามความเคลื่อนไหวล่าสุดของบริษัท และความคืบหน้าการเข้าจดทะเบียน</p>
-          <form id="irForm" novalidate><label for="irEmail" style="position:absolute;left:-9999px">อีเมล</label><input type="email" id="irEmail" placeholder="อีเมลของคุณ" autocomplete="email"><button class="btn btn-blue" type="submit">สมัครรับข่าวสาร</button></form>
-          <p class="ok" id="irOk" hidden>นี่คือต้นแบบ ระบบสมัครรับข่าวสารยังไม่ได้เชื่อมต่อ</p>
-        </div>
-        <div class="panel dark">
-          <h3>ติดต่อนักลงทุนสัมพันธ์</h3>
-          <p>อีเมล <a href="mailto:info@digitalfocus.co.th" style="color:#fff">info@digitalfocus.co.th</a><br>โทร 02 136 8989</p>
-        </div>
+      <div class="panel dark">
+        <h3>ติดต่อนักลงทุนสัมพันธ์</h3>
+        <p>อีเมล <a href="mailto:info@digitalfocus.co.th" style="color:#fff">info@digitalfocus.co.th</a><br>โทร 02 136 8989</p>
       </div>
     </div>
   </div>
@@ -390,11 +385,28 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
       <div><dt>อีเมล</dt><dd><a href="mailto:info@digitalfocus.co.th">info@digitalfocus.co.th</a></dd></div>
       <div><dt>เว็บไซต์</dt><dd><a href="https://www.digitalfocus.co.th/" target="_blank" rel="noopener">digitalfocus.co.th</a></dd></div>
       <div><dt>LINE OA</dt><dd><a href="https://lin.ee/Ajw1OZw" target="_blank" rel="noopener">lin.ee/Ajw1OZw</a></dd></div>
+      <div><dt>Facebook</dt><dd><a href="https://www.facebook.com/profile.php?id=61581609465585" target="_blank" rel="noopener">Digital Focus</a></dd></div>
+      <div><dt>ร้านค้าออนไลน์</dt><dd><a href="https://shopee.co.th/digitalfocus_thailand" target="_blank" rel="noopener">Shopee: digitalfocus_thailand</a></dd></div>
       <div><dt>เลขทะเบียน</dt><dd>0105545026907</dd></div>
     </dl>
     <div class="contact-btns">
       <a class="btn btn-blue" href="tel:021368989"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg>02 136 8989</a>
       <a class="btn btn-white" href="mailto:info@digitalfocus.co.th"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>info@digitalfocus.co.th</a>
+    </div>
+    <div style="margin-top:56px">
+      <span class="kicker">ช่องทางออนไลน์</span>
+      <h3 style="font-size:1.6rem;margin:10px 0 22px">ติดตามและติดต่อเราได้ทุกช่องทาง</h3>
+      <div class="channels">
+        <a class="ch" href="https://www.digitalfocus.co.th/" target="_blank" rel="noopener"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></span><span><b>เว็บไซต์</b><small>www.digitalfocus.co.th</small></span></a>
+        <a class="ch" href="https://www.facebook.com/profile.php?id=61581609465585" target="_blank" rel="noopener"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h-2.5A3.5 3.5 0 009 6.5V9H6.5v3.5H9V21h3.5v-8.5H15l.5-3.5h-3V7a1 1 0 011-1H15z"/></svg></span><span><b>Facebook</b><small>Digital Focus</small></span></a>
+        <a class="ch" href="https://lin.ee/Ajw1OZw" target="_blank" rel="noopener"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4C7 4 3 7.2 3 11.2c0 3.6 3.2 6.6 7.5 7.1l-.4 2.2 3.2-2.1C18 18 21 14.9 21 11.2 21 7.2 17 4 12 4z"/></svg></span><span><b>LINE Official</b><small>@ Digital Focus</small></span></a>
+        <a class="ch" href="https://shopee.co.th/digitalfocus_thailand" target="_blank" rel="noopener"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 016 0v2"/></svg></span><span><b>Shopee</b><small>digitalfocus_thailand</small></span></a>
+        <a class="ch" href="https://www.instagram.com/brainco.digitalfocus" target="_blank" rel="noopener"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></svg></span><span><b>Instagram</b><small>brainco.digitalfocus</small></span></a>
+        <a class="ch" href="https://www.tiktok.com/@brainco.by.digita" target="_blank" rel="noopener"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 11-3.5-3.5M14 3c.5 2.6 2.3 4.3 5 4.5"/></svg></span><span><b>TikTok</b><small>@brainco.by.digita</small></span></a>
+        <div class="ch off" title="ส่งลิงก์มาเพื่อเปิดใช้"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="M10 9.5v5l4.5-2.5z"/></svg></span><span><b>YouTube</b><small>[รอลิงก์]</small></span></div>
+        <div class="ch off" title="ส่งลิงก์มาเพื่อเปิดใช้"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20"/></svg></span><span><b>X</b><small>[รอลิงก์]</small></span></div>
+        <div class="ch off" title="ส่งลิงก์มาเพื่อเปิดใช้"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="2.5"/><path d="M8 10.5V16M8 7.8v.2M11.5 16v-5.5M11.5 13c0-1.6 1-2.5 2.3-2.5S16 11.4 16 13v3"/></svg></span><span><b>LinkedIn</b><small>[รอลิงก์]</small></span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -405,11 +417,12 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
     <div class="top">
       <div class="about">
         <a class="logo" href="#top" aria-label="Digital Focus"><svg viewBox="0 0 40 36" aria-hidden="true"><path d="M20 0 0 36h20V22z" fill="#5b6cff"/><path d="M20 0l20 36H20V22z" fill="#e3262b"/><path d="M0 36h40L20 22z" fill="#1f9a4b"/></svg><span><b>DIGITAL FOCUS</b><small>AIoT &amp; ROBOTICS SOLUTIONS</small></span></a>
+        <div class="social"><a href="https://www.digitalfocus.co.th/" target="_blank" rel="noopener" aria-label="เว็บไซต์"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></a><a href="https://www.facebook.com/profile.php?id=61581609465585" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h-2.5A3.5 3.5 0 009 6.5V9H6.5v3.5H9V21h3.5v-8.5H15l.5-3.5h-3V7a1 1 0 011-1H15z"/></svg></a><a href="https://lin.ee/Ajw1OZw" target="_blank" rel="noopener" aria-label="LINE Official"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4C7 4 3 7.2 3 11.2c0 3.6 3.2 6.6 7.5 7.1l-.4 2.2 3.2-2.1C18 18 21 14.9 21 11.2 21 7.2 17 4 12 4z"/></svg></a><a href="https://shopee.co.th/digitalfocus_thailand" target="_blank" rel="noopener" aria-label="Shopee"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 016 0v2"/></svg></a><a href="https://www.instagram.com/brainco.digitalfocus" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></svg></a><a href="https://www.tiktok.com/@brainco.by.digita" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 11-3.5-3.5M14 3c.5 2.6 2.3 4.3 5 4.5"/></svg></a></div>
         <p>บริษัท ดิจิตอลโฟกัส จำกัด ผู้ให้บริการ Security &amp; Smart Solutions ครบวงจร ด้วยประสบการณ์กว่า 24 ปี และแพลตฟอร์ม DGF ที่พัฒนาเอง</p>
       </div>
       <div><h4>บริษัท</h4><ul><li><a href="#business">ธุรกิจของเรา</a></li><li><a href="#esg">ความยั่งยืน</a></li><li><a href="#ir">นักลงทุนสัมพันธ์</a></li><li><a href="#contact">ติดต่อเรา</a></li></ul></div>
       <div><h4>ธุรกิจ</h4><ul><li><a href="#brands">จัดจำหน่ายอุปกรณ์</a></li><li><a href="#projects">ออกแบบและวางระบบ</a></li><li><a href="#business">แพลตฟอร์ม DGF</a></li><li><a href="https://shopee.co.th/digitalfocus_thailand" target="_blank" rel="noopener">ร้านค้าออนไลน์</a></li></ul></div>
-      <div><h4>ติดต่อ</h4><ul><li>2782/4-6 ถนนลาดพร้าว แขวงคลองจั่น เขตบางกะปิ กรุงเทพฯ 10240</li><li>02 136 8989</li><li><a href="mailto:info@digitalfocus.co.th">info@digitalfocus.co.th</a></li><li><a href="https://lin.ee/Ajw1OZw" target="_blank" rel="noopener">LINE</a> · <a href="https://www.facebook.com/profile.php?id=61581609465585" target="_blank" rel="noopener">Facebook</a> · <a href="https://shopee.co.th/digitalfocus_thailand" target="_blank" rel="noopener">Shopee</a></li></ul></div>
+      <div><h4>ติดต่อ</h4><ul><li>2782/4-6 ถนนลาดพร้าว แขวงคลองจั่น เขตบางกะปิ กรุงเทพฯ 10240</li><li>02 136 8989</li><li><a href="mailto:info@digitalfocus.co.th">info@digitalfocus.co.th</a></li></ul></div>
     </div>
     <div class="bottom"><span>© 2026 บริษัท ดิจิตอลโฟกัส จำกัด สงวนลิขสิทธิ์</span><span>ทะเบียนเลขที่ 0105545026907</span><span>นโยบายความเป็นส่วนตัว · นโยบายคุกกี้ · ข้อกำหนดการใช้งาน</span></div>
   </div>
