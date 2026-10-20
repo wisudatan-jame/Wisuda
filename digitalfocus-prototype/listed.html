@@ -23,7 +23,7 @@
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-#partner{scroll-margin-top:72px}
+#partner,#ir{scroll-margin-top:72px}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{margin:0;font:16px/1.75 var(--body);color:var(--ink);background:var(--paper);overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:120;background:#fff}
@@ -52,13 +52,19 @@ ul{margin:0;padding:0}
 .lang{display:inline-flex;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:2px}
 .lang span{font:600 11.5px/1 var(--body);letter-spacing:.06em;color:var(--ink-45);padding:7px 11px;border-radius:999px}
 .lang .on{background:var(--navy-700);color:#fff}
-.snav{border-top:1px solid var(--line-soft)}
-.snav .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-block:6px;-webkit-mask:linear-gradient(90deg,#000 88%,transparent);mask:linear-gradient(90deg,#000 88%,transparent)}
-.snav .wrap::-webkit-scrollbar{display:none}
-.snav a{flex:none;font-size:14px;font-weight:500;color:var(--navy-700);padding:9px 13px;border-radius:8px;white-space:nowrap}
-.snav a.on{color:var(--accent);background:var(--accent-soft);font-weight:600}
-@media(min-width:1240px){.snav{display:none}}
-@media(max-width:600px){.hdr-side .btn{display:none}}
+.burger{display:inline-flex;width:44px;height:44px;flex:none;border:1px solid var(--line);border-radius:12px;background:var(--paper);cursor:pointer;padding:0;align-items:center;justify-content:center}
+.burger i{display:block;width:18px;height:2px;background:var(--navy-700);position:relative;transition:background .2s}
+.burger i::before,.burger i::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--navy-700);transition:transform .2s,top .2s}
+.burger i::before{top:-6px}.burger i::after{top:6px}
+.burger[aria-expanded="true"] i{background:transparent}
+.burger[aria-expanded="true"] i::before{top:0;transform:rotate(45deg)}
+.burger[aria-expanded="true"] i::after{top:0;transform:rotate(-45deg)}
+.mnav{border-top:1px solid var(--line-soft);background:#fff;max-height:calc(100vh - 72px);overflow-y:auto}
+.mnav .wrap{display:grid;gap:4px;padding-block:14px 20px}
+.mnav a{display:block;font:500 17px/1.3 var(--body);color:var(--navy-800);padding:15px 16px;border-radius:12px}
+.mnav a:hover{background:var(--paper-2)}
+.mnav a.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+@media(min-width:1240px){.burger,.mnav{display:none!important}}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;gap:8px;font:600 14.5px/1 var(--body);padding:14px 22px;border-radius:999px;border:1px solid transparent;cursor:pointer;white-space:nowrap;transition:transform .16s,background .16s,box-shadow .16s,color .16s}
@@ -332,12 +338,12 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
       <li><a href="#home">หน้าแรก</a></li><li><a href="#about">เกี่ยวกับเรา</a></li><li><a href="#business">ธุรกิจของเรา</a></li><li><a href="#solutions">โซลูชัน</a></li><li><a href="#brands">ผลิตภัณฑ์</a></li><li><a href="#projects">ผลงานและลูกค้า</a></li><li><a href="#esg">ความยั่งยืน</a></li><li><a href="#contact">ติดต่อเรา</a></li>
     </ul></nav>
     <div class="hdr-side">
-      <a class="btn btn-p" href="#ir">นักลงทุนสัมพันธ์</a>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="เปิดเมนู"><i></i></button>
       <div class="lang"><span class="on">TH</span><span title="เวอร์ชันภาษาอังกฤษจะทำหลังสรุปดีไซน์">EN</span></div>
     </div>
   </div>
-  <nav class="snav" aria-label="เมนู"><div class="wrap">
-    <a href="#home">หน้าแรก</a><a href="#about">เกี่ยวกับเรา</a><a href="#business">ธุรกิจของเรา</a><a href="#solutions">โซลูชัน</a><a href="#brands">ผลิตภัณฑ์</a><a href="#projects">ผลงานและลูกค้า</a><a href="#esg">ความยั่งยืน</a><a href="#ir">นักลงทุนสัมพันธ์</a><a href="#news">ข่าวสาร</a><a href="#partner">ร่วมเป็นพันธมิตร</a><a href="#contact">ติดต่อเรา</a>
+  <nav class="mnav" id="mnav" aria-label="เมนู" hidden><div class="wrap">
+    <a href="#home">หน้าแรก</a><a href="#about">เกี่ยวกับเรา</a><a href="#business">ธุรกิจของเรา</a><a href="#solutions">โซลูชัน</a><a href="#brands">ผลิตภัณฑ์</a><a href="#projects">ผลงานและลูกค้า</a><a href="#esg">ความยั่งยืน</a><a href="#news">ข่าวสาร</a><a href="#contact">ติดต่อเรา</a>
   </div></nav>
 </header>
 
@@ -391,7 +397,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
       <a class="svc" href="#brands"><div class="svc-img"><img src="img/sol-access.jpg" alt="Digital Focus ที่งาน Hikvision Commercial Summit" loading="lazy"></div><div class="svc-body"><span class="pill">DISTRIBUTION</span><h3>จัดจำหน่ายอุปกรณ์</h3><p>ตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย และแบรนด์ AIoT ชั้นนำ ผ่านเครือข่ายตัวแทนกว่า 500 ราย</p><span class="more">ดูผลิตภัณฑ์ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
       <a class="svc" href="#projects"><div class="svc-img"><img src="img/exat.jpg" alt="ทางพิเศษ" loading="lazy"></div><div class="svc-body"><span class="pill">INTEGRATION</span><h3>ออกแบบและวางระบบ</h3><p>ทีมวิศวกรให้คำปรึกษา ออกแบบ ติดตั้ง และทดสอบระบบสำหรับโครงการภาครัฐและเอกชนทั่วประเทศ</p><span class="more">ดูผลงาน <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
       <a class="svc" href="#business"><div class="svc-img"><img src="img/ambulance.jpg" alt="รถพยาบาล 5G" loading="lazy"></div><div class="svc-body"><span class="pill">PLATFORM</span><h3>แพลตฟอร์มและนวัตกรรม</h3><p>Smart Transport กล้อง AI + GPS บนยานพาหนะ ต่อยอดสู่ Smart Building และ Robotics</p><span class="more">ดูรายละเอียด <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-      <a class="svc" href="#business"><div class="svc-img"><img src="img/command.jpg" alt="ภาพจำลองศูนย์เฝ้าระวัง" loading="lazy"></div><div class="svc-body"><span class="pill">SERVICE</span><h3>บริการรายเดือน</h3><p>เช่าระบบกล้อง เฝ้าระวังด้วย AI จากศูนย์ควบคุม และสัญญาดูแลรักษารายปีพร้อม SLA</p><span class="more">ดูรายละเอียด <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="svc" href="#business"><div class="svc-img"><img src="img/command.jpg" alt="ภาพจำลองศูนย์เฝ้าระวัง" loading="lazy"></div><div class="svc-body"><span class="pill">SERVICE</span><h3>บริการรายเดือนและหลังการขาย</h3><p>เช่าระบบกล้อง เฝ้าระวังด้วย AI สัญญาดูแลรักษาพร้อม SLA และ Call Center ตลอด 24 ชั่วโมง</p><span class="more">ดูรายละเอียด <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
     </div>
   </div>
 </section>
@@ -469,11 +475,12 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 
 <section class="sec" data-pages="business">
   <div class="wrap">
-    <div class="head"><span class="kick">บริการรายเดือน</span><h2>ไม่ต้องลงทุนก้อนใหญ่ จ่ายเป็นบริการรายเดือน</h2></div>
-    <div class="g3">
+    <div class="head"><span class="kick">บริการรายเดือนและบริการหลังการขาย</span><h2>ดูแลระบบของคุณต่อเนื่อง ตั้งแต่วันติดตั้งตลอดอายุการใช้งาน</h2><p>เลือกจ่ายเป็นรายเดือนแทนการลงทุนก้อนใหญ่ พร้อมทีมช่างและ Call Center ที่ดูแลหลังการขาย</p></div>
+    <div class="g2">
       <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 7h13v8H3zM16 10l5-2v6l-5-2M7 15v4h4"/></svg></div><span class="pill">SECURITY AS A SERVICE</span><h3>เช่าระบบกล้องรายเดือน</h3><p>รวมอุปกรณ์ ติดตั้ง และเปลี่ยนเครื่องเมื่อชำรุด เหมาะกับสาขาค้าปลีกและธุรกิจที่ไม่อยากลงทุนก้อนแรกสูง</p></div>
       <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div><span class="pill">MANAGED MONITORING</span><h3>เฝ้าระวังด้วย AI จากศูนย์ควบคุม</h3><p>AI คัดกรองเหตุผิดปกติจากกล้อง แล้วเจ้าหน้าที่ตรวจสอบก่อนแจ้งลูกค้า ลดการแจ้งเตือนผิดพลาด</p></div>
       <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-3-3z"/></svg></div><span class="pill">MAINTENANCE</span><h3>สัญญาดูแลรักษารายปี</h3><p>ตรวจสภาพตามรอบ อัปเดตเฟิร์มแวร์ และรับประกันเวลาเข้าซ่อมตามระดับบริการ (SLA)</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0116 0v2M4 14h3v5H5a1 1 0 01-1-1zM20 14h-3v5h2a1 1 0 001-1zM17 19a4 4 0 01-4 2h-1"/></svg></div><span class="pill">AFTER-SALES</span><h3>บริการหลังการขาย</h3><p>Call Center ตลอด 24 ชั่วโมง ทีมช่างและตัวแทนบริการกว่า 500 รายทั่วประเทศ ซ่อม เคลม และเปลี่ยนอุปกรณ์ตามเงื่อนไขรับประกัน</p></div>
     </div>
   </div>
 </section>
@@ -653,21 +660,6 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
   </div>
 </section>
 
-<section class="sec dark" id="ir" data-pages="ir">
-  <div class="wrap">
-    <div class="head"><span class="kick">นักลงทุนสัมพันธ์</span><h2>จุดเด่นในการลงทุน <span class="flag" style="border-color:#5f7aa1;color:#93aac9">อยู่ระหว่างเตรียม IPO</span></h2></div>
-    <div class="g3">
-      <div class="card-dark"><div class="kpi-n">24<small>ปี</small></div><h3 style="margin-top:14px;font-size:19px">ประสบการณ์และความน่าเชื่อถือ</h3><p style="margin-top:8px">ตัวแทนจำหน่าย Hikvision รายแรกของไทย และผลงานกับองค์กรชั้นนำทั้งภาครัฐและเอกชน</p></div>
-      <div class="card-dark"><div class="kpi-n">500<small>+</small></div><h3 style="margin-top:14px;font-size:19px">เครือข่ายทั่วประเทศ</h3><p style="margin-top:8px">ตัวแทนจำหน่ายและช่างบริการครอบคลุมทุกภูมิภาค รองรับโครงการหลายพื้นที่</p></div>
-      <div class="card-dark"><div class="kpi-n">S<small>-Curve</small></div><h3 style="margin-top:14px;font-size:19px">เติบโตสู่แพลตฟอร์มและบริการ</h3><p style="margin-top:8px">ต่อยอดจากการจัดจำหน่ายสู่แพลตฟอร์ม บริการรายเดือน และ Robotics</p></div>
-    </div>
-    <div class="g2" style="margin-top:24px">
-      <div class="card-dark"><h3 style="font-size:19px">อีเมลรับข่าวสาร</h3><p style="margin-top:8px">ติดตามความเคลื่อนไหวล่าสุดของบริษัท และความคืบหน้าการเข้าจดทะเบียน</p><form class="sub-form" id="irForm" novalidate><label for="irEmail" style="position:absolute;left:-9999px">อีเมล</label><input type="email" id="irEmail" placeholder="อีเมลของคุณ" autocomplete="email"><button class="btn btn-p" type="submit">สมัครรับข่าวสาร</button></form><p class="ok" id="irOk" hidden>นี่คือต้นแบบ ระบบสมัครรับข่าวสารยังไม่ได้เชื่อมต่อ</p></div>
-      <div class="card-dark"><h3 style="font-size:19px">ติดต่อนักลงทุนสัมพันธ์</h3><p style="margin-top:8px">อีเมล <a href="mailto:info@digitalfocus.co.th" style="color:#fff">info@digitalfocus.co.th</a><br>โทร 02 136 8989</p></div>
-    </div>
-  </div>
-</section>
-
 <section class="sec" id="news" data-pages="news">
   <div class="wrap">
     <div class="head"><span class="kick">ห้องข่าว</span><h2>ข่าวสารและกิจกรรม</h2></div>
@@ -685,7 +677,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
     <div class="g3" style="margin-bottom:64px">
       <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></div><h3>ร่วมงานทางธุรกิจ</h3><p>ตัวแทนจำหน่าย SI ผู้รับเหมา หรือเจ้าของโครงการที่ต้องการพันธมิตรด้านระบบความปลอดภัย</p><a class="more" href="#partner">กรอกใบสมัครด้านล่าง <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div><h3>สอบถามโซลูชันและบริการ</h3><p>ต้องการติดตั้งระบบใหม่ ปรับปรุงระบบเดิม หรือใช้บริการรายเดือนและสัญญาดูแลรักษา</p><a class="more" href="https://lin.ee/Ajw1OZw" target="_blank" rel="noopener">แชทผ่าน LINE <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5"/></svg></div><h3>นักลงทุนสัมพันธ์</h3><p>ข้อมูลบริษัท ความคืบหน้าการเตรียม IPO และข่าวสารสำหรับนักลงทุน</p><a class="more" href="#ir">ไปหน้านักลงทุนสัมพันธ์ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5"/></svg></div><h3>นักลงทุนสัมพันธ์</h3><p>ข้อมูลบริษัท ความคืบหน้าการเตรียม IPO และข่าวสารสำหรับนักลงทุน</p><a class="more" href="#ir">ดูข้อมูลนักลงทุนด้านล่าง <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     </div>
     <div class="split" style="align-items:start">
       <div>
@@ -755,6 +747,21 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
   </div>
 </section>
 
+<section class="sec dark" id="ir" data-pages="contact">
+  <div class="wrap">
+    <div class="head"><span class="kick">นักลงทุนสัมพันธ์</span><h2>จุดเด่นในการลงทุน <span class="flag" style="border-color:#5f7aa1;color:#93aac9">อยู่ระหว่างเตรียม IPO</span></h2></div>
+    <div class="g3">
+      <div class="card-dark"><div class="kpi-n">24<small>ปี</small></div><h3 style="margin-top:14px;font-size:19px">ประสบการณ์และความน่าเชื่อถือ</h3><p style="margin-top:8px">ตัวแทนจำหน่าย Hikvision รายแรกของไทย และผลงานกับองค์กรชั้นนำทั้งภาครัฐและเอกชน</p></div>
+      <div class="card-dark"><div class="kpi-n">500<small>+</small></div><h3 style="margin-top:14px;font-size:19px">เครือข่ายทั่วประเทศ</h3><p style="margin-top:8px">ตัวแทนจำหน่ายและช่างบริการครอบคลุมทุกภูมิภาค รองรับโครงการหลายพื้นที่</p></div>
+      <div class="card-dark"><div class="kpi-n">S<small>-Curve</small></div><h3 style="margin-top:14px;font-size:19px">เติบโตสู่แพลตฟอร์มและบริการ</h3><p style="margin-top:8px">ต่อยอดจากการจัดจำหน่ายสู่แพลตฟอร์ม บริการรายเดือน และ Robotics</p></div>
+    </div>
+    <div class="g2" style="margin-top:24px">
+      <div class="card-dark"><h3 style="font-size:19px">อีเมลรับข่าวสาร</h3><p style="margin-top:8px">ติดตามความเคลื่อนไหวล่าสุดของบริษัท และความคืบหน้าการเข้าจดทะเบียน</p><form class="sub-form" id="irForm" novalidate><label for="irEmail" style="position:absolute;left:-9999px">อีเมล</label><input type="email" id="irEmail" placeholder="อีเมลของคุณ" autocomplete="email"><button class="btn btn-p" type="submit">สมัครรับข่าวสาร</button></form><p class="ok" id="irOk" hidden>นี่คือต้นแบบ ระบบสมัครรับข่าวสารยังไม่ได้เชื่อมต่อ</p></div>
+      <div class="card-dark"><h3 style="font-size:19px">ติดต่อนักลงทุนสัมพันธ์</h3><p style="margin-top:8px">อีเมล <a href="mailto:info@digitalfocus.co.th" style="color:#fff">info@digitalfocus.co.th</a><br>โทร 02 136 8989</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="sec" data-pages="home business solutions projects brands esg news about">
   <div class="wrap">
     <div class="cta">
@@ -774,7 +781,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
         <div class="social" id="social"></div>
       </div>
       <div><h4>บริษัท</h4><ul><li><a href="#about">เกี่ยวกับเรา</a></li><li><a href="#esg">ความยั่งยืน</a></li><li><a href="#news">ข่าวสาร</a></li><li><a href="#ir">นักลงทุนสัมพันธ์</a></li><li><a href="#partner">ร่วมเป็นพันธมิตร</a></li><li><a href="#contact">ติดต่อเรา</a></li></ul></div>
-      <div><h4>ธุรกิจ</h4><ul><li><a href="#solutions">โซลูชัน</a></li><li><a href="#brands">ผลิตภัณฑ์</a></li><li><a href="#projects">ออกแบบและวางระบบ</a></li><li><a href="#business">บริการรายเดือน</a></li><li><a href="#projects">ผลงานและลูกค้า</a></li><li><a href="https://shopee.co.th/digitalfocus_thailand" target="_blank" rel="noopener">ร้านค้าออนไลน์</a></li></ul></div>
+      <div><h4>ธุรกิจ</h4><ul><li><a href="#solutions">โซลูชัน</a></li><li><a href="#brands">ผลิตภัณฑ์</a></li><li><a href="#projects">ออกแบบและวางระบบ</a></li><li><a href="#business">บริการรายเดือนและหลังการขาย</a></li><li><a href="#projects">ผลงานและลูกค้า</a></li><li><a href="https://shopee.co.th/digitalfocus_thailand" target="_blank" rel="noopener">ร้านค้าออนไลน์</a></li></ul></div>
       <div><h4>ติดต่อ</h4><ul><li>2782/4-6 ถนนลาดพร้าว แขวงคลองจั่น เขตบางกะปิ กรุงเทพฯ 10240</li><li><a href="tel:021368989">02 136 8989</a></li><li><a href="mailto:info@digitalfocus.co.th">info@digitalfocus.co.th</a></li></ul></div>
     </div>
     <div class="ftr-bot"><span>© 2026 บริษัท ดิจิตอลโฟกัส จำกัด สงวนลิขสิทธิ์</span><span>ทะเบียนเลขที่ 0105545026907 · เตรียมเข้าจดทะเบียนในตลาดหลักทรัพย์ฯ</span></div>
@@ -808,13 +815,12 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
     projects:['ผลงานและลูกค้า','ผลงานและลูกค้าของเรา','โครงการที่เราวางระบบให้องค์กรชั้นนำทั้งภาครัฐและเอกชนทั่วประเทศ ตั้งแต่ค้าปลีกหลายพันสาขาถึงหน่วยงานรัฐ'],
     brands:['ผลิตภัณฑ์','ผลิตภัณฑ์และแบรนด์ที่เราจัดจำหน่าย','ตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย พร้อมพันธมิตรด้าน AIoT, Smart Home และ Robotics'],
     esg:['ความยั่งยืน','ความยั่งยืนที่อยู่ในทุกกระบวนการดำเนินงาน','ดูแลสิ่งแวดล้อมในองค์กร พัฒนาฝีมือแรงงาน สนับสนุนการศึกษา คืนสู่ชุมชน และกำกับดูแลกิจการอย่างโปร่งใส'],
-    ir:['นักลงทุนสัมพันธ์','นักลงทุนสัมพันธ์','ข้อมูลสำหรับนักลงทุน ระหว่างที่บริษัทเตรียมเข้าจดทะเบียนในตลาดหลักทรัพย์แห่งประเทศไทย'],
     news:['ข่าวสาร','ข่าวสารและกิจกรรม','ความเคลื่อนไหวล่าสุด งานสัมมนา ความร่วมมือกับพันธมิตร และกิจกรรมเพื่อสังคม'],
-    contact:['ติดต่อเรา','คุยกับเราเรื่องระบบความปลอดภัยขององค์กรคุณ','ปรึกษาโครงการ สอบถามบริการ หรือสมัครเป็นตัวแทนจำหน่ายและพาร์ทเนอร์ติดตั้ง ทีมงานพร้อมติดต่อกลับ']
+    contact:['ติดต่อเรา','คุยกับเราเรื่องระบบความปลอดภัยขององค์กรคุณ','ปรึกษาโครงการ สอบถามบริการ สมัครเป็นพันธมิตร หรือติดต่อนักลงทุนสัมพันธ์ ทีมงานพร้อมติดต่อกลับ']
   };
   var secs=[].slice.call(document.querySelectorAll('main section[data-pages]')),phero=document.getElementById('phero');
   var only=[].slice.call(document.querySelectorAll('[data-only]'));
-  var navLinks=[].slice.call(document.querySelectorAll('.nav a,.snav a'));
+  var navLinks=[].slice.call(document.querySelectorAll('.nav a,.mnav a'));
   var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   function countUp(){
     if(still) return;
@@ -825,7 +831,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
       requestAnimationFrame(step);
     });
   }
-  var ALIAS={clients:['projects'],partner:['contact','partner']};
+  var ALIAS={clients:['projects'],partner:['contact','partner'],ir:['contact','ir']};
   function go(page,scroll){
     var target=null;
     if(ALIAS[page]){target=ALIAS[page][1]||null;page=ALIAS[page][0]}
@@ -851,12 +857,18 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
   });
   window.addEventListener('popstate',function(){go((location.hash||'#home').slice(1))});
 
+  var burger=document.getElementById('burger'),mnav=document.getElementById('mnav');
+  function menu(open){mnav.hidden=!open;burger.setAttribute('aria-expanded',open?'true':'false');burger.setAttribute('aria-label',open?'ปิดเมนู':'เปิดเมนู')}
+  burger.addEventListener('click',function(){menu(mnav.hidden)});
+  mnav.addEventListener('click',function(e){if(e.target.closest('a'))menu(false)});
+  window.addEventListener('resize',function(){if(window.innerWidth>=1240)menu(false)});
+
   var hdr=document.getElementById('hdr');
   function onScroll(){hdr.classList.toggle('stuck',window.scrollY>8)}
   onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
 
   go((location.hash||'#home').slice(1),false);
-  if(location.hash&&location.hash!=='#partner'){window.addEventListener('load',function(){window.scrollTo(0,0)});setTimeout(function(){window.scrollTo(0,0)},0)}
+  if(location.hash&&location.hash!=='#partner'&&location.hash!=='#ir'){window.addEventListener('load',function(){window.scrollTo(0,0)});setTimeout(function(){window.scrollTo(0,0)},0)}
 
   var VT=[].slice.call(document.querySelectorAll('.vtab'));
   VT.forEach(function(b){b.addEventListener('click',function(){
