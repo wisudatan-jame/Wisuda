@@ -23,6 +23,7 @@
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
+#partner{scroll-margin-top:72px}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{margin:0;font:16px/1.75 var(--body);color:var(--ink);background:var(--paper);overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:120;background:#fff}
@@ -679,7 +680,37 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
   </div>
 </section>
 
-<section class="sec tint" id="partner" data-pages="partner">
+<section class="sec" id="contact" data-pages="contact">
+  <div class="wrap">
+    <div class="g3" style="margin-bottom:64px">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></div><h3>ร่วมงานทางธุรกิจ</h3><p>ตัวแทนจำหน่าย SI ผู้รับเหมา หรือเจ้าของโครงการที่ต้องการพันธมิตรด้านระบบความปลอดภัย</p><a class="more" href="#partner">กรอกใบสมัครด้านล่าง <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div><h3>สอบถามโซลูชันและบริการ</h3><p>ต้องการติดตั้งระบบใหม่ ปรับปรุงระบบเดิม หรือใช้บริการรายเดือนและสัญญาดูแลรักษา</p><a class="more" href="https://lin.ee/Ajw1OZw" target="_blank" rel="noopener">แชทผ่าน LINE <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5"/></svg></div><h3>นักลงทุนสัมพันธ์</h3><p>ข้อมูลบริษัท ความคืบหน้าการเตรียม IPO และข่าวสารสำหรับนักลงทุน</p><a class="more" href="#ir">ไปหน้านักลงทุนสัมพันธ์ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+    <div class="split" style="align-items:start">
+      <div>
+        <span class="kick">สำนักงานใหญ่</span>
+        <h2 style="font-size:clamp(24px,3vw,32px);color:var(--navy-800);margin-bottom:22px">ข้อมูลติดต่อ</h2>
+        <dl class="info">
+          <div><dt>บริษัท</dt><dd>บริษัท ดิจิตอลโฟกัส จำกัด</dd></div>
+          <div><dt>ที่อยู่</dt><dd>2782/4-6 ถนนลาดพร้าว แขวงคลองจั่น เขตบางกะปิ กรุงเทพมหานคร 10240</dd></div>
+          <div><dt>โทรศัพท์</dt><dd><a href="tel:021368989">02 136 8989</a> · แฟกซ์ 02 733 9075</dd></div>
+          <div><dt>อีเมล</dt><dd><a href="mailto:info@digitalfocus.co.th">info@digitalfocus.co.th</a></dd></div>
+          <div><dt>เว็บไซต์</dt><dd><a href="https://www.digitalfocus.co.th/" target="_blank" rel="noopener">digitalfocus.co.th</a></dd></div>
+          <div><dt>เลขทะเบียน</dt><dd>0105545026907</dd></div>
+        </dl>
+        <div class="cbtns"><a class="btn btn-p" href="tel:021368989"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg>02 136 8989</a><a class="btn btn-o" href="mailto:info@digitalfocus.co.th"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>info@digitalfocus.co.th</a></div>
+      </div>
+      <div>
+        <span class="kick">ช่องทางออนไลน์</span>
+        <h2 style="font-size:clamp(24px,3vw,32px);color:var(--navy-800);margin-bottom:22px">ติดตามเราได้ทุกช่องทาง</h2>
+        <div class="g2" style="gap:12px" id="channels"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" id="partner" data-pages="contact">
   <div class="wrap split" style="align-items:start">
     <div>
       <span class="kick">ร่วมเป็นพันธมิตร</span>
@@ -721,36 +752,6 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
       <button class="btn btn-p" type="submit" style="justify-content:center">ส่งใบสมัคร <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       <p class="fok" id="pfOk" hidden>ได้รับใบสมัครแล้ว ทีมพัฒนาธุรกิจจะติดต่อกลับภายใน 3 วันทำการ (ต้นแบบ: ฟอร์มยังไม่ได้เชื่อมกับระบบหลังบ้าน)</p>
     </form>
-  </div>
-</section>
-
-<section class="sec" id="contact" data-pages="contact">
-  <div class="wrap">
-    <div class="g3" style="margin-bottom:64px">
-      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></div><h3>ร่วมงานทางธุรกิจ</h3><p>ตัวแทนจำหน่าย SI ผู้รับเหมา หรือเจ้าของโครงการที่ต้องการพันธมิตรด้านระบบความปลอดภัย</p><a class="more" href="#partner">สมัครเป็นพันธมิตร <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div><h3>สอบถามโซลูชันและบริการ</h3><p>ต้องการติดตั้งระบบใหม่ ปรับปรุงระบบเดิม หรือใช้บริการรายเดือนและสัญญาดูแลรักษา</p><a class="more" href="https://lin.ee/Ajw1OZw" target="_blank" rel="noopener">แชทผ่าน LINE <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5"/></svg></div><h3>นักลงทุนสัมพันธ์</h3><p>ข้อมูลบริษัท ความคืบหน้าการเตรียม IPO และข่าวสารสำหรับนักลงทุน</p><a class="more" href="#ir">ไปหน้านักลงทุนสัมพันธ์ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-    </div>
-    <div class="split" style="align-items:start">
-      <div>
-        <span class="kick">สำนักงานใหญ่</span>
-        <h2 style="font-size:clamp(24px,3vw,32px);color:var(--navy-800);margin-bottom:22px">ข้อมูลติดต่อ</h2>
-        <dl class="info">
-          <div><dt>บริษัท</dt><dd>บริษัท ดิจิตอลโฟกัส จำกัด</dd></div>
-          <div><dt>ที่อยู่</dt><dd>2782/4-6 ถนนลาดพร้าว แขวงคลองจั่น เขตบางกะปิ กรุงเทพมหานคร 10240</dd></div>
-          <div><dt>โทรศัพท์</dt><dd><a href="tel:021368989">02 136 8989</a> · แฟกซ์ 02 733 9075</dd></div>
-          <div><dt>อีเมล</dt><dd><a href="mailto:info@digitalfocus.co.th">info@digitalfocus.co.th</a></dd></div>
-          <div><dt>เว็บไซต์</dt><dd><a href="https://www.digitalfocus.co.th/" target="_blank" rel="noopener">digitalfocus.co.th</a></dd></div>
-          <div><dt>เลขทะเบียน</dt><dd>0105545026907</dd></div>
-        </dl>
-        <div class="cbtns"><a class="btn btn-p" href="tel:021368989"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg>02 136 8989</a><a class="btn btn-o" href="mailto:info@digitalfocus.co.th"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>info@digitalfocus.co.th</a></div>
-      </div>
-      <div>
-        <span class="kick">ช่องทางออนไลน์</span>
-        <h2 style="font-size:clamp(24px,3vw,32px);color:var(--navy-800);margin-bottom:22px">ติดตามเราได้ทุกช่องทาง</h2>
-        <div class="g2" style="gap:12px" id="channels"></div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -809,8 +810,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
     esg:['ความยั่งยืน','ความยั่งยืนที่อยู่ในทุกกระบวนการดำเนินงาน','ดูแลสิ่งแวดล้อมในองค์กร พัฒนาฝีมือแรงงาน สนับสนุนการศึกษา คืนสู่ชุมชน และกำกับดูแลกิจการอย่างโปร่งใส'],
     ir:['นักลงทุนสัมพันธ์','นักลงทุนสัมพันธ์','ข้อมูลสำหรับนักลงทุน ระหว่างที่บริษัทเตรียมเข้าจดทะเบียนในตลาดหลักทรัพย์แห่งประเทศไทย'],
     news:['ข่าวสาร','ข่าวสารและกิจกรรม','ความเคลื่อนไหวล่าสุด งานสัมมนา ความร่วมมือกับพันธมิตร และกิจกรรมเพื่อสังคม'],
-    partner:['ร่วมเป็นพันธมิตร','สมัครเป็นตัวแทนจำหน่ายและพาร์ทเนอร์ติดตั้ง','ร่วมเครือข่ายพันธมิตรของ Digital Focus ทั่วประเทศ รับสินค้าคุณภาพ การอบรม และการสนับสนุนจากทีมวิศวกร'],
-    contact:['ติดต่อเรา','คุยกับเราเรื่องระบบความปลอดภัยขององค์กรคุณ','บอกเราว่าพื้นที่ของคุณเป็นแบบไหนและต้องการอะไร ทีมวิศวกรจะประเมินและเสนอแนวทางที่เหมาะสม']
+    contact:['ติดต่อเรา','คุยกับเราเรื่องระบบความปลอดภัยขององค์กรคุณ','ปรึกษาโครงการ สอบถามบริการ หรือสมัครเป็นตัวแทนจำหน่ายและพาร์ทเนอร์ติดตั้ง ทีมงานพร้อมติดต่อกลับ']
   };
   var secs=[].slice.call(document.querySelectorAll('main section[data-pages]')),phero=document.getElementById('phero');
   var only=[].slice.call(document.querySelectorAll('[data-only]'));
@@ -825,8 +825,10 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
       requestAnimationFrame(step);
     });
   }
+  var ALIAS={clients:['projects'],partner:['contact','partner']};
   function go(page,scroll){
-    if(page==='clients') page='projects';
+    var target=null;
+    if(ALIAS[page]){target=ALIAS[page][1]||null;page=ALIAS[page][0]}
     if(!PAGES[page]) page='home';
     secs.forEach(function(el){
       if(el===phero){el.hidden=page==='home';return}
@@ -836,13 +838,14 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
     if(page!=='home'){var d=PAGES[page];document.getElementById('pcrumb').textContent=d[0];document.getElementById('ptitle').textContent=d[1];document.getElementById('plead').textContent=d[2]}
     navLinks.forEach(function(a){var on=a.getAttribute('href')==='#'+page;a.classList.toggle('on',on);if(on)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
     document.title=(page==='home'?'':PAGES[page][0]+' | ')+'Digital Focus';
-    if(scroll!==false) window.scrollTo(0,0);
+    if(target){var el=document.getElementById(target);if(el)setTimeout(function(){el.scrollIntoView({block:'start'})},0)}
+    else if(scroll!==false) window.scrollTo(0,0);
     countUp();
   }
   document.addEventListener('click',function(e){
     var a=e.target.closest('a[href^="#"]'); if(!a) return;
     var id=a.getAttribute('href').slice(1);
-    if(id!=='home'&&!PAGES[id]) return;
+    if(id!=='home'&&!PAGES[id]&&!ALIAS[id]) return;
     e.preventDefault(); go(id);
     try{history.pushState(null,'','#'+id)}catch(err){}
   });
@@ -853,7 +856,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
   onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
 
   go((location.hash||'#home').slice(1),false);
-  if(location.hash){window.addEventListener('load',function(){window.scrollTo(0,0)});setTimeout(function(){window.scrollTo(0,0)},0)}
+  if(location.hash&&location.hash!=='#partner'){window.addEventListener('load',function(){window.scrollTo(0,0)});setTimeout(function(){window.scrollTo(0,0)},0)}
 
   var VT=[].slice.call(document.querySelectorAll('.vtab'));
   VT.forEach(function(b){b.addEventListener('click',function(){
