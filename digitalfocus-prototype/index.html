@@ -160,8 +160,26 @@ form.card{gap:12px}
 
 /* placeholder marker */
 .tbd{color:var(--red);font-weight:600}
-.proof-grid.pending div{background:var(--bg)}
-.proof-grid.pending b{color:var(--muted)}
+.proof-grid + .proof-grid{margin-top:12px}
+
+/* about, timeline, platforms */
+.about{display:grid;gap:20px}
+@media(min-width:860px){.about{grid-template-columns:1.1fr .9fr;align-items:start}}
+.quote{background:var(--indigo);color:var(--on-indigo);border-radius:18px;padding:26px;display:grid;gap:12px}
+.quote blockquote{margin:0;font:600 clamp(1.1rem,3vw,1.35rem)/1.5 var(--head)}
+.quote cite{font-style:normal;opacity:.85;font-size:.9rem}
+.facts{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.facts li{display:grid;grid-template-columns:120px 1fr;gap:12px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.facts b{font-family:var(--head);color:var(--indigo)}
+.timeline{list-style:none;margin:0;padding:0;display:grid;gap:0;border-left:2px solid var(--line);margin-left:6px}
+.timeline li{position:relative;padding:0 0 22px 24px;display:grid;gap:2px}
+.timeline li::before{content:"";position:absolute;left:-8px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--surface);border:3px solid var(--indigo)}
+.timeline li.now::before{background:var(--red);border-color:var(--red)}
+.timeline b{font:700 1.05rem/1.3 var(--head);color:var(--indigo);font-variant-numeric:tabular-nums}
+.timeline span{color:var(--muted);font-size:.95rem}
+@media(min-width:900px){.timeline{display:grid;grid-template-columns:repeat(2,1fr);column-gap:40px}}
+.plat{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.case .meta{font:600 .78rem/1 var(--head);color:var(--red);letter-spacing:.04em}
 
 /* logo wall */
 .logo-groups{display:grid;gap:20px}
@@ -229,6 +247,7 @@ footer .wrap{display:grid;gap:24px}
       <a href="#clients">ลูกค้าและพันธมิตร</a>
       <a href="#pdpa">PDPA และ Cybersecurity</a>
       <a href="#showroom">นัดชมศูนย์สาธิต</a>
+      <a href="#about">เกี่ยวกับเรา</a>
       <a href="#careers">ร่วมงานกับเรา</a>
       <a href="#contact">ติดต่อ</a>
     </div>
@@ -242,7 +261,7 @@ footer .wrap{display:grid;gap:24px}
       <div>
         <p class="eyebrow" id="h-eye">Smart Life · Smart Solution</p>
         <h1 style="margin-top:12px" id="h-title">ผู้นำ <em>AI Security</em> และ AIoT Solutions ของไทย กว่า 24 ปี</h1>
-        <p class="lead" id="h-lead">จากกล้องวงจรปิดสู่ระบบอัจฉริยะครบวงจร ทั้ง AI วิเคราะห์ภาพ IoT หุ่นยนต์บริการ และโดรน ด้วยทีมช่างมากกว่า 500 คนทั่วประเทศ</p>
+        <p class="lead" id="h-lead">จากกล้องวงจรปิดสู่ระบบอัจฉริยะครบวงจร ทั้ง AI วิเคราะห์ภาพ IoT หุ่นยนต์บริการ และโดรน ด้วยเครือข่ายตัวแทนและช่างบริการมากกว่า 500 รายทั่วประเทศ</p>
       </div>
       <div class="ring-box" aria-hidden="true">
         <div class="ring"></div>
@@ -269,17 +288,16 @@ footer .wrap{display:grid;gap:24px}
 <section class="proof" aria-label="ความน่าเชื่อถือ">
   <div class="wrap">
     <div class="proof-grid">
-      <div><b>24 ปี</b><span>ประสบการณ์ด้านระบบรักษาความปลอดภัย</span></div>
-      <div><b>500+</b><span>ทีมช่างผู้เชี่ยวชาญทั่วประเทศ</span></div>
-      <div><b>24 ชม.</b><span>ศูนย์ Call Center ดูแลลูกค้า</span></div>
-      <div><b>ISO 9001</b><span>มาตรฐานคุณภาพ 2015 โดย TÜV Nord</span></div>
+      <div><b>2002</b><span>ก่อตั้งบริษัท ดำเนินธุรกิจมากกว่า 24 ปี</span></div>
+      <div><b>500+</b><span>ตัวแทนจำหน่ายและช่างบริการทั่วประเทศ</span></div>
+      <div><b>3,000+</b><span>ช่างที่ผ่านการอบรมร่วมกับกรมพัฒนาฝีมือแรงงาน</span></div>
+      <div><b>1,500</b><span>รถขนส่งน้ำมันของ ปตท. ที่ติดตั้งระบบกล้อง</span></div>
     </div>
-    <p class="note" style="margin:16px 0 8px">ตัวเลขผลงานที่ควรเพิ่ม <span class="demo-flag">รอข้อมูลจริง</span></p>
-    <div class="proof-grid pending">
-      <div><b>[__]</b><span>โครงการที่ติดตั้งแล้ว</span></div>
-      <div><b>[__]</b><span>กล้องและอุปกรณ์ที่ดูแลอยู่</span></div>
-      <div><b>[__]</b><span>ตัวแทนจำหน่ายทั่วประเทศ</span></div>
-      <div><b>[__]</b><span>จังหวัดที่ให้บริการ</span></div>
+    <div class="proof-grid">
+      <div><b>5,400+</b><span>ตร.ม. สำนักงานใหญ่ 3 อาคาร ซอยลาดพร้าว 130</span></div>
+      <div><b>60 ล้าน</b><span>บาท ทุนจดทะเบียน</span></div>
+      <div><b>2006</b><span>ตัวแทนจำหน่าย Hikvision รายแรกของไทย</span></div>
+      <div><b>ISO 9001</b><span>ได้รับรองตั้งแต่ปี 2006 โดย TÜV Nord</span></div>
     </div>
   </div>
 </section>
@@ -287,20 +305,23 @@ footer .wrap{display:grid;gap:24px}
 <section id="clients">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">ลูกค้าที่ไว้วางใจเรา <span class="demo-flag">ใส่โลโก้จริงเมื่อได้รับอนุญาต</span></p>
-      <h2>องค์กรที่ใช้ระบบของ Digital Focus</h2>
-      <p>ทุกโลโก้มีชื่อกำกับ เพื่อให้ผู้ชมรู้ว่าเป็นหน่วยงานไหน โดยเฉพาะตราหน่วยงานรัฐที่คนทั่วไปจำไม่ได้</p>
+      <p class="eyebrow">ลูกค้าที่ไว้วางใจเรา <span class="demo-flag">ขออนุญาตใช้โลโก้ก่อนเผยแพร่</span></p>
+      <h2>องค์กรชั้นนำที่ใช้ระบบของ Digital Focus</h2>
+      <p>รายชื่อจากโครงการที่ส่งมอบแล้ว เมื่อได้รับอนุญาต ให้ใส่โลโก้จริงแทนวงกลม โดยคงชื่อกำกับไว้</p>
     </div>
     <div class="logo-groups">
-      <div class="logo-group"><h3>ภาครัฐ</h3><div class="logos">
-        <div class="logo-tile"><div class="lg">โลโก้</div><span>[ชื่อหน่วยงาน]</span></div>
-        <div class="logo-tile"><div class="lg">โลโก้</div><span>[ชื่อหน่วยงาน]</span></div>
-        <div class="logo-tile"><div class="lg">โลโก้</div><span>[ชื่อหน่วยงาน]</span></div>
+      <div class="logo-group"><h3>พลังงานและสถานีบริการ</h3><div class="logos">
+        <div class="logo-tile"><div class="lg">โลโก้</div><span>ปตท. (PTT)</span></div>
+        <div class="logo-tile"><div class="lg">โลโก้</div><span>พีที (PT)</span></div>
       </div></div>
-      <div class="logo-group"><h3>อุตสาหกรรม ค้าปลีก และโรงแรม</h3><div class="logos">
-        <div class="logo-tile"><div class="lg">โลโก้</div><span>[ชื่อบริษัท]</span></div>
-        <div class="logo-tile"><div class="lg">โลโก้</div><span>[ชื่อบริษัท]</span></div>
-        <div class="logo-tile"><div class="lg">โลโก้</div><span>[ชื่อบริษัท]</span></div>
+      <div class="logo-group"><h3>ค้าปลีก</h3><div class="logos">
+        <div class="logo-tile"><div class="lg">โลโก้</div><span>7-Eleven</span></div>
+        <div class="logo-tile"><div class="lg">โลโก้</div><span>Central Group</span></div>
+        <div class="logo-tile"><div class="lg">โลโก้</div><span>CMG Group</span></div>
+      </div></div>
+      <div class="logo-group"><h3>ยานยนต์และที่จอดรถ</h3><div class="logos">
+        <div class="logo-tile"><div class="lg">โลโก้</div><span>Toyota Buzz</span></div>
+        <div class="logo-tile"><div class="lg">โลโก้</div><span>J-Park</span></div>
       </div></div>
     </div>
   </div>
@@ -313,12 +334,19 @@ footer .wrap{display:grid;gap:24px}
       <h2>แบรนด์ระดับโลก ครบทั้งระบบรักษาความปลอดภัย หุ่นยนต์ และโดรน</h2>
     </div>
     <div class="brands">
-      <div class="brand-card first"><span class="badge">ตัวแทนจำหน่ายรายแรกของไทย</span><b>Hikvision</b><span>AI Security · IoT · กล้อง · เครื่องบันทึก · Alarm</span></div>
-      <div class="brand-card"><b>DJI</b><span>โดรนสำหรับตรวจตราและสำรวจพื้นที่</span></div>
-      <div class="brand-card"><b>Keenon</b><span>หุ่นยนต์บริการ ส่งอาหารและของ</span></div>
-      <div class="brand-card"><b>Uniview</b><span>ระบบกล้องวงจรปิดและวิดีโอ</span></div>
-      <div class="brand-card"><b>Uniarch</b><span>ระบบกล้องวงจรปิดและวิดีโอ</span></div>
+      <div class="brand-card first"><span class="badge">ตัวแทนจำหน่ายรายแรกของไทย</span><b>Hikvision</b><span>ผู้นำโลกด้านกล้องวงจรปิดและ AIoT · ก่อตั้งปี 2001 พนักงานกว่า 58,000 คน</span></div>
+      <div class="brand-card"><b>Tiandy</b><span>ระบบกล้องวงจรปิด</span></div>
+      <div class="brand-card"><b>DSPPA</b><span>ระบบเสียงประกาศและเสียงสาธารณะ</span></div>
+      <div class="brand-card"><b>BroadLink</b><span>AI Smart Home ควบคุมเครื่องใช้ไฟฟ้าผ่านแอป</span></div>
+      <div class="brand-card"><b>Geeklink</b><span>อุปกรณ์ Smart Home และ IoT</span></div>
+      <div class="brand-card"><b>Huawei Smart Energy</b><span>ระบบพลังงานอัจฉริยะสำหรับบ้าน</span></div>
+      <div class="brand-card"><b>Xiaodu</b><span>อุปกรณ์อัจฉริยะสั่งงานด้วยเสียง</span></div>
+      <div class="brand-card"><b>BrainCo</b><span>Brain-Computer Interface และอุปกรณ์ EEG neurofeedback</span></div>
+      <div class="brand-card"><b>ICDL</b><span>มาตรฐานรับรองทักษะดิจิทัล ใช้ในกว่า 100 ประเทศ</span></div>
+      <div class="brand-card"><b>ICT</b><span>[ประเภทสินค้า]</span></div>
+      <div class="brand-card first"><span class="badge">แบรนด์ของ Digital Focus</span><b>DGF</b><span>DGF Smart Transport · DGF 4G Mobile CCTV · DGF C33 / AMA3</span></div>
     </div>
+    <p class="note" style="margin-top:14px">เว็บไซต์เดิมยังระบุ DJI, Keenon, Uniview และ Uniarch ซึ่งไม่อยู่ในรายชื่อ Company Profile <span class="demo-flag">ยืนยันก่อนเผยแพร่</span></p>
   </div>
 </section>
 
@@ -363,6 +391,7 @@ footer .wrap{display:grid;gap:24px}
             <option value="factory">โรงงาน / นิคมอุตสาหกรรม</option>
             <option value="retail">ร้านค้าปลีก / ห้างสรรพสินค้า</option>
             <option value="hotel">โรงแรม / อาคาร / คอนโด</option>
+            <option value="edu">สถาบันการศึกษา</option>
             <option value="gov">หน่วยงานภาครัฐ</option>
             <option value="logistics">โลจิสติกส์ / ขนส่ง</option>
           </select>
@@ -420,7 +449,7 @@ footer .wrap{display:grid;gap:24px}
       <div style="display:grid;gap:8px">
         <p class="eyebrow" style="color:inherit;opacity:.8">ศูนย์สาธิต <span class="demo-flag" style="color:inherit;border-color:currentColor">ยืนยันว่ามีหรือจะมี</span></p>
         <h2 style="font-size:clamp(1.4rem,4vw,2rem)">เห็น AI ทำงานจริงก่อนตัดสินใจ</h2>
-        <p>นัดชมระบบที่สำนักงานลาดพร้าว ทดลองกล้อง AI ระบบแจ้งเตือน และหุ่นยนต์บริการ พร้อมคุยกับวิศวกรโดยตรง</p>
+        <p>นัดชมระบบที่สำนักงานใหญ่ ซอยลาดพร้าว 130 ทดลองกล้อง AI ระบบแจ้งเตือน และหุ่นยนต์บริการ พร้อมคุยกับวิศวกรโดยตรง</p>
       </div>
       <a class="btn btn-ghost" href="#contact" id="bookDemo">นัดชมศูนย์สาธิต</a>
     </div>
@@ -434,9 +463,11 @@ footer .wrap{display:grid;gap:24px}
       <h2>ได้รับการรับรองจากหน่วยงานภายนอก</h2>
     </div>
     <div class="certs">
-      <div class="cert"><b>ISO 9001:2015</b><span>ระบบบริหารงานคุณภาพ รับรองโดย TÜV Nord</span></div>
+      <div class="cert"><b>ISO 9001:2015</b><span>ระบบบริหารงานคุณภาพ รับรองโดย TÜV Nord ตั้งแต่ปี 2006</span></div>
+      <div class="cert"><b>ธรรมาภิบาลธุรกิจ</b><span>มาตรฐานธรรมาภิบาลจากกรมพัฒนาธุรกิจการค้า ปี 2020</span></div>
+      <div class="cert"><b>มอก.S (Thai SMEs Standard)</b><span>มาตรฐานผลิตภัณฑ์และบริการ SMEs ไทย ปี 2023</span></div>
       <div class="cert"><b>ASEAN Business Award 2019</b><span>สาขา Family Business ขนาดใหญ่</span></div>
-      <div class="cert"><b>ตัวแทนจำหน่าย Hikvision รายแรกในไทย</b><span>ใส่ใบรับรองระดับพาร์ทเนอร์ของแต่ละแบรนด์</span></div>
+      <div class="cert"><b>Asia Pacific Enterprise Awards 2026</b><span>หมวด Master Entrepreneur · คุณสมชาย ประจักษ์สูตร</span></div>
     </div>
   </div>
 </section>
@@ -444,14 +475,99 @@ footer .wrap{display:grid;gap:24px}
 <section id="cases" style="background:var(--surface)">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">ผลงานและข่าวสาร <span class="demo-flag">ใส่ข้อมูลจริง</span></p>
-      <h2>ให้ตัวเลขผลลัพธ์พูดแทน</h2>
-      <p>พื้นที่นี้แทนส่วนข่าวที่ว่างอยู่ในเว็บปัจจุบัน แต่ละเคสควรมีลูกค้า ปัญหา โซลูชัน และตัวเลขผลลัพธ์ที่ได้รับอนุญาตให้เผยแพร่</p>
+      <p class="eyebrow">ผลงานที่ส่งมอบแล้ว <span class="demo-flag">เพิ่มภาพและตัวเลขผลลัพธ์</span></p>
+      <h2>โครงการระดับประเทศที่เราดูแล</h2>
+      <p>แต่ละเคสควรมีภาพหน้างานจริง และตัวเลขผลลัพธ์ที่ลูกค้าอนุญาตให้เผยแพร่</p>
     </div>
     <div class="cards">
-      <article class="case"><div class="ph">ภาพโครงการจริง</div><h3>[ชื่อโครงการ] โรงงาน</h3><p>ปัญหา → โซลูชันที่ใช้ → ผลลัพธ์ เช่น เหตุบุกรุกลดลง __%</p></article>
-      <article class="case"><div class="ph">ภาพโครงการจริง</div><h3>[ชื่อโครงการ] ค้าปลีก</h3><p>ปัญหา → โซลูชันที่ใช้ → ผลลัพธ์ เช่น ลดสินค้าสูญหาย __%</p></article>
-      <article class="case"><div class="ph">ภาพกิจกรรม / ข่าว</div><h3>[หัวข้อข่าว] งานสัมมนา / เปิดตัวสินค้า</h3><p>วันที่ สรุปสั้น 2 บรรทัด และลิงก์อ่านต่อ</p></article>
+      <article class="case"><div class="ph">ภาพโครงการ</div><span class="meta">2018 · พลังงาน</span><h3>ปตท. รถขนส่งน้ำมัน 1,500 คัน</h3><p>ติดตั้งระบบกล้องบนรถขนส่งน้ำมันของ บริษัท ปตท. จำกัด (มหาชน)</p></article>
+      <article class="case"><div class="ph">ภาพโครงการ</div><span class="meta">2020 · ค้าปลีก</span><h3>7-Eleven และ Central Group ทั่วประเทศ</h3><p>ติดตั้งระบบกล้องวงจรปิดในสาขาทั่วประเทศ</p></article>
+      <article class="case"><div class="ph">ภาพโครงการ</div><span class="meta">2023 · ค้าปลีก</span><h3>CMG Group ระบบนับคน</h3><p>ติดตั้งกล้องนับจำนวนคน (People Counting) เพื่อวิเคราะห์ทราฟฟิกในร้าน</p></article>
+      <article class="case"><div class="ph">ภาพโครงการ</div><span class="meta">2023 · ที่จอดรถ</span><h3>J-Park ที่จอดรถ MRT</h3><p>ติดตั้งระบบบริหารจัดการที่จอดรถของ MRT</p></article>
+      <article class="case"><div class="ph">ภาพโครงการ</div><span class="meta">2023 · ยานยนต์</span><h3>Toyota Buzz</h3><p>โครงการติดตั้งระบบกล้อง</p></article>
+      <article class="case"><div class="ph">ภาพโครงการ</div><span class="meta">2024 · สถานีบริการ</span><h3>PT ทั่วประเทศ</h3><p>ติดตั้งระบบกล้องวงจรปิดในสถานีบริการทั่วประเทศ</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">เกี่ยวกับเรา</p>
+      <h2>ธุรกิจครอบครัวไทย ที่เติบโตจากผู้จำหน่ายกล้องสู่ผู้ให้บริการโซลูชันอัจฉริยะ</h2>
+    </div>
+    <div class="about">
+      <div style="display:grid;gap:18px;min-width:0">
+        <p><b>วิสัยทัศน์</b><br>มุ่งเป็นผู้นำด้านนวัตกรรมดิจิทัลและโซลูชันความปลอดภัยครบวงจรในภูมิภาคอาเซียน ขับเคลื่อนด้วย AI และ AIoT Robotic เพื่อยกระดับคุณภาพชีวิตและความปลอดภัยสาธารณะของสังคมไทยอย่างยั่งยืน</p>
+        <ul class="facts">
+          <li><b>นำเข้า</b><span>เทคโนโลยีความปลอดภัยและระบบ AI/IoT ชั้นนำที่ได้มาตรฐานสากล</span></li>
+          <li><b>พัฒนา</b><span>แพลตฟอร์มและนวัตกรรมของตัวเอง เพื่อสร้างมูลค่าเพิ่มให้ลูกค้า</span></li>
+          <li><b>บริการ</b><span>ตั้งแต่ให้คำปรึกษา ออกแบบระบบ ติดตั้ง จนถึงหลังการขาย โดยทีมวิศวกร</span></li>
+          <li><b>เครือข่าย</b><span>พาร์ทเนอร์และช่างบริการทั่วประเทศ เพื่อบริการที่รวดเร็ว</span></li>
+        </ul>
+      </div>
+      <figure class="quote" style="margin:0">
+        <blockquote>“การเรียนรู้อย่างต่อเนื่อง ภาวะผู้นำที่มีจริยธรรม และนวัตกรรม สร้างความสำเร็จที่ยั่งยืนให้กับทุกคน”</blockquote>
+        <cite>คุณสมชาย ประจักษ์สูตร · ผู้ก่อตั้งและประธานเจ้าหน้าที่บริหาร</cite>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="milestones" style="background:var(--surface)">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">เส้นทาง 24 ปี</p>
+      <h2>จากกล้องวงจรปิด สู่ AI และ AIoT</h2>
+    </div>
+    <ol class="timeline">
+      <li><b>2002</b><span>ก่อตั้ง บริษัท ดิจิตอลโฟกัส จำกัด ในธุรกิจระบบรักษาความปลอดภัยและกล้องวงจรปิด</span></li>
+      <li><b>2006</b><span>ได้รับแต่งตั้งเป็นตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย และได้รับรอง ISO 9001</span></li>
+      <li><b>2009</b><span>ขยายเครือข่ายตัวแทนจำหน่ายกว่า 500 รายทั่วประเทศ</span></li>
+      <li><b>2016</b><span>จัดอบรมระบบกล้องวงจรปิดร่วมกับกรมพัฒนาฝีมือแรงงาน ให้ช่างกว่า 3,000 คน และเปิดตัวสินค้า 4G Mobile</span></li>
+      <li><b>2018</b><span>ติดตั้งระบบกล้องบนรถขนส่งน้ำมันของ ปตท. 1,500 คัน</span></li>
+      <li><b>2019</b><span>ได้รับรางวัล ASEAN Business Award สาขา Family Business ขนาดใหญ่</span></li>
+      <li><b>2020</b><span>ติดตั้งระบบกล้องให้ 7-Eleven และ Central Group ทั่วประเทศ และได้รับมาตรฐานธรรมาภิบาลธุรกิจ</span></li>
+      <li><b>2023</b><span>ระบบนับคนให้ CMG Group, โครงการ Toyota Buzz, ระบบที่จอดรถ MRT ของ J-Park และได้รับ มอก.S</span></li>
+      <li><b>2024</b><span>ติดตั้งระบบกล้องให้สถานีบริการ PT ทั่วประเทศ</span></li>
+      <li class="now"><b>ปัจจุบัน</b><span>Digital Transformation สู่ผู้ให้บริการ Security และ Smart Solutions ครบวงจร</span></li>
+    </ol>
+  </div>
+</section>
+
+<section id="platforms">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">แพลตฟอร์มของเรา</p>
+      <h2>รวมฮาร์ดแวร์ ซอฟต์แวร์ และข้อมูล ไว้ในระบบเดียว</h2>
+      <p>แพลตฟอร์มที่ Digital Focus พัฒนาเอง เพื่อเชื่อมอุปกรณ์จากหลายแบรนด์เข้ากับบริการของเรา</p>
+    </div>
+    <div class="plat">
+      <article class="card"><b class="rec-flag">DGF · พร้อมใช้งาน</b><h3>Smart Transport Solutions</h3><p>รวมกล้อง AI, GPS Tracking และเครื่องอ่านบัตรไว้ในแพลตฟอร์มเดียว ใช้ซิมเดียวผ่าน 4G ติดตามเส้นทาง ตรวจจับพฤติกรรมผู้ขับขี่ และรายงานแบบเรียลไทม์บนคลาวด์</p><div class="tags"><span>รถบรรทุก</span><span>รถโดยสาร</span><span>รถพยาบาล</span><span>กองรถขนส่ง</span></div></article>
+      <article class="card"><b class="rec-flag">DGF</b><h3>Smart Building Management Platform</h3><p>กำลังพัฒนา [คำอธิบายจากทีมพัฒนา]</p></article>
+      <article class="card"><b class="rec-flag">DGF</b><h3>CRM Platform</h3><p>กำลังพัฒนา [คำอธิบายจากทีมพัฒนา]</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="csr" style="background:var(--surface)">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">ความรับผิดชอบต่อสังคม</p>
+      <h2>ใช้เทคโนโลยีสร้างคนและดูแลชุมชน</h2>
+      <p>Digital Focus สนับสนุนสถาบันการศึกษาด้วยอุปกรณ์และทุน และดูแลชุมชน วัด และสถานสงเคราะห์อย่างต่อเนื่องทุกปี</p>
+    </div>
+    <div class="two">
+      <div class="card"><h3>การศึกษา</h3><ul class="check-list">
+        <li>ทุนวิจัย 1,000,000 บาท และ MOU ด้าน IoT ร่วมกับ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง และ Hikvision</li>
+        <li>MOU จัดตั้งศูนย์พัฒนาบุคลากรด้านกล้องวงจรปิด กับวิทยาลัยเทคนิคลพบุรี และสมาคมช่างเหมาไฟฟ้าและเครื่องกลไทย (2563)</li>
+        <li>ทุนการศึกษาและอุปกรณ์ให้วิทยาลัยเทคนิคลพบุรี ปราจีนบุรี มีนบุรี และสถาบันเทคโนโลยีปทุมวัน</li>
+      </ul></div>
+      <div class="card"><h3>ชุมชนและสังคม</h3><ul class="check-list">
+        <li>มอบกล้องวงจรปิด ทุน และสิ่งของให้วัด ศูนย์ดูแลผู้สูงอายุ และมูลนิธิ</li>
+        <li>มอบข้าวหอม 1,000 กิโลกรัม และชุดเตียงสนาม 25 ชุด ให้วัดพระบาทน้ำพุ จ.ลพบุรี สนับสนุนโรงพยาบาลสนามช่วงโควิด-19</li>
+        <li>กิจกรรมจิตอาสาของพนักงาน "Team Digital Focus" ทุกปี</li>
+      </ul></div>
     </div>
   </div>
 </section>
@@ -501,7 +617,7 @@ footer .wrap{display:grid;gap:24px}
     <div class="fcols">
       <div><h4>Digital Focus</h4><p style="opacity:.85">Smart Life · Smart Solution<br>2782/4-6 ถ.ลาดพร้าว แขวงคลองจั่น เขตบางกะปิ กทม. 10240<br>โทร. 02 136 8989</p></div>
       <div><h4>โซลูชัน</h4><ul><li><a href="#solutions">ตามอุตสาหกรรม</a></li><li><a href="#services">บริการแบบรายเดือน</a></li><li><a href="#configurator">เครื่องมือแนะนำชุดโซลูชัน</a></li><li><a href="#showroom">ศูนย์สาธิต</a></li></ul></div>
-      <div><h4>บริษัท</h4><ul><li><a href="#clients">ลูกค้าและพันธมิตร</a></li><li><a href="#certs">มาตรฐานและรางวัล</a></li><li><a href="#cases">ผลงานและข่าวสาร</a></li><li><a href="#careers">ร่วมงานกับเรา</a></li></ul></div>
+      <div><h4>บริษัท</h4><ul><li><a href="#about">เกี่ยวกับเรา</a></li><li><a href="#milestones">เส้นทาง 24 ปี</a></li><li><a href="#clients">ลูกค้าและพันธมิตร</a></li><li><a href="#certs">มาตรฐานและรางวัล</a></li><li><a href="#cases">ผลงาน</a></li><li><a href="#csr">ความรับผิดชอบต่อสังคม</a></li><li><a href="#careers">ร่วมงานกับเรา</a></li></ul></div>
       <div><h4>ติดตามเรา</h4><ul><li>Facebook</li><li>LINE OA</li><li>YouTube</li><li>TikTok</li><li>LinkedIn</li></ul></div>
     </div>
     <div class="fbottom"><span>© 2026 Digital Focus Co., Ltd.</span><span>นโยบายความเป็นส่วนตัว · ข้อกำหนดการใช้งาน · นโยบายคุกกี้</span><span>ต้นแบบเพื่อเสนอแนวทาง ข้อความใน [วงเล็บ] รอข้อมูลจริง</span></div>
@@ -512,16 +628,16 @@ footer .wrap{display:grid;gap:24px}
 (function(){
   var AUD=[
     {t:"ขยายธุรกิจร่วมกับตัวแทนจำหน่ายรายแรกของ Hikvision ในไทย",
-     l:["ศูนย์ข้อมูลสินค้า datasheet และสื่อการตลาดสำหรับตัวแทน","การฝึกอบรมและทีมเทคนิคสนับสนุนหน้างาน","บริการหลังการขายและ Call Center ตลอด 24 ชั่วโมง"],
+     l:["ร่วมเครือข่ายตัวแทนจำหน่ายกว่า 500 รายทั่วประเทศ","ศูนย์ข้อมูลสินค้า datasheet และสื่อการตลาดสำหรับตัวแทน","การฝึกอบรมและทีมเทคนิคสนับสนุนหน้างาน","บริการหลังการขายและ Call Center ตลอด 24 ชั่วโมง"],
      c:"สมัครเป็นพาร์ทเนอร์", tag:"partner"},
     {t:"ออกแบบ เสนอราคา และส่งมอบโครงการได้เร็วขึ้น",
-     l:["ทีมวิศวกรช่วยออกแบบระบบและประเมินอุปกรณ์","ขอราคาโครงการและดาวน์โหลดเอกสารเทคนิคได้ในที่เดียว","ทีมช่างทั่วประเทศช่วยติดตั้งและทดสอบระบบ"],
+     l:["ทีมวิศวกรช่วยออกแบบระบบและประเมินอุปกรณ์","ขอราคาโครงการและดาวน์โหลดเอกสารเทคนิคได้ในที่เดียว","ช่างบริการในเครือข่ายทั่วประเทศช่วยติดตั้งและทดสอบระบบ"],
      c:"ขอราคาโครงการ", tag:"si"},
     {t:"ระบบความปลอดภัย AI ที่ออกแบบให้เข้ากับธุรกิจของคุณ",
-     l:["โซลูชันเฉพาะอุตสาหกรรม เช่น โรงงาน ค้าปลีก โรงแรม อาคาร","เปลี่ยนภาพจากกล้องเป็นข้อมูลที่ใช้ตัดสินใจ ไม่ใช่แค่ดูย้อนหลัง","ผู้ให้บริการเดียวดูแลตั้งแต่ออกแบบ ติดตั้ง จนถึงหลังการขาย"],
+     l:["ผลงานกับองค์กรชั้นนำ เช่น ปตท., 7-Eleven และ Central Group","เปลี่ยนภาพจากกล้องเป็นข้อมูลที่ใช้ตัดสินใจ ไม่ใช่แค่ดูย้อนหลัง","ผู้ให้บริการเดียวดูแลตั้งแต่ออกแบบ ติดตั้ง จนถึงหลังการขาย"],
      c:"ปรึกษาโซลูชันฟรี", tag:"biz"},
     {t:"โซลูชันความปลอดภัยสาธารณะที่ผ่านมาตรฐานและตรวจสอบได้",
-     l:["ได้รับรอง ISO 9001:2015 จาก TÜV Nord","ช่วยจัดทำข้อกำหนดทางเทคนิคและเอกสารประกอบการจัดซื้อ","ทีมช่างครอบคลุมทั่วประเทศสำหรับโครงการหลายพื้นที่"],
+     l:["ISO 9001:2015, มาตรฐานธรรมาภิบาลธุรกิจ และ มอก.S","ช่วยจัดทำข้อกำหนดทางเทคนิคและเอกสารประกอบการจัดซื้อ","ทีมช่างครอบคลุมทั่วประเทศสำหรับโครงการหลายพื้นที่"],
      c:"ขอข้อมูลสำหรับจัดซื้อจัดจ้าง", tag:"gov"}
   ];
   var tabs=[].slice.call(document.querySelectorAll('.tab')), cur=0;
@@ -537,16 +653,19 @@ footer .wrap{display:grid;gap:24px}
   }
   tabs.forEach(function(b){b.addEventListener('click',function(){setAud(+b.dataset.i)})});
 
-  var IND=[["all","ทั้งหมด"],["factory","โรงงาน"],["retail","ค้าปลีก"],["hotel","โรงแรม / อาคาร"],["gov","ภาครัฐ"],["logistics","โลจิสติกส์"]];
+  var IND=[["all","ทั้งหมด"],["factory","โรงงาน"],["retail","ค้าปลีก"],["building","อาคาร / โรงแรม"],["gov","ภาครัฐ / เมือง"],["edu","การศึกษา"],["transport","ขนส่ง"],["home","บ้าน"]];
   var SOL=[
-    {n:"AI Video Analytics",d:"วิเคราะห์ภาพจากกล้องเพื่อตรวจจับคน ยานพาหนะ ป้ายทะเบียน และการบุกรุก",i:["factory","retail","hotel","gov","logistics"],a:["biz","gov","si"]},
+    {n:"AI Video Analytics",d:"วิเคราะห์ภาพจากกล้องเพื่อตรวจจับคน ยานพาหนะ ป้ายทะเบียน และการบุกรุก",i:["factory","retail","building","gov","transport"],a:["biz","gov","si"]},
+    {n:"Smart Building",d:"รวมกล้อง ระบบควบคุมการเข้าออก และอุปกรณ์ IoT ของอาคารไว้ในระบบเดียว",i:["building"],a:["biz","si"]},
+    {n:"Smart City / Traffic",d:"ระบบกล้องและการจราจรอัจฉริยะสำหรับพื้นที่สาธารณะและเมือง",i:["gov"],a:["gov","si"]},
+    {n:"Smart Education",d:"ระบบความปลอดภัย ห้องเรียนอัจฉริยะ และการรับรองทักษะดิจิทัล ICDL สำหรับสถาบันการศึกษา",i:["edu"],a:["gov","biz","si"]},
+    {n:"Smart AI Luxury House · ใหม่ 2026",d:"บ้านอัจฉริยะระดับพรีเมียม รวม Hikvision AI CCTV, BroadLink Smart Home และ Huawei Smart Energy",i:["home"],a:["partner","si","biz"]},
+    {n:"Smart Home",d:"อุปกรณ์ IoT ควบคุมเครื่องใช้ไฟฟ้าและความปลอดภัยภายในบ้าน",i:["home"],a:["partner"]},
     {n:"Smart Factory",d:"เฝ้าระวังการบุกรุกพื้นที่โรงงาน และตรวจความปลอดภัยในไลน์ผลิต",i:["factory"],a:["biz","si"]},
-    {n:"Smart Retail",d:"ระบบร้านค้าปลีกอัจฉริยะ ช่วยเพิ่มโอกาสในการดำเนินธุรกิจ",i:["retail"],a:["biz"]},
-    {n:"กล้องตรวจจับอุณหภูมิ",d:"กล้องความร้อนสำหรับตรวจจับความผิดปกติของอุณหภูมิและความเสี่ยงเพลิงไหม้",i:["factory","gov","hotel"],a:["biz","gov","si"]},
-    {n:"Service Robot (Keenon)",d:"หุ่นยนต์ส่งอาหารและของ ลดงานซ้ำซ้อนของพนักงานบริการ",i:["hotel","retail"],a:["biz","partner"]},
-    {n:"Drone (DJI)",d:"โดรนตรวจตราพื้นที่กว้าง สำรวจและเฝ้าระวังจากมุมสูง",i:["gov","factory","logistics"],a:["gov","biz"]},
-    {n:"Alarm และ Access Control",d:"ระบบแจ้งเตือนผู้บุกรุกและควบคุมการเข้าออก เชื่อมกับกล้องในระบบเดียว",i:["hotel","factory","gov"],a:["si","biz","partner"]},
-    {n:"กล้องติดรถบรรทุก",d:"กล้องและระบบบันทึกภาพบนยานพาหนะ สำหรับกองรถและงานขนส่ง",i:["logistics"],a:["biz","si","partner"]}
+    {n:"Smart Retail",d:"กล้องนับคนและวิเคราะห์ทราฟฟิกในร้าน ช่วยเพิ่มโอกาสทางธุรกิจ",i:["retail"],a:["biz","partner"]},
+    {n:"Smart PA System",d:"ระบบเสียงประกาศและเสียงสาธารณะ สำหรับอาคาร โรงเรียน และพื้นที่สาธารณะ",i:["building","edu","gov"],a:["si","gov","partner"]},
+    {n:"Smart Transport (DGF)",d:"กล้อง AI + GPS Tracking บนรถบรรทุก รถโดยสาร และรถพยาบาล ตรวจจับพฤติกรรมผู้ขับขี่ และรายงานเรียลไทม์ผ่าน 4G",i:["transport"],a:["biz","si","partner"]},
+    {n:"Robotics",d:"หุ่นยนต์บริการและระบบอัตโนมัติ ลดงานซ้ำซ้อนของพนักงาน",i:["building","retail"],a:["biz","partner"]}
   ];
   var AUDLABEL={partner:"ตัวแทน",si:"SI",biz:"เอกชน",gov:"ภาครัฐ"};
   var ind="all";
@@ -576,12 +695,13 @@ footer .wrap{display:grid;gap:24px}
     var base={factory:"กล้องรอบเขตโรงงาน พร้อมตรวจจับการบุกรุกและกล้องความร้อนจุดเสี่ยง",
       retail:"กล้องในร้านและทางเข้าออก พร้อมนับคนและวิเคราะห์ทราฟฟิก",
       hotel:"กล้องทางเข้า ล็อบบี้ และที่จอดรถ พร้อม Access Control และ Alarm",
+      edu:"กล้องรอบสถานศึกษา ระบบเสียงประกาศ และระบบแจ้งเหตุฉุกเฉิน",
       gov:"กล้องพื้นที่สาธารณะ ระบบรวมศูนย์ควบคุม และอุปกรณ์สำรองไฟ",
-      logistics:"กล้องลานจอดรถและคลังสินค้า พร้อมกล้องติดรถบรรทุก"}[biz];
+      logistics:"กล้องลานจอดรถและคลังสินค้า พร้อม DGF Smart Transport (กล้อง AI + GPS บนรถ)"}[biz];
     r.push(base);
     if(document.getElementById('ai').checked) r.push('ซอฟต์แวร์ AI วิเคราะห์ภาพ (คน ยานพาหนะ ป้ายทะเบียน)');
-    if(document.getElementById('robot').checked) r.push('หุ่นยนต์บริการ Keenon สำหรับงานส่งของและบริการ');
-    if(document.getElementById('drone').checked) r.push('โดรน DJI สำหรับตรวจตราพื้นที่กว้าง');
+    if(document.getElementById('robot').checked) r.push('หุ่นยนต์บริการสำหรับงานส่งของและบริการ');
+    if(document.getElementById('drone').checked) r.push('โดรนสำหรับตรวจตราพื้นที่กว้าง');
     r.push('สำรวจหน้างานและออกแบบโดยวิศวกร ติดตั้งโดยทีมช่าง และรับบริการหลังการขาย');
     document.getElementById('res').innerHTML=r.map(function(x){return '<li>'+x+'</li>'}).join('');
   }
@@ -599,8 +719,8 @@ footer .wrap{display:grid;gap:24px}
   document.getElementById('bookDemo').addEventListener('click',function(){document.getElementById('f-req').selectedIndex=1});
 
   var HERO={
-    th:{eye:"Smart Life · Smart Solution",title:'ผู้นำ <em>AI Security</em> และ AIoT Solutions ของไทย กว่า 24 ปี',lead:"จากกล้องวงจรปิดสู่ระบบอัจฉริยะครบวงจร ทั้ง AI วิเคราะห์ภาพ IoT หุ่นยนต์บริการ และโดรน ด้วยทีมช่างมากกว่า 500 คนทั่วประเทศ",btn:"EN",aria:"Switch to English"},
-    en:{eye:"Smart Life · Smart Solution",title:"Thailand's <em>AI Security</em> and AIoT leader for over 24 years",lead:"From CCTV to fully intelligent systems: AI video analytics, IoT, service robots and drones, backed by 500+ technicians nationwide. (English preview of the hero only.)",btn:"TH",aria:"เปลี่ยนเป็นภาษาไทย"}
+    th:{eye:"Smart Life · Smart Solution",title:'ผู้นำ <em>AI Security</em> และ AIoT Solutions ของไทย กว่า 24 ปี',lead:"จากกล้องวงจรปิดสู่ระบบอัจฉริยะครบวงจร ทั้ง AI วิเคราะห์ภาพ IoT หุ่นยนต์บริการ และโดรน ด้วยเครือข่ายตัวแทนและช่างบริการมากกว่า 500 รายทั่วประเทศ",btn:"EN",aria:"Switch to English"},
+    en:{eye:"Smart Life · Smart Solution",title:"Thailand's <em>AI Security</em> and AIoT leader for over 24 years",lead:"From CCTV to fully intelligent systems: AI video analytics, IoT, service robots and drones, backed by 500+ authorised dealers and service technicians nationwide. (English preview of the hero only.)",btn:"TH",aria:"เปลี่ยนเป็นภาษาไทย"}
   };
   var lang="th",langBtn=document.getElementById('lang');
   langBtn.addEventListener('click',function(){
