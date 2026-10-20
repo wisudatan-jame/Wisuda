@@ -6,279 +6,328 @@
 <title>Digital Focus Homepage Prototype</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>html{color-scheme:light}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
 <style>
-/* Layout: security-manufacturer corporate site. White header with utility bar, full-width banner carousel, icon row of product categories, image-led industry and project cards, investor relations and governance blocks, dark footer with legal links. Palette from the Digital Focus logo and company profile: royal blue primary, green and red as small accents only. */
+/* Layout: dark AI-security product site. Glass header, hero split between a large headline and a live AI camera feed with detection boxes over an animated sensor network, a client marquee, a bento grid of innovations, and dark glass cards throughout. Brand blue drives gradients and glows; brand red marks recording and alerts; brand green marks live and verified states. Committed single dark look. */
 :root{
-  --bg:#ffffff; --surface:#f4f6fa; --card:#ffffff; --ink:#18202e; --muted:#5a6375; --line:#e1e5ec;
-  --blue:#0b4db3; --blue-dark:#08337a; --blue-soft:#e8effb; --green:#1f9a4b; --green-soft:#e6f4ec; --red:#e3262b; --red-soft:#fdeaea;
-  --foot:#141a26; --on-dark:#ffffff; --on-dark-muted:#a9b1c2;
-  --head:'Noto Sans Thai','Noto Sans',system-ui,sans-serif;
-  --body:'Noto Sans Thai','Noto Sans',system-ui,sans-serif;
+  --bg:#05070f; --bg-2:#080c19; --surface:#0b1122; --card:rgba(255,255,255,.035); --card-solid:#0e1528;
+  --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.16);
+  --ink:#eef2ff; --muted:#9aa6c4; --dim:#6b7796;
+  --blue:#2f7bff; --cyan:#38d5ff; --blue-deep:#0b4db3; --green:#2fd57a; --red:#ff4545;
+  --grad:linear-gradient(100deg,#2f7bff 0%,#38d5ff 100%);
+  --glow:0 0 0 1px rgba(56,213,255,.25),0 10px 40px -10px rgba(47,123,255,.55);
+  --head:'Kanit','IBM Plex Sans Thai',system-ui,sans-serif;
+  --body:'IBM Plex Sans Thai','Noto Sans Thai',system-ui,sans-serif;
+  --mono:'JetBrains Mono','IBM Plex Sans Thai',ui-monospace,SFMono-Regular,Menlo,monospace;
+  color-scheme:dark;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0d1320; --surface:#131b2b; --card:#182235; --ink:#eef1f7; --muted:#a7b0c2; --line:#253049;
-  --blue:#5b93f0; --blue-dark:#0a2a63; --blue-soft:#17284a; --green:#4cc27a; --green-soft:#14301f; --red:#ff6b6e; --red-soft:#3a1a1f;
-  --foot:#090d16; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0d1320; --surface:#131b2b; --card:#182235; --ink:#eef1f7; --muted:#a7b0c2; --line:#253049;
-  --blue:#5b93f0; --blue-dark:#0a2a63; --blue-soft:#17284a; --green:#4cc27a; --green-soft:#14301f; --red:#ff6b6e; --red-soft:#3a1a1f;
-  --foot:#090d16; color-scheme:dark}
-
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font:16px/1.7 var(--body);margin:0}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--card)}
-h1,h2,h3{font-family:var(--head);font-weight:700;line-height:1.3;margin:0;text-wrap:balance}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:16px/1.7 var(--body);margin:0;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+h1,h2,h3{font-family:var(--head);font-weight:500;line-height:1.2;margin:0;text-wrap:balance;letter-spacing:-.005em}
 p{margin:0}
 a{color:inherit}
 img{display:block;max-width:100%}
 .wrap{max-width:1280px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
-section{padding-block:60px}
-.eyebrow{font:600 .8rem/1.3 var(--head);letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
-.sec-head{display:grid;gap:10px;margin-bottom:30px;max-width:70ch}
+section{padding-block:88px;position:relative}
+.eyebrow{font:500 .76rem/1.3 var(--mono);letter-spacing:.03em;text-transform:uppercase;color:var(--cyan);display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--cyan)}
+.sec-head{display:grid;gap:14px;margin-bottom:40px;max-width:72ch}
 .sec-head.center{margin-inline:auto;text-align:center;justify-items:center}
-.sec-head h2{font-size:clamp(1.6rem,4vw,2.3rem)}
-.sec-head p{color:var(--muted)}
-:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.sec-head h2{font-size:clamp(1.9rem,4.6vw,3rem)}
+.sec-head p{color:var(--muted);font-size:1.05rem}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
 
 /* buttons */
-.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid transparent;border-radius:4px;padding:11px 24px;font:600 .95rem/1.2 var(--head);cursor:pointer;text-decoration:none;min-height:44px}
-.btn-red{background:var(--blue);color:#fff}
-.btn-red:hover{background:var(--blue-dark)}
-.btn-line{border-color:var(--blue);color:var(--blue);background:transparent}
-.btn-line:hover{background:var(--blue-soft)}
-.btn-ghost{border-color:#fff;color:#fff;background:transparent}
-.btn-ghost:hover{background:#fff;color:var(--blue-dark)}
-.more{font:600 .92rem/1.3 var(--head);color:var(--blue);text-decoration:none;display:inline-flex;gap:6px;align-items:center}
-.more::after{content:"›";font-size:1.3em;line-height:1}
+.btn{display:inline-flex;align-items:center;gap:10px;border:1px solid transparent;border-radius:999px;padding:12px 26px;font:500 .98rem/1.2 var(--head);cursor:pointer;text-decoration:none;min-height:48px;transition:box-shadow .25s,transform .25s,background .25s}
+.btn-red{background:var(--grad);color:#fff;box-shadow:0 8px 30px -8px rgba(47,123,255,.8)}
+.btn-red:hover{transform:translateY(-1px);box-shadow:0 12px 40px -8px rgba(56,213,255,.9)}
+.btn-line,.btn-ghost{border-color:var(--line-2);color:var(--ink);background:rgba(255,255,255,.03);backdrop-filter:blur(6px)}
+.btn-line:hover,.btn-ghost:hover{border-color:var(--cyan);background:rgba(56,213,255,.08)}
+.more{font:500 .92rem/1.3 var(--head);color:var(--cyan);text-decoration:none;display:inline-flex;gap:8px;align-items:center}
+.more::after{content:"→";transition:transform .25s}
+a:hover .more::after{transform:translateX(4px)}
 
 /* utility bar and header */
-.util{background:var(--surface);border-bottom:1px solid var(--line);font-size:.8rem;color:var(--muted)}
-.util .wrap{display:flex;justify-content:flex-end;gap:18px;min-height:34px;align-items:center;flex-wrap:wrap}
+.util{background:var(--bg);border-bottom:1px solid var(--line);font:400 .74rem/1 var(--mono);color:var(--dim);letter-spacing:.04em}
+.util .wrap{display:flex;justify-content:flex-end;gap:20px;min-height:32px;align-items:center;flex-wrap:wrap}
 .util a{text-decoration:none}
-.util a:hover{color:var(--blue)}
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--card);border-bottom:1px solid var(--line);box-shadow:0 2px 10px rgba(16,30,60,.05)}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
+.util a:hover{color:var(--ink)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(5,7,15,.72);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:70px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.mark{width:38px;height:34px;flex:none}
-.brand b{font:700 1.2rem/1 var(--head);color:var(--ink)}
-.brand small{display:block;font:400 .72rem/1.3 var(--body);color:var(--muted)}
-nav{display:none;gap:4px;font:500 .95rem/1 var(--head)}
-nav a{text-decoration:none;color:var(--ink);padding:24px 12px;border-bottom:3px solid transparent}
-nav a:hover{color:var(--blue);border-bottom-color:var(--blue)}
+.mark{width:36px;height:32px;flex:none;filter:drop-shadow(0 0 10px rgba(47,123,255,.45))}
+.brand b{font:600 1.18rem/1 var(--head);letter-spacing:.01em}
+.brand small{display:block;font:400 .68rem/1.4 var(--mono);color:var(--dim);letter-spacing:.03em}
+nav{display:none;gap:2px;font:400 .95rem/1 var(--head)}
+nav a{text-decoration:none;color:var(--muted);padding:10px 14px;border-radius:999px;transition:color .2s,background .2s}
+nav a:hover{color:var(--ink);background:rgba(255,255,255,.06)}
 .hdr-cta{display:flex;gap:10px;align-items:center}
-.hdr-cta .btn{padding:8px 18px;min-height:40px}
-.icon-btn{display:inline-grid;place-content:center;text-decoration:none;appearance:none;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:4px;min-width:44px;min-height:40px;padding:0 10px;font:600 .85rem/1 var(--head);cursor:pointer}
+.hdr-cta .btn{padding:8px 18px;min-height:40px;font-size:.9rem}
+.icon-btn{display:inline-grid;place-content:center;text-decoration:none;appearance:none;border:1px solid var(--line-2);background:transparent;color:var(--ink);border-radius:999px;min-width:44px;min-height:40px;padding:0 12px;font:500 .8rem/1 var(--mono);cursor:pointer}
+.icon-btn:hover{border-color:var(--cyan)}
 .menu-btn{gap:4px}
 .menu-btn i{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px}
-@media(min-width:1080px){nav{display:flex}.menu-btn{display:none}}
-.mnav{background:var(--card);border-top:1px solid var(--line)}
-.mnav .wrap{display:grid;padding-block:8px 16px}
-.mnav a{text-decoration:none;padding:13px 0;border-bottom:1px solid var(--line);font:500 1rem/1.3 var(--head)}
-@media(min-width:1080px){.mnav{display:none!important}}
-@media(max-width:560px){.hdr-cta .btn-red{display:none}.util .wrap{justify-content:center}}
+@media(min-width:1100px){nav{display:flex}.menu-btn{display:none}}
+.mnav{background:var(--bg-2);border-top:1px solid var(--line)}
+.mnav .wrap{display:grid;padding-block:8px 18px}
+.mnav a{text-decoration:none;padding:14px 0;border-bottom:1px solid var(--line);font:400 1.02rem/1.3 var(--head)}
+@media(min-width:1100px){.mnav{display:none!important}}
+@media(max-width:560px){.hdr-cta .btn-red{display:none}.util{display:none}}
 
-/* hero carousel */
-.hero{position:relative;padding:0;background:var(--blue-dark);color:#fff;overflow:hidden}
-.slides{display:grid}
-.slide{grid-area:1/1;position:relative;opacity:0;visibility:hidden;transition:opacity .6s}
-.slide.on{opacity:1;visibility:visible}
-.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,24,64,.92) 0%,rgba(6,24,64,.7) 48%,rgba(6,24,64,.1) 100%)}
-.slide .wrap{position:relative;z-index:1;padding-block:clamp(64px,10vw,130px) clamp(80px,10vw,130px);display:grid;gap:16px}
-.slide .wrap > *{max-width:620px}
-.slide .eyebrow{color:#8fb8ff}
-.slide h1,.slide h2{font-size:clamp(2rem,5.6vw,3.4rem);line-height:1.18}
-.slide h1 em,.slide h2 em{font-style:normal;color:#8fb8ff}
-.lead{color:#d4def0;font-size:clamp(1rem,2.2vw,1.15rem);max-width:56ch}
-.slide .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
-.hero-cap{font-size:.74rem;color:#b9c6de}
-.hero-ctrl{position:absolute;z-index:2;left:0;right:0;bottom:22px;display:flex;justify-content:center;gap:10px;align-items:center}
-.dot{appearance:none;border:0;width:34px;height:4px;padding:0;background:rgba(255,255,255,.4);cursor:pointer;border-radius:2px}
-.dot[aria-current="true"]{background:#fff}
-.arrow{appearance:none;border:1px solid rgba(255,255,255,.5);background:rgba(6,24,64,.35);color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.2rem;line-height:1}
+/* hero */
+.hero{padding-block:clamp(56px,8vw,110px) clamp(64px,8vw,120px);overflow:hidden;isolation:isolate;background:radial-gradient(1200px 600px at 75% 20%,rgba(47,123,255,.22),transparent 60%),radial-gradient(800px 500px at 10% 90%,rgba(56,213,255,.10),transparent 60%),var(--bg)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;-webkit-mask:radial-gradient(ellipse at 60% 40%,#000 0%,transparent 70%);mask:radial-gradient(ellipse at 60% 40%,#000 0%,transparent 70%);opacity:.55}
+#net{position:absolute;inset:0;width:100%;height:100%;z-index:-1;opacity:.7}
+.hero-grid{display:grid;gap:48px;align-items:center}
+@media(min-width:1000px){.hero-grid{grid-template-columns:1.05fr .95fr}}
+.hero-copy{display:grid;gap:22px;min-width:0}
+.pill{justify-self:start;display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line-2);background:rgba(255,255,255,.04);border-radius:999px;padding:7px 14px;font:400 .74rem/1.3 var(--mono);letter-spacing:.03em;color:var(--muted)}
+.live{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(47,213,122,.6);animation:ping 2s infinite;flex:none}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(47,213,122,.6)}70%{box-shadow:0 0 0 10px rgba(47,213,122,0)}100%{box-shadow:0 0 0 0 rgba(47,213,122,0)}}
+.hero h1{font-size:clamp(2.4rem,6.4vw,4.6rem);line-height:1.08;font-weight:500}
+.lead{color:var(--muted);font-size:clamp(1.02rem,2vw,1.18rem);max-width:56ch}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.kpis{display:flex;flex-wrap:wrap;gap:12px 36px;padding-top:22px;border-top:1px solid var(--line);margin-top:6px}
+.kpis div{display:grid}
+.kpis b{font:500 1.7rem/1.1 var(--head);font-variant-numeric:tabular-nums}
+.kpis span{font-size:.82rem;color:var(--dim)}
 
-/* product categories */
-.cats-sec{padding-block:40px;border-bottom:1px solid var(--line)}
-.cats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-@media(min-width:640px){.cats{grid-template-columns:repeat(4,1fr)}}
-@media(min-width:1080px){.cats{grid-template-columns:repeat(8,1fr)}}
-.cat{display:grid;justify-items:center;gap:10px;padding:18px 8px;border-radius:6px;text-decoration:none;text-align:center;font:500 .9rem/1.3 var(--head)}
-.cat:hover{background:var(--surface);color:var(--blue)}
-.cat svg{width:40px;height:40px;stroke:var(--blue);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+/* AI camera feed */
+.feed{position:relative;border-radius:18px;padding:10px;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1px solid var(--line-2);box-shadow:0 40px 120px -30px rgba(47,123,255,.55);min-width:0}
+.feed-top,.feed-bot{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 8px 10px;font:400 .72rem/1.2 var(--mono);color:var(--muted);letter-spacing:.03em;flex-wrap:wrap}
+.feed-bot{padding:10px 8px 6px}
+.rec{color:var(--red);display:inline-flex;gap:6px;align-items:center}
+.rec::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);animation:blink 1.2s steps(2) infinite}
+@keyframes blink{50%{opacity:.2}}
+.on-ai{color:var(--green);display:inline-flex;gap:6px;align-items:center}
+.on-ai::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green)}
+.screen{position:relative;aspect-ratio:391/191;max-width:100%;border-radius:10px;overflow:hidden;background:#000}
+.screen img{width:100%;height:100%;object-fit:cover;filter:saturate(.75) contrast(1.08) brightness(.9)}
+.screen::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px)}
+.screen::after{content:"";position:absolute;left:0;right:0;height:30%;z-index:2;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(56,213,255,.16),transparent);animation:scan 4s linear infinite}
+@keyframes scan{from{top:-30%}to{top:100%}}
+.box{position:absolute;z-index:3;border:1.5px solid var(--cyan);border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.35),inset 0 0 18px rgba(56,213,255,.15);animation:lock 3.2s ease-in-out infinite}
+.box span{position:absolute;left:-1.5px;bottom:100%;margin-bottom:3px;white-space:nowrap;background:var(--cyan);color:#001523;font:600 .64rem/1 var(--mono);padding:3px 5px;border-radius:2px;letter-spacing:.03em}
+.box.plate{border-color:var(--green);box-shadow:inset 0 0 10px rgba(47,213,122,.25)}
+.box.plate span{background:var(--green);bottom:auto;top:100%;margin:3px 0 0}
+.box.b2{animation-delay:.6s}
+@keyframes lock{0%,100%{transform:scale(1)}50%{transform:scale(1.015)}}
+.fence{position:absolute;z-index:3;left:4%;right:4%;bottom:9%;border-top:2px dashed var(--red);opacity:.85}
+.fence span{position:absolute;right:0;top:4px;font:600 .6rem/1 var(--mono);color:var(--red);background:rgba(0,0,0,.55);padding:3px 5px;border-radius:2px}
+.feed-log{display:grid;gap:4px;padding:10px 8px 4px;border-top:1px solid var(--line);margin-top:8px;font:400 .72rem/1.5 var(--mono);color:var(--muted)}
+.feed-log b{font-weight:500;color:var(--ink)}
+.feed-log .g{color:var(--green)}.feed-log .r{color:var(--red)}
+.feed-cap{font:400 .68rem/1.4 var(--body);color:var(--dim);padding:6px 8px 2px}
 
-/* audience switcher */
-.aud-sec{background:var(--surface)}
-.aud{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden}
-.tabs{display:grid;grid-template-columns:repeat(2,1fr);border-bottom:1px solid var(--line)}
-.tab{appearance:none;border:0;background:transparent;color:var(--muted);padding:16px;font:600 .92rem/1.3 var(--head);cursor:pointer;text-align:left;border-top:3px solid transparent;min-height:60px}
-.tab small{display:block;font:400 .78rem/1.3 var(--body);margin-top:2px}
-.tab[aria-selected="true"]{color:var(--blue);background:var(--blue-soft);border-top-color:var(--blue)}
+/* client marquee */
+.marquee-sec{padding-block:34px;border-block:1px solid var(--line);background:var(--bg-2)}
+.marquee-sec p{text-align:center;font:400 .74rem/1 var(--mono);letter-spacing:.03em;text-transform:uppercase;color:var(--dim);margin-bottom:20px}
+.marquee{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.track{display:flex;gap:56px;width:max-content;animation:slide 50s linear infinite}
+.track span{font:500 1.25rem/1 var(--head);color:var(--muted);white-space:nowrap;opacity:.85}
+@keyframes slide{to{transform:translateX(-50%)}}
+.marquee:hover .track{animation-play-state:paused}
+
+/* bento */
+.bento{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:760px){.bento{grid-template-columns:repeat(4,1fr);grid-auto-rows:260px}.b-xl{grid-column:span 2;grid-row:span 2}.b-wide{grid-column:span 2}}
+.tile{position:relative;overflow:hidden;border-radius:18px;border:1px solid var(--line);background:var(--card-solid);text-decoration:none;display:flex;flex-direction:column;justify-content:flex-end;min-height:240px;isolation:isolate;transition:border-color .3s,box-shadow .3s}
+.tile:hover{border-color:rgba(56,213,255,.45);box-shadow:var(--glow)}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .8s}
+.tile:hover img{transform:scale(1.05)}
+.tile::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,7,15,0) 10%,rgba(5,7,15,.78) 55%,rgba(5,7,15,.97) 100%)}
+.tile .txt{padding:24px;display:grid;gap:8px}
+.tile h3{font-size:clamp(1.25rem,2.4vw,1.7rem)}
+.b-xl h3{font-size:clamp(1.5rem,3vw,2.2rem)}
+.tile p{color:#c6cee3;font-size:.95rem;max-width:52ch}
+.tile.stat{background:radial-gradient(400px 260px at 100% 0%,rgba(47,123,255,.35),transparent 70%),var(--card-solid);justify-content:space-between}
+.tile.stat::after{display:none}
+.tile.stat .big{font:500 clamp(2.6rem,6vw,3.6rem)/1 var(--head);padding:24px 24px 0}
+.tag{justify-self:start;font:500 .68rem/1 var(--mono);letter-spacing:.03em;text-transform:uppercase;padding:6px 9px;border-radius:999px;border:1px solid rgba(56,213,255,.45);color:var(--cyan);background:rgba(5,7,15,.5)}
+.tag.new{border-color:rgba(255,69,69,.55);color:#ff8a8a}
+.tag.live{border-color:rgba(47,213,122,.55);color:var(--green)}
+
+/* stats */
+.proof{background:var(--bg-2);border-block:1px solid var(--line);padding-block:64px}
+.proof-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.proof-grid + .proof-grid{margin-top:16px}
+.proof-grid div{display:grid;gap:6px;align-content:start;background:var(--bg-2);padding:26px 22px}
+.proof-grid b{font:500 clamp(1.9rem,4.6vw,2.8rem)/1.05 var(--head);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
+.proof-grid span{font-size:.88rem;color:var(--muted)}
+@media(min-width:760px){.proof-grid{grid-template-columns:repeat(4,1fr)}}
+
+/* generic cards */
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;gap:10px;align-content:start;min-width:0;transition:border-color .3s,box-shadow .3s}
+.card:hover{border-color:var(--line-2)}
+.card h3{font-size:1.15rem}
+.card p{color:var(--muted);font-size:.95rem}
+.cards{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.tags span{font:400 .7rem/1.2 var(--mono);color:var(--muted);padding:4px 9px;border-radius:999px;border:1px solid var(--line)}
+.card.rec{border-color:rgba(56,213,255,.45);box-shadow:var(--glow);background:linear-gradient(160deg,rgba(47,123,255,.12),rgba(255,255,255,.02))}
+.rec-flag{font:500 .7rem/1.2 var(--mono);letter-spacing:.03em;text-transform:uppercase;color:var(--cyan)}
+.card[hidden]{display:none}
+
+/* audience */
+.aud-sec{padding-block:0 40px}
+.aud{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;backdrop-filter:blur(8px)}
+.tabs{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;padding:8px;border-bottom:1px solid var(--line)}
+.tab{appearance:none;border:1px solid transparent;background:transparent;color:var(--muted);padding:14px 16px;font:500 .95rem/1.3 var(--head);cursor:pointer;text-align:left;border-radius:12px;min-height:60px;transition:background .2s}
+.tab small{display:block;font:400 .76rem/1.3 var(--body);margin-top:3px;color:var(--dim)}
+.tab:hover{background:rgba(255,255,255,.04)}
+.tab[aria-selected="true"]{color:var(--ink);background:linear-gradient(160deg,rgba(47,123,255,.28),rgba(56,213,255,.08));border-color:rgba(56,213,255,.35)}
 @media(min-width:760px){.tabs{grid-template-columns:repeat(4,1fr)}}
-.panel{padding:24px;display:grid;gap:16px}
-.panel h2{font-size:clamp(1.2rem,3vw,1.5rem)}
-.panel ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
-.panel li{padding-left:24px;position:relative}
+.panel{padding:28px;display:grid;gap:18px}
+.panel h2{font-size:clamp(1.3rem,3vw,1.8rem)}
+.panel ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+@media(min-width:760px){.panel ul{grid-template-columns:1fr 1fr}}
+.panel li{padding-left:26px;position:relative;color:#cdd4e8}
 .panel li::before{content:"";position:absolute;left:2px;top:.45em;width:12px;height:7px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg)}
 .panel .ctas{display:flex;flex-wrap:wrap;gap:10px}
 
-/* featured */
-.feature{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-.fcard{display:grid;grid-template-rows:auto 1fr;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;min-width:0;transition:box-shadow .2s,transform .2s}
-.fcard:hover{box-shadow:0 10px 28px rgba(16,30,60,.12);transform:translateY(-2px)}
-.fcard .ratio{aspect-ratio:16/10;max-width:100%;overflow:hidden;background:var(--surface)}
-.fcard img{width:100%;height:100%;object-fit:cover}
-.fcard .txt{padding:18px 20px 22px;display:grid;gap:8px;align-content:start}
-.fcard h3{font-size:1.15rem}
-.fcard p{color:var(--muted);font-size:.94rem}
-.tag{justify-self:start;font:600 .72rem/1 var(--head);padding:5px 8px;border-radius:3px;background:var(--blue-soft);color:var(--blue)}
-.tag.new{background:var(--red-soft);color:var(--red)}
-.tag.live{background:var(--green-soft);color:var(--green)}
+/* product categories */
+.cats-sec{padding-block:24px 64px}
+.cats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:640px){.cats{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:1100px){.cats{grid-template-columns:repeat(8,1fr)}}
+.cat{display:grid;justify-items:center;gap:12px;padding:22px 10px;border-radius:16px;border:1px solid var(--line);background:var(--card);text-decoration:none;text-align:center;font:400 .88rem/1.35 var(--head);color:var(--muted);transition:all .25s}
+.cat:hover{color:var(--ink);border-color:rgba(56,213,255,.45);box-shadow:var(--glow);transform:translateY(-2px)}
+.cat svg{width:34px;height:34px;stroke:var(--cyan);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 
-/* stats */
-.proof{background:var(--blue);color:#fff;padding-block:48px}
-.proof-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 24px}
-.proof-grid + .proof-grid{margin-top:26px;padding-top:26px;border-top:1px solid rgba(255,255,255,.22)}
-.proof-grid div{display:grid;gap:4px;align-content:start}
-.proof-grid b{font:700 clamp(1.8rem,4.6vw,2.6rem)/1.1 var(--head);font-variant-numeric:tabular-nums}
-.proof-grid span{font-size:.9rem;color:#d4def0}
-@media(min-width:760px){.proof-grid{grid-template-columns:repeat(4,1fr)}}
-
-/* logo wall and brands */
-.logo-groups{display:grid;gap:24px}
-.logo-group h3{font-size:.95rem;color:var(--muted);font-weight:600;margin-bottom:10px}
-.logos{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
-.logo-tile{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px 12px;display:grid;gap:8px;justify-items:center;text-align:center;min-width:0}
-.logo-tile .lg{width:50px;height:50px;border-radius:50%;background:var(--surface);display:grid;place-content:center;color:var(--muted);font-size:.66rem}
-.logo-tile span{font-size:.85rem}
-.brands{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
-.brand-card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:20px;display:grid;gap:6px;align-content:start;min-width:0}
-.brand-card b{font:700 1.15rem/1.2 var(--head)}
+/* logos and brands */
+.logo-groups{display:grid;gap:26px}
+.logo-group h3{font:500 .74rem/1.3 var(--mono);letter-spacing:.03em;text-transform:uppercase;color:var(--dim);margin-bottom:12px}
+.logos{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.logo-tile{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 14px;display:grid;gap:10px;justify-items:center;text-align:center;min-width:0}
+.logo-tile .lg{width:46px;height:46px;border-radius:12px;border:1px dashed var(--line-2);display:grid;place-content:center;color:var(--dim);font:400 .6rem/1 var(--mono)}
+.logo-tile span{font-size:.88rem;color:#cdd4e8}
+.brands{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.brand-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;display:grid;gap:8px;align-content:start;min-width:0}
+.brand-card b{font:500 1.25rem/1.2 var(--head)}
 .brand-card span{color:var(--muted);font-size:.9rem}
-.brand-card.first{border-color:var(--blue);box-shadow:inset 0 3px 0 var(--blue)}
-.badge{justify-self:start;font:600 .7rem/1 var(--head);background:var(--blue);color:#fff;padding:6px 9px;border-radius:3px}
+.brand-card.first{border-color:rgba(56,213,255,.4);background:linear-gradient(160deg,rgba(47,123,255,.18),rgba(255,255,255,.02))}
+.badge{justify-self:start;font:500 .66rem/1 var(--mono);letter-spacing:.03em;text-transform:uppercase;border:1px solid rgba(56,213,255,.5);color:var(--cyan);padding:6px 9px;border-radius:999px}
 
 /* solutions */
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
-.chip{appearance:none;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 16px;font:500 .9rem/1.2 var(--head);cursor:pointer;min-height:40px}
-.chip[aria-pressed="true"]{background:var(--blue);color:#fff;border-color:var(--blue)}
-.cards{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
-.card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:22px;display:grid;gap:8px;align-content:start;min-width:0}
-.card h3{font-size:1.1rem}
-.card p{color:var(--muted);font-size:.94rem}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
-.tags span{font-size:.74rem;background:var(--surface);color:var(--muted);padding:3px 9px;border-radius:999px}
-.card.rec{border-color:var(--blue);box-shadow:inset 0 3px 0 var(--blue)}
-.rec-flag{font:600 .74rem/1.2 var(--head);color:var(--blue)}
-.card[hidden]{display:none}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.chip{appearance:none;border:1px solid var(--line-2);background:transparent;color:var(--muted);border-radius:999px;padding:9px 18px;font:400 .9rem/1.2 var(--head);cursor:pointer;min-height:40px}
+.chip:hover{color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 
 /* services, pdpa, bands, certs */
-.svc{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
-.svc .card b.model{font:600 .74rem/1 var(--head);letter-spacing:.08em;color:var(--green)}
-.two{display:grid;gap:18px}
+.svc{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.svc .card b.model{font:500 .7rem/1 var(--mono);letter-spacing:.03em;color:var(--green)}
+.two{display:grid;gap:16px}
 @media(min-width:800px){.two{grid-template-columns:1fr 1fr}}
-.check-list{margin:0;padding:0;list-style:none;display:grid;gap:10px}
-.check-list li{padding-left:28px;position:relative;font-size:.96rem}
+.check-list{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.check-list li{padding-left:28px;position:relative;font-size:.96rem;color:#cdd4e8}
 .check-list li::before{content:"";position:absolute;left:2px;top:.4em;width:13px;height:7px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg)}
-.band{background:var(--blue-dark);color:#fff;border-radius:6px;padding:32px 24px;display:grid;gap:18px;align-items:center;overflow:hidden}
-.band p{color:#d4def0}
-.band .eyebrow{color:#8fb8ff}
+.band{position:relative;border-radius:24px;padding:36px 26px;display:grid;gap:18px;align-items:center;overflow:hidden;border:1px solid var(--line-2);background:radial-gradient(700px 360px at 90% 10%,rgba(47,123,255,.35),transparent 60%),linear-gradient(160deg,#0c1834,#070b18)}
+.band p{color:var(--muted)}
 .band-media{padding:0;gap:0}
-.band-media img{width:100%;height:100%;object-fit:cover;min-height:220px}
-.band-media .band-txt{padding:32px 24px;display:grid;gap:12px;align-content:center}
-@media(min-width:860px){.band{grid-template-columns:1.4fr auto;padding:44px}.band-media{grid-template-columns:1fr 1fr;padding:0}.band-media .band-txt{padding:44px}}
-.certs{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.cert{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:20px;display:grid;gap:4px}
-.cert b{font:700 1.02rem/1.3 var(--head)}
+.band-media img{width:100%;height:100%;object-fit:cover;min-height:260px}
+.band-media .band-txt{padding:36px 28px;display:grid;gap:14px;align-content:center}
+.band h2{font-size:clamp(1.6rem,3.6vw,2.4rem)!important}
+@media(min-width:860px){.band{grid-template-columns:1.4fr auto;padding:52px}.band-media{grid-template-columns:1.05fr 1fr;padding:0}.band-media .band-txt{padding:52px}}
+.certs{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.cert{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;display:grid;gap:6px}
+.cert b{font:500 1.05rem/1.3 var(--head)}
 .cert span{font-size:.88rem;color:var(--muted)}
 
 /* configurator */
-.cfg{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:24px;display:grid;gap:24px}
-@media(min-width:860px){.cfg{grid-template-columns:1fr 1fr;padding:32px}}
-.field{display:grid;gap:8px;margin-bottom:16px}
-label,.lbl{font:600 .9rem/1.3 var(--head)}
-select,input[type=text],input[type=tel],textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:11px 12px;min-height:46px}
-input[type=range]{width:100%;accent-color:var(--blue)}
+.cfg{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;display:grid;gap:26px}
+@media(min-width:860px){.cfg{grid-template-columns:1fr 1fr;padding:36px}}
+.field{display:grid;gap:8px;margin-bottom:18px}
+label,.lbl{font:500 .9rem/1.3 var(--head)}
+select,input[type=text],input[type=tel],textarea{width:100%;font:inherit;color:var(--ink);background:rgba(255,255,255,.04);border:1px solid var(--line-2);border-radius:10px;padding:12px 14px;min-height:48px}
+select option{background:var(--card-solid)}
+input[type=range]{width:100%;accent-color:var(--cyan)}
 .checks{display:grid;gap:8px}
-.checks label{font:400 .95rem/1.4 var(--body);display:flex;gap:10px;align-items:center;min-height:36px}
-.checks input{width:20px;height:20px;accent-color:var(--blue)}
-.result{background:var(--blue-soft);border-radius:6px;padding:22px;display:grid;gap:12px;align-content:start}
-.result h3{font-size:1.1rem}
-.result ul{margin:0;padding-left:20px;display:grid;gap:6px}
-.note{font-size:.82rem;color:var(--muted)}
-.demo-flag{display:inline-block;font:600 .68rem/1 var(--head);padding:4px 8px;border:1px dashed currentColor;border-radius:3px;opacity:.75;letter-spacing:.03em;text-transform:none;vertical-align:middle}
+.checks label{font:400 .95rem/1.4 var(--body);display:flex;gap:10px;align-items:center;min-height:36px;color:#cdd4e8}
+.checks input{width:20px;height:20px;accent-color:var(--cyan)}
+.result{background:linear-gradient(160deg,rgba(47,123,255,.16),rgba(255,255,255,.02));border:1px solid rgba(56,213,255,.3);border-radius:16px;padding:24px;display:grid;gap:12px;align-content:start}
+.result h3{font-size:1.15rem}
+.result ul{margin:0;padding-left:20px;display:grid;gap:8px;color:#cdd4e8}
+.note{font-size:.82rem;color:var(--dim)}
+.demo-flag{display:inline-block;font:400 .64rem/1 var(--mono);padding:4px 8px;border:1px dashed currentColor;border-radius:999px;opacity:.75;letter-spacing:.04em;text-transform:none}
 
 /* projects */
-.case{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;min-width:0}
-.case .ph{aspect-ratio:16/9;max-width:100%;overflow:hidden;background:repeating-linear-gradient(135deg,var(--surface) 0 12px,transparent 12px 24px);display:grid;place-content:center;color:var(--muted);font-size:.8rem}
-.case .ph img{width:100%;height:100%;object-fit:cover}
-.case .txt{padding:16px 18px 20px;display:grid;gap:6px;align-content:start}
-.case h3{font-size:1.05rem}
+.case{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;min-width:0;transition:border-color .3s,box-shadow .3s}
+.case:hover{border-color:rgba(56,213,255,.4);box-shadow:var(--glow)}
+.case .ph{aspect-ratio:16/9;max-width:100%;overflow:hidden;background:repeating-linear-gradient(135deg,rgba(255,255,255,.03) 0 12px,transparent 12px 24px);display:grid;place-content:center;color:var(--dim);font:400 .74rem/1 var(--mono)}
+.case .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.case:hover .ph img{transform:scale(1.05)}
+.case .txt{padding:18px 20px 22px;display:grid;gap:6px;align-content:start}
+.case h3{font-size:1.08rem}
 .case p{font-size:.9rem;color:var(--muted)}
-.case .meta{font:600 .74rem/1.2 var(--head);color:var(--blue)}
+.case .meta{font:400 .68rem/1.2 var(--mono);letter-spacing:.03em;text-transform:uppercase;color:var(--cyan)}
 
 /* about, timeline, platforms */
 .about{display:grid;gap:24px}
 @media(min-width:860px){.about{grid-template-columns:1.1fr .9fr;align-items:start}}
-.quote{background:var(--blue-dark);color:#fff;border-radius:6px;padding:30px;display:grid;gap:14px;border-left:6px solid var(--red)}
-.quote blockquote{margin:0;font:600 clamp(1.1rem,3vw,1.35rem)/1.6 var(--head)}
-.quote cite{font-style:normal;color:#b9c6de;font-size:.9rem}
-.facts{display:grid;gap:10px;margin:0;padding:0;list-style:none}
-.facts li{display:grid;grid-template-columns:100px 1fr;gap:12px;border-bottom:1px solid var(--line);padding-bottom:10px}
-.facts b{font-family:var(--head);color:var(--blue)}
-.timeline{list-style:none;margin:0 0 0 6px;padding:0;display:grid;border-left:2px solid var(--line)}
-.timeline li{position:relative;padding:0 0 22px 24px;display:grid;gap:2px}
-.timeline li::before{content:"";position:absolute;left:-7px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:3px solid var(--blue)}
-.timeline li.now::before{background:var(--green);border-color:var(--green)}
-.timeline b{font:700 1.05rem/1.3 var(--head);color:var(--blue);font-variant-numeric:tabular-nums}
+.about p{color:#cdd4e8}
+.quote{border-radius:20px;padding:34px;display:grid;gap:16px;border:1px solid var(--line-2);background:radial-gradient(500px 300px at 0% 0%,rgba(47,123,255,.3),transparent 70%),var(--card-solid)}
+.quote blockquote{margin:0;font:400 clamp(1.2rem,3vw,1.55rem)/1.55 var(--head)}
+.quote cite{font:400 .8rem/1.4 var(--mono);letter-spacing:.04em;font-style:normal;color:var(--cyan)}
+.facts{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.facts li{display:grid;grid-template-columns:100px 1fr;gap:12px;border-bottom:1px solid var(--line);padding-bottom:12px;color:#cdd4e8}
+.facts b{font:500 .95rem/1.5 var(--head);color:var(--cyan)}
+.timeline{list-style:none;margin:0 0 0 6px;padding:0;display:grid;border-left:1px solid var(--line-2)}
+.timeline li{position:relative;padding:0 0 26px 26px;display:grid;gap:4px}
+.timeline li::before{content:"";position:absolute;left:-6px;top:9px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--blue)}
+.timeline li.now::before{background:var(--green);border-color:var(--green);box-shadow:0 0 12px rgba(47,213,122,.7)}
+.timeline b{font:500 1.05rem/1.3 var(--mono);color:var(--cyan);font-variant-numeric:tabular-nums}
 .timeline span{color:var(--muted);font-size:.95rem}
-@media(min-width:900px){.timeline{grid-template-columns:repeat(2,1fr);column-gap:40px}}
-.plat{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+@media(min-width:900px){.timeline{grid-template-columns:repeat(2,1fr);column-gap:48px}}
+.plat{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
 
 /* investor relations and governance */
-.ir{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.ir .card{border-top:3px solid var(--blue)}
-.ir .card ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:.93rem}
-.ir .card li a{text-decoration:none;color:var(--ink)}
-.ir .card li a:hover{color:var(--blue)}
-.ir .card li::before{content:"› ";color:var(--blue)}
-.gov{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-.gov > *{display:grid;gap:4px;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:18px}
-.gov b{font:600 1rem/1.3 var(--head)}
+.ir{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.ir .card ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:.93rem;color:#cdd4e8}
+.ir .card li::before{content:"→ ";color:var(--cyan)}
+.ir .card a{color:var(--cyan)}
+.gov{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.gov > *{display:grid;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.gov b{font:500 1rem/1.3 var(--head)}
 .gov span{color:var(--muted);font-size:.86rem}
-.whistle{margin-top:18px;background:var(--red-soft);border-left:4px solid var(--red);border-radius:4px;padding:16px 18px;font-size:.94rem}
+.whistle{margin-top:18px;border:1px solid rgba(255,69,69,.35);background:rgba(255,69,69,.06);border-radius:14px;padding:18px 20px;font-size:.94rem;color:#e5d6d6}
+.whistle a{color:#ff9a9a}
 
 /* contact */
 .contact{display:grid;gap:28px}
 @media(min-width:860px){.contact{grid-template-columns:.9fr 1.1fr}}
-.info{display:grid;gap:14px;align-content:start}
-.info dt{font:600 .78rem/1 var(--head);color:var(--blue);letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px}
-.info dd{margin:0}
-form.card{gap:12px}
-.ok{background:var(--blue-soft);border-radius:4px;padding:12px 14px;font-size:.92rem}
+.info{display:grid;gap:16px;align-content:start}
+.info dt{font:400 .7rem/1 var(--mono);color:var(--cyan);letter-spacing:.03em;text-transform:uppercase;margin-bottom:6px}
+.info dd{margin:0;color:#cdd4e8}
+.info a{color:var(--ink)}
+form.card{gap:14px}
+.ok{background:rgba(47,213,122,.08);border:1px solid rgba(47,213,122,.35);border-radius:10px;padding:12px 14px;font-size:.92rem}
 
 /* section rhythm */
-#featured,#brands,#configurator,#certs,#about,#platforms,#contact,#showroom,#careers,#ir{background:var(--bg)}
-#clients,#solutions,#services,#pdpa,#cases,#milestones,#csr,#governance{background:var(--surface)}
+#configurator,#cases,#pdpa,#milestones,#csr,#governance,#contact{background:var(--bg-2);border-block:1px solid var(--line)}
 
 /* footer and cookie notice */
-footer{background:var(--foot);color:var(--on-dark);padding-block:48px 28px;font-size:.9rem}
-footer .wrap{display:grid;gap:28px}
-.fcols{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
-.fcols h4{font:600 1rem/1.3 var(--head);margin:0 0 10px}
-.fcols p{color:var(--on-dark-muted)}
-.fcols ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-.fcols a{text-decoration:none;color:var(--on-dark-muted)}
-.fcols a:hover{color:#fff}
-.fbottom{border-top:1px solid rgba(255,255,255,.12);padding-top:16px;color:var(--on-dark-muted);display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;font-size:.8rem}
+footer{background:#03050b;border-top:1px solid var(--line);color:var(--ink);padding-block:64px 30px;font-size:.9rem}
+footer .wrap{display:grid;gap:36px}
+.fcols{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.fcols h4{font:500 .74rem/1.3 var(--mono);letter-spacing:.03em;text-transform:uppercase;color:var(--dim);margin:0 0 14px}
+.fcols p{color:var(--muted)}
+.fcols ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.fcols a{text-decoration:none;color:var(--muted)}
+.fcols a:hover{color:var(--ink)}
+.fbottom{border-top:1px solid var(--line);padding-top:18px;color:var(--dim);display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;font-size:.78rem}
 .fbottom a{text-decoration:none}
-.fbottom a:hover{color:#fff}
-.cookie{position:fixed;z-index:40;left:0;right:0;bottom:0;background:var(--card);border-top:3px solid var(--blue);box-shadow:0 -6px 24px rgba(16,30,60,.15);padding:16px max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.fbottom a:hover{color:var(--ink)}
+.cookie{position:fixed;z-index:40;left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));max-width:980px;margin-inline:auto;background:rgba(11,17,34,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line-2);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.5);padding:16px 18px}
 .cookie .wrap{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;padding:0}
-.cookie p{font-size:.88rem;max-width:80ch}
-.cookie .ctas{display:flex;gap:10px;flex-wrap:wrap}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+.cookie p{font-size:.86rem;color:var(--muted);max-width:70ch}
+.cookie .ctas{gap:8px}
+.cookie .btn{min-height:40px;padding:8px 18px;font-size:.88rem}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -323,53 +372,46 @@ footer .wrap{display:grid;gap:28px}
 </header>
 
 <main id="top">
-<section class="hero" aria-roledescription="carousel" aria-label="Highlights">
-  <div class="slides">
-    <div class="slide on">
-      <img src="img/democenter.jpg" alt="Rendering of the DGF Smart AI Building demonstration center">
-      <div class="wrap">
-        <p class="eyebrow">AIoT &amp; Robotics Solution Provider for Sustainable Society</p>
-        <h1>Thailand's <em>AI Security</em> and AIoT solutions leader for over 24 years</h1>
-        <p class="lead">From CCTV to complete intelligent systems: AI video analytics, IoT, service robots and smart energy, backed by more than 500 authorised dealers and service technicians nationwide.</p>
-        <div class="ctas"><a class="btn btn-red" href="#contact">Talk to us</a><a class="btn btn-ghost" href="#showroom">See the new demo center</a></div>
-        <p class="hero-cap">Rendering of DGF Smart AI Building, opening in 2026</p>
-      </div>
+<section class="hero">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="pill"><span class="live"></span>AIoT &amp; Robotics Solution Provider for Sustainable Society</p>
+      <h1>Security that<br><span class="grad">sees it coming</span></h1>
+      <p class="lead">Digital Focus has led Thailand's AI security and AIoT market for over 24 years, bringing AI cameras, IoT, robotics and smart energy into one system, backed by more than 500 authorised dealers and service technicians nationwide.</p>
+      <div class="ctas"><a class="btn btn-red" href="#contact">Get free advice</a><a class="btn btn-ghost" href="#showroom">See the AI demo center</a></div>
+      <div class="kpis"><div><b>24+</b><span>years in the industry</span></div><div><b>500+</b><span>dealers and technicians</span></div><div><b>100,000+</b><span>cameras for CP ALL</span></div></div>
     </div>
-    <div class="slide" aria-hidden="true">
-      <img src="img/robotics.jpg" alt="Rendering of service, quadruped and humanoid robots" loading="lazy">
-      <div class="wrap">
-        <p class="eyebrow">New S-Curve 2027</p>
-        <h2><em>Robotics Control Platform</em>: manage every type of robot from one place</h2>
-        <p class="lead">Developed with leading universities for Keenon service robots, quadruped robots and humanoids, connected to AI, IoT and smart building systems.</p>
-        <div class="ctas"><a class="btn btn-red" href="#platforms" tabindex="-1">See the platform</a></div>
-        <p class="hero-cap">Rendering</p>
+    <figure class="feed" aria-label="Example of AI video analytics" style="margin:0">
+      <div class="feed-top"><span class="rec">REC</span><span>CAM-03 · Truck yard</span><span id="clock">14:32:10</span></div>
+      <div class="screen">
+        <img src="img/banpu.jpg" alt="Camera view of a truck yard from the Banpu project">
+        <div class="box" style="left:7.5%;top:35%;width:22.5%;height:50%"><span>Truck <i class="cf">97</i>%</span></div>
+        <div class="box b2" style="left:46%;top:31%;width:49%;height:56%"><span>Truck <i class="cf">98</i>%</span></div>
+        <div class="box plate" style="left:19.5%;top:74%;width:5.5%;height:7%"><span>Plate</span></div>
+        <div class="box plate" style="left:86.5%;top:75%;width:5.5%;height:7%"><span style="left:auto;right:-1.5px">Plate</span></div>
+        <div class="fence"><span>Restricted zone</span></div>
       </div>
-    </div>
-    <div class="slide" aria-hidden="true">
-      <img src="img/cpall.jpg" alt="7-Eleven and All Cafe store" loading="lazy">
-      <div class="wrap">
-        <p class="eyebrow">Nationwide projects</p>
-        <h2>More than <em>6,500 7-Eleven stores</em> run our AI and CCTV systems</h2>
-        <p class="lead">Over 100,000 cameras in the CP ALL project including distribution centers, alongside work for Central Group, Big C, PTT and the Parliament of Thailand.</p>
-        <div class="ctas"><a class="btn btn-red" href="#cases" tabindex="-1">See all projects</a></div>
-      </div>
-    </div>
+      <div class="feed-bot"><span class="on-ai">AI ONLINE</span><span>4 objects detected</span><span>H.265 · 4K</span></div>
+      <div class="feed-log" id="feedlog"><div><span class="g">●</span> <span class="t">--:--:--</span> <b>2</b> trucks entered · Gate 3</div><div><span class="g">●</span> <span class="t">--:--:--</span> License plates read <b>2/2</b></div><div><span class="r">●</span> <span class="t">--:--:--</span> Restricted line monitored · no intrusion</div></div>
+      <figcaption class="feed-cap">Simulated AI overlay on a real project photo. Figures and events are illustrative.</figcaption>
+    </figure>
   </div>
-  <div class="hero-ctrl"><button class="arrow" type="button" id="prev" aria-label="Previous slide">‹</button><button class="dot" type="button" data-s="0" aria-label="Go to slide 1" aria-current="true"></button><button class="dot" type="button" data-s="1" aria-label="Go to slide 2"></button><button class="dot" type="button" data-s="2" aria-label="Go to slide 3"></button><button class="arrow" type="button" id="next" aria-label="Next slide">›</button></div>
 </section>
 
-<section class="cats-sec" id="cats">
+<section class="marquee-sec">
+  <p>Trusted by leading organisations</p>
+  <div class="marquee"><div class="track"><span>CP ALL (7-Eleven)</span><span>Central Group</span><span>Big C</span><span>PTT</span><span>Parliament of Thailand</span><span>Expressway Authority of Thailand</span><span>depa</span><span>Banpu</span><span>Robinson</span><span>Tops</span><span>GWM</span><span>Cha Tra Mue</span><span>Bar B Q Plaza</span><span>Talaad Thai</span><span>PT</span><span>TISCO</span><span aria-hidden="true" style="display:contents"><span>CP ALL (7-Eleven)</span><span>Central Group</span><span>Big C</span><span>PTT</span><span>Parliament of Thailand</span><span>Expressway Authority of Thailand</span><span>depa</span><span>Banpu</span><span>Robinson</span><span>Tops</span><span>GWM</span><span>Cha Tra Mue</span><span>Bar B Q Plaza</span><span>Talaad Thai</span><span>PT</span><span>TISCO</span></span></div></div>
+</section>
+
+<section id="featured">
   <div class="wrap">
-    <div class="sec-head center" style="margin-bottom:18px"><h2 style="font-size:clamp(1.3rem,3vw,1.7rem)">Products and solutions</h2></div>
-    <div class="cats">
-      <a class="cat" href="#solutions" data-ind="all"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="13" height="8" rx="1"/><path d="M16 10l5-2v6l-5-2M7 15v4h4"/></svg>CCTV and AI cameras</a>
-      <a class="cat" href="#solutions" data-ind="building"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="2"/><circle cx="12" cy="9" r="2.5"/><path d="M9 15h6M9 18h6"/></svg>Access control</a>
-      <a class="cat" href="#solutions" data-ind="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-5h4v5"/></svg>Smart home</a>
-      <a class="cat" href="#solutions" data-ind="building"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4zM16 9a4 4 0 010 6M18.5 6.5a8 8 0 010 11"/></svg>Public address</a>
-      <a class="cat" href="#solutions" data-ind="all"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="8" width="14" height="10" rx="3"/><circle cx="9.5" cy="13" r="1.2"/><circle cx="14.5" cy="13" r="1.2"/><path d="M12 4v4M9 21h6"/></svg>Service robots</a>
-      <a class="cat" href="#solutions" data-ind="transport"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6h11v10H2zM13 10h4l4 4v2h-8"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>Smart transport</a>
-      <a class="cat" href="#solutions" data-ind="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>Smart energy</a>
-      <a class="cat" href="#solutions" data-ind="edu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5"/></svg>Education and digital skills</a>
+    <div class="sec-head"><p class="eyebrow">Innovation</p><h2>What we are building</h2><p>From camera distributor to developer of AI, robotics and smart energy platforms</p></div>
+    <div class="bento">
+      <a class="tile b-xl" href="#showroom"><img src="img/command.jpg" alt="Rendering of the AI command center in DGF Smart AI Building" loading="lazy"><div class="txt"><span class="tag new">New in 2026</span><h3>DGF Smart AI Building</h3><p>An AI, robotics and green energy demonstration center with technology from Hikvision, BroadLink, Huawei Digital Power and Keenon, so you can see systems working before you decide.</p><span class="more">Visit the demo center</span></div></a>
+      <a class="tile b-wide" href="#platforms"><img src="img/robotics.jpg" alt="Rendering of service, quadruped and humanoid robots" loading="lazy"><div class="txt"><span class="tag ">Planned for 2027</span><h3>Robotics Control Platform</h3><p>Manage every type of robot from one place, developed with leading universities.</p><span class="more">See the platform</span></div></a>
+      <a class="tile " href="#platforms"><img src="img/ambulance.jpg" alt="5G ambulances in the depa project" loading="lazy"><div class="txt"><span class="tag live">Available now</span><h3>DGF Smart Transport</h3><p>AI cameras and GPS on vehicles with real-time reporting over 4G.</p><span class="more">See the solution</span></div></a>
+      <a class="tile stat" href="#cases"><b class="big grad">6,500+</b><div class="txt"><p>7-Eleven stores run our AI and CCTV systems</p><span class="more">See projects</span></div></a>
     </div>
   </div>
 </section>
@@ -392,18 +434,21 @@ footer .wrap{display:grid;gap:28px}
   </div>
 </section>
 
-<section id="featured">
+<section class="cats-sec" id="cats">
   <div class="wrap">
-    <div class="sec-head"><p class="eyebrow">Highlights</p><h2>The latest from Digital Focus</h2></div>
-    <div class="feature">
-      <a class="fcard" href="#showroom"><div class="ratio"><img src="img/command.jpg" alt="Rendering of the AI command center" loading="lazy"></div><div class="txt"><span class="tag new">New in 2026</span><h3>DGF Smart AI Building</h3><p>An AI, robotics and green energy demonstration center with technology from Hikvision, BroadLink, Huawei Digital Power and Keenon</p><span class="more">Learn more</span></div></a>
-      <a class="fcard" href="#platforms"><div class="ratio"><img src="img/robotics.jpg" alt="Rendering of service, quadruped and humanoid robots" loading="lazy"></div><div class="txt"><span class="tag">Planned for 2027</span><h3>Robotics Control Platform</h3><p>One platform to manage many types of robots, developed with leading universities</p><span class="more">See the platform</span></div></a>
-      <a class="fcard" href="#platforms"><div class="ratio"><img src="img/ambulance.jpg" alt="5G ambulances in the depa project" loading="lazy"></div><div class="txt"><span class="tag live">Available now</span><h3>DGF Smart Transport</h3><p>AI cameras and GPS on ambulances, buses and fleets, with real-time reporting over 4G</p><span class="more">See the solution</span></div></a>
+    <div class="sec-head center" style="margin-bottom:18px"><h2 style="font-size:clamp(1.3rem,3vw,1.7rem)">Products and solutions</h2></div>
+    <div class="cats">
+      <a class="cat" href="#solutions" data-ind="all"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="13" height="8" rx="1"/><path d="M16 10l5-2v6l-5-2M7 15v4h4"/></svg>CCTV and AI cameras</a>
+      <a class="cat" href="#solutions" data-ind="building"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="2"/><circle cx="12" cy="9" r="2.5"/><path d="M9 15h6M9 18h6"/></svg>Access control</a>
+      <a class="cat" href="#solutions" data-ind="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-5h4v5"/></svg>Smart home</a>
+      <a class="cat" href="#solutions" data-ind="building"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4zM16 9a4 4 0 010 6M18.5 6.5a8 8 0 010 11"/></svg>Public address</a>
+      <a class="cat" href="#solutions" data-ind="all"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="8" width="14" height="10" rx="3"/><circle cx="9.5" cy="13" r="1.2"/><circle cx="14.5" cy="13" r="1.2"/><path d="M12 4v4M9 21h6"/></svg>Service robots</a>
+      <a class="cat" href="#solutions" data-ind="transport"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6h11v10H2zM13 10h4l4 4v2h-8"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>Smart transport</a>
+      <a class="cat" href="#solutions" data-ind="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>Smart energy</a>
+      <a class="cat" href="#solutions" data-ind="edu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5"/></svg>Education and digital skills</a>
     </div>
   </div>
 </section>
-
-
 
 <section class="proof" aria-label="Track record">
   <div class="wrap">
@@ -418,6 +463,102 @@ footer .wrap{display:grid;gap:28px}
       <div><b>6,500+</b><span>7-Eleven branches with AI and CCTV systems</span></div>
       <div><b>100,000+</b><span>Cameras in the CP ALL project, including distribution centers</span></div>
       <div><b>ISO 9001</b><span>Certified by TÜV Nord since 2006</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="solutions">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Solutions</p>
+      <h2>Filter by industry and see only what applies to you</h2>
+      <p>Pick your industry instead of swiping through every card. Solutions that fit the group you chose above are highlighted.</p>
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="Filter by industry"></div>
+    <div class="cards" id="cards"></div>
+  </div>
+</section>
+
+<section id="configurator">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Solution finder <span class="demo-flag">Working example</span></p>
+      <h2>Tell us about your business and get an initial recommendation</h2>
+    </div>
+    <div class="cfg">
+      <div>
+        <div class="field">
+          <label for="biz">Business type</label>
+          <select id="biz">
+            <option value="factory">Factory / industrial estate</option>
+            <option value="retail">Retail store / shopping mall</option>
+            <option value="hotel">Hotel / building / condominium</option>
+            <option value="edu">Educational institution</option>
+            <option value="gov">Government agency</option>
+            <option value="logistics">Logistics / transport</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cams">Approximate number of cameras: <output id="camsOut">32</output></label>
+          <input type="range" id="cams" min="4" max="256" step="4" value="32">
+        </div>
+        <div class="field">
+          <span class="lbl">Add</span>
+          <div class="checks">
+            <label><input type="checkbox" id="ai" checked> AI video analytics (people, vehicles, license plates)</label>
+            <label><input type="checkbox" id="robot"> Service robots</label>
+            <label><input type="checkbox" id="energy"> Smart energy (Huawei Digital Power)</label>
+          </div>
+        </div>
+      </div>
+      <div class="result" aria-live="polite">
+        <h3>Recommended package</h3>
+        <ul id="res"></ul>
+        <p class="note">An initial suggestion to show the idea, not a quotation. Our engineers confirm the design and budget after a site survey.</p>
+        <a class="btn btn-red" href="#contact" style="justify-self:start">Send this to our team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Monthly services</p>
+      <h2>No large upfront investment: pay monthly for a managed service</h2>
+      <p>Move from a one-off equipment purchase to a service with a team looking after it.</p>
+    </div>
+    <div class="svc">
+      <article class="card"><b class="model">SECURITY AS A SERVICE</b><h3>Monthly camera system rental</h3><p>Equipment, installation and replacement of faulty units included. Suits retail branches and businesses that want to avoid a large first investment.</p></article>
+      <article class="card"><b class="model">MANAGED MONITORING</b><h3>AI monitoring from our control center</h3><p>AI screens camera events for anomalies, and staff verify each one before it reaches you, which cuts false alarms.</p></article>
+      <article class="card"><b class="model">MAINTENANCE</b><h3>Annual maintenance contract</h3><p>Scheduled inspections, firmware updates and guaranteed response times under a service level agreement (SLA).</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="cases">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Reference projects <span class="demo-flag">Add real site photos</span></p>
+      <h2>Nationwide projects we deliver and support</h2>
+      <p>From retail networks with thousands of branches to license plate recognition for government agencies.</p>
+    </div>
+    <div class="cards">
+      <article class="case"><div class="ph"><img src="img/cpall.jpg" alt="CP ALL (7-Eleven)" loading="lazy"></div><div class="txt"><span class="meta">2018–2023 · Retail</span><h3>CP ALL (7-Eleven)</h3><p>Hikvision AI and CCTV systems in more than 6,500 7-Eleven stores in Bangkok and the provinces, plus distribution centers: over 100,000 cameras.</p></div></article>
+      <article class="case"><div class="ph"><img src="img/bigc.jpg" alt="Big C and BJC" loading="lazy"></div><div class="txt"><span class="meta">Retail</span><h3>Big C and BJC</h3><p>Replaced NVRs and DVRs from another brand with Hikvision: over 20,000 cameras across 1,500 branches.</p></div></article>
+      <article class="case"><div class="ph"><img src="img/gowholesale.jpg" alt="Central Food Retail and Central GO Wholesale" loading="lazy"></div><div class="txt"><span class="meta">2016–2025 · Retail</span><h3>Central Food Retail and Central GO Wholesale</h3><p>CCTV in every branch of Tops Market, Tops Daily, Central Food Hall and Central GO Wholesale.</p></div></article>
+      <article class="case"><div class="ph"><img src="img/centraltrading.jpg" alt="Central Trading" loading="lazy"></div><div class="txt"><span class="meta">Brand retail</span><h3>Central Trading</h3><p>CCTV in every branch of its brands, including G2000, G-Shock, Garmin, Polo Ralph Lauren, Tommy Hilfiger, Dyson and The Body Shop.</p></div></article>
+      <article class="case"><div class="ph"><img src="img/exat.jpg" alt="Expressway Authority of Thailand" loading="lazy"></div><div class="txt"><span class="meta">Government</span><h3>Expressway Authority of Thailand</h3><p>216 license plate recognition (LPR) cameras at 5MP and 9MP.</p></div></article>
+      <article class="case"><div class="ph"><img src="img/parliament.jpg" alt="The Parliament of Thailand" loading="lazy"></div><div class="txt"><span class="meta">2022–2023 · Government</span><h3>The Parliament of Thailand</h3><p>License plate recognition cameras that detect and record every vehicle entering the grounds.</p></div></article>
+      <article class="case"><div class="ph"><img src="img/banpu.jpg" alt="Banpu" loading="lazy"></div><div class="txt"><span class="meta">Energy</span><h3>Banpu</h3><p>CCTV at every branch and the head office, with online monitoring and SOS audio.</p></div></article>
+      <article class="case"><div class="ph"><img src="img/ptt.jpg" alt="PTT: 1,500 oil transport vehicles" loading="lazy"></div><div class="txt"><span class="meta">2018 · Energy</span><h3>PTT: 1,500 oil transport vehicles</h3><p>Camera systems installed on PTT Public Company Limited's oil transport fleet.</p></div></article>
+      <article class="case"><div class="ph"><img src="img/chatramue.jpg" alt="Cha Tra Mue" loading="lazy"></div><div class="txt"><span class="meta">Food and beverage</span><h3>Cha Tra Mue</h3><p>Over 300 cameras with online monitoring, digital signage and audio.</p></div></article>
+      <article class="case"><div class="ph"><img src="img/barbq.jpg" alt="Bar B Q Plaza" loading="lazy"></div><div class="txt"><span class="meta">Food and beverage</span><h3>Bar B Q Plaza</h3><p>Over 200 cameras, including AI cameras, with on-site recording.</p></div></article>
+      <article class="case"><div class="ph"><img src="img/gwm.jpg" alt="GWM" loading="lazy"></div><div class="txt"><span class="meta">Automotive</span><h3>GWM</h3><p>CCTV in every showroom, more than 70 branches.</p></div></article>
+      <article class="case"><div class="ph">Photo to come</div><div class="txt"><span class="meta">2023 · Parking</span><h3>J-Park MRT parking</h3><p>Parking management system for MRT car parks.</p></div></article>
+      <article class="case"><div class="ph"><img src="img/talaadthai.jpg" alt="Talaad Thai and Simummuang Market" loading="lazy"></div><div class="txt"><span class="meta">Markets</span><h3>Talaad Thai and Simummuang Market</h3><p>Automatic number plate recognition (ANPR) managed on the HikCentral platform.</p></div></article>
+      <article class="case"><div class="ph"><img src="img/ambulance.jpg" alt="5G ambulances with depa" loading="lazy"></div><div class="txt"><span class="meta">Government · Health</span><h3>5G ambulances with depa</h3><p>CCTV, body cameras and a 5G ambulance platform.</p></div></article>
+      <article class="case"><div class="ph"><img src="img/ptstation.jpg" alt="Top Charoen, Punthai Coffee and PT Genergy" loading="lazy"></div><div class="txt"><span class="meta">Chain stores</span><h3>Top Charoen, Punthai Coffee and PT Genergy</h3><p>CCTV in every branch with on-site recording.</p></div></article>
     </div>
   </div>
 </section>
@@ -494,76 +635,21 @@ footer .wrap{display:grid;gap:28px}
   </div>
 </section>
 
-<section id="solutions" style="background:var(--surface)">
+<section id="showroom">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Solutions</p>
-      <h2>Filter by industry and see only what applies to you</h2>
-      <p>Pick your industry instead of swiping through every card. Solutions that fit the group you chose above are highlighted.</p>
-    </div>
-    <div class="chips" id="chips" role="group" aria-label="Filter by industry"></div>
-    <div class="cards" id="cards"></div>
-  </div>
-</section>
-
-<section id="services">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Monthly services</p>
-      <h2>No large upfront investment: pay monthly for a managed service</h2>
-      <p>Move from a one-off equipment purchase to a service with a team looking after it.</p>
-    </div>
-    <div class="svc">
-      <article class="card"><b class="model">SECURITY AS A SERVICE</b><h3>Monthly camera system rental</h3><p>Equipment, installation and replacement of faulty units included. Suits retail branches and businesses that want to avoid a large first investment.</p></article>
-      <article class="card"><b class="model">MANAGED MONITORING</b><h3>AI monitoring from our control center</h3><p>AI screens camera events for anomalies, and staff verify each one before it reaches you, which cuts false alarms.</p></article>
-      <article class="card"><b class="model">MAINTENANCE</b><h3>Annual maintenance contract</h3><p>Scheduled inspections, firmware updates and guaranteed response times under a service level agreement (SLA).</p></article>
-    </div>
-  </div>
-</section>
-
-<section id="configurator">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Solution finder <span class="demo-flag">Working example</span></p>
-      <h2>Tell us about your business and get an initial recommendation</h2>
-    </div>
-    <div class="cfg">
-      <div>
-        <div class="field">
-          <label for="biz">Business type</label>
-          <select id="biz">
-            <option value="factory">Factory / industrial estate</option>
-            <option value="retail">Retail store / shopping mall</option>
-            <option value="hotel">Hotel / building / condominium</option>
-            <option value="edu">Educational institution</option>
-            <option value="gov">Government agency</option>
-            <option value="logistics">Logistics / transport</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="cams">Approximate number of cameras: <output id="camsOut">32</output></label>
-          <input type="range" id="cams" min="4" max="256" step="4" value="32">
-        </div>
-        <div class="field">
-          <span class="lbl">Add</span>
-          <div class="checks">
-            <label><input type="checkbox" id="ai" checked> AI video analytics (people, vehicles, license plates)</label>
-            <label><input type="checkbox" id="robot"> Service robots</label>
-            <label><input type="checkbox" id="energy"> Smart energy (Huawei Digital Power)</label>
-          </div>
-        </div>
-      </div>
-      <div class="result" aria-live="polite">
-        <h3>Recommended package</h3>
-        <ul id="res"></ul>
-        <p class="note">An initial suggestion to show the idea, not a quotation. Our engineers confirm the design and budget after a site survey.</p>
-        <a class="btn btn-red" href="#contact" style="justify-self:start">Send this to our team</a>
+    <div class="band band-media">
+      <img src="img/command.jpg" alt="Rendering of the command center in DGF Smart AI Building" loading="lazy">
+      <div class="band-txt">
+        <p class="eyebrow">New in 2026 · DGF Smart AI Building</p>
+        <h2 style="font-size:clamp(1.4rem,4vw,2rem)">AI, Robotics and Green Energy Demonstration Center</h2>
+        <p>See the systems working before you decide: smart buildings, smart factories, smart transport, energy management, robotics and an AI command center, with technology from Hikvision, BroadLink, Huawei Digital Power, Keenon and Digital Focus, at our head office on Soi Lat Phrao 130.</p>
+        <div><a class="btn btn-ghost" href="#contact" id="bookDemo">Register to visit when it opens</a></div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="pdpa" style="background:var(--surface)">
+<section id="pdpa">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">PDPA and cybersecurity</p>
@@ -587,59 +673,18 @@ footer .wrap{display:grid;gap:28px}
   </div>
 </section>
 
-<section id="showroom">
-  <div class="wrap">
-    <div class="band band-media">
-      <img src="img/command.jpg" alt="Rendering of the command center in DGF Smart AI Building" loading="lazy">
-      <div class="band-txt">
-        <p class="eyebrow">New in 2026 · DGF Smart AI Building</p>
-        <h2 style="font-size:clamp(1.4rem,4vw,2rem)">AI, Robotics and Green Energy Demonstration Center</h2>
-        <p>See the systems working before you decide: smart buildings, smart factories, smart transport, energy management, robotics and an AI command center, with technology from Hikvision, BroadLink, Huawei Digital Power, Keenon and Digital Focus, at our head office on Soi Lat Phrao 130.</p>
-        <div><a class="btn btn-ghost" href="#contact" id="bookDemo">Register to visit when it opens</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="certs" style="padding-top:0">
+<section id="platforms">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Certifications and awards</p>
-      <h2>Recognised by independent bodies</h2>
+      <p class="eyebrow">Our platforms</p>
+      <h2>Hardware, software and data in one system</h2>
+      <p>Platforms built by Digital Focus to connect devices from many brands to our services.</p>
     </div>
-    <div class="certs">
-      <div class="cert"><b>ISO 9001:2015</b><span>Quality management system, certified by TÜV Nord since 2006</span></div>
-      <div class="cert"><b>Corporate Governance Standard</b><span>Department of Business Development, 2020</span></div>
-      <div class="cert"><b>Thai SMEs Standard (TIS S)</b><span>Product and service standard for Thai SMEs, 2023</span></div>
-      <div class="cert"><b>ASEAN Business Award 2019</b><span>Family Business, Large Tier</span></div>
-      <div class="cert"><b>Asia Pacific Enterprise Awards 2026</b><span>Master Entrepreneur category · Somchai Prajaksoot</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="cases" style="background:var(--surface)">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Reference projects <span class="demo-flag">Add real site photos</span></p>
-      <h2>Nationwide projects we deliver and support</h2>
-      <p>From retail networks with thousands of branches to license plate recognition for government agencies.</p>
-    </div>
-    <div class="cards">
-      <article class="case"><div class="ph"><img src="img/cpall.jpg" alt="CP ALL (7-Eleven)" loading="lazy"></div><div class="txt"><span class="meta">2018–2023 · Retail</span><h3>CP ALL (7-Eleven)</h3><p>Hikvision AI and CCTV systems in more than 6,500 7-Eleven stores in Bangkok and the provinces, plus distribution centers: over 100,000 cameras.</p></div></article>
-      <article class="case"><div class="ph"><img src="img/bigc.jpg" alt="Big C and BJC" loading="lazy"></div><div class="txt"><span class="meta">Retail</span><h3>Big C and BJC</h3><p>Replaced NVRs and DVRs from another brand with Hikvision: over 20,000 cameras across 1,500 branches.</p></div></article>
-      <article class="case"><div class="ph"><img src="img/gowholesale.jpg" alt="Central Food Retail and Central GO Wholesale" loading="lazy"></div><div class="txt"><span class="meta">2016–2025 · Retail</span><h3>Central Food Retail and Central GO Wholesale</h3><p>CCTV in every branch of Tops Market, Tops Daily, Central Food Hall and Central GO Wholesale.</p></div></article>
-      <article class="case"><div class="ph"><img src="img/centraltrading.jpg" alt="Central Trading" loading="lazy"></div><div class="txt"><span class="meta">Brand retail</span><h3>Central Trading</h3><p>CCTV in every branch of its brands, including G2000, G-Shock, Garmin, Polo Ralph Lauren, Tommy Hilfiger, Dyson and The Body Shop.</p></div></article>
-      <article class="case"><div class="ph"><img src="img/exat.jpg" alt="Expressway Authority of Thailand" loading="lazy"></div><div class="txt"><span class="meta">Government</span><h3>Expressway Authority of Thailand</h3><p>216 license plate recognition (LPR) cameras at 5MP and 9MP.</p></div></article>
-      <article class="case"><div class="ph"><img src="img/parliament.jpg" alt="The Parliament of Thailand" loading="lazy"></div><div class="txt"><span class="meta">2022–2023 · Government</span><h3>The Parliament of Thailand</h3><p>License plate recognition cameras that detect and record every vehicle entering the grounds.</p></div></article>
-      <article class="case"><div class="ph"><img src="img/banpu.jpg" alt="Banpu" loading="lazy"></div><div class="txt"><span class="meta">Energy</span><h3>Banpu</h3><p>CCTV at every branch and the head office, with online monitoring and SOS audio.</p></div></article>
-      <article class="case"><div class="ph"><img src="img/ptt.jpg" alt="PTT: 1,500 oil transport vehicles" loading="lazy"></div><div class="txt"><span class="meta">2018 · Energy</span><h3>PTT: 1,500 oil transport vehicles</h3><p>Camera systems installed on PTT Public Company Limited's oil transport fleet.</p></div></article>
-      <article class="case"><div class="ph"><img src="img/chatramue.jpg" alt="Cha Tra Mue" loading="lazy"></div><div class="txt"><span class="meta">Food and beverage</span><h3>Cha Tra Mue</h3><p>Over 300 cameras with online monitoring, digital signage and audio.</p></div></article>
-      <article class="case"><div class="ph"><img src="img/barbq.jpg" alt="Bar B Q Plaza" loading="lazy"></div><div class="txt"><span class="meta">Food and beverage</span><h3>Bar B Q Plaza</h3><p>Over 200 cameras, including AI cameras, with on-site recording.</p></div></article>
-      <article class="case"><div class="ph"><img src="img/gwm.jpg" alt="GWM" loading="lazy"></div><div class="txt"><span class="meta">Automotive</span><h3>GWM</h3><p>CCTV in every showroom, more than 70 branches.</p></div></article>
-      <article class="case"><div class="ph">Photo to come</div><div class="txt"><span class="meta">2023 · Parking</span><h3>J-Park MRT parking</h3><p>Parking management system for MRT car parks.</p></div></article>
-      <article class="case"><div class="ph"><img src="img/talaadthai.jpg" alt="Talaad Thai and Simummuang Market" loading="lazy"></div><div class="txt"><span class="meta">Markets</span><h3>Talaad Thai and Simummuang Market</h3><p>Automatic number plate recognition (ANPR) managed on the HikCentral platform.</p></div></article>
-      <article class="case"><div class="ph"><img src="img/ambulance.jpg" alt="5G ambulances with depa" loading="lazy"></div><div class="txt"><span class="meta">Government · Health</span><h3>5G ambulances with depa</h3><p>CCTV, body cameras and a 5G ambulance platform.</p></div></article>
-      <article class="case"><div class="ph"><img src="img/ptstation.jpg" alt="Top Charoen, Punthai Coffee and PT Genergy" loading="lazy"></div><div class="txt"><span class="meta">Chain stores</span><h3>Top Charoen, Punthai Coffee and PT Genergy</h3><p>CCTV in every branch with on-site recording.</p></div></article>
+    <div class="plat">
+      <article class="card"><b class="rec-flag">DGF · Available now</b><h3>Smart Transport Solutions</h3><p>AI cameras, GPS tracking and a card reader on one platform, running on a single SIM over 4G. Track routes, detect driver behaviour and report in real time through the cloud.</p><div class="tags"><span>Trucks</span><span>Buses</span><span>Ambulances</span><span>Logistics fleets</span></div></article>
+      <article class="card"><b class="rec-flag">DGF</b><h3>Smart Building Management Platform</h3><p>In development. [Description from the product team]</p></article>
+      <article class="card"><b class="rec-flag">DGF</b><h3>CRM Platform</h3><p>In development. [Description from the product team]</p></article>
+      <article class="card"><b class="rec-flag">DGF · Planned for 2027</b><h3>Robotics Control Platform</h3><p>Built with leading universities to manage Keenon service robots, quadruped robots and humanoid robots from one place: assign tasks, monitor status, and connect to AI, IoT and smart building systems.</p><div class="tags"><span>Buildings</span><span>Factories</span><span>Hospitals</span><span>Education</span><span>Hospitality</span></div></article>
     </div>
   </div>
 </section>
@@ -668,7 +713,7 @@ footer .wrap{display:grid;gap:28px}
   </div>
 </section>
 
-<section id="milestones" style="background:var(--surface)">
+<section id="milestones">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">24 years</p>
@@ -691,23 +736,23 @@ footer .wrap{display:grid;gap:28px}
   </div>
 </section>
 
-<section id="platforms">
+<section id="certs" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Our platforms</p>
-      <h2>Hardware, software and data in one system</h2>
-      <p>Platforms built by Digital Focus to connect devices from many brands to our services.</p>
+      <p class="eyebrow">Certifications and awards</p>
+      <h2>Recognised by independent bodies</h2>
     </div>
-    <div class="plat">
-      <article class="card"><b class="rec-flag">DGF · Available now</b><h3>Smart Transport Solutions</h3><p>AI cameras, GPS tracking and a card reader on one platform, running on a single SIM over 4G. Track routes, detect driver behaviour and report in real time through the cloud.</p><div class="tags"><span>Trucks</span><span>Buses</span><span>Ambulances</span><span>Logistics fleets</span></div></article>
-      <article class="card"><b class="rec-flag">DGF</b><h3>Smart Building Management Platform</h3><p>In development. [Description from the product team]</p></article>
-      <article class="card"><b class="rec-flag">DGF</b><h3>CRM Platform</h3><p>In development. [Description from the product team]</p></article>
-      <article class="card"><b class="rec-flag">DGF · Planned for 2027</b><h3>Robotics Control Platform</h3><p>Built with leading universities to manage Keenon service robots, quadruped robots and humanoid robots from one place: assign tasks, monitor status, and connect to AI, IoT and smart building systems.</p><div class="tags"><span>Buildings</span><span>Factories</span><span>Hospitals</span><span>Education</span><span>Hospitality</span></div></article>
+    <div class="certs">
+      <div class="cert"><b>ISO 9001:2015</b><span>Quality management system, certified by TÜV Nord since 2006</span></div>
+      <div class="cert"><b>Corporate Governance Standard</b><span>Department of Business Development, 2020</span></div>
+      <div class="cert"><b>Thai SMEs Standard (TIS S)</b><span>Product and service standard for Thai SMEs, 2023</span></div>
+      <div class="cert"><b>ASEAN Business Award 2019</b><span>Family Business, Large Tier</span></div>
+      <div class="cert"><b>Asia Pacific Enterprise Awards 2026</b><span>Master Entrepreneur category · Somchai Prajaksoot</span></div>
     </div>
   </div>
 </section>
 
-<section id="csr" style="background:var(--surface)">
+<section id="csr">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Corporate social responsibility</p>
@@ -925,22 +970,28 @@ footer .wrap{display:grid;gap:28px}
 
   document.getElementById('bookDemo').addEventListener('click',function(){document.getElementById('f-req').selectedIndex=1});
 
-  var slides=[].slice.call(document.querySelectorAll('.slide')),dots=[].slice.call(document.querySelectorAll('.dot')),cur_s=0,timer=null;
-  function show(i){
-    cur_s=(i+slides.length)%slides.length;
-    slides.forEach(function(el,k){var on=k===cur_s;el.classList.toggle('on',on);if(on)el.removeAttribute('aria-hidden');else el.setAttribute('aria-hidden','true');
-      [].forEach.call(el.querySelectorAll('a'),function(a){if(on)a.removeAttribute('tabindex');else a.setAttribute('tabindex','-1')})});
-    dots.forEach(function(d,k){if(k===cur_s)d.setAttribute('aria-current','true');else d.removeAttribute('aria-current')});
+  var clock=document.getElementById('clock'),stamps=[].slice.call(document.querySelectorAll('#feedlog .t')),cfs=[].slice.call(document.querySelectorAll('.cf'));
+  function tick(){
+    var d=new Date(),f=function(x){return ('0'+x).slice(-2)},t=f(d.getHours())+':'+f(d.getMinutes())+':'+f(d.getSeconds());
+    clock.textContent=t;
+    stamps.forEach(function(el,i){var e=new Date(d.getTime()-(stamps.length-i)*1700);el.textContent=f(e.getHours())+':'+f(e.getMinutes())+':'+f(e.getSeconds())});
+    cfs.forEach(function(el){el.textContent=95+Math.floor(Math.random()*5)});
   }
-  function play(){stop();if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;timer=setInterval(function(){show(cur_s+1)},7000)}
-  function stop(){if(timer){clearInterval(timer);timer=null}}
-  dots.forEach(function(d){d.addEventListener('click',function(){show(+d.dataset.s);play()})});
-  document.getElementById('prev').addEventListener('click',function(){show(cur_s-1);play()});
-  document.getElementById('next').addEventListener('click',function(){show(cur_s+1);play()});
-  var heroEl=document.querySelector('.hero');
-  heroEl.addEventListener('mouseenter',stop);heroEl.addEventListener('mouseleave',play);
-  heroEl.addEventListener('focusin',stop);heroEl.addEventListener('focusout',play);
-  play();
+  tick(); setInterval(tick,1000);
+
+  (function(){
+    var cv=document.getElementById('net'); if(!cv||!cv.getContext) return;
+    var ctx=cv.getContext('2d'),pts=[],W=0,H=0,dpr=Math.min(window.devicePixelRatio||1,2);
+    var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function size(){var r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+      var n=Math.round(Math.min(70,W*H/16000));pts=[];for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25})}
+    function draw(){ctx.clearRect(0,0,W,H);
+      for(var i=0;i<pts.length;i++){var p=pts[i];if(!still){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1}
+        for(var j=i+1;j<pts.length;j++){var q=pts[j],dx=p.x-q.x,dy=p.y-q.y,dd=dx*dx+dy*dy;if(dd<16000){ctx.strokeStyle='rgba(56,213,255,'+(0.16*(1-dd/16000))+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke()}}
+        ctx.fillStyle='rgba(120,170,255,.55)';ctx.beginPath();ctx.arc(p.x,p.y,1.4,0,6.3);ctx.fill()}
+      if(!still) requestAnimationFrame(draw)}
+    size(); draw(); window.addEventListener('resize',function(){size(); if(still) draw()});
+  })();
 
   [].forEach.call(document.querySelectorAll('.cat'),function(a){a.addEventListener('click',function(){
     var chip=document.querySelector('.chip[data-k="'+a.dataset.ind+'"]'); if(chip) chip.click();
