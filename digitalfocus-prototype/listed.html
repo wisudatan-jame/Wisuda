@@ -47,7 +47,7 @@ ul{margin:0;padding:0}
 .nav a:hover{background:var(--paper-2);color:var(--accent)}
 .nav a.on{color:var(--accent);background:var(--accent-soft);font-weight:600}
 .hdr-side{display:flex;align-items:center;gap:10px;flex:none;margin-left:auto}
-@media(min-width:1160px){.nav{display:block}.hdr-side{margin-left:0}}
+@media(min-width:1240px){.nav{display:block}.hdr-side{margin-left:0}}
 .lang{display:inline-flex;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:2px}
 .lang span{font:600 11.5px/1 var(--body);letter-spacing:.06em;color:var(--ink-45);padding:7px 11px;border-radius:999px}
 .lang .on{background:var(--navy-700);color:#fff}
@@ -56,7 +56,7 @@ ul{margin:0;padding:0}
 .snav .wrap::-webkit-scrollbar{display:none}
 .snav a{flex:none;font-size:14px;font-weight:500;color:var(--navy-700);padding:9px 13px;border-radius:8px;white-space:nowrap}
 .snav a.on{color:var(--accent);background:var(--accent-soft);font-weight:600}
-@media(min-width:1160px){.snav{display:none}}
+@media(min-width:1240px){.snav{display:none}}
 @media(max-width:600px){.hdr-side .btn{display:none}}
 
 /* buttons */
@@ -198,6 +198,9 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 @media(max-width:1000px){.gal{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.gal{grid-template-columns:1fr}}
+.gal.g3c{grid-template-columns:repeat(3,1fr)}
+@media(max-width:860px){.gal.g3c{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.gal.g3c{grid-template-columns:1fr}}
 .gal figure{margin:0;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--paper)}
 .gal .im{aspect-ratio:4/3;overflow:hidden;background:var(--paper-3)}
 .gal .im img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
@@ -268,7 +271,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
   <div class="wrap hdr-row">
     <a class="brand" href="#home" aria-label="Digital Focus หน้าแรก"><img src="img/logo.png" alt="Digital Focus" width="773" height="347"></a>
     <nav class="nav" aria-label="เมนูหลัก"><ul>
-      <li><a href="#home">หน้าแรก</a></li><li><a href="#about">เกี่ยวกับเรา</a></li><li><a href="#business">ธุรกิจของเรา</a></li><li><a href="#projects">ผลงาน</a></li><li><a href="#clients">ลูกค้า</a></li><li><a href="#brands">แบรนด์</a></li><li><a href="#esg">ความยั่งยืน</a></li><li><a href="#contact">ติดต่อเรา</a></li>
+      <li><a href="#home">หน้าแรก</a></li><li><a href="#about">เกี่ยวกับเรา</a></li><li><a href="#business">ธุรกิจของเรา</a></li><li><a href="#solutions">โซลูชัน</a></li><li><a href="#brands">ผลิตภัณฑ์</a></li><li><a href="#projects">ผลงาน</a></li><li><a href="#clients">ลูกค้า</a></li><li><a href="#esg">ความยั่งยืน</a></li><li><a href="#contact">ติดต่อเรา</a></li>
     </ul></nav>
     <div class="hdr-side">
       <a class="btn btn-p" href="#ir">นักลงทุนสัมพันธ์</a>
@@ -276,7 +279,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
     </div>
   </div>
   <nav class="snav" aria-label="เมนู"><div class="wrap">
-    <a href="#home">หน้าแรก</a><a href="#about">เกี่ยวกับเรา</a><a href="#business">ธุรกิจของเรา</a><a href="#projects">ผลงาน</a><a href="#clients">ลูกค้า</a><a href="#brands">แบรนด์</a><a href="#esg">ความยั่งยืน</a><a href="#ir">นักลงทุนสัมพันธ์</a><a href="#news">ข่าวสาร</a><a href="#contact">ติดต่อเรา</a>
+    <a href="#home">หน้าแรก</a><a href="#about">เกี่ยวกับเรา</a><a href="#business">ธุรกิจของเรา</a><a href="#solutions">โซลูชัน</a><a href="#brands">ผลิตภัณฑ์</a><a href="#projects">ผลงาน</a><a href="#clients">ลูกค้า</a><a href="#esg">ความยั่งยืน</a><a href="#ir">นักลงทุนสัมพันธ์</a><a href="#news">ข่าวสาร</a><a href="#contact">ติดต่อเรา</a>
   </div></nav>
 </header>
 
@@ -327,11 +330,60 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
   <div class="wrap">
     <div class="head mid"><span class="kick">ธุรกิจของเรา</span><h2>4 ธุรกิจที่เสริมกันเป็นระบบ</h2></div>
     <div class="g4">
-      <a class="svc" href="#brands"><div class="svc-img"><img src="img/news-summit.jpg" alt="Digital Focus ที่งาน Hikvision Commercial Summit" loading="lazy"></div><div class="svc-body"><span class="pill">DISTRIBUTION</span><h3>จัดจำหน่ายอุปกรณ์</h3><p>ตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย และแบรนด์ AIoT ชั้นนำ ผ่านเครือข่ายตัวแทนกว่า 500 ราย</p><span class="more">ดูแบรนด์ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="svc" href="#brands"><div class="svc-img"><img src="img/sol-access.jpg" alt="Digital Focus ที่งาน Hikvision Commercial Summit" loading="lazy"></div><div class="svc-body"><span class="pill">DISTRIBUTION</span><h3>จัดจำหน่ายอุปกรณ์</h3><p>ตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย และแบรนด์ AIoT ชั้นนำ ผ่านเครือข่ายตัวแทนกว่า 500 ราย</p><span class="more">ดูแบรนด์ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
       <a class="svc" href="#projects"><div class="svc-img"><img src="img/exat.jpg" alt="ทางพิเศษ" loading="lazy"></div><div class="svc-body"><span class="pill">INTEGRATION</span><h3>ออกแบบและวางระบบ</h3><p>ทีมวิศวกรให้คำปรึกษา ออกแบบ ติดตั้ง และทดสอบระบบสำหรับโครงการภาครัฐและเอกชนทั่วประเทศ</p><span class="more">ดูผลงาน <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
       <a class="svc" href="#business"><div class="svc-img"><img src="img/ambulance.jpg" alt="รถพยาบาล 5G" loading="lazy"></div><div class="svc-body"><span class="pill">PLATFORM</span><h3>แพลตฟอร์มและนวัตกรรม</h3><p>Smart Transport กล้อง AI + GPS บนยานพาหนะ ต่อยอดสู่ Smart Building และ Robotics</p><span class="more">ดูรายละเอียด <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
       <a class="svc" href="#business"><div class="svc-img"><img src="img/command.jpg" alt="ภาพจำลองศูนย์เฝ้าระวัง" loading="lazy"></div><div class="svc-body"><span class="pill">SERVICE</span><h3>บริการรายเดือน</h3><p>เช่าระบบกล้อง เฝ้าระวังด้วย AI จากศูนย์ควบคุม และสัญญาดูแลรักษารายปีพร้อม SLA</p><span class="more">ดูรายละเอียด <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
     </div>
+  </div>
+</section>
+
+<section class="sec" id="solutions" data-pages="home solutions">
+  <div class="wrap">
+    <div class="head mid" data-only="home"><span class="kick">โซลูชัน</span><h2>โซลูชันสำหรับทุกอุตสาหกรรม</h2><p>ออกแบบและวางระบบให้เหมาะกับธุรกิจของคุณ จากอุปกรณ์แบรนด์ชั้นนำ</p></div>
+    <div class="g4" data-only="home">
+      <a class="svc" href="#solutions"><div class="svc-img"><img src="img/sol-building.jpg" alt="Smart Building" loading="lazy"></div><div class="svc-body"><span class="pill">SMART BUILDING</span><h3>อาคารอัจฉริยะ</h3><p>รวมกล้อง AI ระบบควบคุมการเข้าออก ลิฟต์ และอุปกรณ์ IoT ของอาคารไว้ในระบบบริหารเดียว</p></div></a>
+      <a class="svc" href="#solutions"><div class="svc-img"><img src="img/sol-city.jpg" alt="Smart City" loading="lazy"></div><div class="svc-body"><span class="pill">SMART CITY</span><h3>เมืองอัจฉริยะ</h3><p>กล้องและระบบวิเคราะห์ภาพสำหรับพื้นที่สาธารณะ ศูนย์สั่งการ และความปลอดภัยของเมือง</p></div></a>
+      <a class="svc" href="#solutions"><div class="svc-img"><img src="img/sol-traffic.jpg" alt="Smart Traffic" loading="lazy"></div><div class="svc-body"><span class="pill">SMART TRAFFIC</span><h3>จราจรอัจฉริยะ</h3><p>กล้องอ่านป้ายทะเบียน (LPR / ANPR) ตรวจจับการจราจร และระบบบริหารลานจอด</p></div></a>
+      <a class="svc" href="#solutions"><div class="svc-img"><img src="img/sol-transport.jpg" alt="Smart Transport" loading="lazy"></div><div class="svc-body"><span class="pill">SMART TRANSPORT</span><h3>ขนส่งอัจฉริยะ</h3><p>กล้อง AI + GPS Tracking + เครื่องอ่านบัตร บนรถบรรทุก รถโดยสาร และรถพยาบาล ใช้ซิมเดียวผ่าน 4G</p></div></a>
+    </div>
+    <div style="margin-top:36px;text-align:center" data-only="home"><a class="btn btn-o" href="#solutions">ดูโซลูชันทั้งหมด <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <div data-only="solutions">
+      <div class="g4">
+      <a class="svc" href="#solutions"><div class="svc-img"><img src="img/sol-building.jpg" alt="Smart Building" loading="lazy"></div><div class="svc-body"><span class="pill">SMART BUILDING</span><h3>อาคารอัจฉริยะ</h3><p>รวมกล้อง AI ระบบควบคุมการเข้าออก ลิฟต์ และอุปกรณ์ IoT ของอาคารไว้ในระบบบริหารเดียว</p></div></a>
+      <a class="svc" href="#solutions"><div class="svc-img"><img src="img/sol-city.jpg" alt="Smart City" loading="lazy"></div><div class="svc-body"><span class="pill">SMART CITY</span><h3>เมืองอัจฉริยะ</h3><p>กล้องและระบบวิเคราะห์ภาพสำหรับพื้นที่สาธารณะ ศูนย์สั่งการ และความปลอดภัยของเมือง</p></div></a>
+      <a class="svc" href="#solutions"><div class="svc-img"><img src="img/sol-traffic.jpg" alt="Smart Traffic" loading="lazy"></div><div class="svc-body"><span class="pill">SMART TRAFFIC</span><h3>จราจรอัจฉริยะ</h3><p>กล้องอ่านป้ายทะเบียน (LPR / ANPR) ตรวจจับการจราจร และระบบบริหารลานจอด</p></div></a>
+      <a class="svc" href="#solutions"><div class="svc-img"><img src="img/sol-transport.jpg" alt="Smart Transport" loading="lazy"></div><div class="svc-body"><span class="pill">SMART TRANSPORT</span><h3>ขนส่งอัจฉริยะ</h3><p>กล้อง AI + GPS Tracking + เครื่องอ่านบัตร บนรถบรรทุก รถโดยสาร และรถพยาบาล ใช้ซิมเดียวผ่าน 4G</p></div></a>
+      <a class="svc" href="#solutions"><div class="svc-img"><img src="img/sol-factory.jpg" alt="Smart Factory" loading="lazy"></div><div class="svc-body"><span class="pill">SMART FACTORY</span><h3>โรงงานอัจฉริยะ</h3><p>เฝ้าระวังการบุกรุก กล้องความร้อน และตรวจความปลอดภัยในไลน์ผลิต</p></div></a>
+      <a class="svc" href="#solutions"><div class="svc-img"><img src="img/sol-retail.jpg" alt="Smart Retail" loading="lazy"></div><div class="svc-body"><span class="pill">SMART RETAIL</span><h3>ค้าปลีกอัจฉริยะ</h3><p>กล้องนับคน วิเคราะห์ทราฟฟิก และ CCTV ครบทุกสาขา บริหารจากศูนย์กลาง</p></div></a>
+      <a class="svc" href="#solutions"><div class="svc-img"><img src="img/sol-education.jpg" alt="Smart Education" loading="lazy"></div><div class="svc-body"><span class="pill">SMART EDUCATION</span><h3>การศึกษาอัจฉริยะ</h3><p>ความปลอดภัยในสถานศึกษา ห้องเรียนอัจฉริยะ และมาตรฐานทักษะดิจิทัล ICDL</p></div></a>
+      <a class="svc" href="#solutions"><div class="svc-img"><img src="img/sol-home.jpg" alt="Smart Home" loading="lazy"></div><div class="svc-body"><span class="pill">SMART HOME</span><h3>บ้านอัจฉริยะ</h3><p>ควบคุมเครื่องใช้ไฟฟ้า แสงสว่าง และความปลอดภัยในบ้านผ่านแอปและเสียงด้วย BroadLink, Geeklink และ Xiaodu</p></div></a>
+      <a class="svc" href="#solutions"><div class="svc-img"><img src="img/sol-access.jpg" alt="Access Control" loading="lazy"></div><div class="svc-body"><span class="pill">ACCESS CONTROL</span><h3>ควบคุมการเข้าออก</h3><p>สแกนใบหน้า ประตูกั้น และ Video Intercom สำหรับอาคาร สำนักงาน และที่พักอาศัย</p></div></a>
+      <a class="svc" href="#solutions"><div class="svc-img"><img src="img/sol-robot.jpg" alt="Smart Robot" loading="lazy"></div><div class="svc-body"><span class="pill">SMART ROBOT</span><h3>หุ่นยนต์บริการ</h3><p>หุ่นยนต์ส่งอาหารและสิ่งของ Keenon สำหรับร้านอาหาร โรงแรม และโรงพยาบาล</p></div></a>
+      <a class="svc" href="#solutions"><div class="svc-img"><img src="img/sol-solar.jpg" alt="Smart Solar" loading="lazy"></div><div class="svc-body"><span class="pill">SMART SOLAR</span><h3>พลังงานแสงอาทิตย์</h3><p>ระบบโซลาร์รูฟท็อปพร้อมการคำนวณความคุ้มค่า ลดค่าไฟให้บ้านและธุรกิจ</p></div></a>
+      <a class="svc" href="#solutions"><div class="svc-img"><img src="img/sol-platform.jpg" alt="Digital Platforms" loading="lazy"></div><div class="svc-body"><span class="pill">DIGITAL PLATFORMS</span><h3>แพลตฟอร์มดิจิทัล</h3><p>แพลตฟอร์มบริหารอุปกรณ์และข้อมูลแบบรวมศูนย์ เช่น HikCentral และระบบติดตามยานพาหนะ</p></div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" data-pages="solutions">
+  <div class="wrap">
+    <div class="head"><span class="kick">New Solution 2026</span><h2>โซลูชันใหม่ปี 2026</h2></div>
+    <div class="proj"><div class="im"><img src="img/sol-home.jpg" alt="บ้านอัจฉริยะระดับพรีเมียม" loading="lazy"></div><div class="bd"><span class="pill">NEW 2026</span><h3>Smart AI Luxury House Solutions</h3><p class="sub">Hikvision AI CCTV · BroadLink Smart Home · Huawei Smart Energy</p><p>โซลูชันบ้านอัจฉริยะระดับพรีเมียมแบบครบชุด ออกแบบและติดตั้งโดยทีมวิศวกรของ Digital Focus</p><ul class="flist" style="margin-top:18px"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>AI CCTV</b> — กล้อง AI รอบบ้าน แจ้งเตือนเข้ามือถือ</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Smart Home</b> — ควบคุมเครื่องใช้ไฟฟ้าทั้งบ้านผ่านแอปและเสียง</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Smart Energy</b> — ระบบพลังงานแสงอาทิตย์และบริหารพลังงานในบ้าน</span></li></ul><div style="margin-top:22px"><a class="btn btn-p" href="#contact">ขอคำปรึกษา <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div></div>
+    <div class="proj"><div class="im"><img src="img/democenter.jpg" alt="ภาพจำลองศูนย์สาธิต DGF Smart AI Building" loading="lazy"></div><div class="bd"><span class="pill">NEW 2026</span><h3>DGF Smart AI Building</h3><p class="sub">ศูนย์สาธิต AI, Robotics และ Green Energy · สำนักงานใหญ่ ซอยลาดพร้าว 130</p><p>ศูนย์สาธิตเทคโนโลยีที่รวม Hikvision AIoT, BroadLink Smart AI, Huawei Digital Power, Keenon Robotics และโซลูชันของ Digital Focus ให้ภาคธุรกิจ หน่วยงานรัฐ SI และพันธมิตรได้เห็นการใช้งานจริง</p><ul class="flist" style="margin-top:18px"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Smart Building, Smart Factory, Smart Transport และ Smart City</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>ระบบความปลอดภัยอัจฉริยะและบริหารพลังงาน</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>ศูนย์สั่งการด้วย AI (AI Command &amp; Control)</span></li></ul><p class="sub" style="margin-top:14px">ภาพจำลอง · เตรียมเปิดให้บริการ</p></div></div>
+  </div>
+</section>
+
+<section class="sec dark" data-pages="solutions">
+  <div class="wrap split">
+    <div>
+      <span class="kick">New S-Curve 2027</span>
+      <h2 style="font-size:clamp(27px,3.4vw,40px)">Robotics Control Platform</h2>
+      <p style="margin-top:16px;color:#a9bcd6;font-size:17px">แพลตฟอร์มบริหารหุ่นยนต์แบบรวมศูนย์ที่ Digital Focus วางแผนพัฒนาร่วมกับมหาวิทยาลัยชั้นนำ รองรับหุ่นยนต์บริการ Keenon หุ่นยนต์สี่ขา และหุ่นยนต์ฮิวแมนนอยด์ ต่อยอดจากการจัดจำหน่ายสู่ธุรกิจแพลตฟอร์มและบริการหุ่นยนต์</p>
+      <ul class="flist" style="margin-top:24px"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Centralized Management</b> — บริหารหุ่นยนต์ทุกประเภทจากที่เดียว</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Task Assignment &amp; Monitoring</b> — สั่งงานและติดตามสถานะแบบเรียลไทม์</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>AI &amp; IoT Integration</b> — เชื่อมกับระบบ AI, IoT และอาคารอัจฉริยะ</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>อุตสาหกรรมเป้าหมาย</b> — อาคาร โรงงาน โรงพยาบาล การศึกษา โรงแรม และธุรกิจบริการ</span></li></ul>
+    </div>
+    <div class="frame"><img src="img/robotics.jpg" alt="ภาพจำลองหุ่นยนต์บริการ หุ่นยนต์สี่ขา และฮิวแมนนอยด์" loading="lazy"><span class="cap">ภาพจำลอง · แผนปี 2027</span></div>
   </div>
 </section>
 
@@ -427,17 +479,18 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 
 <section class="sec tint" id="brands" data-pages="brands">
   <div class="wrap">
-    <div class="head"><span class="kick">แบรนด์ที่จัดจำหน่าย</span><h2>พันธมิตรเทคโนโลยีระดับโลก</h2></div>
-    <div class="brands">
-      <div class="lead"><b>HIKVISION</b><span>ตัวแทนจำหน่ายอย่างเป็นทางการรายแรกของประเทศไทย ตั้งแต่ปี 2006 ผู้นำโลกด้านระบบรักษาความปลอดภัยและ AIoT</span></div>
+    <div class="head"><span class="kick">ผลิตภัณฑ์และแบรนด์</span><h2>ผลิตภัณฑ์จากแบรนด์ชั้นนำระดับโลก</h2><p>ผู้นำเข้าและจัดจำหน่ายอุปกรณ์รักษาความปลอดภัย AIoT และ Smart Home พร้อมบริการออกแบบ ติดตั้ง และหลังการขาย</p></div>
+      <div class="proj"><div class="im"><img src="img/news-summit.jpg" alt="Hikvision" loading="lazy"></div><div class="bd"><span class="pill">HIKVISION</span><h3>Hikvision</h3><p class="sub">ผู้นำอันดับ 1 ของโลกด้าน CCTV และระบบรักษาความปลอดภัย</p><p>ก่อตั้งปี 2001 ที่หางโจว จีน รายได้ 12.68 พันล้านดอลลาร์ในปี 2023 พนักงานกว่า 58,000 คน พัฒนาโซลูชัน AIoT สำหรับ Smart City การขนส่ง การศึกษา และค้าปลีก</p><ul class="flist" style="margin-top:18px"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>กล้อง AI และกล้องวงจรปิดทุกรูปแบบ</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>ประตูกั้น สแกนใบหน้า และ Video Intercom</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>แพลตฟอร์ม HikCentral</span></li></ul><p class="sub" style="margin-top:14px;color:var(--accent);font-weight:600">ตัวแทนจำหน่ายอย่างเป็นทางการรายแรกของไทย</p></div></div>
+      <div class="proj"><div class="im"><img src="img/ambulance.jpg" alt="Smart Transport Solutions" loading="lazy"></div><div class="bd"><span class="pill">SMART TRANSPORT</span><h3>Smart Transport Solutions</h3><p class="sub">พัฒนาโดย Digital Focus</p><p>กล้องอัจฉริยะสำหรับรถขนส่งเชิงพาณิชย์ รถโดยสาร รถพยาบาล และกองรถ รวมกล้อง AI, GPS Tracking และเครื่องอ่านบัตรในแพลตฟอร์มเดียว ใช้ซิมเดียวทั้งระบบผ่าน 4G</p><ul class="flist" style="margin-top:18px"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>ติดตามเส้นทางแบบเรียลไทม์</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>ตรวจจับพฤติกรรมผู้ขับขี่ (DMS / ADAS)</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>รายงานผ่าน Cloud Platform และแอปมือถือ</span></li></ul><p class="sub" style="margin-top:14px;color:var(--accent);font-weight:600">ใช้งานจริงกับรถพยาบาล 5G โครงการ depa</p></div></div>
+      <div class="proj"><div class="im"><img src="img/sol-home.jpg" alt="BroadLink" loading="lazy"></div><div class="bd"><span class="pill">BROADLINK</span><h3>BroadLink</h3><p class="sub">No.1 AI Smart Home</p><p>ก่อตั้งปี 2013 ที่หางโจว ผู้นำระดับโลกด้าน Smart Home และ IoT พัฒนาระบบควบคุมอัจฉริยะครบวงจร ทั้งฮาร์ดแวร์ คลาวด์ และแอปพลิเคชัน</p><ul class="flist" style="margin-top:18px"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>รีโมท Wi-Fi ควบคุมเครื่องใช้ไฟฟ้าทุกชนิด</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>ร่วมงานกับ Whirlpool, Honeywell, Mitsubishi และ Electrolux</span></li></ul></div></div>
+      <div class="proj"><div class="im"><img src="img/sol-access.jpg" alt="Xiaodu" loading="lazy"></div><div class="bd"><span class="pill">XIAODU</span><h3>Xiaodu</h3><p class="sub">บริษัทในเครือ Baidu · AI Smart Devices</p><p>ผู้นำด้าน Smart Display, Smart Speaker และผู้ช่วย AI ด้วยเทคโนโลยีจดจำเสียงและประมวลผลภาษาธรรมชาติ</p><ul class="flist" style="margin-top:18px"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>จอและลำโพงอัจฉริยะสั่งงานด้วยเสียง</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>เหมาะกับห้องพักโรงแรมและบ้านอัจฉริยะ</span></li></ul></div></div>
+      <div class="proj"><div class="im"><img src="img/sol-building.jpg" alt="Geeklink" loading="lazy"></div><div class="bd"><span class="pill">GEEKLINK</span><h3>Geeklink</h3><p class="sub">One-stop Smart Home Solution</p><p>ก่อตั้งปี 2014 วิจัย พัฒนา ผลิต และจัดจำหน่ายอุปกรณ์ Smart Home บนเทคโนโลยี IoT เพื่อชีวิตที่ปลอดภัย สะดวก และมีประสิทธิภาพมากขึ้น</p><ul class="flist" style="margin-top:18px"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>สวิตช์ เซนเซอร์ กล้อง และปลั๊กอัจฉริยะ</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>ศูนย์ควบคุมอุปกรณ์ในบ้าน</span></li></ul></div></div>
+      <div class="proj"><div class="im"><img src="img/sol-education.jpg" alt="BrainCo และ ICDL" loading="lazy"></div><div class="bd"><span class="pill">BRAINCO · ICDL</span><h3>BrainCo และ ICDL</h3><p class="sub">นวัตกรรมสมองและมาตรฐานทักษะดิจิทัล</p><p>BrainCo (ก่อตั้งปี 2015) ผู้นำด้าน Brain-Computer Interface และ EEG neurofeedback ส่วน ICDL Foundation (ก่อตั้งปี 1997) ให้บริการประเมิน เรียนรู้ และรับรองทักษะดิจิทัลในกว่า 100 ประเทศ</p><ul class="flist" style="margin-top:18px"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>BrainCo: Relax, Sleep, Focus และ Tracker</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>ICDL: Assess · Learn · Certify</span></li></ul></div></div>
+    <div class="brands" style="margin-top:40px">
       <div><b>DSPPA</b><span>ระบบเสียงประกาศและเสียงสาธารณะ</span></div>
-      <div><b>BroadLink</b><span>AI Smart Home ควบคุมเครื่องใช้ไฟฟ้า</span></div>
-      <div><b>Keenon</b><span>หุ่นยนต์บริการ</span></div>
-      <div><b>Xiaodu</b><span>อุปกรณ์อัจฉริยะสั่งงานด้วยเสียง</span></div>
-      <div><b>Geeklink</b><span>อุปกรณ์ Smart Home และ IoT</span></div>
-      <div><b>BrainCo</b><span>EEG neurofeedback</span></div>
-      <div><b>ICDL</b><span>มาตรฐานรับรองทักษะดิจิทัล</span></div>
+      <div><b>Keenon</b><span>หุ่นยนต์บริการส่งอาหารและสิ่งของ</span></div>
       <div><b>ICT</b><span>[ประเภทสินค้า]</span></div>
+      <div><b>Shopee</b><span><a href="https://shopee.co.th/digitalfocus_thailand" target="_blank" rel="noopener" style="color:var(--accent)">ร้านค้าออนไลน์ →</a></span></div>
     </div>
   </div>
 </section>
@@ -470,11 +523,51 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 
 <section class="sec tint" id="esg" data-pages="esg">
   <div class="wrap">
-    <div class="head"><span class="kick">จุดยืนของเรา</span><h2>เทคโนโลยีที่ทำให้เมืองปลอดภัยขึ้น คือส่วนหนึ่งของความยั่งยืน</h2><p>ระบบที่เราติดตั้งช่วยให้พื้นที่สาธารณะ ร้านค้า และองค์กรปลอดภัยขึ้น ควบคู่กับการพัฒนาคน ชุมชน และการกำกับดูแลกิจการที่โปร่งใส</p></div>
+    <div class="head"><span class="kick">มิติสิ่งแวดล้อม</span><h2>รณรงค์ประหยัดพลังงานและรักษาสิ่งแวดล้อมในองค์กร</h2><p>บริษัทส่งเสริมการประหยัดพลังงาน การรักษาสิ่งแวดล้อม และความตระหนักเรื่องภาวะโลกร้อน ผ่านการคัดแยกขยะ ลดการใช้กระดาษด้วยระบบ IT Paperless และการพิมพ์สองหน้า ใช้บันไดแทนลิฟต์สำหรับ 1–3 ชั้น และใช้กระดาษทิชชูอย่างพอดี</p></div>
+    <div class="gal"><figure><div class="im"><img src="img/env-stairs.jpg" alt="รณรงค์ใช้บันไดแทนลิฟต์สำหรับ 1–3 ชั้น" loading="lazy"></div><figcaption>รณรงค์ใช้บันไดแทนลิฟต์สำหรับ 1–3 ชั้น</figcaption></figure><figure><div class="im"><img src="img/env-waste.jpg" alt="รณรงค์คัดแยกขยะ" loading="lazy"></div><figcaption>รณรงค์คัดแยกขยะ</figcaption></figure><figure><div class="im"><img src="img/env-print.jpg" alt="รณรงค์พิมพ์เอกสารสองหน้า" loading="lazy"></div><figcaption>รณรงค์พิมพ์เอกสารสองหน้า</figcaption></figure><figure><div class="im"><img src="img/env-tissue.jpg" alt="รณรงค์ใช้กระดาษทิชชูอย่างพอดี" loading="lazy"></div><figcaption>รณรงค์ใช้กระดาษทิชชูอย่างพอดี</figcaption></figure></div>
+  </div>
+</section>
+
+<section class="sec" data-pages="esg">
+  <div class="wrap split" style="align-items:start">
+    <div>
+      <span class="kick">มิติสังคม · พัฒนาฝีมือแรงงาน</span>
+      <h2 style="font-size:clamp(26px,3.2vw,36px);color:var(--navy-800)">ยกระดับทักษะช่างกล้องวงจรปิดทั่วประเทศ</h2>
+      <p style="margin-top:16px;color:var(--ink-70);font-size:17px">Digital Focus สนับสนุนค่าใช้จ่ายและวิทยากรในการอบรมร่วมกับกรมพัฒนาฝีมือแรงงาน เพื่อพัฒนาทักษะช่างกล้องวงจรปิด</p>
+      <div class="stats" style="margin-top:28px"><div><div class="stat-n">3,000<small>+</small></div><div class="stat-l">ผู้ผ่านการอบรม</div></div><div><div class="stat-n">2015</div><div class="stat-l">เริ่มโครงการตั้งแต่ปี</div></div></div>
+    </div>
+    <div class="frame"><img src="img/soc-train1.jpg" alt="ผู้ผ่านการอบรมช่างกล้องวงจรปิด" loading="lazy"></div>
+  </div>
+  <div class="wrap" style="margin-top:28px"><div class="gal g3c"><figure><div class="im"><img src="img/soc-train1.jpg" alt="กิจกรรมอบรมช่างกล้องวงจรปิด" loading="lazy"></div></figure><figure><div class="im"><img src="img/soc-train2.jpg" alt="กิจกรรมอบรมช่างกล้องวงจรปิด" loading="lazy"></div></figure><figure><div class="im"><img src="img/soc-train4.jpg" alt="กิจกรรมอบรมช่างกล้องวงจรปิด" loading="lazy"></div></figure></div></div>
+</section>
+
+<section class="sec tint" data-pages="esg">
+  <div class="wrap">
+    <div class="head"><span class="kick">มิติสังคม · การศึกษา</span><h2>สนับสนุนการศึกษาด้วยเทคโนโลยีและทุนการศึกษา</h2><p>มอบอุปกรณ์กล้องวงจรปิด อุปกรณ์เทคโนโลยี และทุนการศึกษาแบบทวิภาคีให้ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง วิทยาลัยเทคนิคลพบุรี ปราจีนบุรี มีนบุรี และสถาบันอื่น ๆ เพื่อพัฒนาบุคลากรด้านความปลอดภัยและเทคโนโลยีอัจฉริยะ</p></div>
+    <div class="gal g3c"><figure><div class="im"><img src="img/soc-edu1.jpg" alt="สถาบันเทคโนโลยีปทุมวัน" loading="lazy"></div><figcaption>สถาบันเทคโนโลยีปทุมวัน</figcaption></figure><figure><div class="im"><img src="img/soc-edu2.jpg" alt="ลงนามความร่วมมือด้านการศึกษา" loading="lazy"></div><figcaption>ลงนามความร่วมมือด้านการศึกษา</figcaption></figure><figure><div class="im"><img src="img/soc-edu3.jpg" alt="MOU ศูนย์พัฒนาบุคลากร CCTV วิทยาลัยเทคนิคลพบุรี (2563)" loading="lazy"></div><figcaption>MOU ศูนย์พัฒนาบุคลากร CCTV วิทยาลัยเทคนิคลพบุรี (2563)</figcaption></figure><figure><div class="im"><img src="img/soc-edu4.jpg" alt="ทุนวิจัย 1,000,000 บาท ร่วมกับ สจล. และ Hikvision" loading="lazy"></div><figcaption>ทุนวิจัย 1,000,000 บาท ร่วมกับ สจล. และ Hikvision</figcaption></figure><figure><div class="im"><img src="img/soc-edu5.jpg" alt="ทุนการศึกษา วิทยาลัยเทคนิคลพบุรี" loading="lazy"></div><figcaption>ทุนการศึกษา วิทยาลัยเทคนิคลพบุรี</figcaption></figure><figure><div class="im"><img src="img/soc-edu6.jpg" alt="มอบกล้องวงจรปิด วิทยาลัยเทคนิคมีนบุรี" loading="lazy"></div><figcaption>มอบกล้องวงจรปิด วิทยาลัยเทคนิคมีนบุรี</figcaption></figure></div>
+  </div>
+</section>
+
+<section class="sec" data-pages="esg">
+  <div class="wrap">
+    <div class="head"><span class="kick">มิติสังคม · หน่วยงานและมูลนิธิ</span><h2>มอบระบบกล้องวงจรปิดให้หน่วยงานรัฐและองค์กรการกุศล</h2><p>ได้แก่ สำนักงานองคมนตรี มูลนิธิพระดาบส สำนักงานตรวจคนเข้าเมือง และสภากาชาดไทย</p></div>
+    <div class="gal"><figure><div class="im"><img src="img/soc-don1.jpg" alt="สำนักงานองคมนตรี" loading="lazy"></div><figcaption>สำนักงานองคมนตรี</figcaption></figure><figure><div class="im"><img src="img/soc-don2.jpg" alt="มูลนิธิพระดาบส" loading="lazy"></div><figcaption>มูลนิธิพระดาบส</figcaption></figure><figure><div class="im"><img src="img/soc-don3.jpg" alt="สำนักงานตรวจคนเข้าเมือง" loading="lazy"></div><figcaption>สำนักงานตรวจคนเข้าเมือง</figcaption></figure><figure><div class="im"><img src="img/soc-don4.jpg" alt="สภากาชาดไทย" loading="lazy"></div><figcaption>สภากาชาดไทย</figcaption></figure></div>
+  </div>
+</section>
+
+<section class="sec tint" data-pages="esg">
+  <div class="wrap">
+    <div class="head"><span class="kick">มิติสังคม · ชุมชน</span><h2>คืนสู่ชุมชน วัด และสถานสงเคราะห์ทุกปี</h2><p>มอบกล้องวงจรปิด เงินสนับสนุน และสิ่งของจำเป็นให้ชุมชน วัด ศูนย์ดูแลผู้สูงอายุ และมูลนิธิ เพื่อความปลอดภัยและคุณภาพชีวิตที่ดีขึ้น</p></div>
+    <div class="gal"><figure><div class="im"><img src="img/soc-com1.jpg" alt="มอบสิ่งของให้ชุมชน" loading="lazy"></div><figcaption>มอบสิ่งของให้ชุมชน</figcaption></figure><figure><div class="im"><img src="img/soc-com2.jpg" alt="ศูนย์พัฒนาการจัดสวัสดิการสังคมผู้สูงอายุบ้านบางละมุง" loading="lazy"></div><figcaption>ศูนย์พัฒนาการจัดสวัสดิการสังคมผู้สูงอายุบ้านบางละมุง</figcaption></figure><figure><div class="im"><img src="img/soc-com3.jpg" alt="กิจกรรม Team Digital Focus" loading="lazy"></div><figcaption>กิจกรรม Team Digital Focus</figcaption></figure><figure><div class="im"><img src="img/soc-com4.jpg" alt="มอบข้าวหอมและเตียงสนาม วัดพระบาทน้ำพุ ช่วงโควิด-19" loading="lazy"></div><figcaption>มอบข้าวหอมและเตียงสนาม วัดพระบาทน้ำพุ ช่วงโควิด-19</figcaption></figure></div>
+  </div>
+</section>
+
+<section class="sec" data-pages="esg">
+  <div class="wrap">
     <div class="g3">
-      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M5 19c8 0 14-6 14-14-8 0-14 6-14 14zM5 19l7-7"/></svg></div><span class="pill">ENVIRONMENT</span><h3>มิติสิ่งแวดล้อม</h3><p>โซลูชันอาคารอัจฉริยะช่วยลดการใช้พลังงาน และระบบดิจิทัลลดการใช้กระดาษในงานบริการ</p></div>
-      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5a3 3 0 010 6M21 20c0-2.6-1.7-4.8-4-5.6"/></svg></div><span class="pill">SOCIAL</span><h3>มิติสังคม</h3><p>ทุนวิจัย 1,000,000 บาทร่วมกับ สจล. ทุนการศึกษาให้วิทยาลัยเทคนิค อบรมช่างกว่า 3,000 คน และดูแลชุมชน วัด และศูนย์ผู้สูงอายุทุกปี</p></div>
-      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 4-3.5 7-8 8-4.5-1-8-4-8-8V7z"/></svg></div><span class="pill">GOVERNANCE</span><h3>มิติธรรมาภิบาล</h3><p>มาตรฐานธรรมาภิบาลธุรกิจจากกรมพัฒนาธุรกิจการค้า ISO 9001:2015 และ มอก.S พร้อมช่องทางแจ้งเบาะแสที่ <a href="mailto:info@digitalfocus.co.th" style="color:var(--accent)">info@digitalfocus.co.th</a></p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 4-3.5 7-8 8-4.5-1-8-4-8-8V7z"/></svg></div><span class="pill">GOVERNANCE</span><h3>ธรรมาภิบาลธุรกิจ</h3><p>มาตรฐานธรรมาภิบาลธุรกิจจากกรมพัฒนาธุรกิจการค้า ปี 2020</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5L7 21l5-3 5 3-1.5-7.5"/></svg></div><span class="pill">QUALITY</span><h3>ISO 9001:2015 และ มอก.S</h3><p>ระบบบริหารงานคุณภาพ TÜV Nord ตั้งแต่ปี 2006 และมาตรฐาน SMEs ไทย ปี 2023</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H8l-4 4z"/></svg></div><span class="pill">WHISTLEBLOWING</span><h3>ช่องทางแจ้งเบาะแส</h3><p>แจ้งการกระทำผิดหรือการทุจริตได้ที่ <a href="mailto:info@digitalfocus.co.th" style="color:var(--accent)">info@digitalfocus.co.th</a> ระบุหัวเรื่อง “แจ้งเบาะแส”</p></div>
     </div>
   </div>
 </section>
@@ -536,7 +629,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
   </div>
 </section>
 
-<section class="sec" data-pages="home business projects clients brands esg news about">
+<section class="sec" data-pages="home business solutions projects clients brands esg news about">
   <div class="wrap">
     <div class="cta">
       <div><h2>มีพื้นที่ที่อยากให้ปลอดภัยและฉลาดขึ้น?</h2><p>ทีมวิศวกรของเราจะประเมินพื้นที่ วิเคราะห์ความเสี่ยง และเสนอระบบที่เหมาะกับงบประมาณ ทั้งแบบซื้อขาดและบริการรายเดือน</p></div>
@@ -555,7 +648,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
         <div class="social" id="social"></div>
       </div>
       <div><h4>บริษัท</h4><ul><li><a href="#about">เกี่ยวกับเรา</a></li><li><a href="#esg">ความยั่งยืน</a></li><li><a href="#news">ข่าวสาร</a></li><li><a href="#ir">นักลงทุนสัมพันธ์</a></li><li><a href="#contact">ติดต่อเรา</a></li></ul></div>
-      <div><h4>ธุรกิจ</h4><ul><li><a href="#brands">จัดจำหน่ายอุปกรณ์</a></li><li><a href="#projects">ออกแบบและวางระบบ</a></li><li><a href="#business">บริการรายเดือน</a></li><li><a href="#clients">ลูกค้า</a></li><li><a href="https://shopee.co.th/digitalfocus_thailand" target="_blank" rel="noopener">ร้านค้าออนไลน์</a></li></ul></div>
+      <div><h4>ธุรกิจ</h4><ul><li><a href="#solutions">โซลูชัน</a></li><li><a href="#brands">ผลิตภัณฑ์</a></li><li><a href="#projects">ออกแบบและวางระบบ</a></li><li><a href="#business">บริการรายเดือน</a></li><li><a href="#clients">ลูกค้า</a></li><li><a href="https://shopee.co.th/digitalfocus_thailand" target="_blank" rel="noopener">ร้านค้าออนไลน์</a></li></ul></div>
       <div><h4>ติดต่อ</h4><ul><li>2782/4-6 ถนนลาดพร้าว แขวงคลองจั่น เขตบางกะปิ กรุงเทพฯ 10240</li><li><a href="tel:021368989">02 136 8989</a></li><li><a href="mailto:info@digitalfocus.co.th">info@digitalfocus.co.th</a></li></ul></div>
     </div>
     <div class="ftr-bot"><span>© 2026 บริษัท ดิจิตอลโฟกัส จำกัด สงวนลิขสิทธิ์</span><span>ทะเบียนเลขที่ 0105545026907 · เตรียมเข้าจดทะเบียนในตลาดหลักทรัพย์ฯ</span></div>
@@ -585,10 +678,11 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
   var PAGES={
     about:['เกี่ยวกับเรา','จากผู้จำหน่ายกล้องวงจรปิด สู่ผู้นำ Security & Smart Solutions','ธุรกิจครอบครัวไทยที่เติบโตมากว่า 24 ปี ด้วยคุณภาพสินค้า ทีมวิศวกร และบริการหลังการขาย'],
     business:['ธุรกิจของเรา','ครบตั้งแต่อุปกรณ์ วางระบบ จนถึงบริการ','จัดจำหน่ายอุปกรณ์ ออกแบบและวางระบบ แพลตฟอร์ม และบริการรายเดือน ที่เสริมกันเป็นระบบเดียว'],
+    solutions:['โซลูชัน','โซลูชันสำหรับทุกอุตสาหกรรม','ออกแบบและวางระบบให้เหมาะกับธุรกิจของคุณ ทั้งอาคาร เมือง การจราจร การขนส่ง โรงงาน ค้าปลีก การศึกษา และบ้าน'],
     projects:['ผลงาน','โครงการที่เราวางระบบ','จากเครือข่ายค้าปลีกหลายพันสาขา ถึงระบบอ่านป้ายทะเบียนของหน่วยงานรัฐ'],
     clients:['ลูกค้า','ได้รับความไว้วางใจจากทั้งภาครัฐและเอกชน','ด้วยประสบการณ์กว่า 24 ปี บริษัทได้รับความไว้วางใจในคุณภาพสินค้า ความเป็นมืออาชีพของทีมงาน และบริการหลังการขาย'],
-    brands:['แบรนด์','แบรนด์ชั้นนำระดับโลกที่เราจัดจำหน่าย','ตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย พร้อมพันธมิตรด้าน AIoT, Smart Home และ Robotics'],
-    esg:['ความยั่งยืน','ความยั่งยืนที่อยู่ในทุกกระบวนการดำเนินงาน','ดูแลสิ่งแวดล้อม พัฒนาคนและชุมชน และกำกับดูแลกิจการอย่างโปร่งใส'],
+    brands:['ผลิตภัณฑ์','ผลิตภัณฑ์และแบรนด์ที่เราจัดจำหน่าย','ตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย พร้อมพันธมิตรด้าน AIoT, Smart Home และ Robotics'],
+    esg:['ความยั่งยืน','ความยั่งยืนที่อยู่ในทุกกระบวนการดำเนินงาน','ดูแลสิ่งแวดล้อมในองค์กร พัฒนาฝีมือแรงงาน สนับสนุนการศึกษา คืนสู่ชุมชน และกำกับดูแลกิจการอย่างโปร่งใส'],
     ir:['นักลงทุนสัมพันธ์','นักลงทุนสัมพันธ์','ข้อมูลสำหรับนักลงทุน ระหว่างที่บริษัทเตรียมเข้าจดทะเบียนในตลาดหลักทรัพย์แห่งประเทศไทย'],
     news:['ข่าวสาร','ข่าวสารและกิจกรรม','ความเคลื่อนไหวล่าสุด งานสัมมนา ความร่วมมือกับพันธมิตร และกิจกรรมเพื่อสังคม'],
     contact:['ติดต่อเรา','คุยกับเราเรื่องระบบความปลอดภัยขององค์กรคุณ','บอกเราว่าพื้นที่ของคุณเป็นแบบไหนและต้องการอะไร ทีมวิศวกรจะประเมินและเสนอแนวทางที่เหมาะสม']
