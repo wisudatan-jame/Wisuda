@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Digital Focus Listed-Style</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: clean listed-company site in the pattern of jpark.co and its investor site. Deep-navy photo heroes with breadcrumbs, blue-line kickers, large rounded white cards with soft-blue icon tiles, project cards with status pills and three-cell stat strips, check-circle lists, a pre-IPO stock card, investor panels, a dashed info table and a deep-navy footer. Digital Focus logo colours appear only in the mark. */
+:root{
+  --bg:#ffffff; --alt:#f4f7fc; --card:#ffffff; --ink:#0b1f44; --text:#3d4760; --muted:#6a7389; --line:#e3e8f0;
+  --blue:#2f6fed; --blue-2:#1f56c9; --blue-soft:#eaf1fe; --deep:#06122e; --deep-2:#0b2350; --on-deep:#ffffff; --on-deep-muted:#a9b6d3;
+  --head:'IBM Plex Sans Thai','IBM Plex Sans',system-ui,sans-serif;
+  --body:'IBM Plex Sans Thai','IBM Plex Sans',system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#08111f; --alt:#0c182b; --card:#101d33; --ink:#eef3ff; --text:#c6cfe2; --muted:#93a0bb; --line:#1f2e4a;
+  --blue:#5b93ff; --blue-2:#3d7af0; --blue-soft:#152a4d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#08111f; --alt:#0c182b; --card:#101d33; --ink:#eef3ff; --text:#c6cfe2; --muted:#93a0bb; --line:#1f2e4a;
+  --blue:#5b93ff; --blue-2:#3d7af0; --blue-soft:#152a4d; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:1rem/1.75 var(--body);margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+h1,h2,h3{font-family:var(--head);font-weight:700;color:var(--ink);line-height:1.3;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:max(20px,env(safe-area-inset-left,0px)) max(20px,env(safe-area-inset-right,0px))}
+section{padding-block:88px}
+.alt{background:var(--alt)}
+.kicker{display:inline-flex;align-items:center;gap:12px;font:600 .82rem/1.3 var(--head);letter-spacing:.06em;color:var(--blue)}
+.kicker::before{content:"";width:24px;height:2px;background:var(--blue);border-radius:2px}
+.sec-head{display:grid;gap:12px;margin-bottom:40px;max-width:760px}
+.sec-head.center{margin-inline:auto;text-align:center;justify-items:center}
+.sec-head h2{font-size:clamp(1.7rem,3.8vw,2.3rem)}
+.sec-head p{font-size:1.06rem;color:var(--muted)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.flag{display:inline-block;font:500 .72rem/1 var(--head);padding:6px 10px;border-radius:999px;border:1px dashed var(--muted);color:var(--muted);vertical-align:middle}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:13px 28px;font:600 .98rem/1.2 var(--head);text-decoration:none;cursor:pointer;min-height:50px;border:1px solid transparent;white-space:nowrap;transition:background .2s,box-shadow .2s}
+.btn-blue{background:var(--blue);color:#fff;box-shadow:0 10px 24px -8px rgba(47,111,237,.6)}
+.btn-blue:hover{background:var(--blue-2)}
+.btn-white{background:var(--card);color:var(--ink);border-color:var(--line)}
+.btn-white:hover{border-color:var(--blue);color:var(--blue)}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.arrow-link{font:600 .95rem/1.3 var(--head);color:var(--blue);text-decoration:none;display:inline-flex;gap:8px;align-items:center}
+.arrow-link::after{content:"→";transition:transform .2s}
+.arrow-link:hover::after{transform:translateX(4px)}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) header{background:rgba(8,17,31,.9)}}
+:root[data-theme="dark"] header{background:rgba(8,17,31,.9)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:74px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo svg{width:38px;height:34px;flex:none}
+.logo b{display:block;font:700 1.2rem/1 'IBM Plex Sans',sans-serif;color:var(--ink);letter-spacing:.01em}
+.logo small{display:block;font:500 .6rem/1.5 'IBM Plex Sans',sans-serif;letter-spacing:.14em;color:var(--muted)}
+.nav{display:none;gap:4px}
+.nav a{text-decoration:none;font:500 .95rem/1 var(--head);color:var(--text);padding:10px 12px;border-radius:10px;white-space:nowrap}
+.nav a:hover{color:var(--blue);background:var(--blue-soft)}
+.right{display:flex;gap:10px;align-items:center}
+.menu{appearance:none;border:1px solid var(--line);background:var(--card);border-radius:12px;width:46px;height:44px;display:inline-grid;place-content:center;gap:4px;cursor:pointer}
+.menu i{display:block;width:18px;height:2px;border-radius:2px;background:var(--ink)}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--card)}
+.lang a,.lang span{font:600 .76rem/1 'IBM Plex Sans',sans-serif;padding:8px 12px;border-radius:999px;text-decoration:none;color:var(--muted)}
+.lang .on{background:var(--deep-2);color:#fff}
+@media(min-width:1180px){.nav{display:flex}.menu{display:none}}
+.mnav{border-top:1px solid var(--line);background:var(--card)}
+.mnav .wrap{display:grid;padding-block:6px 18px}
+.mnav a{text-decoration:none;padding:14px 0;border-bottom:1px solid var(--line);font:500 1rem/1.3 var(--head);color:var(--ink)}
+@media(min-width:1180px){.mnav{display:none!important}}
+
+/* page hero */
+.hero{padding-block:24px 0}
+.hero-panel{position:relative;overflow:hidden;border-radius:24px;background:var(--deep);color:#fff;isolation:isolate}
+.hero-panel > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.42;filter:grayscale(.2)}
+.hero-panel::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,rgba(6,18,46,.97) 0%,rgba(8,30,72,.88) 45%,rgba(11,35,80,.45) 100%)}
+.hero-in{padding:clamp(36px,6vw,80px) clamp(24px,5vw,64px) clamp(110px,12vw,150px);display:grid;gap:20px;max-width:780px}
+.crumb{font-size:.9rem;color:var(--on-deep-muted)}
+.hero h1{color:#fff;font-size:clamp(2rem,5vw,3.2rem);line-height:1.22}
+.hero .lead{font-size:clamp(1.02rem,2vw,1.18rem);color:#d3dcf0;max-width:62ch}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.hero .cap{font-size:.74rem;color:var(--on-deep-muted)}
+.ticker{position:relative;z-index:2;margin:-84px auto 0;max-width:min(560px,calc(100% - 40px));border-radius:20px;padding:24px 26px;color:#fff;background:linear-gradient(160deg,rgba(26,46,92,.92),rgba(11,35,80,.96));border:1px solid rgba(255,255,255,.16);box-shadow:0 24px 60px -20px rgba(6,18,46,.6);backdrop-filter:blur(10px);display:grid;gap:14px;text-align:center}
+.ticker .sym{font:700 clamp(1.4rem,3.4vw,1.9rem)/1.2 'IBM Plex Sans',sans-serif}
+.ticker .sym small{font:500 .9rem/1 var(--head);color:var(--on-deep-muted)}
+.ticker .grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.15);padding-top:14px;gap:8px}
+.ticker .grid b{display:block;font:600 1.12rem/1.3 'IBM Plex Sans',sans-serif}
+.ticker .grid span{font-size:.76rem;color:var(--on-deep-muted)}
+.ticker .note{font-size:.78rem;color:var(--on-deep-muted)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line);border-radius:22px;overflow:hidden;background:var(--card)}
+@media(min-width:860px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stats div{padding:28px 26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;gap:6px}
+.stats b{font:700 clamp(2rem,4.4vw,2.6rem)/1 'IBM Plex Sans',sans-serif;color:var(--ink);font-variant-numeric:tabular-nums}
+.stats b i{font-style:normal;color:var(--blue);font-size:.55em;vertical-align:super;margin-left:2px}
+.stats span{font-size:.92rem;color:var(--muted)}
+
+/* icon cards */
+.cards{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.cards.two{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px;display:grid;gap:12px;align-content:start;min-width:0;transition:box-shadow .25s,transform .25s}
+.card:hover{box-shadow:0 18px 40px -18px rgba(11,31,68,.25);transform:translateY(-2px)}
+.ico{width:50px;height:50px;border-radius:14px;background:var(--blue-soft);display:grid;place-content:center}
+.ico svg{width:24px;height:24px;fill:none;stroke:var(--blue);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:1.22rem}
+.card p{color:var(--muted)}
+.checks{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.checks li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;color:var(--text)}
+.checks li::before{content:"";width:24px;height:24px;border-radius:50%;margin-top:2px;background:var(--blue-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232f6fed' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/13px no-repeat}
+
+/* projects */
+.projects{display:grid;gap:26px}
+@media(min-width:960px){.projects{grid-template-columns:1fr 1fr}}
+.proj{background:var(--card);border:1px solid var(--line);border-radius:24px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;min-width:0}
+.proj .ph{aspect-ratio:16/8.5;max-width:100%;overflow:hidden;background:var(--alt)}
+.proj .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.proj:hover .ph img{transform:scale(1.04)}
+.proj .body{padding:30px 34px 34px;display:grid;gap:12px;align-content:start}
+.pill{justify-self:start;font:600 .78rem/1 var(--head);letter-spacing:.04em;padding:8px 12px;border-radius:8px;background:var(--blue-soft);color:var(--blue)}
+.pill.soon{background:#fff4e5;color:#b46200}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pill.soon{background:#3a2a10;color:#ffb85c}}
+:root[data-theme="dark"] .pill.soon{background:#3a2a10;color:#ffb85c}
+.proj h3{font-size:clamp(1.25rem,2.6vw,1.6rem)}
+.proj .meta{color:var(--muted);font-size:.95rem}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);background:var(--alt);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:8px}
+.strip div{padding:16px 18px;border-right:1px solid var(--line);display:grid;gap:2px;min-width:0}
+.strip div:last-child{border-right:0}
+.strip b{font:700 1.25rem/1.2 'IBM Plex Sans',sans-serif;color:var(--ink);font-variant-numeric:tabular-nums}
+.strip span{font-size:.82rem;color:var(--muted)}
+.more-clients{margin-top:30px;text-align:center;color:var(--muted)}
+
+/* brands */
+.brands{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
+.brands div{border:1px solid var(--line);border-radius:16px;background:var(--card);padding:20px 16px;display:grid;gap:4px;text-align:center;min-width:0}
+.brands b{font:700 1.05rem/1.2 'IBM Plex Sans',var(--head);color:var(--ink)}
+.brands span{font-size:.8rem;color:var(--muted)}
+.brands .lead-b{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between;text-align:left;background:var(--deep-2);border:0;color:#fff;padding:24px 28px}
+.brands .lead-b b{color:#fff;font-size:1.5rem;letter-spacing:.06em}
+.brands .lead-b span{color:var(--on-deep-muted);font-size:.95rem;max-width:60ch}
+
+/* investor relations */
+.ir{display:grid;gap:22px}
+@media(min-width:980px){.ir{grid-template-columns:1fr 1fr 1fr}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;display:grid;gap:16px;align-content:start;min-width:0}
+.panel h3{font-size:1.15rem;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.panel.dark{background:linear-gradient(160deg,var(--deep-2),var(--deep));border:0;color:#fff}
+.panel.dark h3{color:#fff}
+.panel.dark p{color:var(--on-deep-muted)}
+.panel.dark form{display:flex;gap:8px;flex-wrap:wrap}
+.panel.dark input{flex:1 1 180px;min-width:0;border:0;border-radius:999px;padding:12px 18px;font:inherit;min-height:48px}
+.ok{font-size:.86rem;color:#a7f0c4}
+.fin{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.fin div{background:var(--alt);border-radius:14px;padding:14px;display:grid;gap:2px}
+.fin span{font-size:.8rem;color:var(--muted)}
+.fin b{font:600 1rem/1.3 var(--head);color:var(--muted)}
+.empty{background:var(--alt);border-radius:14px;padding:18px;color:var(--muted);font-size:.93rem}
+.dl{display:grid;gap:0}
+.dl div{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.dl div:last-child{border-bottom:0}
+.dl span{color:var(--muted);font-size:.85rem}
+.highlights{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-bottom:28px}
+.hl{border-radius:22px;padding:28px;background:linear-gradient(160deg,var(--deep-2),var(--deep));color:#fff;display:grid;gap:10px;align-content:start}
+.hl b{font:700 2.4rem/1 'IBM Plex Sans',sans-serif}
+.hl h3{color:#fff;font-size:1.15rem}
+.hl p{color:var(--on-deep-muted);font-size:.94rem}
+
+/* news */
+.news{display:grid;gap:22px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.news article{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;min-width:0}
+.news .ph{aspect-ratio:4/3;max-width:100%;overflow:hidden}
+.news .ph img{width:100%;height:100%;object-fit:cover}
+.news .txt{padding:20px 22px 24px;display:grid;gap:8px;align-content:start}
+.news time{font-size:.85rem;color:var(--muted)}
+.news h3{font-size:1.05rem;line-height:1.5}
+
+/* contact */
+.info{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:10px 30px}
+.info div{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:16px 0;border-bottom:1px dashed var(--line)}
+.info div:last-child{border-bottom:0}
+.info dt{color:var(--muted)}
+.info dd{margin:0;color:var(--ink)}
+.info a{color:var(--blue);font-weight:600;text-decoration:none}
+@media(max-width:560px){.info div{grid-template-columns:1fr;gap:2px}}
+.contact-btns{display:grid;gap:14px;margin-top:22px}
+@media(min-width:700px){.contact-btns{grid-template-columns:1fr 1fr}}
+
+/* footer */
+footer{background:var(--deep);color:var(--on-deep-muted);padding-block:64px 26px;font-size:.95rem}
+footer .top{display:grid;gap:36px}
+@media(min-width:900px){footer .top{grid-template-columns:1.5fr 1fr 1fr 1.3fr}}
+footer .logo b{color:#fff}
+footer .logo small{color:var(--on-deep-muted)}
+footer .about p{margin-top:16px;max-width:44ch}
+footer h4{font:600 .82rem/1.3 var(--head);letter-spacing:.08em;color:#7f8db0;margin:0 0 14px}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+footer a{color:var(--on-deep-muted);text-decoration:none}
+footer a:hover{color:#fff}
+footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;font-size:.85rem}
+.cookie{position:fixed;z-index:40;left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));max-width:960px;margin-inline:auto;background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 20px 50px rgba(11,31,68,.25);padding:16px 20px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between}
+.cookie p{font-size:.88rem;max-width:66ch}
+.cookie div{display:flex;gap:8px}
+.cookie .btn{min-height:42px;padding:9px 20px;font-size:.9rem}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="Digital Focus หน้าแรก">
+      <svg viewBox="0 0 40 36" aria-hidden="true"><path d="M20 0 0 36h20V22z" fill="#283c96"/><path d="M20 0l20 36H20V22z" fill="#e3262b"/><path d="M0 36h40L20 22z" fill="#1f9a4b"/></svg>
+      <span><b>DIGITAL FOCUS</b><small>AIoT &amp; ROBOTICS SOLUTIONS</small></span>
+    </a>
+    <nav class="nav" aria-label="เมนูหลัก">
+      <a href="#business">ธุรกิจ</a><a href="#projects">ผลงาน</a><a href="#clients">ลูกค้า</a><a href="#brands">แบรนด์</a><a href="#esg">ความยั่งยืน</a><a href="#ir">นักลงทุนสัมพันธ์</a><a href="#news">ข่าวสาร</a><a href="#contact">ติดต่อเรา</a>
+    </nav>
+    <div class="right">
+      <div class="lang"><span class="on" aria-current="true">TH</span><span title="เวอร์ชันภาษาอังกฤษจะทำหลังสรุปดีไซน์" style="opacity:.6">EN</span></div>
+      <button class="menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="เปิดเมนู"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+  <div class="mnav" id="mnav" hidden><div class="wrap">
+    <a href="#business">ธุรกิจของเรา</a><a href="#projects">ผลงาน</a><a href="#clients">ลูกค้า</a><a href="#brands">แบรนด์ที่จัดจำหน่าย</a><a href="#esg">ความยั่งยืน</a><a href="#ir">นักลงทุนสัมพันธ์</a><a href="#news">ข่าวสาร</a><a href="#contact">ติดต่อเรา</a>
+  </div></div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-panel">
+      <img src="img/hq.jpg" alt="อาคารสำนักงานใหญ่ Digital Focus ซอยลาดพร้าว 130">
+      <div class="hero-in">
+        <p class="crumb">บริษัท ดิจิตอลโฟกัส จำกัด · ก่อตั้งปี 2002</p>
+        <h1>ผู้นำระบบรักษาความปลอดภัย AI และ AIoT ครบวงจรของไทย</h1>
+        <p class="lead">ผู้นำเข้า จัดจำหน่าย และวางระบบ Security, Smart Building, Smart Transport และ Robotics จากแบรนด์ชั้นนำของโลก พร้อมแพลตฟอร์มที่พัฒนาเอง ดูแลตั้งแต่ออกแบบ ติดตั้ง จนถึงบริการหลังการขาย</p>
+        <div class="ctas"><a class="btn btn-blue" href="#contact">คุยกับทีมขาย</a><a class="btn btn-ghost" href="#ir">นักลงทุนสัมพันธ์</a></div>
+      </div>
+    </div>
+    <div class="ticker" aria-label="ข้อมูลหลักทรัพย์">
+      <div class="sym">DIGITAL FOCUS <small>· เตรียมเข้าจดทะเบียน</small></div>
+      <div class="grid"><div><b>2002</b><span>ปีที่ก่อตั้ง</span></div><div><b>60 ลบ.</b><span>ทุนจดทะเบียน</span></div><div><b>IPO</b><span>อยู่ระหว่างเตรียมการ</span></div></div>
+      <p class="note">ราคาหลักทรัพย์จะแสดงที่นี่หลังบริษัทเข้าจดทะเบียนในตลาดหลักทรัพย์ฯ</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:64px">
+  <div class="wrap">
+    <div class="stats">
+      <div><b>24<i>+</i></b><span>ปีของประสบการณ์ในอุตสาหกรรม</span></div>
+      <div><b>500<i>+</i></b><span>ตัวแทนจำหน่ายและช่างบริการทั่วประเทศ</span></div>
+      <div><b>6,500<i>+</i></b><span>สาขา 7-Eleven ที่ติดตั้งระบบ AI และ CCTV</span></div>
+      <div><b>100,000<i>+</i></b><span>กล้องในโครงการ CP ALL</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="business" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">ธุรกิจของเรา</span><h2>ครบตั้งแต่อุปกรณ์ วางระบบ จนถึงแพลตฟอร์ม</h2><p>Digital Focus เติบโตจากผู้จำหน่ายกล้องวงจรปิด สู่ผู้ให้บริการ Security &amp; Smart Solutions ที่รวมฮาร์ดแวร์ ซอฟต์แวร์ และบริการไว้ด้วยกัน</p></div>
+    <div class="cards">
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 7h13v8H3zM16 10l5-2v6l-5-2M7 15v4h4"/></svg></span><h3>จัดจำหน่ายอุปกรณ์</h3><p>ตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย และแบรนด์ AIoT ชั้นนำ ผ่านเครือข่ายตัวแทนกว่า 500 ราย</p></article>
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 4-3.5 7-8 8-4.5-1-8-4-8-8V7z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>ออกแบบและวางระบบ</h3><p>ทีมวิศวกรให้คำปรึกษา ออกแบบ ติดตั้ง และบริการหลังการขาย สำหรับโครงการภาครัฐและเอกชนทั่วประเทศ</p></article>
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M7 9l3 3 3-3 4 4"/></svg></span><h3>แพลตฟอร์ม DGF</h3><p>DGF Smart Transport พร้อมใช้งาน ต่อยอดสู่ Smart Building Management, CRM และ Robotics Control Platform</p></article>
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M8 14h3"/></svg></span><h3>บริการรายเดือน</h3><p>เช่าระบบกล้อง เฝ้าระวังด้วย AI จากศูนย์ควบคุม และสัญญาดูแลรักษารายปี สร้างรายได้ประจำที่ต่อเนื่อง</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">ผลงานและโครงการ</span><h2>โครงการที่เราวางระบบ และโครงการที่กำลังสร้าง</h2><p>จากเครือข่ายค้าปลีกหลายพันสาขา ระบบอ่านป้ายทะเบียนของหน่วยงานรัฐ ถึงศูนย์สาธิต AI แห่งใหม่</p></div>
+    <div class="projects">
+      <article class="proj"><div class="ph"><img src="img/cpall.jpg" alt="ร้าน 7-Eleven และ All Cafe" loading="lazy"></div><div class="body"><span class="pill">ส่งมอบแล้ว</span><h3>CP ALL (7-Eleven) ทั่วประเทศ</h3><p class="meta">ระบบ AI และ CCTV ของ Hikvision · 2018–2023</p><p>ติดตั้งในร้าน 7-Eleven กรุงเทพฯ และต่างจังหวัด รวมศูนย์กระจายสินค้า</p><div class="strip"><div><b>6,500+</b><span>สาขา</span></div><div><b>100,000+</b><span>กล้อง</span></div><div><b>6</b><span>ปีของโครงการ</span></div></div></div></article>
+      <article class="proj"><div class="ph"><img src="img/command.jpg" alt="ภาพจำลองศูนย์สั่งการใน DGF Smart AI Building" loading="lazy"></div><div class="body"><span class="pill soon">เตรียมเปิดปี 2026</span><h3>DGF Smart AI Building</h3><p class="meta">ศูนย์สาธิต AI, Robotics และ Green Energy · สำนักงานใหญ่ ซอยลาดพร้าว 130</p><p>รวมเทคโนโลยีจาก Hikvision, BroadLink, Huawei Digital Power และ Keenon ให้ลูกค้าเห็นระบบทำงานจริง (ภาพจำลอง)</p><div class="strip"><div><b>3</b><span>อาคารสำนักงานใหญ่</span></div><div><b>5,400+</b><span>ตร.ม.</span></div><div><b>4</b><span>แบรนด์พันธมิตร</span></div></div></div></article>
+      <article class="proj"><div class="ph"><img src="img/exat.jpg" alt="ทางพิเศษ" loading="lazy"></div><div class="body"><span class="pill">ส่งมอบแล้ว</span><h3>การทางพิเศษแห่งประเทศไทย และรัฐสภา</h3><p class="meta">ระบบกล้องอ่านป้ายทะเบียน (LPR) · ภาครัฐ</p><p>บันทึกและตรวจจับทะเบียนรถที่ผ่านทางพิเศษ และทุกคันที่เข้าพื้นที่รัฐสภา (2022–2023)</p><div class="strip"><div><b>216</b><span>กล้อง LPR (กทพ.)</span></div><div><b>9MP</b><span>ความละเอียดสูงสุด</span></div><div><b>2</b><span>หน่วยงานรัฐ</span></div></div></div></article>
+      <article class="proj"><div class="ph"><img src="img/bigc.jpg" alt="Big C" loading="lazy"></div><div class="body"><span class="pill">ส่งมอบแล้ว</span><h3>Big C และ BJC</h3><p class="meta">เปลี่ยนระบบ NVR และ DVR เป็น Hikvision · ค้าปลีก</p><p>ยกระดับระบบกล้องทั่วเครือข่าย พร้อมบันทึกภาพในสาขาและบริหารผ่าน HikCentral</p><div class="strip"><div><b>20,000+</b><span>กล้อง</span></div><div><b>1,500</b><span>สาขา</span></div><div><b>HCP</b><span>แพลตฟอร์มบริหาร</span></div></div></div></article>
+    </div>
+    <p class="more-clients">ผลงานอื่น ๆ: Central Food Retail · Central Trading · Robinson · ปตท. 1,500 คัน · Banpu · GWM · ตลาดไท · รถพยาบาล 5G กับ depa</p>
+  </div>
+</section>
+
+<section id="clients" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">กลุ่มลูกค้า</span><h2>ได้รับความไว้วางใจจากทั้งภาครัฐและเอกชน</h2></div>
+    <div class="cards two">
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><h3>หน่วยงานภาครัฐ</h3><ul class="checks"><li>รัฐสภา</li><li>การทางพิเศษแห่งประเทศไทย</li><li>สำนักงานส่งเสริมเศรษฐกิจดิจิทัล (depa)</li></ul></article>
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 9l1.5-5h15L21 9M4 9v11h16V9M3 9h18M9 20v-6h6v6"/></svg></span><h3>ค้าปลีกและห้างสรรพสินค้า</h3><ul class="checks"><li>CP ALL (7-Eleven)</li><li>Central Department Store, Central Food Retail, Central Trading, Robinson</li><li>Big C และ BJC</li><li>CMG Group, แว่นท็อปเจริญ</li></ul></article>
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span><h3>พลังงาน ยานยนต์ และการเงิน</h3><ul class="checks"><li>ปตท., PT และ PT Genergy</li><li>Banpu</li><li>GWM, Toyota Buzz</li><li>TISCO, สมหวัง</li></ul></article>
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 10h16l-1 10H5zM8 10V7a4 4 0 018 0v3"/></svg></span><h3>ร้านอาหาร ตลาด และที่จอดรถ</h3><ul class="checks"><li>ชาตรามือ, Bar B Q Plaza, พันธุ์ไทย</li><li>ตลาดไท, ตลาดสี่มุมเมือง</li><li>J-Park ที่จอดรถ MRT</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section id="brands">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">แบรนด์ที่จัดจำหน่าย</span><h2>พันธมิตรเทคโนโลยีระดับโลก</h2></div>
+    <div class="brands">
+      <div class="lead-b"><b>HIKVISION</b><span>ตัวแทนจำหน่ายอย่างเป็นทางการรายแรกของประเทศไทย ตั้งแต่ปี 2006 ผู้นำโลกด้านระบบรักษาความปลอดภัยและ AIoT</span></div>
+      <div><b>Tiandy</b><span>กล้องวงจรปิด</span></div><div><b>DSPPA</b><span>ระบบเสียงประกาศ</span></div><div><b>BroadLink</b><span>AI Smart Home</span></div><div><b>Huawei</b><span>Digital Power</span></div><div><b>Keenon</b><span>หุ่นยนต์บริการ</span></div><div><b>Xiaodu</b><span>อุปกรณ์สั่งงานด้วยเสียง</span></div><div><b>Geeklink</b><span>Smart Home</span></div><div><b>BrainCo</b><span>EEG neurofeedback</span></div><div><b>ICDL</b><span>มาตรฐานทักษะดิจิทัล</span></div><div><b>DGF</b><span>แบรนด์ของบริษัท</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="esg" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">ความยั่งยืน</span><h2>ความยั่งยืนที่อยู่ในทุกกระบวนการดำเนินงาน</h2><p>เทคโนโลยีที่เราติดตั้งช่วยให้เมืองปลอดภัยขึ้นและใช้พลังงานคุ้มค่าขึ้น ควบคู่กับการพัฒนาคนและการกำกับดูแลกิจการที่โปร่งใส</p></div>
+    <div class="cards">
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M5 19c8 0 14-6 14-14-8 0-14 6-14 14zM5 19l7-7"/></svg></span><h3>มิติสิ่งแวดล้อม</h3><p>ศูนย์สาธิต Green Energy และโซลูชันพลังงาน Huawei Digital Power พร้อมระบบอาคารอัจฉริยะที่ช่วยลดการใช้พลังงาน</p></article>
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5a3 3 0 010 6M21 20c0-2.6-1.7-4.8-4-5.6"/></svg></span><h3>มิติสังคม</h3><p>ทุนวิจัย 1,000,000 บาทร่วมกับ สจล. ทุนการศึกษาให้วิทยาลัยเทคนิค อบรมช่างกว่า 3,000 คน และดูแลชุมชนทุกปี</p></article>
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 4-3.5 7-8 8-4.5-1-8-4-8-8V7z"/></svg></span><h3>มิติธรรมาภิบาล</h3><p>มาตรฐานธรรมาภิบาลธุรกิจจากกรมพัฒนาธุรกิจการค้า ISO 9001:2015 และ มอก.S พร้อมช่องทางแจ้งเบาะแสที่ <a href="mailto:info@digitalfocus.co.th">info@digitalfocus.co.th</a></p></article>
+    </div>
+  </div>
+</section>
+
+<section id="ir">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">นักลงทุนสัมพันธ์</span><h2>จุดเด่นในการลงทุน <span class="flag">อยู่ระหว่างเตรียม IPO</span></h2></div>
+    <div class="highlights">
+      <div class="hl"><b>24 ปี</b><h3>ประสบการณ์และความน่าเชื่อถือ</h3><p>ตัวแทนจำหน่าย Hikvision รายแรกของไทย และผลงานกับองค์กรชั้นนำทั้งภาครัฐและเอกชน</p></div>
+      <div class="hl"><b>500+</b><h3>เครือข่ายทั่วประเทศ</h3><p>ตัวแทนจำหน่ายและช่างบริการครอบคลุมทุกภูมิภาค รองรับโครงการหลายพื้นที่</p></div>
+      <div class="hl"><b>S-Curve</b><h3>เติบโตสู่แพลตฟอร์ม</h3><p>ต่อยอดจากการจัดจำหน่ายสู่แพลตฟอร์ม DGF บริการรายเดือน และ Robotics ในปี 2027</p></div>
+    </div>
+    <div class="ir">
+      <div class="panel">
+        <h3>ข้อมูลสำคัญทางการเงิน</h3>
+        <div class="fin"><div><span>รายได้รวม</span><b>รอเปิดเผย</b></div><div><span>กำไรสุทธิ</span><b>รอเปิดเผย</b></div><div><span>สินทรัพย์รวม</span><b>รอเปิดเผย</b></div></div>
+        <p style="font-size:.85rem;color:var(--muted)">แสดงหลังแบบแสดงรายการข้อมูลการเสนอขายหลักทรัพย์ (Filing) มีผลบังคับใช้</p>
+        <h3>ข่าวแจ้งตลาดหลักทรัพย์</h3>
+        <p class="empty">ยังไม่มีข่าวแจ้งตลาดหลักทรัพย์ฯ</p>
+      </div>
+      <div class="panel">
+        <h3>เอกสารดาวน์โหลด</h3>
+        <div class="dl"><div>แบบ 56-1 One Report<span>รอเผยแพร่</span></div><div>งบการเงิน<span>รอเผยแพร่</span></div><div>คำอธิบายและการวิเคราะห์ของฝ่ายจัดการ<span>รอเผยแพร่</span></div><div>หนังสือชี้ชวน<span>รอเผยแพร่</span></div><div>นโยบายการกำกับดูแลกิจการ<span>รอเผยแพร่</span></div></div>
+      </div>
+      <div style="display:grid;gap:22px;align-content:start">
+        <div class="panel dark">
+          <h3>อีเมลรับข่าวสาร</h3>
+          <p>ติดตามความเคลื่อนไหวล่าสุดของบริษัท และความคืบหน้าการเข้าจดทะเบียน</p>
+          <form id="irForm" novalidate><label for="irEmail" style="position:absolute;left:-9999px">อีเมล</label><input type="email" id="irEmail" placeholder="อีเมลของคุณ" autocomplete="email"><button class="btn btn-blue" type="submit">สมัครรับข่าวสาร</button></form>
+          <p class="ok" id="irOk" hidden>นี่คือต้นแบบ ระบบสมัครรับข่าวสารยังไม่ได้เชื่อมต่อ</p>
+        </div>
+        <div class="panel dark">
+          <h3>ติดต่อนักลงทุนสัมพันธ์</h3>
+          <p>อีเมล <a href="mailto:info@digitalfocus.co.th" style="color:#fff">info@digitalfocus.co.th</a><br>โทร 02 136 8989</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="news" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">ห้องข่าว</span><h2>ข่าวสารและกิจกรรม</h2></div>
+    <div class="news">
+      <article><div class="ph"><img src="img/news-hospitality.jpg" alt="งาน The AI-Powered Hospitality Era 2026" loading="lazy"></div><div class="txt"><time>2026 · [วันที่]</time><h3>ร่วมงาน The AI-Powered Hospitality Era 2026 นำเสนอโซลูชัน AI สำหรับโรงแรม</h3><a class="arrow-link" href="#news">อ่านเพิ่มเติม</a></div></article>
+      <article><div class="ph"><img src="img/news-summit.jpg" alt="Hikvision Commercial Summit 2025" loading="lazy"></div><div class="txt"><time>2025 · [วันที่]</time><h3>ร่วมงาน Hikvision Commercial Summit 2025 “Shaping Intelligence”</h3><a class="arrow-link" href="#news">อ่านเพิ่มเติม</a></div></article>
+      <article><div class="ph"><img src="img/news-icdl.jpg" alt="กิจกรรมอบรมทักษะดิจิทัล" loading="lazy"></div><div class="txt"><time>[วันที่]</time><h3>จัดอบรมพัฒนาทักษะดิจิทัลมาตรฐาน ICDL</h3><a class="arrow-link" href="#news">อ่านเพิ่มเติม</a></div></article>
+      <article><div class="ph"><img src="img/news-pathumwan.jpg" alt="ส่งมอบอุปกรณ์เพื่อการศึกษา" loading="lazy"></div><div class="txt"><time>[วันที่]</time><h3>สนับสนุนอุปกรณ์เทคโนโลยีเพื่อการเรียนการสอนแก่สถาบันการศึกษา</h3><a class="arrow-link" href="#news">อ่านเพิ่มเติม</a></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">ติดต่อเรา</span><h2>คุยกับเราเรื่องระบบความปลอดภัยขององค์กรคุณ</h2><p>บอกเราว่าพื้นที่ของคุณเป็นแบบไหนและต้องการอะไร ทีมวิศวกรจะประเมินและเสนอแนวทางที่เหมาะสม</p></div>
+    <div class="cards" style="margin-bottom:40px">
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></span><h3>ร่วมงานทางธุรกิจ</h3><p>ตัวแทนจำหน่าย SI ผู้รับเหมา หรือเจ้าของโครงการที่ต้องการพันธมิตรด้านระบบความปลอดภัย</p><a class="arrow-link" href="mailto:info@digitalfocus.co.th">อีเมลทีมขาย</a></article>
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></span><h3>สอบถามโซลูชันและบริการ</h3><p>ต้องการติดตั้งระบบใหม่ ปรับปรุงระบบเดิม หรือใช้บริการรายเดือนและสัญญาดูแลรักษา</p><a class="arrow-link" href="https://lin.ee/Ajw1OZw" target="_blank" rel="noopener">แชทผ่าน LINE</a></article>
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5"/></svg></span><h3>นักลงทุนสัมพันธ์</h3><p>ข้อมูลบริษัท ความคืบหน้าการเตรียม IPO และข่าวสารสำหรับนักลงทุน</p><a class="arrow-link" href="#ir">ไปที่ส่วนนักลงทุนสัมพันธ์</a></article>
+    </div>
+    <span class="kicker">สำนักงานใหญ่</span>
+    <h3 style="font-size:1.6rem;margin:10px 0 22px">ข้อมูลติดต่อ</h3>
+    <dl class="info" style="margin:0">
+      <div><dt>บริษัท</dt><dd>บริษัท ดิจิตอลโฟกัส จำกัด</dd></div>
+      <div><dt>ที่อยู่</dt><dd>2782/4-6 ถนนลาดพร้าว แขวงคลองจั่น เขตบางกะปิ กรุงเทพมหานคร 10240</dd></div>
+      <div><dt>โทรศัพท์</dt><dd>02 136 8989 · แฟกซ์ 02 733 9075</dd></div>
+      <div><dt>อีเมล</dt><dd><a href="mailto:info@digitalfocus.co.th">info@digitalfocus.co.th</a></dd></div>
+      <div><dt>เว็บไซต์</dt><dd><a href="https://www.digitalfocus.co.th/" target="_blank" rel="noopener">digitalfocus.co.th</a></dd></div>
+      <div><dt>LINE OA</dt><dd><a href="https://lin.ee/Ajw1OZw" target="_blank" rel="noopener">lin.ee/Ajw1OZw</a></dd></div>
+      <div><dt>เลขทะเบียน</dt><dd>0105545026907</dd></div>
+    </dl>
+    <div class="contact-btns">
+      <a class="btn btn-blue" href="tel:021368989"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg>02 136 8989</a>
+      <a class="btn btn-white" href="mailto:info@digitalfocus.co.th"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>info@digitalfocus.co.th</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div class="about">
+        <a class="logo" href="#top" aria-label="Digital Focus"><svg viewBox="0 0 40 36" aria-hidden="true"><path d="M20 0 0 36h20V22z" fill="#5b6cff"/><path d="M20 0l20 36H20V22z" fill="#e3262b"/><path d="M0 36h40L20 22z" fill="#1f9a4b"/></svg><span><b>DIGITAL FOCUS</b><small>AIoT &amp; ROBOTICS SOLUTIONS</small></span></a>
+        <p>บริษัท ดิจิตอลโฟกัส จำกัด ผู้ให้บริการ Security &amp; Smart Solutions ครบวงจร ด้วยประสบการณ์กว่า 24 ปี และแพลตฟอร์ม DGF ที่พัฒนาเอง</p>
+      </div>
+      <div><h4>บริษัท</h4><ul><li><a href="#business">ธุรกิจของเรา</a></li><li><a href="#esg">ความยั่งยืน</a></li><li><a href="#ir">นักลงทุนสัมพันธ์</a></li><li><a href="#contact">ติดต่อเรา</a></li></ul></div>
+      <div><h4>ธุรกิจ</h4><ul><li><a href="#brands">จัดจำหน่ายอุปกรณ์</a></li><li><a href="#projects">ออกแบบและวางระบบ</a></li><li><a href="#business">แพลตฟอร์ม DGF</a></li><li><a href="https://shopee.co.th/digitalfocus_thailand" target="_blank" rel="noopener">ร้านค้าออนไลน์</a></li></ul></div>
+      <div><h4>ติดต่อ</h4><ul><li>2782/4-6 ถนนลาดพร้าว แขวงคลองจั่น เขตบางกะปิ กรุงเทพฯ 10240</li><li>02 136 8989</li><li><a href="mailto:info@digitalfocus.co.th">info@digitalfocus.co.th</a></li><li><a href="https://lin.ee/Ajw1OZw" target="_blank" rel="noopener">LINE</a> · <a href="https://www.facebook.com/profile.php?id=61581609465585" target="_blank" rel="noopener">Facebook</a> · <a href="https://shopee.co.th/digitalfocus_thailand" target="_blank" rel="noopener">Shopee</a></li></ul></div>
+    </div>
+    <div class="bottom"><span>© 2026 บริษัท ดิจิตอลโฟกัส จำกัด สงวนลิขสิทธิ์</span><span>ทะเบียนเลขที่ 0105545026907</span><span>นโยบายความเป็นส่วนตัว · นโยบายคุกกี้ · ข้อกำหนดการใช้งาน</span></div>
+  </div>
+</footer>
+
+<div class="cookie" id="cookie" role="region" aria-label="การตั้งค่าคุกกี้" hidden><p>เราใช้คุกกี้ที่จำเป็นต่อการทำงานของเว็บไซต์ และใช้คุกกี้เพื่อการวิเคราะห์เมื่อคุณยินยอม ตาม พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562</p><div><button class="btn btn-blue" type="button" data-c="all">ยอมรับทั้งหมด</button><button class="btn btn-white" type="button" data-c="necessary">เฉพาะที่จำเป็น</button></div></div>
+
+<script>
+(function(){
+  var menuBtn=document.getElementById('menuBtn'),mnav=document.getElementById('mnav');
+  menuBtn.addEventListener('click',function(){var open=mnav.hidden;mnav.hidden=!open;menuBtn.setAttribute('aria-expanded',open?'true':'false')});
+  mnav.addEventListener('click',function(e){if(e.target.closest('a')){mnav.hidden=true;menuBtn.setAttribute('aria-expanded','false')}});
+  document.getElementById('irForm').addEventListener('submit',function(e){e.preventDefault();document.getElementById('irOk').hidden=false});
+  var ck=document.getElementById('cookie'),saved=null;
+  try{saved=localStorage.getItem('df-cookie')}catch(e){}
+  if(!saved) ck.hidden=false;
+  ck.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;try{localStorage.setItem('df-cookie',b.dataset.c)}catch(err){}ck.hidden=true});
+})();
+</script>
+</body>
+</html>
