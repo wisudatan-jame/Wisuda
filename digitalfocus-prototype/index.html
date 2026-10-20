@@ -7,256 +7,297 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* Layout: corporate industrial-tech look modelled on large engineering-company sites: deep-navy header and full-bleed photo hero, a teal-green accent used sparingly, flat image-led cards with arrow links, alternating white / light-sand sections, and a dense dark footer. */
+/* Layout: security-manufacturer corporate site. White header with utility bar, full-width banner carousel, icon row of product categories, image-led industry and project cards, investor relations and governance blocks, dark footer with legal links. Palette from the Digital Focus logo and company profile: royal blue primary, green and red as small accents only. */
 :root{
-  --bg:#ffffff; --surface:#f3f3f0; --card:#ffffff; --ink:#000028; --muted:#4f4f6a; --line:#dcdce2;
-  --deep:#000028; --deep-2:#0b0b40; --on-deep:#ffffff; --on-deep-muted:#b9b9c9;
-  --hl:#00807f; --hl-soft:#e3f3f2; --grad:linear-gradient(90deg,#00ffb9 0%,#00e6dc 100%); --on-grad:#000028;
-  --head:'IBM Plex Sans Thai','Noto Sans Thai',system-ui,sans-serif;
-  --body:'IBM Plex Sans Thai','Noto Sans Thai',system-ui,sans-serif;
+  --bg:#ffffff; --surface:#f4f6fa; --card:#ffffff; --ink:#18202e; --muted:#5a6375; --line:#e1e5ec;
+  --blue:#0b4db3; --blue-dark:#08337a; --blue-soft:#e8effb; --green:#1f9a4b; --green-soft:#e6f4ec; --red:#e3262b; --red-soft:#fdeaea;
+  --foot:#141a26; --on-dark:#ffffff; --on-dark-muted:#a9b1c2;
+  --head:'Noto Sans Thai','Noto Sans',system-ui,sans-serif;
+  --body:'Noto Sans Thai','Noto Sans',system-ui,sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#000028; --surface:#0b0b40; --card:#12124c; --ink:#ffffff; --muted:#b9b9c9; --line:#26265e;
-  --deep:#000018; --deep-2:#0b0b40; --hl:#00ffb9; --hl-soft:#0d3a4a; color-scheme:dark}}
+  --bg:#0d1320; --surface:#131b2b; --card:#182235; --ink:#eef1f7; --muted:#a7b0c2; --line:#253049;
+  --blue:#5b93f0; --blue-dark:#0a2a63; --blue-soft:#17284a; --green:#4cc27a; --green-soft:#14301f; --red:#ff6b6e; --red-soft:#3a1a1f;
+  --foot:#090d16; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#000028; --surface:#0b0b40; --card:#12124c; --ink:#ffffff; --muted:#b9b9c9; --line:#26265e;
-  --deep:#000018; --deep-2:#0b0b40; --hl:#00ffb9; --hl-soft:#0d3a4a; color-scheme:dark}
+  --bg:#0d1320; --surface:#131b2b; --card:#182235; --ink:#eef1f7; --muted:#a7b0c2; --line:#253049;
+  --blue:#5b93f0; --blue-dark:#0a2a63; --blue-soft:#17284a; --green:#4cc27a; --green-soft:#14301f; --red:#ff6b6e; --red-soft:#3a1a1f;
+  --foot:#090d16; color-scheme:dark}
 
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font:16px/1.65 var(--body);margin:0}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--deep)}
-h1,h2,h3{font-family:var(--head);font-weight:700;line-height:1.2;margin:0;text-wrap:balance;letter-spacing:-.01em}
+body{background:var(--bg);color:var(--ink);font:16px/1.7 var(--body);margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--card)}
+h1,h2,h3{font-family:var(--head);font-weight:700;line-height:1.3;margin:0;text-wrap:balance}
 p{margin:0}
 a{color:inherit}
 img{display:block;max-width:100%}
-.wrap{max-width:1240px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
-section{padding-block:64px}
-.eyebrow{font:600 .82rem/1.3 var(--head);letter-spacing:.06em;text-transform:uppercase;color:var(--hl)}
-.sec-head{display:grid;gap:12px;margin-bottom:32px;max-width:68ch}
-.sec-head h2{font-size:clamp(1.7rem,4.4vw,2.6rem)}
-.sec-head p{color:var(--muted);font-size:1.05rem}
-:focus-visible{outline:3px solid #00e6dc;outline-offset:2px}
+.wrap{max-width:1280px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:60px}
+.eyebrow{font:600 .8rem/1.3 var(--head);letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.sec-head{display:grid;gap:10px;margin-bottom:30px;max-width:70ch}
+.sec-head.center{margin-inline:auto;text-align:center;justify-items:center}
+.sec-head h2{font-size:clamp(1.6rem,4vw,2.3rem)}
+.sec-head p{color:var(--muted)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
 
-/* buttons and links */
-.btn{display:inline-flex;align-items:center;gap:10px;border:2px solid transparent;border-radius:4px;padding:12px 22px;font:600 .95rem/1.2 var(--head);cursor:pointer;text-decoration:none;min-height:46px}
-.btn-red{background:var(--grad);color:var(--on-grad)}
-.btn-red:hover{filter:brightness(1.06)}
-.btn-line{border-color:var(--ink);color:var(--ink);background:transparent}
-.btn-line:hover{background:var(--ink);color:var(--bg)}
-.btn-ghost{border-color:var(--on-deep);color:var(--on-deep);background:transparent}
-.btn-ghost:hover{background:var(--on-deep);color:var(--deep)}
-.more{font:600 .95rem/1.3 var(--head);color:var(--hl);text-decoration:none;display:inline-flex;gap:6px;align-items:center}
-.more::after{content:"›";font-size:1.3em;line-height:1;transition:transform .2s}
-a:hover > .more::after,.more:hover::after{transform:translateX(4px)}
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid transparent;border-radius:4px;padding:11px 24px;font:600 .95rem/1.2 var(--head);cursor:pointer;text-decoration:none;min-height:44px}
+.btn-red{background:var(--blue);color:#fff}
+.btn-red:hover{background:var(--blue-dark)}
+.btn-line{border-color:var(--blue);color:var(--blue);background:transparent}
+.btn-line:hover{background:var(--blue-soft)}
+.btn-ghost{border-color:#fff;color:#fff;background:transparent}
+.btn-ghost:hover{background:#fff;color:var(--blue-dark)}
+.more{font:600 .92rem/1.3 var(--head);color:var(--blue);text-decoration:none;display:inline-flex;gap:6px;align-items:center}
+.more::after{content:"›";font-size:1.3em;line-height:1}
 
-/* header */
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--deep);color:var(--on-deep)}
+/* utility bar and header */
+.util{background:var(--surface);border-bottom:1px solid var(--line);font-size:.8rem;color:var(--muted)}
+.util .wrap{display:flex;justify-content:flex-end;gap:18px;min-height:34px;align-items:center;flex-wrap:wrap}
+.util a{text-decoration:none}
+.util a:hover{color:var(--blue)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--card);border-bottom:1px solid var(--line);box-shadow:0 2px 10px rgba(16,30,60,.05)}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.mark{width:32px;height:32px;border-radius:50%;background:conic-gradient(from 200deg,#2b7de0,#2f9e5b,#f1c93b,#e5321f,#2b7de0);-webkit-mask:radial-gradient(farthest-side,transparent 58%,#000 60%);mask:radial-gradient(farthest-side,transparent 58%,#000 60%)}
-.brand b{font:700 1.15rem/1 var(--head)}
-.brand small{display:block;font:400 .72rem/1.3 var(--body);color:var(--on-deep-muted)}
-nav{display:none;gap:26px;font:500 .95rem/1 var(--head)}
-nav a{text-decoration:none;color:var(--on-deep);padding-block:24px;border-bottom:2px solid transparent}
-nav a:hover{border-bottom-color:#00ffb9}
+.mark{width:38px;height:34px;flex:none}
+.brand b{font:700 1.2rem/1 var(--head);color:var(--ink)}
+.brand small{display:block;font:400 .72rem/1.3 var(--body);color:var(--muted)}
+nav{display:none;gap:4px;font:500 .95rem/1 var(--head)}
+nav a{text-decoration:none;color:var(--ink);padding:24px 12px;border-bottom:3px solid transparent}
+nav a:hover{color:var(--blue);border-bottom-color:var(--blue)}
 .hdr-cta{display:flex;gap:10px;align-items:center}
-.hdr-cta .btn{padding:8px 16px;min-height:40px}
-.icon-btn{display:inline-grid;place-content:center;text-decoration:none;appearance:none;border:1px solid rgba(255,255,255,.35);background:transparent;color:var(--on-deep);border-radius:4px;min-width:44px;min-height:40px;padding:0 10px;font:600 .85rem/1 var(--head);cursor:pointer}
+.hdr-cta .btn{padding:8px 18px;min-height:40px}
+.icon-btn{display:inline-grid;place-content:center;text-decoration:none;appearance:none;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:4px;min-width:44px;min-height:40px;padding:0 10px;font:600 .85rem/1 var(--head);cursor:pointer}
 .menu-btn{gap:4px}
-.menu-btn i{display:block;width:18px;height:2px;background:var(--on-deep);border-radius:2px}
-@media(min-width:960px){nav{display:flex}.menu-btn{display:none}}
-.mnav{background:var(--deep-2)}
+.menu-btn i{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px}
+@media(min-width:1080px){nav{display:flex}.menu-btn{display:none}}
+.mnav{background:var(--card);border-top:1px solid var(--line)}
 .mnav .wrap{display:grid;padding-block:8px 16px}
-.mnav a{text-decoration:none;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.12);font:500 1rem/1.3 var(--head)}
-@media(min-width:960px){.mnav{display:none!important}}
-@media(max-width:520px){.hdr-cta .btn-red{display:none}}
+.mnav a{text-decoration:none;padding:13px 0;border-bottom:1px solid var(--line);font:500 1rem/1.3 var(--head)}
+@media(min-width:1080px){.mnav{display:none!important}}
+@media(max-width:560px){.hdr-cta .btn-red{display:none}.util .wrap{justify-content:center}}
 
-/* hero */
-.hero{position:relative;padding:0;background:var(--deep);color:var(--on-deep);overflow:hidden}
-.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,40,.94) 0%,rgba(0,0,40,.78) 45%,rgba(0,0,40,.25) 100%)}
-.hero-inner{position:relative;padding-block:clamp(72px,11vw,150px) clamp(56px,8vw,110px);display:grid;gap:18px;max-width:1240px}
-.hero-inner > *{max-width:640px}
-.hero .eyebrow{color:#00ffb9}
-.hero h1{font-size:clamp(2.2rem,6.4vw,4rem);line-height:1.08}
-.hero h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{color:var(--on-deep-muted);font-size:clamp(1.02rem,2.2vw,1.2rem);max-width:58ch}
-.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
-.hero-cap{font-size:.75rem;color:var(--on-deep-muted)}
+/* hero carousel */
+.hero{position:relative;padding:0;background:var(--blue-dark);color:#fff;overflow:hidden}
+.slides{display:grid}
+.slide{grid-area:1/1;position:relative;opacity:0;visibility:hidden;transition:opacity .6s}
+.slide.on{opacity:1;visibility:visible}
+.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,24,64,.92) 0%,rgba(6,24,64,.7) 48%,rgba(6,24,64,.1) 100%)}
+.slide .wrap{position:relative;z-index:1;padding-block:clamp(64px,10vw,130px) clamp(80px,10vw,130px);display:grid;gap:16px}
+.slide .wrap > *{max-width:620px}
+.slide .eyebrow{color:#8fb8ff}
+.slide h1,.slide h2{font-size:clamp(2rem,5.6vw,3.4rem);line-height:1.18}
+.slide h1 em,.slide h2 em{font-style:normal;color:#8fb8ff}
+.lead{color:#d4def0;font-size:clamp(1rem,2.2vw,1.15rem);max-width:56ch}
+.slide .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.hero-cap{font-size:.74rem;color:#b9c6de}
+.hero-ctrl{position:absolute;z-index:2;left:0;right:0;bottom:22px;display:flex;justify-content:center;gap:10px;align-items:center}
+.dot{appearance:none;border:0;width:34px;height:4px;padding:0;background:rgba(255,255,255,.4);cursor:pointer;border-radius:2px}
+.dot[aria-current="true"]{background:#fff}
+.arrow{appearance:none;border:1px solid rgba(255,255,255,.5);background:rgba(6,24,64,.35);color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.2rem;line-height:1}
+
+/* product categories */
+.cats-sec{padding-block:40px;border-bottom:1px solid var(--line)}
+.cats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+@media(min-width:640px){.cats{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:1080px){.cats{grid-template-columns:repeat(8,1fr)}}
+.cat{display:grid;justify-items:center;gap:10px;padding:18px 8px;border-radius:6px;text-decoration:none;text-align:center;font:500 .9rem/1.3 var(--head)}
+.cat:hover{background:var(--surface);color:var(--blue)}
+.cat svg{width:40px;height:40px;stroke:var(--blue);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 
 /* audience switcher */
-.aud-sec{padding-block:0;background:var(--surface)}
-.aud{position:relative;top:-28px;background:var(--card);box-shadow:0 12px 32px rgba(0,0,40,.12);border-radius:6px;overflow:hidden;margin-bottom:8px}
+.aud-sec{background:var(--surface)}
+.aud{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden}
 .tabs{display:grid;grid-template-columns:repeat(2,1fr);border-bottom:1px solid var(--line)}
-.tab{appearance:none;border:0;background:transparent;color:var(--muted);padding:16px;font:600 .92rem/1.3 var(--head);cursor:pointer;text-align:left;border-bottom:3px solid transparent;min-height:60px}
+.tab{appearance:none;border:0;background:transparent;color:var(--muted);padding:16px;font:600 .92rem/1.3 var(--head);cursor:pointer;text-align:left;border-top:3px solid transparent;min-height:60px}
 .tab small{display:block;font:400 .78rem/1.3 var(--body);margin-top:2px}
-.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:#00d7c0}
+.tab[aria-selected="true"]{color:var(--blue);background:var(--blue-soft);border-top-color:var(--blue)}
 @media(min-width:760px){.tabs{grid-template-columns:repeat(4,1fr)}}
 .panel{padding:24px;display:grid;gap:16px}
-.panel h2{font-size:clamp(1.25rem,3vw,1.6rem)}
+.panel h2{font-size:clamp(1.2rem,3vw,1.5rem)}
 .panel ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
-.panel li{padding-left:22px;position:relative}
-.panel li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:3px;background:var(--grad)}
+.panel li{padding-left:24px;position:relative}
+.panel li::before{content:"";position:absolute;left:2px;top:.45em;width:12px;height:7px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg)}
 .panel .ctas{display:flex;flex-wrap:wrap;gap:10px}
 
-/* featured stories */
-.feature{display:grid;gap:20px}
-@media(min-width:900px){.feature{grid-template-columns:1.4fr 1fr;grid-template-rows:auto auto}.feature .fcard:first-child{grid-row:span 2}}
-.fcard{display:grid;grid-template-rows:auto 1fr;text-decoration:none;background:var(--card);border-radius:6px;overflow:hidden;min-width:0;box-shadow:0 1px 0 var(--line)}
-.fcard .ratio{aspect-ratio:16/9;max-width:100%;overflow:hidden;background:var(--surface)}
-.feature .fcard:first-child .ratio{aspect-ratio:4/3}
-.fcard img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.fcard:hover img{transform:scale(1.03)}
-.fcard .txt{padding:20px 22px 24px;display:grid;gap:8px;align-content:start}
-.fcard h3{font-size:1.3rem}
-.fcard p{color:var(--muted)}
-.tag{font:600 .75rem/1 var(--head);letter-spacing:.06em;text-transform:uppercase;color:var(--hl)}
+/* featured */
+.feature{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.fcard{display:grid;grid-template-rows:auto 1fr;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;min-width:0;transition:box-shadow .2s,transform .2s}
+.fcard:hover{box-shadow:0 10px 28px rgba(16,30,60,.12);transform:translateY(-2px)}
+.fcard .ratio{aspect-ratio:16/10;max-width:100%;overflow:hidden;background:var(--surface)}
+.fcard img{width:100%;height:100%;object-fit:cover}
+.fcard .txt{padding:18px 20px 22px;display:grid;gap:8px;align-content:start}
+.fcard h3{font-size:1.15rem}
+.fcard p{color:var(--muted);font-size:.94rem}
+.tag{justify-self:start;font:600 .72rem/1 var(--head);padding:5px 8px;border-radius:3px;background:var(--blue-soft);color:var(--blue)}
+.tag.new{background:var(--red-soft);color:var(--red)}
+.tag.live{background:var(--green-soft);color:var(--green)}
 
 /* stats */
-.proof{background:var(--deep);color:var(--on-deep);padding-block:56px}
-.proof-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 24px}
-.proof-grid + .proof-grid{margin-top:28px;padding-top:28px;border-top:1px solid rgba(255,255,255,.14)}
+.proof{background:var(--blue);color:#fff;padding-block:48px}
+.proof-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 24px}
+.proof-grid + .proof-grid{margin-top:26px;padding-top:26px;border-top:1px solid rgba(255,255,255,.22)}
 .proof-grid div{display:grid;gap:4px;align-content:start}
-.proof-grid b{font:700 clamp(1.9rem,5vw,2.8rem)/1.05 var(--head);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
-.proof-grid span{font-size:.92rem;color:var(--on-deep-muted)}
+.proof-grid b{font:700 clamp(1.8rem,4.6vw,2.6rem)/1.1 var(--head);font-variant-numeric:tabular-nums}
+.proof-grid span{font-size:.9rem;color:#d4def0}
 @media(min-width:760px){.proof-grid{grid-template-columns:repeat(4,1fr)}}
 
-/* logo wall */
-.logo-groups{display:grid;gap:26px}
+/* logo wall and brands */
+.logo-groups{display:grid;gap:24px}
 .logo-group h3{font-size:.95rem;color:var(--muted);font-weight:600;margin-bottom:10px}
 .logos{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
-.logo-tile{background:var(--card);box-shadow:0 1px 0 var(--line);border-radius:4px;padding:18px 14px;display:grid;gap:8px;justify-items:center;text-align:center;min-width:0}
-.logo-tile .lg{width:52px;height:52px;border-radius:50%;background:var(--surface);display:grid;place-content:center;color:var(--muted);font-size:.68rem}
+.logo-tile{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px 12px;display:grid;gap:8px;justify-items:center;text-align:center;min-width:0}
+.logo-tile .lg{width:50px;height:50px;border-radius:50%;background:var(--surface);display:grid;place-content:center;color:var(--muted);font-size:.66rem}
 .logo-tile span{font-size:.85rem}
-
-/* brands */
 .brands{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
-.brand-card{background:var(--surface);border-radius:4px;padding:20px;display:grid;gap:6px;align-content:start;min-width:0}
+.brand-card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:20px;display:grid;gap:6px;align-content:start;min-width:0}
 .brand-card b{font:700 1.15rem/1.2 var(--head)}
 .brand-card span{color:var(--muted);font-size:.9rem}
-.brand-card.first{background:var(--hl-soft)}
-.badge{justify-self:start;font:600 .7rem/1 var(--head);background:var(--deep);color:#00ffb9;padding:6px 9px;border-radius:2px;letter-spacing:.04em}
+.brand-card.first{border-color:var(--blue);box-shadow:inset 0 3px 0 var(--blue)}
+.badge{justify-self:start;font:600 .7rem/1 var(--head);background:var(--blue);color:#fff;padding:6px 9px;border-radius:3px}
 
 /* solutions */
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
 .chip{appearance:none;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 16px;font:500 .9rem/1.2 var(--head);cursor:pointer;min-height:40px}
-.chip[aria-pressed="true"]{background:var(--deep);color:#fff;border-color:var(--deep)}
-.cards{display:grid;gap:20px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
-.card{background:var(--card);border-radius:6px;padding:22px;display:grid;gap:8px;align-content:start;min-width:0;box-shadow:0 1px 0 var(--line)}
-.card h3{font-size:1.12rem}
+.chip[aria-pressed="true"]{background:var(--blue);color:#fff;border-color:var(--blue)}
+.cards{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:22px;display:grid;gap:8px;align-content:start;min-width:0}
+.card h3{font-size:1.1rem}
 .card p{color:var(--muted);font-size:.94rem}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
 .tags span{font-size:.74rem;background:var(--surface);color:var(--muted);padding:3px 9px;border-radius:999px}
-.card.rec{box-shadow:inset 0 3px 0 #00d7c0,0 1px 0 var(--line)}
-.rec-flag{font:600 .72rem/1.2 var(--head);color:var(--hl);letter-spacing:.06em;text-transform:uppercase}
+.card.rec{border-color:var(--blue);box-shadow:inset 0 3px 0 var(--blue)}
+.rec-flag{font:600 .74rem/1.2 var(--head);color:var(--blue)}
 .card[hidden]{display:none}
 
-/* service models, pdpa, bands, certs */
-.svc{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
-.svc .card b.model{font:600 .75rem/1 var(--head);letter-spacing:.08em;color:var(--hl)}
-.two{display:grid;gap:20px}
+/* services, pdpa, bands, certs */
+.svc{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.svc .card b.model{font:600 .74rem/1 var(--head);letter-spacing:.08em;color:var(--green)}
+.two{display:grid;gap:18px}
 @media(min-width:800px){.two{grid-template-columns:1fr 1fr}}
 .check-list{margin:0;padding:0;list-style:none;display:grid;gap:10px}
 .check-list li{padding-left:28px;position:relative;font-size:.96rem}
-.check-list li::before{content:"";position:absolute;left:2px;top:.35em;width:14px;height:8px;border-left:3px solid var(--hl);border-bottom:3px solid var(--hl);transform:rotate(-45deg)}
-.band{background:var(--deep);color:var(--on-deep);border-radius:6px;padding:32px 24px;display:grid;gap:18px;align-items:center;overflow:hidden}
-.band p{color:var(--on-deep-muted)}
-.band .eyebrow{color:#00ffb9}
-.band-media{display:grid;gap:0;padding:0}
+.check-list li::before{content:"";position:absolute;left:2px;top:.4em;width:13px;height:7px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg)}
+.band{background:var(--blue-dark);color:#fff;border-radius:6px;padding:32px 24px;display:grid;gap:18px;align-items:center;overflow:hidden}
+.band p{color:#d4def0}
+.band .eyebrow{color:#8fb8ff}
+.band-media{padding:0;gap:0}
 .band-media img{width:100%;height:100%;object-fit:cover;min-height:220px}
 .band-media .band-txt{padding:32px 24px;display:grid;gap:12px;align-content:center}
 @media(min-width:860px){.band{grid-template-columns:1.4fr auto;padding:44px}.band-media{grid-template-columns:1fr 1fr;padding:0}.band-media .band-txt{padding:44px}}
 .certs{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.cert{background:var(--surface);border-radius:4px;padding:20px;display:grid;gap:4px}
-.cert b{font:700 1.05rem/1.3 var(--head)}
+.cert{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:20px;display:grid;gap:4px}
+.cert b{font:700 1.02rem/1.3 var(--head)}
 .cert span{font-size:.88rem;color:var(--muted)}
 
 /* configurator */
-.cfg{background:var(--card);border-radius:6px;padding:24px;display:grid;gap:24px;box-shadow:0 1px 0 var(--line)}
+.cfg{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:24px;display:grid;gap:24px}
 @media(min-width:860px){.cfg{grid-template-columns:1fr 1fr;padding:32px}}
 .field{display:grid;gap:8px;margin-bottom:16px}
 label,.lbl{font:600 .9rem/1.3 var(--head)}
-select,input[type=text],input[type=tel],textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-bottom:2px solid var(--muted);border-radius:2px;padding:11px 12px;min-height:46px}
-input[type=range]{width:100%;accent-color:#00a3a0}
+select,input[type=text],input[type=tel],textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:11px 12px;min-height:46px}
+input[type=range]{width:100%;accent-color:var(--blue)}
 .checks{display:grid;gap:8px}
 .checks label{font:400 .95rem/1.4 var(--body);display:flex;gap:10px;align-items:center;min-height:36px}
-.checks input{width:20px;height:20px;accent-color:#00a3a0}
-.result{background:var(--surface);border-radius:4px;padding:22px;display:grid;gap:12px;align-content:start}
+.checks input{width:20px;height:20px;accent-color:var(--blue)}
+.result{background:var(--blue-soft);border-radius:6px;padding:22px;display:grid;gap:12px;align-content:start}
 .result h3{font-size:1.1rem}
 .result ul{margin:0;padding-left:20px;display:grid;gap:6px}
 .note{font-size:.82rem;color:var(--muted)}
-.demo-flag{display:inline-block;font:600 .68rem/1 var(--head);padding:4px 8px;border:1px dashed currentColor;border-radius:3px;opacity:.75;letter-spacing:.04em;text-transform:none;vertical-align:middle}
+.demo-flag{display:inline-block;font:600 .68rem/1 var(--head);padding:4px 8px;border:1px dashed currentColor;border-radius:3px;opacity:.75;letter-spacing:.03em;text-transform:none;vertical-align:middle}
 
-/* reference projects */
-.case{background:var(--card);border-radius:6px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;min-width:0;box-shadow:0 1px 0 var(--line)}
+/* projects */
+.case{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;min-width:0}
 .case .ph{aspect-ratio:16/9;max-width:100%;overflow:hidden;background:repeating-linear-gradient(135deg,var(--surface) 0 12px,transparent 12px 24px);display:grid;place-content:center;color:var(--muted);font-size:.8rem}
 .case .ph img{width:100%;height:100%;object-fit:cover}
-.case .txt{padding:18px 20px 22px;display:grid;gap:6px;align-content:start}
-.case h3{font-size:1.08rem}
-.case p{font-size:.92rem;color:var(--muted)}
-.case .meta{font:600 .74rem/1.2 var(--head);color:var(--hl);letter-spacing:.05em;text-transform:uppercase}
+.case .txt{padding:16px 18px 20px;display:grid;gap:6px;align-content:start}
+.case h3{font-size:1.05rem}
+.case p{font-size:.9rem;color:var(--muted)}
+.case .meta{font:600 .74rem/1.2 var(--head);color:var(--blue)}
 
 /* about, timeline, platforms */
 .about{display:grid;gap:24px}
 @media(min-width:860px){.about{grid-template-columns:1.1fr .9fr;align-items:start}}
-.quote{background:var(--deep);color:var(--on-deep);border-radius:6px;padding:30px;display:grid;gap:14px}
-.quote blockquote{margin:0;font:600 clamp(1.15rem,3vw,1.45rem)/1.5 var(--head)}
-.quote cite{font-style:normal;color:#00ffb9;font-size:.9rem}
+.quote{background:var(--blue-dark);color:#fff;border-radius:6px;padding:30px;display:grid;gap:14px;border-left:6px solid var(--red)}
+.quote blockquote{margin:0;font:600 clamp(1.1rem,3vw,1.35rem)/1.6 var(--head)}
+.quote cite{font-style:normal;color:#b9c6de;font-size:.9rem}
 .facts{display:grid;gap:10px;margin:0;padding:0;list-style:none}
-.facts li{display:grid;grid-template-columns:110px 1fr;gap:12px;border-bottom:1px solid var(--line);padding-bottom:10px}
-.facts b{font-family:var(--head);color:var(--hl)}
+.facts li{display:grid;grid-template-columns:100px 1fr;gap:12px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.facts b{font-family:var(--head);color:var(--blue)}
 .timeline{list-style:none;margin:0 0 0 6px;padding:0;display:grid;border-left:2px solid var(--line)}
 .timeline li{position:relative;padding:0 0 22px 24px;display:grid;gap:2px}
-.timeline li::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:3px solid var(--ink)}
-.timeline li.now::before{background:#00d7c0;border-color:#00d7c0}
-.timeline b{font:700 1.05rem/1.3 var(--head);font-variant-numeric:tabular-nums}
+.timeline li::before{content:"";position:absolute;left:-7px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:3px solid var(--blue)}
+.timeline li.now::before{background:var(--green);border-color:var(--green)}
+.timeline b{font:700 1.05rem/1.3 var(--head);color:var(--blue);font-variant-numeric:tabular-nums}
 .timeline span{color:var(--muted);font-size:.95rem}
 @media(min-width:900px){.timeline{grid-template-columns:repeat(2,1fr);column-gap:40px}}
-.plat{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.plat{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+
+/* investor relations and governance */
+.ir{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.ir .card{border-top:3px solid var(--blue)}
+.ir .card ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:.93rem}
+.ir .card li a{text-decoration:none;color:var(--ink)}
+.ir .card li a:hover{color:var(--blue)}
+.ir .card li::before{content:"› ";color:var(--blue)}
+.gov{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.gov > *{display:grid;gap:4px;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:18px}
+.gov b{font:600 1rem/1.3 var(--head)}
+.gov span{color:var(--muted);font-size:.86rem}
+.whistle{margin-top:18px;background:var(--red-soft);border-left:4px solid var(--red);border-radius:4px;padding:16px 18px;font-size:.94rem}
 
 /* contact */
 .contact{display:grid;gap:28px}
 @media(min-width:860px){.contact{grid-template-columns:.9fr 1.1fr}}
 .info{display:grid;gap:14px;align-content:start}
-.info dt{font:600 .78rem/1 var(--head);color:var(--hl);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.info dt{font:600 .78rem/1 var(--head);color:var(--blue);letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px}
 .info dd{margin:0}
 form.card{gap:12px}
-.ok{background:var(--surface);border-radius:4px;padding:12px 14px;font-size:.92rem}
+.ok{background:var(--blue-soft);border-radius:4px;padding:12px 14px;font-size:.92rem}
 
 /* section rhythm */
-#featured,#brands,#configurator,#certs,#about,#platforms,#contact{background:var(--bg)}
-#clients,#solutions,#services,#pdpa,#cases,#milestones,#csr{background:var(--surface)}
-#showroom,#careers{background:var(--bg)}
+#featured,#brands,#configurator,#certs,#about,#platforms,#contact,#showroom,#careers,#ir{background:var(--bg)}
+#clients,#solutions,#services,#pdpa,#cases,#milestones,#csr,#governance{background:var(--surface)}
 
-/* footer */
-footer{background:var(--deep);color:var(--on-deep);padding-block:48px 28px;font-size:.92rem}
+/* footer and cookie notice */
+footer{background:var(--foot);color:var(--on-dark);padding-block:48px 28px;font-size:.9rem}
 footer .wrap{display:grid;gap:28px}
-.fcols{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.fcols{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
 .fcols h4{font:600 1rem/1.3 var(--head);margin:0 0 10px}
-.fcols p{color:var(--on-deep-muted)}
+.fcols p{color:var(--on-dark-muted)}
 .fcols ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-.fcols a{text-decoration:none;color:var(--on-deep-muted)}
-.fcols a:hover{color:#00ffb9}
-.fbottom{border-top:1px solid rgba(255,255,255,.14);padding-top:16px;color:var(--on-deep-muted);display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;font-size:.82rem}
+.fcols a{text-decoration:none;color:var(--on-dark-muted)}
+.fcols a:hover{color:#fff}
+.fbottom{border-top:1px solid rgba(255,255,255,.12);padding-top:16px;color:var(--on-dark-muted);display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;font-size:.8rem}
+.fbottom a{text-decoration:none}
+.fbottom a:hover{color:#fff}
+.cookie{position:fixed;z-index:40;left:0;right:0;bottom:0;background:var(--card);border-top:3px solid var(--blue);box-shadow:0 -6px 24px rgba(16,30,60,.15);padding:16px max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.cookie .wrap{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;padding:0}
+.cookie p{font-size:.88rem;max-width:80ch}
+.cookie .ctas{display:flex;gap:10px;flex-wrap:wrap}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
 
+<div class="util"><div class="wrap"><a href="#ir">นักลงทุนสัมพันธ์</a><a href="#governance">การกำกับดูแลกิจการ</a><a href="#careers">ร่วมงานกับเรา</a><a href="#contact">Hotline 02 136 8989</a></div></div>
 <header>
   <div class="wrap bar">
     <a class="brand" href="#top" aria-label="Digital Focus หน้าแรก">
-      <span class="mark" aria-hidden="true"></span>
-      <span><b>Digital Focus</b><small>ดิจิตอลโฟกัส · ก่อตั้งมากกว่า 24 ปี</small></span>
+      <svg class="mark" viewBox="0 0 40 36" aria-hidden="true"><path d="M20 0 0 36h20V22z" fill="#283c96"/><path d="M20 0l20 36H20V22z" fill="#e3262b"/><path d="M0 36h40L20 22z" fill="#1f9a4b"/></svg>
+      <span><b>Digital Focus</b><small>บริษัท ดิจิตอลโฟกัส จำกัด · ก่อตั้งปี 2002</small></span>
     </a>
     <nav aria-label="เมนูหลัก">
       <a href="#solutions">โซลูชัน</a>
+      <a href="#cats">ผลิตภัณฑ์</a>
+      <a href="#cases">ผลงาน</a>
+      <a href="#brands">พาร์ทเนอร์</a>
       <a href="#services">บริการ</a>
-      <a href="#clients">ลูกค้า</a>
-      <a href="#pdpa">PDPA</a>
       <a href="#showroom">ศูนย์สาธิต</a>
+      <a href="#about">เกี่ยวกับเรา</a>
       <a href="#contact">ติดต่อ</a>
     </nav>
     <div class="hdr-cta">
@@ -268,11 +309,14 @@ footer .wrap{display:grid;gap:28px}
   <div class="mnav" id="mnav" hidden>
     <div class="wrap">
       <a href="#solutions">โซลูชัน</a>
-      <a href="#services">บริการแบบรายเดือน</a>
-      <a href="#clients">ลูกค้าและพันธมิตร</a>
-      <a href="#pdpa">PDPA และ Cybersecurity</a>
-      <a href="#showroom">นัดชมศูนย์สาธิต</a>
+      <a href="#cats">ผลิตภัณฑ์</a>
+      <a href="#cases">ผลงาน</a>
+      <a href="#brands">พาร์ทเนอร์</a>
+      <a href="#services">บริการ</a>
+      <a href="#showroom">ศูนย์สาธิต</a>
       <a href="#about">เกี่ยวกับเรา</a>
+      <a href="#ir">นักลงทุนสัมพันธ์</a>
+      <a href="#governance">การกำกับดูแลกิจการ</a>
       <a href="#careers">ร่วมงานกับเรา</a>
       <a href="#contact">ติดต่อ</a>
     </div>
@@ -280,15 +324,54 @@ footer .wrap{display:grid;gap:28px}
 </header>
 
 <main id="top">
-<section class="hero">
-  <img class="hero-img" src="img/democenter.jpg" alt="ภาพจำลองศูนย์สาธิต DGF Smart AI Building">
-  <div class="hero-shade"></div>
-  <div class="wrap hero-inner">
-    <p class="eyebrow">AIoT &amp; Robotics Solution Provider for Sustainable Society</p>
-    <h1>ผู้นำ <em>AI Security</em> และ AIoT Solutions ของไทย กว่า 24 ปี</h1>
-    <p class="lead">จากกล้องวงจรปิดสู่ระบบอัจฉริยะครบวงจร ทั้ง AI วิเคราะห์ภาพ IoT หุ่นยนต์บริการ และพลังงานอัจฉริยะ ด้วยเครือข่ายตัวแทนและช่างบริการมากกว่า 500 รายทั่วประเทศ</p>
-    <div class="ctas"><a class="btn btn-red" href="#contact">ขอคำปรึกษา</a><a class="btn btn-ghost" href="#showroom">ดูศูนย์สาธิตแห่งใหม่</a></div>
-    <p class="hero-cap">ภาพจำลอง DGF Smart AI Building ศูนย์สาธิตที่เตรียมเปิดในปี 2026</p>
+<section class="hero" aria-roledescription="carousel" aria-label="ข่าวเด่น">
+  <div class="slides">
+    <div class="slide on">
+      <img src="img/democenter.jpg" alt="ภาพจำลองศูนย์สาธิต DGF Smart AI Building">
+      <div class="wrap">
+        <p class="eyebrow">AIoT &amp; Robotics Solution Provider for Sustainable Society</p>
+        <h1>ผู้นำ <em>AI Security</em> และ AIoT Solutions ของไทย กว่า 24 ปี</h1>
+        <p class="lead">จากกล้องวงจรปิดสู่ระบบอัจฉริยะครบวงจร ทั้ง AI วิเคราะห์ภาพ IoT หุ่นยนต์บริการ และพลังงานอัจฉริยะ ด้วยเครือข่ายตัวแทนและช่างบริการมากกว่า 500 รายทั่วประเทศ</p>
+        <div class="ctas"><a class="btn btn-red" href="#contact">ขอคำปรึกษา</a><a class="btn btn-ghost" href="#showroom">ดูศูนย์สาธิตแห่งใหม่</a></div>
+        <p class="hero-cap">ภาพจำลอง DGF Smart AI Building ศูนย์สาธิตที่เตรียมเปิดในปี 2026</p>
+      </div>
+    </div>
+    <div class="slide" aria-hidden="true">
+      <img src="img/robotics.jpg" alt="ภาพจำลองหุ่นยนต์บริการ หุ่นยนต์สี่ขา และฮิวแมนนอยด์" loading="lazy">
+      <div class="wrap">
+        <p class="eyebrow">New S-Curve 2027</p>
+        <h2><em>Robotics Control Platform</em> บริหารหุ่นยนต์ทุกประเภทจากศูนย์กลาง</h2>
+        <p class="lead">พัฒนาร่วมกับมหาวิทยาลัยชั้นนำ รองรับหุ่นยนต์บริการ Keenon หุ่นยนต์สี่ขา และฮิวแมนนอยด์ เชื่อมกับ AI, IoT และระบบอาคารอัจฉริยะ</p>
+        <div class="ctas"><a class="btn btn-red" href="#platforms" tabindex="-1">ดูแพลตฟอร์ม</a></div>
+        <p class="hero-cap">ภาพจำลอง</p>
+      </div>
+    </div>
+    <div class="slide" aria-hidden="true">
+      <img src="img/cpall.jpg" alt="ร้าน 7-Eleven และ All Cafe" loading="lazy">
+      <div class="wrap">
+        <p class="eyebrow">ผลงานระดับประเทศ</p>
+        <h2>7-Eleven กว่า <em>6,500 สาขา</em> ใช้ระบบ AI และ CCTV จากเรา</h2>
+        <p class="lead">มากกว่า 100,000 กล้องในโครงการ CP ALL รวมศูนย์กระจายสินค้า พร้อมผลงานกับ Central Group, Big C, ปตท. และรัฐสภา</p>
+        <div class="ctas"><a class="btn btn-red" href="#cases" tabindex="-1">ดูผลงานทั้งหมด</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-ctrl"><button class="arrow" type="button" id="prev" aria-label="สไลด์ก่อนหน้า">‹</button><button class="dot" type="button" data-s="0" aria-label="ไปที่สไลด์ 1" aria-current="true"></button><button class="dot" type="button" data-s="1" aria-label="ไปที่สไลด์ 2"></button><button class="dot" type="button" data-s="2" aria-label="ไปที่สไลด์ 3"></button><button class="arrow" type="button" id="next" aria-label="สไลด์ถัดไป">›</button></div>
+</section>
+
+<section class="cats-sec" id="cats">
+  <div class="wrap">
+    <div class="sec-head center" style="margin-bottom:18px"><h2 style="font-size:clamp(1.3rem,3vw,1.7rem)">ผลิตภัณฑ์และโซลูชัน</h2></div>
+    <div class="cats">
+      <a class="cat" href="#solutions" data-ind="all"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="13" height="8" rx="1"/><path d="M16 10l5-2v6l-5-2M7 15v4h4"/></svg>กล้อง CCTV และ AI</a>
+      <a class="cat" href="#solutions" data-ind="building"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="2"/><circle cx="12" cy="9" r="2.5"/><path d="M9 15h6M9 18h6"/></svg>Access Control</a>
+      <a class="cat" href="#solutions" data-ind="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-5h4v5"/></svg>Smart Home</a>
+      <a class="cat" href="#solutions" data-ind="building"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4zM16 9a4 4 0 010 6M18.5 6.5a8 8 0 010 11"/></svg>ระบบเสียงประกาศ</a>
+      <a class="cat" href="#solutions" data-ind="all"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="8" width="14" height="10" rx="3"/><circle cx="9.5" cy="13" r="1.2"/><circle cx="14.5" cy="13" r="1.2"/><path d="M12 4v4M9 21h6"/></svg>หุ่นยนต์บริการ</a>
+      <a class="cat" href="#solutions" data-ind="transport"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6h11v10H2zM13 10h4l4 4v2h-8"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>Smart Transport</a>
+      <a class="cat" href="#solutions" data-ind="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>พลังงานอัจฉริยะ</a>
+      <a class="cat" href="#solutions" data-ind="edu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5"/></svg>การศึกษาและทักษะดิจิทัล</a>
+    </div>
   </div>
 </section>
 
@@ -314,9 +397,9 @@ footer .wrap{display:grid;gap:28px}
   <div class="wrap">
     <div class="sec-head"><p class="eyebrow">ไฮไลต์</p><h2>นวัตกรรมล่าสุดจาก Digital Focus</h2></div>
     <div class="feature">
-      <a class="fcard" href="#showroom"><div class="ratio"><img src="img/command.jpg" alt="ภาพจำลองศูนย์สั่งการ AI" loading="lazy"></div><div class="txt"><span class="tag">ใหม่ 2026</span><h3>DGF Smart AI Building</h3><p>ศูนย์สาธิต AI, Robotics และ Green Energy ที่รวมเทคโนโลยีจาก Hikvision, BroadLink, Huawei Digital Power และ Keenon</p><span class="more">ดูรายละเอียด</span></div></a>
+      <a class="fcard" href="#showroom"><div class="ratio"><img src="img/command.jpg" alt="ภาพจำลองศูนย์สั่งการ AI" loading="lazy"></div><div class="txt"><span class="tag new">ใหม่ 2026</span><h3>DGF Smart AI Building</h3><p>ศูนย์สาธิต AI, Robotics และ Green Energy ที่รวมเทคโนโลยีจาก Hikvision, BroadLink, Huawei Digital Power และ Keenon</p><span class="more">ดูรายละเอียด</span></div></a>
       <a class="fcard" href="#platforms"><div class="ratio"><img src="img/robotics.jpg" alt="ภาพจำลองหุ่นยนต์บริการ หุ่นยนต์สี่ขา และฮิวแมนนอยด์" loading="lazy"></div><div class="txt"><span class="tag">แผนปี 2027</span><h3>Robotics Control Platform</h3><p>แพลตฟอร์มบริหารหุ่นยนต์หลายประเภทจากศูนย์กลาง พัฒนาร่วมกับมหาวิทยาลัยชั้นนำ</p><span class="more">ดูแพลตฟอร์ม</span></div></a>
-      <a class="fcard" href="#platforms"><div class="ratio"><img src="img/ambulance.jpg" alt="รถพยาบาล 5G ในโครงการร่วมกับ depa" loading="lazy"></div><div class="txt"><span class="tag">พร้อมใช้งาน</span><h3>DGF Smart Transport</h3><p>กล้อง AI และ GPS บนรถพยาบาล รถโดยสาร และกองรถขนส่ง รายงานเรียลไทม์ผ่าน 4G</p><span class="more">ดูโซลูชัน</span></div></a>
+      <a class="fcard" href="#platforms"><div class="ratio"><img src="img/ambulance.jpg" alt="รถพยาบาล 5G ในโครงการร่วมกับ depa" loading="lazy"></div><div class="txt"><span class="tag live">พร้อมใช้งาน</span><h3>DGF Smart Transport</h3><p>กล้อง AI และ GPS บนรถพยาบาล รถโดยสาร และกองรถขนส่ง รายงานเรียลไทม์ผ่าน 4G</p><span class="more">ดูโซลูชัน</span></div></a>
     </div>
   </div>
 </section>
@@ -647,6 +730,43 @@ footer .wrap{display:grid;gap:28px}
   </div>
 </section>
 
+<section id="ir">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">นักลงทุนสัมพันธ์ <span class="demo-flag">เปิดใช้เมื่อบริษัทยื่นขายหุ้น IPO หรือเข้าจดทะเบียน</span></p>
+      <h2>ข้อมูลสำหรับนักลงทุนและผู้ถือหุ้น</h2>
+      <p>โครงสร้างตามแนวทางการเปิดเผยข้อมูลบนเว็บไซต์ของบริษัทจดทะเบียน ตลาดหลักทรัพย์แห่งประเทศไทย และสำนักงาน ก.ล.ต. ใส่เอกสารจริงเมื่อเผยแพร่ต่อสาธารณะแล้ว</p>
+    </div>
+    <div class="ir">
+      <div class="card"><h3>ข้อมูลทางการเงิน</h3><ul><li>งบการเงินรายไตรมาสและประจำปี</li><li>ข้อมูลสำคัญทางการเงิน</li><li>คำอธิบายและการวิเคราะห์ของฝ่ายจัดการ (MD&amp;A)</li></ul></div>
+      <div class="card"><h3>รายงานและเอกสารเผยแพร่</h3><ul><li>แบบแสดงรายการข้อมูลประจำปี (แบบ 56-1 One Report)</li><li>หนังสือชี้ชวนเสนอขายหลักทรัพย์</li><li>เอกสารนำเสนอนักลงทุน</li></ul></div>
+      <div class="card"><h3>ข้อมูลผู้ถือหุ้น</h3><ul><li>โครงสร้างผู้ถือหุ้นรายใหญ่</li><li>นโยบายการจ่ายเงินปันผล</li><li>ข้อมูลหลักทรัพย์และราคาหุ้น</li></ul></div>
+      <div class="card"><h3>การประชุมผู้ถือหุ้น</h3><ul><li>หนังสือเชิญประชุมผู้ถือหุ้น</li><li>รายงานการประชุมผู้ถือหุ้น</li><li>การเสนอวาระและรายชื่อกรรมการล่วงหน้า</li></ul></div>
+      <div class="card"><h3>ข่าวและปฏิทิน</h3><ul><li>ข่าวแจ้งตลาดหลักทรัพย์ฯ</li><li>ปฏิทินนักลงทุน</li><li>ข่าวประชาสัมพันธ์</li></ul></div>
+      <div class="card"><h3>ติดต่อนักลงทุนสัมพันธ์</h3><ul><li>ฝ่ายนักลงทุนสัมพันธ์ [ชื่อผู้ติดต่อ]</li><li>อีเมล [ir@ชื่อโดเมนบริษัท]</li><li>โทร 02 136 8989</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="governance">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">การกำกับดูแลกิจการและความยั่งยืน</p>
+      <h2>โปร่งใส ตรวจสอบได้ และรับผิดชอบต่อสังคม</h2>
+      <p>บริษัทได้รับมาตรฐานธรรมาภิบาลธุรกิจจากกรมพัฒนาธุรกิจการค้า ปี 2020 เอกสารนโยบายด้านล่างต้องได้รับอนุมัติจากคณะกรรมการก่อนเผยแพร่</p>
+    </div>
+    <div class="gov">
+      <div><b>คณะกรรมการและผู้บริหาร</b><span>โครงสร้างองค์กร ประวัติ และหน้าที่</span></div>
+      <div><b>นโยบายการกำกับดูแลกิจการ</b><span>หลักการกำกับดูแลกิจการที่ดี</span></div>
+      <div><b>จรรยาบรรณธุรกิจ</b><span>แนวปฏิบัติของกรรมการและพนักงาน</span></div>
+      <div><b>นโยบายต่อต้านการทุจริตคอร์รัปชัน</b><span>แนวทางป้องกันและการรับของขวัญ</span></div>
+      <div><b>นโยบายคุ้มครองข้อมูลส่วนบุคคล</b><span>การเก็บ ใช้ และเปิดเผยข้อมูลตาม PDPA</span></div>
+      <div><b>การพัฒนาที่ยั่งยืน (ESG)</b><span>สิ่งแวดล้อม สังคม และธรรมาภิบาล</span></div>
+    </div>
+    <p class="whistle"><b>ช่องทางแจ้งเบาะแส</b> การกระทำผิดกฎหมาย จรรยาบรรณ หรือการทุจริต ส่งถึงคณะกรรมการตรวจสอบโดยตรงที่ [อีเมลแจ้งเบาะแส] ข้อมูลผู้แจ้งจะถูกเก็บเป็นความลับและได้รับความคุ้มครอง</p>
+  </div>
+</section>
+
 <section id="careers" style="padding-bottom:0">
   <div class="wrap">
     <div class="band">
@@ -696,6 +816,7 @@ footer .wrap{display:grid;gap:28px}
       <div><h4>Digital Focus</h4><p style="opacity:.85">AIoT &amp; Robotics Solution Provider for Sustainable Society<br>2782/4-6 ถ.ลาดพร้าว แขวงคลองจั่น เขตบางกะปิ กทม. 10240<br>โทร. 02 136 8989</p></div>
       <div><h4>โซลูชัน</h4><ul><li><a href="#solutions">ตามอุตสาหกรรม</a></li><li><a href="#services">บริการแบบรายเดือน</a></li><li><a href="#configurator">เครื่องมือแนะนำชุดโซลูชัน</a></li><li><a href="#showroom">ศูนย์สาธิต</a></li></ul></div>
       <div><h4>บริษัท</h4><ul><li><a href="#about">เกี่ยวกับเรา</a></li><li><a href="#milestones">เส้นทาง 24 ปี</a></li><li><a href="#clients">ลูกค้าและพันธมิตร</a></li><li><a href="#certs">มาตรฐานและรางวัล</a></li><li><a href="#cases">ผลงาน</a></li><li><a href="#csr">ความรับผิดชอบต่อสังคม</a></li><li><a href="#careers">ร่วมงานกับเรา</a></li></ul></div>
+      <div><h4>นักลงทุนสัมพันธ์</h4><ul><li><a href="#ir">ข้อมูลนักลงทุน</a></li><li><a href="#governance">การกำกับดูแลกิจการ</a></li><li><a href="#csr">ความรับผิดชอบต่อสังคม</a></li></ul></div>
       <div><h4>ติดตามเรา</h4><ul>
         <li><a href="https://www.digitalfocus.co.th/" target="_blank" rel="noopener">www.digitalfocus.co.th</a></li>
         <li><a href="https://www.facebook.com/profile.php?id=61581609465585" target="_blank" rel="noopener">Facebook</a></li>
@@ -705,9 +826,11 @@ footer .wrap{display:grid;gap:28px}
         <li><a href="https://www.tiktok.com/@brainco.by.digita" target="_blank" rel="noopener">TikTok · BrainCo</a></li>
       </ul></div>
     </div>
-    <div class="fbottom"><span>© 2026 Digital Focus Co., Ltd.</span><span>นโยบายความเป็นส่วนตัว · ข้อกำหนดการใช้งาน · นโยบายคุกกี้</span><span>ต้นแบบเพื่อเสนอแนวทาง ข้อความใน [วงเล็บ] รอข้อมูลจริง</span></div>
+    <div class="fbottom"><span>© 2026 บริษัท ดิจิตอลโฟกัส จำกัด · เลขทะเบียนนิติบุคคล [__]</span><span>นโยบายความเป็นส่วนตัว · นโยบายคุกกี้ · ข้อกำหนดการใช้งาน · แผนผังเว็บไซต์ · <a href="#governance">ช่องทางแจ้งเบาะแส</a></span><span>ต้นแบบเพื่อเสนอแนวทาง ข้อความใน [วงเล็บ] รอข้อมูลจริง</span></div>
   </div>
 </footer>
+
+<div class="cookie" id="cookie" role="region" aria-label="การตั้งค่าคุกกี้" hidden><div class="wrap"><p>เราใช้คุกกี้ที่จำเป็นต่อการทำงานของเว็บไซต์ และใช้คุกกี้เพื่อการวิเคราะห์เมื่อคุณยินยอม ตาม พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 อ่านรายละเอียดในนโยบายคุกกี้</p><div class="ctas"><button class="btn btn-red" type="button" data-c="all">ยอมรับทั้งหมด</button><button class="btn btn-line" type="button" data-c="necessary">เฉพาะที่จำเป็น</button></div></div></div>
 
 <script>
 (function(){
@@ -802,6 +925,34 @@ footer .wrap{display:grid;gap:28px}
 
   document.getElementById('bookDemo').addEventListener('click',function(){document.getElementById('f-req').selectedIndex=1});
 
+
+  var slides=[].slice.call(document.querySelectorAll('.slide')),dots=[].slice.call(document.querySelectorAll('.dot')),cur_s=0,timer=null;
+  function show(i){
+    cur_s=(i+slides.length)%slides.length;
+    slides.forEach(function(el,k){var on=k===cur_s;el.classList.toggle('on',on);if(on)el.removeAttribute('aria-hidden');else el.setAttribute('aria-hidden','true');
+      [].forEach.call(el.querySelectorAll('a'),function(a){if(on)a.removeAttribute('tabindex');else a.setAttribute('tabindex','-1')})});
+    dots.forEach(function(d,k){if(k===cur_s)d.setAttribute('aria-current','true');else d.removeAttribute('aria-current')});
+  }
+  function play(){stop();if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;timer=setInterval(function(){show(cur_s+1)},7000)}
+  function stop(){if(timer){clearInterval(timer);timer=null}}
+  dots.forEach(function(d){d.addEventListener('click',function(){show(+d.dataset.s);play()})});
+  document.getElementById('prev').addEventListener('click',function(){show(cur_s-1);play()});
+  document.getElementById('next').addEventListener('click',function(){show(cur_s+1);play()});
+  var heroEl=document.querySelector('.hero');
+  heroEl.addEventListener('mouseenter',stop);heroEl.addEventListener('mouseleave',play);
+  heroEl.addEventListener('focusin',stop);heroEl.addEventListener('focusout',play);
+  play();
+
+  [].forEach.call(document.querySelectorAll('.cat'),function(a){a.addEventListener('click',function(){
+    var chip=document.querySelector('.chip[data-k="'+a.dataset.ind+'"]'); if(chip) chip.click();
+  })});
+
+  var ck=document.getElementById('cookie'),saved=null;
+  try{saved=localStorage.getItem('df-cookie')}catch(e){}
+  if(!saved) ck.hidden=false;
+  ck.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+    try{localStorage.setItem('df-cookie',b.dataset.c)}catch(err){}
+    ck.hidden=true;});
 
   setAud(0); cfg();
 })();
