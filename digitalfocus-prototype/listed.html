@@ -242,6 +242,37 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 .node li{font-size:13.5px;color:var(--ink-70);padding-left:12px;position:relative;line-height:1.5}
 .node li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--accent)}
 
+/* partner form */
+.pform{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px;display:grid;gap:16px;box-shadow:var(--sh-1);min-width:0}
+.pform h3{font-size:21px;color:var(--navy-800)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.frow{grid-template-columns:1fr}.pform{padding:22px}}
+.fld{display:grid;gap:6px;min-width:0}
+.fld label,.pform legend{font-size:13.5px;font-weight:600;color:var(--navy-700)}
+.fld input,.fld select,.fld textarea{width:100%;font:inherit;font-size:15px;color:var(--ink);background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 13px;min-height:46px}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:2px solid var(--accent);outline-offset:0;background:#fff}
+.fld .bad{border-color:#e5484d;background:#fff5f5}
+.pform fieldset{border:0;margin:0;padding:0;min-width:0}
+.pform legend{margin-bottom:8px;padding:0}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg legend{grid-column:1/-1}
+.seg label{position:relative;cursor:pointer}
+.seg input{position:absolute;opacity:0}
+.seg span{display:block;text-align:center;border:1px solid var(--line);border-radius:var(--r-sm);padding:12px 10px;font-weight:600;font-size:14.5px;color:var(--navy-700)}
+.seg input:checked+span{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.seg input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+.chks{display:flex;flex-wrap:wrap;gap:8px}
+.chks legend{width:100%}
+.chk{cursor:pointer;position:relative}
+.chk input{position:absolute;opacity:0}
+.chk span{display:block;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:13.5px;color:var(--ink-70)}
+.chk input:checked+span{background:var(--navy-800);border-color:var(--navy-800);color:#fff}
+.chk input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--ink-70);cursor:pointer}
+.consent input{width:18px;height:18px;margin-top:3px;flex:none;accent-color:var(--accent)}
+.ferr{color:#c62828;font-size:14px}
+.fok{background:#e8f8ef;border:1px solid #b6e6c8;color:#17653a;border-radius:var(--r-sm);padding:12px 14px;font-size:14px}
+
 /* CTA band */
 .cta{position:relative;overflow:hidden;border-radius:var(--r-lg);padding:clamp(32px,5vw,48px) clamp(26px,4vw,52px);background:radial-gradient(600px 300px at 90% 100%,rgba(36,211,238,.22),transparent 70%),linear-gradient(120deg,var(--navy-800),#123a6d);color:#fff;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
 .cta h2{font-size:clamp(24px,3vw,32px);color:#fff;max-width:20ch}
@@ -305,7 +336,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
     </div>
   </div>
   <nav class="snav" aria-label="เมนู"><div class="wrap">
-    <a href="#home">หน้าแรก</a><a href="#about">เกี่ยวกับเรา</a><a href="#business">ธุรกิจของเรา</a><a href="#solutions">โซลูชัน</a><a href="#brands">ผลิตภัณฑ์</a><a href="#projects">ผลงาน</a><a href="#clients">ลูกค้า</a><a href="#esg">ความยั่งยืน</a><a href="#ir">นักลงทุนสัมพันธ์</a><a href="#news">ข่าวสาร</a><a href="#contact">ติดต่อเรา</a>
+    <a href="#home">หน้าแรก</a><a href="#about">เกี่ยวกับเรา</a><a href="#business">ธุรกิจของเรา</a><a href="#solutions">โซลูชัน</a><a href="#brands">ผลิตภัณฑ์</a><a href="#projects">ผลงาน</a><a href="#clients">ลูกค้า</a><a href="#esg">ความยั่งยืน</a><a href="#ir">นักลงทุนสัมพันธ์</a><a href="#news">ข่าวสาร</a><a href="#partner">ร่วมเป็นพันธมิตร</a><a href="#contact">ติดต่อเรา</a>
   </div></nav>
 </header>
 
@@ -356,7 +387,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
   <div class="wrap">
     <div class="head mid"><span class="kick">ธุรกิจของเรา</span><h2>4 ธุรกิจที่เสริมกันเป็นระบบ</h2></div>
     <div class="g4">
-      <a class="svc" href="#brands"><div class="svc-img"><img src="img/sol-access.jpg" alt="Digital Focus ที่งาน Hikvision Commercial Summit" loading="lazy"></div><div class="svc-body"><span class="pill">DISTRIBUTION</span><h3>จัดจำหน่ายอุปกรณ์</h3><p>ตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย และแบรนด์ AIoT ชั้นนำ ผ่านเครือข่ายตัวแทนกว่า 500 ราย</p><span class="more">ดูแบรนด์ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="svc" href="#brands"><div class="svc-img"><img src="img/sol-access.jpg" alt="Digital Focus ที่งาน Hikvision Commercial Summit" loading="lazy"></div><div class="svc-body"><span class="pill">DISTRIBUTION</span><h3>จัดจำหน่ายอุปกรณ์</h3><p>ตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย และแบรนด์ AIoT ชั้นนำ ผ่านเครือข่ายตัวแทนกว่า 500 ราย</p><span class="more">ดูผลิตภัณฑ์ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
       <a class="svc" href="#projects"><div class="svc-img"><img src="img/exat.jpg" alt="ทางพิเศษ" loading="lazy"></div><div class="svc-body"><span class="pill">INTEGRATION</span><h3>ออกแบบและวางระบบ</h3><p>ทีมวิศวกรให้คำปรึกษา ออกแบบ ติดตั้ง และทดสอบระบบสำหรับโครงการภาครัฐและเอกชนทั่วประเทศ</p><span class="more">ดูผลงาน <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
       <a class="svc" href="#business"><div class="svc-img"><img src="img/ambulance.jpg" alt="รถพยาบาล 5G" loading="lazy"></div><div class="svc-body"><span class="pill">PLATFORM</span><h3>แพลตฟอร์มและนวัตกรรม</h3><p>Smart Transport กล้อง AI + GPS บนยานพาหนะ ต่อยอดสู่ Smart Building และ Robotics</p><span class="more">ดูรายละเอียด <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
       <a class="svc" href="#business"><div class="svc-img"><img src="img/command.jpg" alt="ภาพจำลองศูนย์เฝ้าระวัง" loading="lazy"></div><div class="svc-body"><span class="pill">SERVICE</span><h3>บริการรายเดือน</h3><p>เช่าระบบกล้อง เฝ้าระวังด้วย AI จากศูนย์ควบคุม และสัญญาดูแลรักษารายปีพร้อม SLA</p><span class="more">ดูรายละเอียด <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
@@ -662,10 +693,55 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
   </div>
 </section>
 
+<section class="sec tint" id="partner" data-pages="partner">
+  <div class="wrap split" style="align-items:start">
+    <div>
+      <span class="kick">ร่วมเป็นพันธมิตร</span>
+      <h2 style="font-size:clamp(26px,3.2vw,36px);color:var(--navy-800)">เติบโตไปกับเครือข่ายกว่า 500 รายทั่วประเทศ</h2>
+      <p style="margin-top:16px;color:var(--ink-70);font-size:17px">เปิดรับตัวแทนจำหน่าย และพาร์ทเนอร์ติดตั้งและบริการ (SI / ผู้รับเหมา / ช่าง) ร่วมงานกับตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย</p>
+      <div class="card" style="margin-top:28px"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 9l1.5-5h15L21 9M4 9v11h16V9M3 9h18M9 20v-6h6v6"/></svg></div><h3>ตัวแทนจำหน่าย</h3><ul class="flist"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>ราคาตัวแทนและโปรโมชันเฉพาะพาร์ทเนอร์</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>สินค้าครบจาก Hikvision, BroadLink, DSPPA, Keenon และแบรนด์ชั้นนำ</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>สื่อการตลาด datasheet และการอบรมสินค้า</span></li></ul></div>
+      <div class="card" style="margin-top:16px"><div class="ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-3-3z"/></svg></div><h3>พาร์ทเนอร์ติดตั้งและบริการ</h3><ul class="flist"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>รับงานติดตั้งและบริการในพื้นที่ของคุณจากโครงการของเรา</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>ทีมวิศวกรช่วยออกแบบระบบและสนับสนุนหน้างาน</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>อบรมช่างร่วมกับกรมพัฒนาฝีมือแรงงาน</span></li></ul></div>
+    </div>
+    <form class="pform" id="partnerForm" novalidate>
+      <h3>แบบฟอร์มสมัครเป็นพันธมิตร</h3>
+      <fieldset class="seg"><legend>ประเภทที่ต้องการสมัคร</legend>
+        <label><input type="radio" name="ptype" value="dealer" checked><span>ตัวแทนจำหน่าย</span></label>
+        <label><input type="radio" name="ptype" value="installer"><span>พาร์ทเนอร์ติดตั้งและบริการ</span></label>
+      </fieldset>
+      <div class="frow">
+        <div class="fld"><label for="pf-company">ชื่อบริษัท / ร้านค้า *</label><input id="pf-company" required autocomplete="organization"></div>
+        <div class="fld"><label for="pf-tax">เลขประจำตัวผู้เสียภาษี</label><input id="pf-tax" inputmode="numeric" maxlength="13" placeholder="13 หลัก"></div>
+      </div>
+      <div class="frow">
+        <div class="fld"><label for="pf-name">ชื่อผู้ติดต่อ *</label><input id="pf-name" required autocomplete="name"></div>
+        <div class="fld"><label for="pf-pos">ตำแหน่ง</label><input id="pf-pos" autocomplete="organization-title"></div>
+      </div>
+      <div class="frow">
+        <div class="fld"><label for="pf-tel">โทรศัพท์ *</label><input id="pf-tel" type="tel" required autocomplete="tel"></div>
+        <div class="fld"><label for="pf-email">อีเมล *</label><input id="pf-email" type="email" required autocomplete="email"></div>
+      </div>
+      <div class="frow">
+        <div class="fld"><label for="pf-line">LINE ID</label><input id="pf-line"></div>
+        <div class="fld"><label for="pf-region">พื้นที่ให้บริการ *</label><select id="pf-region" required><option value="">เลือกภูมิภาค</option><option>กรุงเทพมหานครและปริมณฑล</option><option>ภาคกลาง</option><option>ภาคเหนือ</option><option>ภาคตะวันออกเฉียงเหนือ</option><option>ภาคตะวันออก</option><option>ภาคตะวันตก</option><option>ภาคใต้</option></select></div>
+      </div>
+      <div class="frow">
+        <div class="fld"><label for="pf-years">ประสบการณ์ในธุรกิจ</label><select id="pf-years"><option>น้อยกว่า 1 ปี</option><option>1–3 ปี</option><option>3–5 ปี</option><option>มากกว่า 5 ปี</option></select></div>
+        <div class="fld"><label for="pf-team">จำนวนช่าง / ทีมงาน</label><select id="pf-team"><option>1–3 คน</option><option>4–10 คน</option><option>11–30 คน</option><option>มากกว่า 30 คน</option></select></div>
+      </div>
+      <fieldset class="chks"><legend>สินค้าและโซลูชันที่สนใจ</legend><label class="chk"><input type="checkbox" name="prod" value="กล้องวงจรปิดและ AI"><span>กล้องวงจรปิดและ AI</span></label><label class="chk"><input type="checkbox" name="prod" value="Access Control"><span>Access Control</span></label><label class="chk"><input type="checkbox" name="prod" value="Smart Home"><span>Smart Home</span></label><label class="chk"><input type="checkbox" name="prod" value="ระบบเสียงประกาศ"><span>ระบบเสียงประกาศ</span></label><label class="chk"><input type="checkbox" name="prod" value="หุ่นยนต์บริการ"><span>หุ่นยนต์บริการ</span></label><label class="chk"><input type="checkbox" name="prod" value="Smart Transport"><span>Smart Transport</span></label><label class="chk"><input type="checkbox" name="prod" value="พลังงานแสงอาทิตย์"><span>พลังงานแสงอาทิตย์</span></label></fieldset>
+      <div class="fld"><label for="pf-msg">รายละเอียดเพิ่มเติม</label><textarea id="pf-msg" rows="3" placeholder="เช่น กลุ่มลูกค้าหลัก โครงการที่เคยทำ"></textarea></div>
+      <label class="consent"><input type="checkbox" id="pf-consent" required><span>ยินยอมให้บริษัท ดิจิตอลโฟกัส จำกัด เก็บและใช้ข้อมูลข้างต้นเพื่อพิจารณาการสมัครและติดต่อกลับ ตามนโยบายความเป็นส่วนตัว</span></label>
+      <p class="ferr" id="pfErr" hidden></p>
+      <button class="btn btn-p" type="submit" style="justify-content:center">ส่งใบสมัคร <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <p class="fok" id="pfOk" hidden>ได้รับใบสมัครแล้ว ทีมพัฒนาธุรกิจจะติดต่อกลับภายใน 3 วันทำการ (ต้นแบบ: ฟอร์มยังไม่ได้เชื่อมกับระบบหลังบ้าน)</p>
+    </form>
+  </div>
+</section>
+
 <section class="sec" id="contact" data-pages="contact">
   <div class="wrap">
     <div class="g3" style="margin-bottom:64px">
-      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></div><h3>ร่วมงานทางธุรกิจ</h3><p>ตัวแทนจำหน่าย SI ผู้รับเหมา หรือเจ้าของโครงการที่ต้องการพันธมิตรด้านระบบความปลอดภัย</p><a class="more" href="mailto:info@digitalfocus.co.th">อีเมลทีมขาย <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></div><h3>ร่วมงานทางธุรกิจ</h3><p>ตัวแทนจำหน่าย SI ผู้รับเหมา หรือเจ้าของโครงการที่ต้องการพันธมิตรด้านระบบความปลอดภัย</p><a class="more" href="#partner">สมัครเป็นพันธมิตร <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div><h3>สอบถามโซลูชันและบริการ</h3><p>ต้องการติดตั้งระบบใหม่ ปรับปรุงระบบเดิม หรือใช้บริการรายเดือนและสัญญาดูแลรักษา</p><a class="more" href="https://lin.ee/Ajw1OZw" target="_blank" rel="noopener">แชทผ่าน LINE <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5"/></svg></div><h3>นักลงทุนสัมพันธ์</h3><p>ข้อมูลบริษัท ความคืบหน้าการเตรียม IPO และข่าวสารสำหรับนักลงทุน</p><a class="more" href="#ir">ไปหน้านักลงทุนสัมพันธ์ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     </div>
@@ -696,7 +772,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
   <div class="wrap">
     <div class="cta">
       <div><h2>มีพื้นที่ที่อยากให้ปลอดภัยและฉลาดขึ้น?</h2><p>ทีมวิศวกรของเราจะประเมินพื้นที่ วิเคราะห์ความเสี่ยง และเสนอระบบที่เหมาะกับงบประมาณ ทั้งแบบซื้อขาดและบริการรายเดือน</p></div>
-      <div class="btns"><a class="btn btn-p" href="#contact">ติดต่อทีมขาย <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-g" href="#business">ดูธุรกิจของเรา</a></div>
+      <div class="btns"><a class="btn btn-p" href="#contact">ติดต่อทีมขาย <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-g" href="#partner">สมัครเป็นพันธมิตร</a></div>
     </div>
   </div>
 </section>
@@ -710,7 +786,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
         <p>บริษัท ดิจิตอลโฟกัส จำกัด — ผู้ให้บริการ Security &amp; Smart Solutions ครบวงจร ด้วยประสบการณ์กว่า 24 ปี และเครือข่ายตัวแทนทั่วประเทศ</p>
         <div class="social" id="social"></div>
       </div>
-      <div><h4>บริษัท</h4><ul><li><a href="#about">เกี่ยวกับเรา</a></li><li><a href="#esg">ความยั่งยืน</a></li><li><a href="#news">ข่าวสาร</a></li><li><a href="#ir">นักลงทุนสัมพันธ์</a></li><li><a href="#contact">ติดต่อเรา</a></li></ul></div>
+      <div><h4>บริษัท</h4><ul><li><a href="#about">เกี่ยวกับเรา</a></li><li><a href="#esg">ความยั่งยืน</a></li><li><a href="#news">ข่าวสาร</a></li><li><a href="#ir">นักลงทุนสัมพันธ์</a></li><li><a href="#partner">ร่วมเป็นพันธมิตร</a></li><li><a href="#contact">ติดต่อเรา</a></li></ul></div>
       <div><h4>ธุรกิจ</h4><ul><li><a href="#solutions">โซลูชัน</a></li><li><a href="#brands">ผลิตภัณฑ์</a></li><li><a href="#projects">ออกแบบและวางระบบ</a></li><li><a href="#business">บริการรายเดือน</a></li><li><a href="#clients">ลูกค้า</a></li><li><a href="https://shopee.co.th/digitalfocus_thailand" target="_blank" rel="noopener">ร้านค้าออนไลน์</a></li></ul></div>
       <div><h4>ติดต่อ</h4><ul><li>2782/4-6 ถนนลาดพร้าว แขวงคลองจั่น เขตบางกะปิ กรุงเทพฯ 10240</li><li><a href="tel:021368989">02 136 8989</a></li><li><a href="mailto:info@digitalfocus.co.th">info@digitalfocus.co.th</a></li></ul></div>
     </div>
@@ -748,6 +824,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
     esg:['ความยั่งยืน','ความยั่งยืนที่อยู่ในทุกกระบวนการดำเนินงาน','ดูแลสิ่งแวดล้อมในองค์กร พัฒนาฝีมือแรงงาน สนับสนุนการศึกษา คืนสู่ชุมชน และกำกับดูแลกิจการอย่างโปร่งใส'],
     ir:['นักลงทุนสัมพันธ์','นักลงทุนสัมพันธ์','ข้อมูลสำหรับนักลงทุน ระหว่างที่บริษัทเตรียมเข้าจดทะเบียนในตลาดหลักทรัพย์แห่งประเทศไทย'],
     news:['ข่าวสาร','ข่าวสารและกิจกรรม','ความเคลื่อนไหวล่าสุด งานสัมมนา ความร่วมมือกับพันธมิตร และกิจกรรมเพื่อสังคม'],
+    partner:['ร่วมเป็นพันธมิตร','สมัครเป็นตัวแทนจำหน่ายและพาร์ทเนอร์ติดตั้ง','ร่วมเครือข่ายพันธมิตรของ Digital Focus ทั่วประเทศ รับสินค้าคุณภาพ การอบรม และการสนับสนุนจากทีมวิศวกร'],
     contact:['ติดต่อเรา','คุยกับเราเรื่องระบบความปลอดภัยขององค์กรคุณ','บอกเราว่าพื้นที่ของคุณเป็นแบบไหนและต้องการอะไร ทีมวิศวกรจะประเมินและเสนอแนวทางที่เหมาะสม']
   };
   var secs=[].slice.call(document.querySelectorAll('main section[data-pages]')),phero=document.getElementById('phero');
@@ -796,6 +873,19 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
   VT.forEach(function(b){b.addEventListener('click',function(){
     VT.forEach(function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-selected',on?'true':'false');document.getElementById('vp-'+x.dataset.v).hidden=!on});
   })});
+
+  var pf=document.getElementById('partnerForm');
+  pf.addEventListener('submit',function(e){
+    e.preventDefault();
+    var bad=[],err=document.getElementById('pfErr');
+    [].forEach.call(pf.querySelectorAll('[required]'),function(el){
+      var ok=el.type==='checkbox'?el.checked:el.value.trim()!==''&&(el.type!=='email'||/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value));
+      el.classList.toggle('bad',!ok&&el.type!=='checkbox'); if(!ok) bad.push(el);
+    });
+    var tax=document.getElementById('pf-tax'); if(tax.value&&!/^\d{13}$/.test(tax.value)){tax.classList.add('bad');bad.push(tax)}
+    if(bad.length){err.textContent=bad[0].id==='pf-consent'?'กรุณายินยอมการเก็บข้อมูลก่อนส่งใบสมัคร':'กรุณากรอกข้อมูลที่มีเครื่องหมาย * ให้ครบและถูกต้อง';err.hidden=false;bad[0].focus();return}
+    err.hidden=true; document.getElementById('pfOk').hidden=false;
+  });
 
   document.getElementById('irForm').addEventListener('submit',function(e){e.preventDefault();document.getElementById('irOk').hidden=false});
   var ck=document.getElementById('cookie'),saved=null;
