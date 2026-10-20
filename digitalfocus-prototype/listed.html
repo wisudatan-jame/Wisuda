@@ -124,27 +124,6 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rg
 .checks li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;color:var(--text)}
 .checks li::before{content:"";width:24px;height:24px;border-radius:50%;margin-top:2px;background:var(--blue-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232f6fed' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/13px no-repeat}
 
-/* projects */
-.projects{display:grid;gap:26px}
-@media(min-width:960px){.projects{grid-template-columns:1fr 1fr}}
-.proj{background:var(--card);border:1px solid var(--line);border-radius:24px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;min-width:0}
-.proj .ph{aspect-ratio:16/8.5;max-width:100%;overflow:hidden;background:var(--alt)}
-.proj .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.proj:hover .ph img{transform:scale(1.04)}
-.proj .body{padding:30px 34px 34px;display:grid;gap:12px;align-content:start}
-.pill{justify-self:start;font:600 .78rem/1 var(--head);letter-spacing:.04em;padding:8px 12px;border-radius:8px;background:var(--blue-soft);color:var(--blue)}
-.pill.soon{background:#fff4e5;color:#b46200}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pill.soon{background:#3a2a10;color:#ffb85c}}
-:root[data-theme="dark"] .pill.soon{background:#3a2a10;color:#ffb85c}
-.proj h3{font-size:clamp(1.25rem,2.6vw,1.6rem)}
-.proj .meta{color:var(--muted);font-size:.95rem}
-.strip{display:grid;grid-template-columns:repeat(3,1fr);background:var(--alt);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:8px}
-.strip div{padding:16px 18px;border-right:1px solid var(--line);display:grid;gap:2px;min-width:0}
-.strip div:last-child{border-right:0}
-.strip b{font:700 1.25rem/1.2 'IBM Plex Sans',sans-serif;color:var(--ink);font-variant-numeric:tabular-nums}
-.strip span{font-size:.82rem;color:var(--muted)}
-.more-clients{margin-top:30px;text-align:center;color:var(--muted)}
-
 /* brands */
 .brands{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
 .brands div{border:1px solid var(--line);border-radius:16px;background:var(--card);padding:20px 16px;display:grid;gap:4px;text-align:center;min-width:0}
@@ -228,7 +207,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
   <div class="wrap bar">
     <a class="logo" href="#top" aria-label="Digital Focus หน้าแรก"><img class="lb" src="img/logo.png" alt="Digital Focus" width="773" height="347"><img class="lw" src="img/logo-white.png" alt="" width="773" height="347"></a>
     <nav class="nav" aria-label="เมนูหลัก">
-      <a href="#business">ธุรกิจ</a><a href="#projects">ผลงาน</a><a href="#clients">ลูกค้า</a><a href="#brands">แบรนด์</a><a href="#esg">ความยั่งยืน</a><a href="#ir">นักลงทุนสัมพันธ์</a><a href="#news">ข่าวสาร</a><a href="#contact">ติดต่อเรา</a>
+      <a href="#business">ธุรกิจ</a><a href="#clients">ลูกค้า</a><a href="#brands">แบรนด์</a><a href="#esg">ความยั่งยืน</a><a href="#ir">นักลงทุนสัมพันธ์</a><a href="#news">ข่าวสาร</a><a href="#contact">ติดต่อเรา</a>
     </nav>
     <div class="right">
       <div class="lang"><span class="on" aria-current="true">TH</span><span title="เวอร์ชันภาษาอังกฤษจะทำหลังสรุปดีไซน์" style="opacity:.6">EN</span></div>
@@ -236,7 +215,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
     </div>
   </div>
   <div class="mnav" id="mnav" hidden><div class="wrap">
-    <a href="#business">ธุรกิจของเรา</a><a href="#projects">ผลงาน</a><a href="#clients">ลูกค้า</a><a href="#brands">แบรนด์ที่จัดจำหน่าย</a><a href="#esg">ความยั่งยืน</a><a href="#ir">นักลงทุนสัมพันธ์</a><a href="#news">ข่าวสาร</a><a href="#contact">ติดต่อเรา</a>
+    <a href="#business">ธุรกิจของเรา</a><a href="#clients">ลูกค้า</a><a href="#brands">แบรนด์ที่จัดจำหน่าย</a><a href="#esg">ความยั่งยืน</a><a href="#ir">นักลงทุนสัมพันธ์</a><a href="#news">ข่าวสาร</a><a href="#contact">ติดต่อเรา</a>
   </div></div>
 </header>
 
@@ -283,20 +262,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
   </div>
 </section>
 
-<section id="projects">
-  <div class="wrap">
-    <div class="sec-head"><span class="kicker">ผลงานและโครงการ</span><h2>โครงการที่เราวางระบบ และโครงการที่กำลังสร้าง</h2><p>จากเครือข่ายค้าปลีกหลายพันสาขา ระบบอ่านป้ายทะเบียนของหน่วยงานรัฐ ถึงศูนย์สาธิต AI แห่งใหม่</p></div>
-    <div class="projects">
-      <article class="proj"><div class="ph"><img src="img/cpall.jpg" alt="ร้าน 7-Eleven และ All Cafe" loading="lazy"></div><div class="body"><span class="pill">ส่งมอบแล้ว</span><h3>CP ALL (7-Eleven) ทั่วประเทศ</h3><p class="meta">ระบบ AI และ CCTV ของ Hikvision · 2018–2023</p><p>ติดตั้งในร้าน 7-Eleven กรุงเทพฯ และต่างจังหวัด รวมศูนย์กระจายสินค้า</p><div class="strip"><div><b>6,500+</b><span>สาขา</span></div><div><b>100,000+</b><span>กล้อง</span></div><div><b>6</b><span>ปีของโครงการ</span></div></div></div></article>
-      <article class="proj"><div class="ph"><img src="img/command.jpg" alt="ภาพจำลองศูนย์สั่งการใน DGF Smart AI Building" loading="lazy"></div><div class="body"><span class="pill soon">เตรียมเปิดปี 2026</span><h3>DGF Smart AI Building</h3><p class="meta">ศูนย์สาธิต AI, Robotics และ Green Energy · สำนักงานใหญ่ ซอยลาดพร้าว 130</p><p>รวมเทคโนโลยีจาก Hikvision, BroadLink, Huawei Digital Power และ Keenon ให้ลูกค้าเห็นระบบทำงานจริง (ภาพจำลอง)</p><div class="strip"><div><b>3</b><span>อาคารสำนักงานใหญ่</span></div><div><b>5,400+</b><span>ตร.ม.</span></div><div><b>4</b><span>แบรนด์พันธมิตร</span></div></div></div></article>
-      <article class="proj"><div class="ph"><img src="img/exat.jpg" alt="ทางพิเศษ" loading="lazy"></div><div class="body"><span class="pill">ส่งมอบแล้ว</span><h3>การทางพิเศษแห่งประเทศไทย และรัฐสภา</h3><p class="meta">ระบบกล้องอ่านป้ายทะเบียน (LPR) · ภาครัฐ</p><p>บันทึกและตรวจจับทะเบียนรถที่ผ่านทางพิเศษ และทุกคันที่เข้าพื้นที่รัฐสภา (2022–2023)</p><div class="strip"><div><b>216</b><span>กล้อง LPR (กทพ.)</span></div><div><b>9MP</b><span>ความละเอียดสูงสุด</span></div><div><b>2</b><span>หน่วยงานรัฐ</span></div></div></div></article>
-      <article class="proj"><div class="ph"><img src="img/bigc.jpg" alt="Big C" loading="lazy"></div><div class="body"><span class="pill">ส่งมอบแล้ว</span><h3>Big C และ BJC</h3><p class="meta">เปลี่ยนระบบ NVR และ DVR เป็น Hikvision · ค้าปลีก</p><p>ยกระดับระบบกล้องทั่วเครือข่าย พร้อมบันทึกภาพในสาขาและบริหารผ่าน HikCentral</p><div class="strip"><div><b>20,000+</b><span>กล้อง</span></div><div><b>1,500</b><span>สาขา</span></div><div><b>HCP</b><span>แพลตฟอร์มบริหาร</span></div></div></div></article>
-    </div>
-    <p class="more-clients">ผลงานอื่น ๆ: Central Food Retail · Central Trading · Robinson · ปตท. 1,500 คัน · Banpu · GWM · ตลาดไท · รถพยาบาล 5G กับ depa</p>
-  </div>
-</section>
-
-<section id="clients" class="alt">
+<section id="clients">
   <div class="wrap">
     <div class="sec-head"><span class="kicker">กลุ่มลูกค้า</span><h2>ได้รับความไว้วางใจจากทั้งภาครัฐและเอกชน</h2></div>
     <div class="cards two">
@@ -308,7 +274,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
   </div>
 </section>
 
-<section id="brands">
+<section id="brands" class="alt">
   <div class="wrap">
     <div class="sec-head"><span class="kicker">แบรนด์ที่จัดจำหน่าย</span><h2>พันธมิตรเทคโนโลยีระดับโลก</h2></div>
     <div class="brands">
@@ -318,7 +284,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
   </div>
 </section>
 
-<section id="esg" class="alt">
+<section id="esg">
   <div class="wrap">
     <div class="sec-head"><span class="kicker">ความยั่งยืน</span><h2>ความยั่งยืนที่อยู่ในทุกกระบวนการดำเนินงาน</h2><p>เทคโนโลยีที่เราติดตั้งช่วยให้เมืองปลอดภัยขึ้นและใช้พลังงานคุ้มค่าขึ้น ควบคู่กับการพัฒนาคนและการกำกับดูแลกิจการที่โปร่งใส</p></div>
     <div class="cards">
@@ -329,7 +295,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
   </div>
 </section>
 
-<section id="ir">
+<section id="ir" class="alt">
   <div class="wrap">
     <div class="sec-head"><span class="kicker">นักลงทุนสัมพันธ์</span><h2>จุดเด่นในการลงทุน <span class="flag">อยู่ระหว่างเตรียม IPO</span></h2></div>
     <div class="highlights">
@@ -352,7 +318,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
   </div>
 </section>
 
-<section id="news" class="alt">
+<section id="news">
   <div class="wrap">
     <div class="sec-head"><span class="kicker">ห้องข่าว</span><h2>ข่าวสารและกิจกรรม</h2></div>
     <div class="news">
@@ -364,7 +330,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
   </div>
 </section>
 
-<section id="contact">
+<section id="contact" class="alt">
   <div class="wrap">
     <div class="sec-head"><span class="kicker">ติดต่อเรา</span><h2>คุยกับเราเรื่องระบบความปลอดภัยขององค์กรคุณ</h2><p>บอกเราว่าพื้นที่ของคุณเป็นแบบไหนและต้องการอะไร ทีมวิศวกรจะประเมินและเสนอแนวทางที่เหมาะสม</p></div>
     <div class="cards" style="margin-bottom:40px">
@@ -415,7 +381,7 @@ footer .bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,25
         <p>บริษัท ดิจิตอลโฟกัส จำกัด ผู้ให้บริการ Security &amp; Smart Solutions ครบวงจร ด้วยประสบการณ์กว่า 24 ปี และแพลตฟอร์ม DGF ที่พัฒนาเอง</p>
       </div>
       <div><h4>บริษัท</h4><ul><li><a href="#business">ธุรกิจของเรา</a></li><li><a href="#esg">ความยั่งยืน</a></li><li><a href="#ir">นักลงทุนสัมพันธ์</a></li><li><a href="#contact">ติดต่อเรา</a></li></ul></div>
-      <div><h4>ธุรกิจ</h4><ul><li><a href="#brands">จัดจำหน่ายอุปกรณ์</a></li><li><a href="#projects">ออกแบบและวางระบบ</a></li><li><a href="#business">แพลตฟอร์ม DGF</a></li><li><a href="https://shopee.co.th/digitalfocus_thailand" target="_blank" rel="noopener">ร้านค้าออนไลน์</a></li></ul></div>
+      <div><h4>ธุรกิจ</h4><ul><li><a href="#brands">จัดจำหน่ายอุปกรณ์</a></li><li><a href="#business">ออกแบบและวางระบบ</a></li><li><a href="#business">แพลตฟอร์ม DGF</a></li><li><a href="https://shopee.co.th/digitalfocus_thailand" target="_blank" rel="noopener">ร้านค้าออนไลน์</a></li></ul></div>
       <div><h4>ติดต่อ</h4><ul><li>2782/4-6 ถนนลาดพร้าว แขวงคลองจั่น เขตบางกะปิ กรุงเทพฯ 10240</li><li>02 136 8989</li><li><a href="mailto:info@digitalfocus.co.th">info@digitalfocus.co.th</a></li></ul></div>
     </div>
     <div class="bottom"><span>© 2026 บริษัท ดิจิตอลโฟกัส จำกัด สงวนลิขสิทธิ์</span><span>ทะเบียนเลขที่ 0105545026907</span><span>นโยบายความเป็นส่วนตัว · นโยบายคุกกี้ · ข้อกำหนดการใช้งาน</span></div>
