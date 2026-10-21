@@ -1,0 +1,12 @@
+/*
+Theme Name: DF Listed
+Theme URI: https://www.digitalfocus.co.th/
+Author: Digital Focus Co., Ltd.
+Description: เว็บไซต์ Digital Focus ตามดีไซน์ต้นแบบ listed (ภาษาไทยและอังกฤษ โทนสี A และ B) ติดตั้งแล้วไปที่ Appearance → ตั้งค่าเนื้อหาเริ่มต้น
+Version: 1.0.0
+Requires at least: 6.2
+Requires PHP: 7.4
+Text Domain: df-listed
+*/
+
+/* Styles live in assets/css/site-a.css and site-b.css; choose the colour option in Appearance → Customize. */
