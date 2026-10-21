@@ -1,0 +1,1220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Digital Focus</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout (Digital Focus colour variant): listed-company site built on the jpark.co design system (tokens, type, components). Full-bleed navy photo hero with eyebrow pill and a ruled KPI strip; split sections with check lists and framed photos; photo service cards with code pills; dark technology bands; sector tiles and capability cards for solutions; photo logo wall; rounded navy CTA band; navy footer. Inner pages swap in a navy page hero with breadcrumb. Digital Focus colours appear only in the logo. */
+:root{
+  --navy-900:#15155a; --navy-800:#262679; --navy-700:#2f3192; --navy-600:#3a3ca6;
+  --accent:#2f3192; --accent-600:#262679; --accent-soft:rgba(47,49,146,.09); --cyan:#ff4d52; --red:#e3262b; --red-600:#c41b20;
+  --df-blue:#283c96; --df-red:#e3262b; --df-green:#1f9a4b;
+  --ink:#0d1726; --ink-70:#4a586c; --ink-45:#7c8798; --line:#e2e2ec; --line-soft:#eeeef5;
+  --paper:#ffffff; --paper-2:#f4f4f9; --paper-3:#e8e8f2;
+  --r-sm:10px; --r:16px; --r-lg:24px;
+  --sh-1:0 1px 2px rgba(21,21,90,.05),0 8px 24px -12px rgba(21,21,90,.12);
+  --sh-2:0 24px 60px -28px rgba(21,21,90,.35);
+  --display:"Anuphan","IBM Plex Sans Thai",system-ui,sans-serif;
+  --body:"IBM Plex Sans Thai","Anuphan",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+#partner,#ir,#showcase,[id^="biz-"]{scroll-margin-top:72px}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font:16px/1.75 var(--body);color:var(--ink);background:var(--paper);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:120;background:#fff}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.2;margin:0;letter-spacing:-.01em;text-wrap:balance}
+p{margin:0}
+ul{margin:0;padding:0}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:max(24px,env(safe-area-inset-left,0px)) max(24px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.flag{display:inline-block;font:600 11px/1 var(--body);padding:6px 10px;border-radius:999px;border:1px dashed var(--ink-45);color:var(--ink-45);vertical-align:middle;letter-spacing:.02em;text-transform:none}
+
+/* header */
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:100;background:rgba(255,255,255,.88);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid var(--line-soft);transition:box-shadow .2s}
+.hdr.stuck{box-shadow:0 6px 24px -16px rgba(21,21,90,.4)}
+.hdr-row{display:flex;align-items:center;gap:20px;height:72px}
+.brand{flex:none;display:flex;align-items:center}
+.brand img{height:44px;width:auto}
+.nav{margin-left:auto;display:none}
+.nav ul{display:flex;gap:4px;list-style:none}
+.nav a{display:block;font-size:14px;font-weight:500;color:var(--navy-700);padding:8px 11px;border-radius:8px;white-space:nowrap;transition:background .16s,color .16s}
+.nav a:hover{background:var(--paper-2);color:var(--accent)}
+.nav a.on{color:var(--accent);background:var(--accent-soft);font-weight:600}
+.hdr-side{display:flex;align-items:center;gap:10px;flex:none;margin-left:auto}
+@media(min-width:1240px){.nav{display:block}.hdr-side{margin-left:0}}
+.lang{display:inline-flex;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:2px}
+.lang span{font:600 11.5px/1 var(--body);letter-spacing:.06em;color:var(--ink-45);padding:7px 11px;border-radius:999px}
+.lang .on{background:var(--navy-700);color:#fff}
+.burger{display:inline-flex;width:44px;height:44px;flex:none;border:1px solid var(--line);border-radius:10px;background:var(--paper);cursor:pointer;padding:0;align-items:center;justify-content:center}
+.burger i{display:block;width:18px;height:2px;background:var(--navy-700);position:relative;transition:background .2s}
+.burger i::before,.burger i::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--navy-700);transition:transform .2s,top .2s}
+.burger i::before{top:-6px}.burger i::after{top:6px}
+.burger[aria-expanded="true"] i{background:transparent}
+.burger[aria-expanded="true"] i::before{top:0;transform:rotate(45deg)}
+.burger[aria-expanded="true"] i::after{top:0;transform:rotate(-45deg)}
+.mnav{border-top:1px solid var(--line-soft);background:#fff;max-height:calc(100vh - 72px);overflow-y:auto}
+.mnav .wrap{display:grid;gap:4px;padding-block:14px 20px}
+.mnav a{display:block;font:500 17px/1.3 var(--body);color:var(--navy-800);padding:15px 16px;border-radius:12px}
+.mnav a:hover{background:var(--paper-2)}
+.mnav a.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+@media(min-width:1240px){.burger,.mnav{display:none!important}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 14.5px/1 var(--body);padding:14px 22px;border-radius:999px;border:1px solid transparent;cursor:pointer;white-space:nowrap;transition:transform .16s,background .16s,box-shadow .16s,color .16s}
+.btn:hover{transform:translateY(-1px)}
+.btn-p{background:var(--accent);color:#fff;box-shadow:0 10px 26px -12px rgba(47,49,146,.8)}
+.btn-p:hover{background:var(--accent-600)}
+.btn-g{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.3)}
+.btn-g:hover{background:rgba(255,255,255,.2)}
+.btn-o{background:transparent;color:var(--navy-700);border-color:var(--line)}
+.btn-o:hover{border-color:var(--accent);color:var(--accent)}
+.btn svg,.more svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.more{margin-top:18px;font-size:14px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:6px}
+.more svg{width:15px;height:15px;transition:transform .2s}
+a:hover .more svg,.more:hover svg{transform:translateX(4px)}
+
+/* sections */
+.sec{padding:88px 0}
+.tint{background:var(--paper-2)}
+.dark{background:var(--navy-900);color:#e2e2f6}
+.dark h2,.dark h3{color:#fff}
+.kick{display:inline-flex;align-items:center;gap:8px;font:600 12px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.kick::before{content:"";width:22px;height:2px;border-radius:2px;background:currentColor}
+.dark .kick{color:#babcdf}
+.head{max-width:760px;margin-bottom:48px}
+.head.mid{margin-inline:auto;text-align:center}
+.head h2{font-size:clamp(27px,3.4vw,40px);color:var(--navy-800)}
+.dark .head h2{color:#fff}
+.head p{margin-top:16px;color:var(--ink-70);font-size:17px}
+.dark .head p{color:#babcdf}
+
+/* hero */
+.hero{position:relative;background:var(--navy-900);color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.5}
+.hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(900px 520px at 12% 8%,rgba(47,49,146,.34),transparent 70%),linear-gradient(105deg,rgba(21,21,90,.96) 0%,rgba(21,21,90,.84) 44%,rgba(21,21,90,.5) 100%)}
+.hero-in{position:relative;padding-block:clamp(72px,10vw,118px) 0}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:22px;font-size:12.5px;font-weight:600;letter-spacing:.12em;color:#aeb0e6;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:7px 16px}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 4px rgba(227,38,43,.22)}
+.hero h1{max-width:none;font-weight:700;font-size:clamp(34px,5.6vw,62px);line-height:1.12;letter-spacing:-.02em;color:#fff}
+.hero-lead{margin-top:22px;max-width:56ch;font-size:clamp(16px,1.6vw,17.5px);color:#c6c8e8}
+.hero-lead b{color:#fff;font-weight:600}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.kpis{margin-top:72px;display:grid;grid-template-columns:repeat(3,1fr);max-width:900px;border-top:1px solid rgba(255,255,255,.14)}
+.kpis>div{padding:26px 24px 34px;border-right:1px solid rgba(255,255,255,.12)}
+.kpis>div:first-child{padding-left:0}.kpis>div:last-child{border-right:0}
+@media(max-width:640px){.kpis{grid-template-columns:1fr;margin-top:48px}.kpis>div{border-right:0;border-bottom:1px solid rgba(255,255,255,.12);padding:20px 0}.kpis>div:last-child{border-bottom:0}}
+.kpi-n{font-family:var(--display);font-size:clamp(26px,3.2vw,38px);font-weight:700;color:#fff;line-height:1;font-variant-numeric:tabular-nums}
+.kpi-n small{font-size:.5em;font-weight:600;color:#b3b5dc;margin-left:3px}
+.kpi-l{margin-top:8px;font-size:13.5px;color:#a6a8d4;line-height:1.5}
+
+
+/* page hero */
+.phero{position:relative;background:var(--navy-900);color:#fff;overflow:hidden}
+.phero-bg{position:absolute;inset:0}
+.phero-bg img{width:100%;height:100%;object-fit:cover;opacity:.34}
+.phero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 6% 0%,rgba(47,49,146,.32),transparent 70%),linear-gradient(180deg,rgba(21,21,90,.9),rgba(21,21,90,.82))}
+.phero-in{position:relative;padding-block:78px 82px}
+.crumb{font-size:13px;color:#9496cf;margin-bottom:18px;letter-spacing:.04em}
+.crumb a:hover{color:#fff}
+.phero h1{font-size:clamp(30px,4.6vw,50px);max-width:900px;letter-spacing:-.02em}
+.phero p{margin-top:18px;max-width:60ch;color:#c6c8e8;font-size:17px}
+.phero h1.lead-t{max-width:58ch;font-weight:500;font-size:clamp(21px,2.5vw,29px);line-height:1.5;letter-spacing:0;color:#dcdcf4}
+
+/* grids and cards */
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.proj .more{margin-top:20px}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.g2>*,.g3>*,.g4>*,.split>*{min-width:0}
+@media(max-width:1000px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:860px){.split{grid-template-columns:1fr;gap:36px}}
+@media(max-width:640px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px;transition:border-color .2s,box-shadow .2s,transform .2s}
+.card:hover{border-color:#d4d4ee;box-shadow:var(--sh-1);transform:translateY(-3px)}
+.card h3{font-size:19px;color:var(--navy-800);margin-bottom:10px}
+.card p{color:var(--ink-70);font-size:15px;line-height:1.7}
+.card-dark{background:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:28px;transition:border-color .2s,transform .2s}
+.card-dark:hover{border-color:rgba(227,38,43,.45);transform:translateY(-3px)}
+.card-dark p{color:#b3b5dc;font-size:15px}
+.ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);margin-bottom:18px}
+.ico svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.card-dark .ico{background:rgba(227,38,43,.13);color:var(--cyan)}
+.pill{display:inline-block;font:700 11.5px/1 var(--body);letter-spacing:.12em;padding:6px 11px;border-radius:6px;background:var(--accent-soft);color:var(--accent);margin-bottom:16px}
+.dark .pill,.card-dark .pill{background:rgba(255,255,255,.1);color:#e2e2f6}
+.svc{border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--paper);display:flex;flex-direction:column;transition:box-shadow .25s,transform .25s}
+.svc:hover{box-shadow:var(--sh-2);transform:translateY(-4px)}
+.svc-img{aspect-ratio:16/10;overflow:hidden;background:var(--paper-3)}
+.svc-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.svc:hover .svc-img img{transform:scale(1.05)}
+.svc-body{padding:26px 26px 28px;flex:1;display:flex;flex-direction:column}
+.svc-body .pill{align-self:flex-start}
+.svc-body h3{font-size:20px;color:var(--navy-800);margin-bottom:10px}
+.svc-body p{color:var(--ink-70);font-size:15px;flex:1}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.stats>div{background:var(--paper);padding:30px 26px}
+.stat-n{font-family:var(--display);font-weight:700;font-size:34px;color:var(--navy-800);line-height:1;font-variant-numeric:tabular-nums}
+.stat-n small{font-size:.46em;color:var(--accent);margin-left:4px;font-weight:600}
+.stat-l{margin-top:9px;font-size:13.5px;color:var(--ink-45);line-height:1.5}
+.flist{list-style:none;display:grid;gap:14px}
+.flist li{display:flex;gap:13px;font-size:15.5px;color:var(--ink-70);line-height:1.65}
+.flist li b{color:var(--ink);font-weight:600}
+.tick{flex:none;width:22px;height:22px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-top:3px}
+.tick svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.dark .flist li{color:#babcdf}
+.dark .flist li b{color:#fff}
+.dark .tick{background:rgba(227,38,43,.15);color:var(--cyan)}
+.frame{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);background:var(--paper-3);box-shadow:var(--sh-2);position:relative}
+.frame img{width:100%;display:block}
+.frame .cap{position:absolute;left:14px;bottom:14px;font-size:12px;color:#fff;background:rgba(21,21,90,.74);padding:5px 10px;border-radius:8px}
+.frame.white{background:#fff}
+.quote{border-left:3px solid var(--accent);padding:4px 0 4px 26px;margin:0;font-family:var(--display);font-weight:600;font-size:clamp(21px,2.5vw,28px);line-height:1.45;color:var(--navy-800)}
+.dark .quote{color:#fff;border-color:var(--accent)}
+.quote cite{display:block;margin-top:16px;font:500 14px/1.5 var(--body);color:var(--ink-45);font-style:normal}
+.dark .quote cite{color:#a6a8d4}
+.h2{font-size:clamp(27px,3.4vw,40px);color:var(--navy-800)}
+.dark .h2{color:#fff}
+.lead{margin-top:16px;color:var(--ink-70);font-size:17px}
+.dark .lead{color:#babcdf}
+.subh{text-align:center;font-size:22px;color:var(--navy-800);margin:64px 0 24px}
+.dark .frame{border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.04);box-shadow:none}
+.tl{position:relative;padding-left:34px}
+.tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--accent),rgba(47,49,146,.12))}
+.tl-item{position:relative;padding-bottom:34px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-34px;top:9px;width:16px;height:16px;border-radius:50%;background:var(--paper);border:3px solid var(--accent)}
+.tl-y{font-family:var(--display);font-weight:700;font-size:22px;color:var(--navy-800)}
+.tl-item p{margin-top:6px;color:var(--ink-70);font-size:15.5px}
+.logos{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+@media(max-width:1000px){.logos{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.logos{grid-template-columns:repeat(2,1fr)}}
+.logos>div{position:relative;aspect-ratio:3/2;overflow:hidden;background:var(--navy-800);display:flex;align-items:flex-end;padding:14px 15px}
+.logos>div img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.logos>div::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,21,90,.1) 0%,rgba(21,21,90,.45) 48%,rgba(21,21,90,.88) 100%)}
+.logos .nm{position:relative;z-index:1;font-size:13px;font-weight:600;color:#fff;line-height:1.35;text-shadow:0 1px 8px rgba(0,0,0,.55)}
+.logos>div:hover img{transform:scale(1.07)}
+.proj{display:grid;grid-template-columns:1.15fr 1fr;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--paper)}
+.proj+.proj{margin-top:26px}
+.proj .im{min-height:340px;background:var(--paper-3)}
+.proj .im img{width:100%;height:100%;object-fit:cover}
+.proj .bd{padding:38px}
+.proj .bd h3{font-size:24px;color:var(--navy-800);margin-bottom:6px}
+.proj .bd .sub{font-size:14.5px;color:var(--ink-45);margin-bottom:18px}
+.proj .bd p{color:var(--ink-70);font-size:15.5px}
+.spec{list-style:none;margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden}
+.spec li{background:var(--paper-2);padding:14px 16px;min-width:0}
+.spec b{display:block;font-family:var(--display);font-size:19px;color:var(--navy-800)}
+.spec span{font-size:12.5px;color:var(--ink-45)}
+@media(max-width:860px){.proj{grid-template-columns:1fr}.proj .im{min-height:220px;aspect-ratio:16/9}.proj .bd{padding:28px}}
+@media(max-width:560px){.spec{grid-template-columns:1fr}}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:1000px){.gal{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.gal{grid-template-columns:1fr}}
+.gal.g3c{grid-template-columns:repeat(3,1fr)}
+@media(max-width:860px){.gal.g3c{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.gal.g3c{grid-template-columns:1fr}}
+.gal figure{margin:0;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--paper)}
+.gal .im{aspect-ratio:4/3;overflow:hidden;background:var(--paper-3)}
+.gal .im img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gal figure:hover .im img{transform:scale(1.06)}
+.gal figcaption{padding:16px 18px 18px;font-size:15px;font-weight:500;color:var(--navy-800);line-height:1.5}
+.gal figcaption span{display:block;font-size:12.5px;font-weight:400;color:var(--ink-45);margin-bottom:6px}
+.brands{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+@media(max-width:860px){.brands{grid-template-columns:repeat(2,1fr)}}
+.brands>div{background:var(--paper);padding:26px 22px;display:grid;gap:4px}
+.brands b{font-family:var(--display);font-size:20px;color:var(--navy-800)}
+.brands span{font-size:13.5px;color:var(--ink-45)}
+.brands .lead{grid-column:1/-1;background:var(--navy-800);display:flex;flex-wrap:wrap;gap:8px 28px;align-items:center;padding:30px 30px}
+.brands .lead b{color:#fff;font-size:26px;letter-spacing:.08em}
+.brands .lead span{color:#babcdf;font-size:15px;max-width:62ch}
+
+/* sector showcase */
+.vshow{display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:start}
+@media(max-width:900px){.vshow{grid-template-columns:1fr}}
+.vtabs{display:grid;gap:8px;position:sticky;top:96px}
+@media(max-width:900px){.vtabs{position:static;display:flex;overflow-x:auto;scrollbar-width:none}.vtabs::-webkit-scrollbar{display:none}}
+.vtab{appearance:none;text-align:left;border:1px solid var(--line);background:var(--paper);border-radius:var(--r);padding:16px 18px;cursor:pointer;display:grid;gap:2px;flex:none;transition:border-color .2s,box-shadow .2s,background .2s}
+.vtab strong{font:600 16px/1.3 var(--display);color:var(--navy-800)}
+.vtab small{font-size:12.5px;color:var(--ink-45);letter-spacing:.06em;text-transform:uppercase}
+.vtab:hover{border-color:#d4d4ee}
+.vtab.on{background:var(--navy-800);border-color:var(--navy-800);box-shadow:var(--sh-2)}
+.vtab.on strong{color:#fff}.vtab.on small{color:#babcdf}
+.vpanel{min-width:0}
+.vstage{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:1672/941;max-width:100%;background:#f3f3f2;border:1px solid var(--line);box-shadow:var(--sh-1)}
+.vstage img{width:100%;height:100%;object-fit:contain}
+.vcap{position:absolute;left:16px;top:16px;z-index:1;color:#fff;display:grid;background:rgba(21,21,90,.88);border-radius:12px;padding:10px 14px}
+.vcap b{font:700 18px/1.2 var(--display)}
+.vcap span{font-size:13px;color:#c6c8e8;letter-spacing:.04em}
+.vdesc{margin:22px 0 18px;color:var(--ink-70);font-size:16.5px;max-width:70ch}
+.nodes{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.node{display:flex;gap:14px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.node .ico{margin:0;flex:none;width:42px;height:42px}
+.node b{display:block;font:600 15px/1.35 var(--display);color:var(--navy-800)}
+.node ul{list-style:none;margin-top:6px;display:grid;gap:3px}
+.node li{font-size:13.5px;color:var(--ink-70);padding-left:12px;position:relative;line-height:1.5}
+.node li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+
+/* header CTA */
+.hdr-cta{padding:11px 18px;font-size:13.5px}
+@media(max-width:1379px){.hdr-cta{display:none}}
+
+/* sector tiles */
+.sectors{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+@media(max-width:1000px){.sectors{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.sectors{grid-template-columns:repeat(2,1fr);gap:10px}}
+.sector{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end;aspect-ratio:3/4.2;border-radius:var(--r);overflow:hidden;background:var(--navy-800);color:#fff;padding:18px 16px 20px;transition:transform .25s,box-shadow .25s}
+.sector img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .6s}
+.sector::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(21,21,90,0) 25%,rgba(21,21,90,.55) 60%,rgba(21,21,90,.92))}
+.sector:hover{transform:translateY(-4px);box-shadow:var(--sh-2)}
+.sector:hover img{transform:scale(1.07)}
+.sector .sico{position:absolute;top:16px;left:16px;width:46px;height:46px;border-radius:50%;background:#fff;color:var(--navy-700);display:grid;place-items:center;box-shadow:0 6px 18px -6px rgba(21,21,90,.5)}
+.sector .sico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.sector b{font:600 18px/1.3 var(--display)}
+.sector small{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#d0d1ee;margin-top:3px}
+.sector .n{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:13px;color:#d0d1ee}
+.sector .n svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.sector:hover .n svg{transform:translateX(4px)}
+
+/* capability cards */
+.caps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:1000px){.caps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.caps{grid-template-columns:1fr}}
+.capc{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--paper);transition:box-shadow .25s,transform .25s}
+.capc:hover{box-shadow:var(--sh-2);transform:translateY(-4px)}
+.capc .im{aspect-ratio:16/9;overflow:hidden;background:var(--paper-3)}
+.capc .im img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.capc:hover .im img{transform:scale(1.05)}
+.capc .bd{position:relative;padding:0 26px 26px;flex:1;display:flex;flex-direction:column}
+.capc .code{width:52px;height:52px;margin:-26px 0 16px;border-radius:14px;background:var(--navy-800);color:#fff;display:grid;place-items:center;box-shadow:0 0 0 5px var(--paper)}
+.capc .code svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.capc .tag{font:700 11px/1 var(--body);letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:8px}
+.capc h3{font-size:20px;color:var(--navy-800);margin-bottom:10px}
+.capc p{color:var(--ink-70);font-size:15px}
+.capc ul{list-style:none;margin-top:16px;padding-top:16px;border-top:1px dashed var(--line);display:flex;flex-wrap:wrap;gap:6px}
+.capc li{font-size:12.5px;color:var(--navy-700);background:var(--paper-2);border:1px solid var(--line-soft);border-radius:999px;padding:4px 10px}
+
+
+/* business detail */
+.bizd .g2{margin-top:30px}
+.bizd .card{padding:24px}
+.bizd .card h3{font-size:17.5px}
+.bizd .gal{margin-top:26px}
+.bizd h4{font-size:16px;color:var(--navy-800);margin-top:44px}
+body[data-page="solutions"] #solutions{background:var(--paper-2)}
+
+/* award badge on portrait */
+.frame.dk{background:#2a2d33}
+.badge-aw{position:absolute;left:16px;right:16px;top:16px;display:flex;gap:12px;align-items:center;background:rgba(21,21,90,.86);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#fff;border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:12px 16px;max-width:420px}
+.badge-aw svg{flex:none;width:30px;height:30px;fill:none;stroke:#fff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.badge-aw b{display:block;font:600 15px/1.3 var(--display)}
+.badge-aw span{display:block;font-size:12.5px;line-height:1.45;color:#babcdf}
+
+.dark .stats{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.12)}
+.dark .stats>div{background:var(--navy-900)}
+.dark .stat-n{color:#fff}.dark .stat-n small{color:#b3b5dc}.dark .stat-l{color:#a6a8d4}
+
+/* awards */
+.awards{display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:16px}
+@media(max-width:1100px){.awards{grid-template-columns:repeat(2,1fr)}.awards .aw-main{grid-column:1/-1}}
+@media(max-width:560px){.awards{grid-template-columns:1fr}}
+.awards .card{display:flex;flex-direction:column}
+.awards .card p{flex:1}
+.awards .yr{font:600 12px/1 var(--body);letter-spacing:.12em;color:var(--ink-45);margin-bottom:10px}
+.aw-main{background:var(--navy-800)!important;border-color:var(--navy-800)!important}
+.aw-main h3{color:#fff}.aw-main p{color:#babcdf}.aw-main .yr{color:#babcdf}
+.aw-main .ico{background:rgba(255,255,255,.1);color:#fff}
+.aw-main .more{color:#fff}
+
+/* floating contact */
+.fchat{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:105;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.fchat-list{display:grid;gap:8px;justify-items:end}
+.fchat-list a{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 16px 7px 7px;box-shadow:var(--sh-1);font-size:14px;font-weight:600;color:var(--navy-800);white-space:nowrap}
+.fchat-list a:hover{border-color:#d4d4ee}
+.ci{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff;flex:none}
+.ci svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ci.line{background:#06c755}.ci.fb{background:#1877f2}.ci.tel{background:var(--navy-700)}.ci.mail{background:var(--accent)}
+.fchat-btn{display:inline-flex;align-items:center;gap:8px;height:54px;padding:0 20px 0 16px;border-radius:999px;border:0;background:var(--accent);color:#fff;font:600 14.5px/1 var(--body);box-shadow:0 14px 30px -10px rgba(47,49,146,.8);cursor:pointer}
+.fchat-btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.fchat-btn[aria-expanded="true"]{background:var(--navy-800)}
+@media(max-width:560px){.fchat-btn span{display:none}.fchat-btn{width:54px;padding:0;justify-content:center}}
+.lang a{font:600 11.5px/1 var(--body);letter-spacing:.06em;color:var(--ink-45);padding:7px 11px;border-radius:999px}
+.lang a.on{background:var(--navy-700);color:#fff}
+
+/* full-service stepper (projects page) */
+.vsteps{list-style:none;margin:0;padding:0}
+.vsteps li{position:relative;display:grid;grid-template-columns:46px 1fr;gap:18px;padding-bottom:24px}
+.vsteps li:last-child{padding-bottom:0}
+.vsteps li::before{content:"";position:absolute;left:22px;top:46px;bottom:0;width:2px;background:rgba(255,255,255,.14)}
+.vsteps li:last-child::before{display:none}
+.vsteps .n{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.24);background:var(--navy-900);color:#fff;font:700 14px/1 var(--display)}
+.vsteps h3{font-size:18px;color:#fff;margin:10px 0 4px}
+.vsteps p{font-size:15px;color:#b3b5dc;line-height:1.65}
+.vsteps li.hl .n{background:var(--accent);border-color:var(--accent)}
+.vsteps li.hl>div{background:rgba(47,49,146,.14);border:1px solid rgba(47,49,146,.4);border-radius:var(--r);padding:0 18px 16px;margin-top:-2px}
+.stats.two{grid-template-columns:1fr 1fr}
+@media(max-width:560px){.stats.two>div{padding:22px 18px}.stats.two .stat-n{font-size:28px}}
+
+/* partner form */
+.pform{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px;display:grid;gap:16px;box-shadow:var(--sh-1);min-width:0}
+.pform h3{font-size:21px;color:var(--navy-800)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.frow{grid-template-columns:1fr}.pform{padding:22px}}
+.fld{display:grid;gap:6px;min-width:0}
+.fld label,.pform legend{font-size:13.5px;font-weight:600;color:var(--navy-700)}
+.fld input,.fld select,.fld textarea{width:100%;font:inherit;font-size:15px;color:var(--ink);background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 13px;min-height:46px}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:2px solid var(--accent);outline-offset:0;background:#fff}
+.fld .bad{border-color:#e5484d;background:#fff5f5}
+.pform fieldset{border:0;margin:0;padding:0;min-width:0}
+.pform legend{margin-bottom:8px;padding:0}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg legend{grid-column:1/-1}
+.seg label{position:relative;cursor:pointer}
+.seg input{position:absolute;opacity:0}
+.seg span{display:block;text-align:center;border:1px solid var(--line);border-radius:var(--r-sm);padding:12px 10px;font-weight:600;font-size:14.5px;color:var(--navy-700)}
+.seg input:checked+span{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.seg input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+.chks{display:flex;flex-wrap:wrap;gap:8px}
+.chks legend{width:100%}
+.chk{cursor:pointer;position:relative}
+.chk input{position:absolute;opacity:0}
+.chk span{display:block;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:13.5px;color:var(--ink-70)}
+.chk input:checked+span{background:var(--navy-800);border-color:var(--navy-800);color:#fff}
+.chk input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--ink-70);cursor:pointer}
+.consent input{width:18px;height:18px;margin-top:3px;flex:none;accent-color:var(--accent)}
+.ferr{color:#c62828;font-size:14px}
+.fok{background:#e8f8ef;border:1px solid #b6e6c8;color:#17653a;border-radius:var(--r-sm);padding:12px 14px;font-size:14px}
+
+/* CTA band */
+.cta{position:relative;overflow:hidden;border-radius:var(--r-lg);padding:clamp(32px,5vw,54px) clamp(24px,4vw,48px);background:radial-gradient(600px 300px at 88% 110%,rgba(227,38,43,.26),transparent 70%),radial-gradient(500px 260px at 8% -10%,rgba(47,49,146,.32),transparent 70%),var(--navy-800);color:#fff;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.cta h2{font-size:clamp(24px,3vw,32px);color:#fff;max-width:20ch}
+.cta p{margin-top:10px;color:#c6c8e8;max-width:54ch}
+.cta .btns{display:flex;flex-wrap:wrap;gap:12px}
+
+/* contact */
+.info{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:8px 28px;margin:0}
+.info div{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:16px 0;border-bottom:1px dashed var(--line)}
+.info div:last-child{border-bottom:0}
+.info dt{color:var(--ink-45)}
+.info dd{margin:0;color:var(--ink)}
+.info a{color:var(--accent);font-weight:600}
+@media(max-width:560px){.info div{grid-template-columns:1fr;gap:2px}}
+.cbtns{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+.cbtns .btn{justify-content:center;padding:16px 22px}
+@media(max-width:560px){.cbtns{grid-template-columns:1fr}}
+.ch{display:flex;gap:14px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;transition:border-color .2s,box-shadow .2s}
+.ch:hover{border-color:#d4d4ee;box-shadow:var(--sh-1)}
+.ch .ico{margin:0;flex:none}
+.ch b{display:block;font:600 15.5px/1.3 var(--display);color:var(--navy-800)}
+.ch small{display:block;font-size:13px;color:var(--ink-45);overflow-wrap:anywhere}
+.sub-form{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.sub-form input{flex:1 1 200px;min-width:0;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;border-radius:999px;padding:13px 18px;font:inherit}
+.sub-form input::placeholder{color:#a6a8d4}
+.ok{margin-top:10px;font-size:13.5px;color:#7ee2a8}
+
+/* footer */
+.ftr{background:var(--navy-900);color:#a6a8d4;font-size:14.5px;padding:64px 0 26px}
+.ftr-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:36px}
+@media(max-width:900px){.ftr-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.ftr-grid{grid-template-columns:1fr}}
+.ftr .logo-w{height:54px;width:auto;margin-bottom:16px}
+.ftr p{max-width:40ch}
+.ftr h4{font:600 12px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:#7c7eb8;margin-bottom:16px}
+.ftr ul{list-style:none;display:grid;gap:10px}
+.ftr a:hover{color:#fff}
+.social{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.social a{width:38px;height:38px;border-radius:10px;border:1px solid rgba(255,255,255,.14);display:grid;place-items:center}
+.social a:hover{border-color:rgba(227,38,43,.6);background:rgba(255,255,255,.04)}
+.social svg{width:18px;height:18px;fill:none;stroke:#c9d6ea;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ftr-bot{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;font-size:13px;color:#7c7eb8}
+.cookie{position:fixed;z-index:110;left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));max-width:940px;margin-inline:auto;background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh-2);padding:16px 20px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between}
+.cookie p{font-size:14px;color:var(--ink-70);max-width:64ch}
+.cookie div{display:flex;gap:8px}
+.cookie .btn{padding:11px 18px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+
+/* Digital Focus colour variant: indigo base, red calls to action, charcoal footer (as on digitalfocus.co.th) */
+.btn-p{background:var(--red);box-shadow:0 10px 26px -12px rgba(227,38,43,.75)}
+.btn-p:hover{background:var(--red-600)}
+.kick::before{background:var(--red);height:3px}
+.dark .kick{color:#c6c8e8}
+.hero-bg::after{background:radial-gradient(900px 520px at 12% 8%,rgba(90,92,210,.38),transparent 70%),linear-gradient(105deg,rgba(21,21,90,.96) 0%,rgba(21,21,90,.84) 44%,rgba(21,21,90,.5) 100%)}
+.hero::after,.phero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--red)}
+.phero-bg::after{background:radial-gradient(700px 400px at 6% 0%,rgba(90,92,210,.36),transparent 70%),linear-gradient(180deg,rgba(21,21,90,.9),rgba(21,21,90,.82))}
+.cta{background:radial-gradient(600px 300px at 88% 110%,rgba(227,38,43,.32),transparent 70%),radial-gradient(500px 260px at 8% -10%,rgba(90,92,210,.4),transparent 70%),var(--navy-800)}
+.vsteps li.hl .n{background:var(--red);border-color:var(--red)}
+.vsteps li.hl>div{background:rgba(227,38,43,.12);border-color:rgba(227,38,43,.45)}
+.aw-main{background:var(--navy-800)!important;border-color:var(--navy-800)!important;box-shadow:inset 0 -4px 0 var(--red)}
+.vtab.on{background:var(--navy-800);border-color:var(--navy-800)}
+.pill{background:rgba(227,38,43,.08);color:var(--red-600)}
+.dark .pill,.card-dark .pill{background:rgba(255,255,255,.1);color:#e2e2f6}
+.ftr{background:#1a1a1a;color:#b5b5b5}
+.ftr h4,.ftr-bot{color:#8a8a8a}
+.ftr-bot{border-top-color:rgba(255,255,255,.1)}
+.social a:hover{border-color:var(--red)}
+.fchat-btn{background:var(--red);box-shadow:0 14px 30px -10px rgba(227,38,43,.7)}
+.fchat-btn[aria-expanded="true"]{background:var(--navy-800)}
+.eyebrow .dot{background:var(--red);box-shadow:0 0 0 4px rgba(227,38,43,.25)}
+</style>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-row">
+    <a class="brand" href="#home" aria-label="Digital Focus Home"><img src="img/logo.png" alt="Digital Focus" width="773" height="347"></a>
+    <nav class="nav" aria-label="Main menu"><ul>
+      <li><a href="#home">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#business">Our Business</a></li><li><a href="#solutions">Solutions</a></li><li><a href="#brands">Products</a></li><li><a href="#projects">Projects & Clients</a></li><li><a href="#esg">Sustainability</a></li><li><a href="#contact">Contact Us</a></li>
+    </ul></nav>
+    <div class="hdr-side">
+      <a class="btn btn-p hdr-cta" href="#ir">Investor Relations</a>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Open menu"><i></i></button>
+      <div class="lang"><a href="listed-df.html" hreflang="th" lang="th">TH</a><a class="on" href="listed-df-en.html" hreflang="en" aria-current="true">EN</a></div>
+    </div>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Menu" hidden><div class="wrap">
+    <a href="#home">Home</a><a href="#about">About Us</a><a href="#business">Our Business</a><a href="#solutions">Solutions</a><a href="#brands">Products</a><a href="#projects">Projects & Clients</a><a href="#esg">Sustainability</a><a href="#news">News</a><a href="#contact">Contact Us</a>
+  </div></nav>
+</header>
+
+<main id="top">
+
+<section class="phero" id="phero" data-pages="" hidden>
+  <div class="phero-bg"><img src="img/hq.jpg" alt=""></div>
+  <div class="wrap phero-in">
+    <p class="crumb"><a href="#home">Home</a> / <span id="pcrumb"></span></p>
+    <h1 id="ptitle"></h1>
+    <p id="plead"></p>
+  </div>
+</section>
+
+<!-- ===== HOME ===== -->
+<section class="hero" data-pages="home">
+  <div class="hero-bg"><img src="img/hq.jpg" alt=""></div>
+  <div class="wrap hero-in">
+    <span class="eyebrow"><span class="dot"></span>Preparing to list on the Stock Exchange of Thailand · DIGITAL FOCUS</span>
+    <h1>Leader in End-to-End Smart Security Solutions<br>&amp; AiIOT</h1>
+    <p class="hero-lead"><b>Digital Focus Co., Ltd.</b> A consulting, design, system integration, installation and after-sales service team that has served leading organizations for more than 24 years as Thailand's first authorized Hikvision distributor</p>
+    <div class="hero-cta"><a class="btn btn-p" href="#business">Explore Our Business <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-g" href="#contact">Talk to Our Team</a></div>
+    <div class="kpis">
+      <div><div class="kpi-n"><span data-count="24">24</span><small>+</small></div><div class="kpi-l">years of experience<br>in the security systems business</div></div>
+      <div><div class="kpi-n"><span data-count="500">500</span><small>+</small></div><div class="kpi-l">dealers and service technicians<br>covering every region</div></div>
+      <div><div class="kpi-n"><span data-count="6500">6,500</span><small>+</small></div><div class="kpi-l">7-Eleven stores<br>equipped with AI and CCTV systems</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" data-pages="home">
+  <div class="wrap split">
+    <div>
+      <span class="kick">Solutions Leader</span>
+      <h2 class="h2">A Smart Security Solutions leader that stands by customers throughout the system lifecycle</h2>
+      <p class="lead">Since 2002, Digital Focus has grown from a CCTV camera distributor into a provider of end-to-end Smart Security Solutions &amp; AiIOT, led by Mr. Somchai Prajaksoot, recipient of the Master Entrepreneur award at APEA 2026</p>
+      <ul class="flist" style="margin-top:26px">
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>One team for every step</b> — consulting, design, system integration, installation and after-sales service</span></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Thailand's first authorized Hikvision distributor</b> — since 2006</span></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Long-term continuous support</b> — a 24-hour Call Center and a network of more than 500 technicians nationwide</span></li>
+      </ul>
+      <div style="margin-top:30px"><a class="btn btn-o" href="#about">Our Story <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+    <div class="frame"><img src="img/executives.jpg" alt="Mr. Somchai Prajaksoot and Mr. Sakdipat Prajaksoot, Digital Focus executives" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="sec tint" id="business" data-pages="home business">
+  <div class="wrap">
+    <div class="head mid"><span class="kick">Our Business</span><h2>4 Complementary Businesses Working as One System</h2></div>
+    <div class="g4">
+      <a class="svc" href="#biz-dist"><div class="svc-img"><img src="img/news-summit.jpg" alt="The Digital Focus team at Hikvision Commercial Summit" loading="lazy"></div><div class="svc-body"><span class="pill">DISTRIBUTION</span><h3>Equipment Distribution</h3><p>Thailand's first authorized Hikvision distributor and leading AiIOT brands, through a network of more than 500 dealers</p><span class="more">View Products <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="svc" href="#biz-si"><div class="svc-img"><img src="img/exat.jpg" alt="Expressway" loading="lazy"></div><div class="svc-body"><span class="pill">INTEGRATION</span><h3>Design and System Integration</h3><p>Our engineering team provides consulting, design, installation and system testing for public and private sector projects nationwide</p><span class="more">Learn More <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="svc" href="#biz-platform"><div class="svc-img"><img src="img/ambulance.jpg" alt="5G Ambulance" loading="lazy"></div><div class="svc-body"><span class="pill">PLATFORM</span><h3>Platforms and Innovation</h3><p>Smart Transport with in-vehicle AI cameras + GPS, expanding into Smart Building and Robotics</p><span class="more">Learn More <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="svc" href="#biz-service"><div class="svc-img"><img src="img/command.jpg" alt="Rendering of the monitoring center" loading="lazy"></div><div class="svc-body"><span class="pill">SERVICE</span><h3>Monthly Service Plans and After-Sales Service</h3><p>Camera system rental, AI-powered monitoring, maintenance contracts with SLAs and a 24-hour Call Center</p><span class="more">Learn More <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" data-pages="solutions">
+  <div class="wrap">
+    <div class="head mid"><span class="kick">Connected Solutions</span><h2>Security systems that work together across the organization</h2><p>Connect networks, AI cameras, IoT devices and command centers so every system shares data and can be managed from one place</p></div>
+    <div class="caps">
+      <div class="capc"><div class="im"><img src="img/sol-platform.jpg" alt="" loading="lazy"></div><div class="bd"><span class="code" title="IT"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="6" rx="1"/><rect x="5" y="11" width="14" height="6" rx="1"/><path d="M8 6h.01M8 14h.01M12 21v-4"/></svg></span><span class="tag">IT Security Infrastructure</span><h3>IT Infrastructure for Security</h3><p>Networks, servers and storage that support large numbers of cameras and devices, connecting every branch to the organization's existing systems</p><ul><li>Network</li><li>Server Room</li><li>Storage</li><li>Cyber Security</li></ul></div></div>
+      <div class="capc"><div class="im"><img src="img/sol-city.jpg" alt="" loading="lazy"></div><div class="bd"><span class="code" title="AI"><svg viewBox="0 0 24 24"><path d="M3 7h12v10H3z"/><path d="M15 10l6-3v10l-6-3"/></svg></span><span class="tag">AI Video Analytics</span><h3>AI Cameras and Video Analytics</h3><p>Shift from reactive monitoring to proactive alerts: detect anomalies, read license plates and count people so teams can focus on what matters</p><ul><li>CCTV</li><li>LPR / ANPR</li><li>People Counting</li><li>Smart Pole</li></ul></div></div>
+      <div class="capc"><div class="im"><img src="img/sol-access.jpg" alt="" loading="lazy"></div><div class="bd"><span class="code" title="AC"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M8 17c1-2 2.5-3 4-3s3 1 4 3"/></svg></span><span class="tag">Access Control &amp; Identity</span><h3>Access Control and Identity Verification</h3><p>Grant area access to the right people and systematically log entries, exits and visitors via face scan, card and QR</p><ul><li>Face Scan</li><li>Visitor</li><li>Lift Control</li><li>Barrier Gate</li></ul></div></div>
+      <div class="capc"><div class="im"><img src="img/sol-solar.jpg" alt="" loading="lazy"></div><div class="bd"><span class="code" title="IoT"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span><span class="tag">AiIOT &amp; Smart Energy</span><h3>AiIOT Sensors and Energy</h3><p>Monitor equipment and environments in real time, detecting smoke, gas and temperature, with solar power and Smart Home systems</p><ul><li>Smoke / Gas</li><li>Air Quality</li><li>Solar · Huawei</li><li>Smart Home</li></ul></div></div>
+      <div class="capc"><div class="im"><img src="img/command.jpg" alt="" loading="lazy"></div><div class="bd"><span class="code" title="SOC"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><span class="tag">Security Command Center</span><h3>Command and Monitoring Center</h3><p>Bring camera feeds, access systems and alarms from every area onto a single screen to track incidents and respond instantly</p><ul><li>Video Wall</li><li>HikCentral</li><li>Alarm</li><li>Mobile App</li></ul></div></div>
+      <div class="capc"><div class="im"><img src="img/sol-robot.jpg" alt="" loading="lazy"></div><div class="bd"><span class="code" title="RB"><svg viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01M2 13v3M22 13v3"/></svg></span><span class="tag">Service Robotics</span><h3>Service Robots and Automation</h3><p>Delivery and reception robots for hospitals, hotels and buildings, expanding into a robot management platform in 2027</p><ul><li>Delivery Robot</li><li>Reception</li><li>Patrol</li><li>Robotics Platform</li></ul></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="solutions" data-pages="home solutions">
+  <div class="wrap">
+    <div data-only="home">
+      <div class="head mid"><span class="kick">Industry Solutions</span><h2>Security systems for every industry</h2><p>Select your industry to see where each system is installed and what it does</p></div>
+      <div class="sectors">
+      <a class="sector" href="#solutions" data-sector="building"><img src="img/sol-building.jpg" alt="" loading="lazy"><span class="sico"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2M10 21v-3h4v3"/></svg></span><b>Building</b><span class="n">8 systems <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="sector" href="#solutions" data-sector="healthcare"><img src="img/ambulance.jpg" alt="" loading="lazy"><span class="sico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/></svg></span><b>Healthcare</b><span class="n">6 systems <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="sector" href="#solutions" data-sector="government"><img src="img/parliament.jpg" alt="" loading="lazy"><span class="sico"><svg viewBox="0 0 24 24"><path d="M3 10l9-6 9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 21h18"/></svg></span><b>Government</b><span class="n">10 systems <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="sector" href="#solutions" data-sector="education"><img src="img/sol-education.jpg" alt="" loading="lazy"><span class="sico"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></span><b>Education</b><span class="n">7 systems <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="sector" href="#solutions" data-sector="industry"><img src="img/sol-transport.jpg" alt="" loading="lazy"><span class="sico"><svg viewBox="0 0 24 24"><path d="M3 21V10l5 3V10l5 3V10l5 3V4h3v17z"/></svg></span><b>Industrial Estate</b><small>Industry</small><span class="n">10 systems <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="sector" href="#solutions" data-sector="factory"><img src="img/sol-factory.jpg" alt="" loading="lazy"><span class="sico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1L7 17M17 7l2.1-2.1"/></svg></span><b>Factory</b><span class="n">9 systems <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      </div>
+    </div>
+    <div data-only="solutions" id="showcase">
+      <div class="head"><span class="kick">6 Core Industries</span><h2>Select Your Industry</h2><p>Our engineers match technology to the constraints of each site. Every device and system has a clear role in the overall solution</p></div>
+      <div class="vshow">
+        <div class="vtabs" role="tablist" aria-label="Select industry"><button class="vtab on" type="button" role="tab" id="vt-building" aria-selected="true" aria-controls="vp-building" data-v="building"><strong>Building</strong></button><button class="vtab" type="button" role="tab" id="vt-healthcare" aria-selected="false" aria-controls="vp-healthcare" data-v="healthcare"><strong>Healthcare</strong></button><button class="vtab" type="button" role="tab" id="vt-government" aria-selected="false" aria-controls="vp-government" data-v="government"><strong>Government</strong></button><button class="vtab" type="button" role="tab" id="vt-education" aria-selected="false" aria-controls="vp-education" data-v="education"><strong>Education</strong></button><button class="vtab" type="button" role="tab" id="vt-industry" aria-selected="false" aria-controls="vp-industry" data-v="industry"><strong>Industrial Estate</strong><small>Industry</small></button><button class="vtab" type="button" role="tab" id="vt-factory" aria-selected="false" aria-controls="vp-factory" data-v="factory"><strong>Factory</strong></button></div>
+        <div class="vpanels">
+      <div class="vpanel" id="vp-building" role="tabpanel" aria-labelledby="vt-building">
+        <div class="vstage"><img src="img/sec-building.jpg" alt="Building" loading="lazy"><div class="vcap"><b>Building</b><span>Building · 8 systems</span></div></div>
+        <p class="vdesc">Office and commercial buildings, managing security, energy and visitors in a single system</p>
+        <div class="nodes"><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M9 15l2 2 4-4"/></svg></span><div><b>Meeting room booking system</b><ul><li>Booking Room</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><rect x="7" y="4" width="10" height="16" rx="1"/><path d="M10 8h1M13 8h1M10 11h1M13 11h1M10 14h1M13 14h1M3 12h4M17 12h4"/></svg></span><div><b>In-building AiIOT</b><ul><li>Gas and smoke detection</li><li>Automatic lighting control</li><li>Temperature and air quality</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="6" rx="1"/><rect x="5" y="11" width="14" height="6" rx="1"/><path d="M8 6h.01M8 14h.01M12 21v-4"/></svg></span><div><b>IT Infrastructure</b><ul><li>Network and Server Room</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><div><b>Digital Signage</b><ul><li>Digital signage</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 4-3.5 7-8 8-4.5-1-8-4-8-8V7z"/><circle cx="12" cy="10" r="2.5"/><path d="M8.5 16a4 4 0 017 0"/></svg></span><div><b>Access control system</b><ul><li>ACS with face and card scanning</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="1"/><path d="M12 3v18M9 9l-1.5 2h3zM15 13l-1.5-2h3z"/></svg></span><div><b>Elevator control system</b><ul><li>Permission-based Lift Control</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M10 3v2h4V3"/><circle cx="12" cy="11" r="2.5"/><path d="M8.5 17a4 4 0 017 0"/></svg></span><div><b>Visitor management system</b><ul><li>Visitor Management</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="10" height="10" rx="1"/><path d="M8 11V5h2.5a2 2 0 010 4H8M9 13v8"/><path d="M13 17h8l-1.5-3h-5z"/></svg></span><div><b>Parking guidance system</b><ul><li>Parking Guidance</li></ul></div></div></div>
+      </div>
+      <div class="vpanel" id="vp-healthcare" role="tabpanel" aria-labelledby="vt-healthcare" hidden>
+        <div class="vstage"><img src="img/sec-healthcare.jpg" alt="Healthcare" loading="lazy"><div class="vcap"><b>Healthcare</b><span>Healthcare · 6 systems</span></div></div>
+        <p class="vdesc">Hospitals and healthcare facilities, protecting patients and staff with real-time ambulance tracking</p>
+        <div class="nodes"><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="11" rx="1"/><path d="M7 19h10M12 15v4M7 11l3-3 3 2 4-4"/></svg></span><div><b>Command center</b><ul><li>Centralized CCTV, ACS and AiIOT</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 7h13v8H3zM16 10l5-2v6l-5-2M7 15v4h4"/></svg></span><div><b>CCTV Metadata</b><ul><li>AI-powered search for people and past events</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="2.5"/><circle cx="16" cy="8" r="2.5"/><path d="M3 19c0-3 2.2-5 5-5s5 2 5 5M11 19c0-3 2.2-5 5-5s5 2 5 5"/></svg></span><div><b>People-counting CCTV</b><ul><li>People Counting in lobbies and screening points</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 8h11a3 3 0 10-3-3M3 12h15a3 3 0 11-3 3M3 16h8"/></svg></span><div><b>ACS and air quality</b><ul><li>Clean room control</li><li>Air quality monitoring</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M2 7h11v9H2zM13 10h5l4 4v2h-9"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/><path d="M7.5 9.5v4M5.5 11.5h4"/></svg></span><div><b>Ambulance CCTV</b><ul><li>View inside emergency vehicles</li><li>GPS location tracking</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 4-3.5 7-8 8-4.5-1-8-4-8-8V7z"/><circle cx="12" cy="10" r="2.5"/><path d="M8.5 16a4 4 0 017 0"/></svg></span><div><b>Access control system</b><ul><li>Area segregation by staff permissions</li></ul></div></div></div>
+      </div>
+      <div class="vpanel" id="vp-government" role="tabpanel" aria-labelledby="vt-government" hidden>
+        <div class="vstage"><img src="img/sec-government.jpg" alt="Government" loading="lazy"><div class="vcap"><b>Government</b><span>Government · 10 systems</span></div></div>
+        <p class="vdesc">Government agencies and public spaces, handling high visitor volumes and high-level security operations</p>
+        <div class="nodes"><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="11" rx="1"/><path d="M7 19h10M12 15v4M7 11l3-3 3 2 4-4"/></svg></span><div><b>Command center</b><ul><li>AI Platform and Video Wall</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></span><div><b>Person detection with Edge AI</b><ul><li>Human Detection</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 4-3.5 7-8 8-4.5-1-8-4-8-8V7z"/><circle cx="12" cy="10" r="2.5"/><path d="M8.5 16a4 4 0 017 0"/></svg></span><div><b>Access control system</b><ul><li>Face scanning</li><li>Visitor management</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 7h13v8H3zM16 10l5-2v6l-5-2M7 15v4h4"/></svg></span><div><b>CCTV Metadata</b><ul><li>AI search</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="2.5"/><circle cx="16" cy="8" r="2.5"/><path d="M3 19c0-3 2.2-5 5-5s5 2 5 5M11 19c0-3 2.2-5 5-5s5 2 5 5"/></svg></span><div><b>People counting</b><ul><li>People Counting</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="10" height="10" rx="1"/><path d="M8 11V5h2.5a2 2 0 010 4H8M9 13v8"/><path d="M13 17h8l-1.5-3h-5z"/></svg></span><div><b>Parking system</b><ul><li>Barrier Gate</li><li>LPR license plate recognition cameras</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4zM16 9a4 4 0 010 6M18.5 6.5a8 8 0 010 11"/></svg></span><div><b>Public address system</b><ul><li>Public Address</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2"/><circle cx="12" cy="8" r="2"/><path d="M10 13h4M10 16h4"/></svg></span><div><b>Intercom</b><ul><li>Internal communication system</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><div><b>Digital Signage and wayfinding</b><ul><li>Guidance</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 21V6M12 6l-3-3M12 6l3-3M8 21h8M8 10a5 5 0 018 0"/></svg></span><div><b>Smart Pole</b><ul><li>Smart poles with cameras and audio</li></ul></div></div></div>
+      </div>
+      <div class="vpanel" id="vp-education" role="tabpanel" aria-labelledby="vt-education" hidden>
+        <div class="vstage"><img src="img/sec-education.jpg" alt="Education" loading="lazy"><div class="vcap"><b>Education</b><span>Education · 7 systems</span></div></div>
+        <p class="vdesc">Schools, colleges and universities, keeping students safe and enhancing teaching and learning</p>
+        <div class="nodes"><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 11v9M9 14l3-3 3 3"/></svg></span><div><b>Smart touchscreens</b><ul><li>Classroom Interactive Displays</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3a2 2 0 00-2 2v9a4 4 0 104 0V5a2 2 0 00-2-2z"/><path d="M12 9v7"/></svg></span><div><b>Thermal detection CCTV</b><ul><li>For laboratories</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 7h13v8H3zM16 10l5-2v6l-5-2M7 15v4h4"/></svg></span><div><b>CCTV Metadata</b><ul><li>AI person search</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 21V9M20 21V9M4 13h16M8 9V5h8v4"/></svg></span><div><b>Automatic entrance gates</b><ul><li>Turnstile</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M10 3v2h4V3"/><circle cx="12" cy="11" r="2.5"/><path d="M8.5 17a4 4 0 017 0"/></svg></span><div><b>Visitor management system</b><ul><li>Parents and visitors</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><path d="M12 7l-3 6h6M9 13l-3 7M15 13l3 7"/></svg></span><div><b>CCTV Edge AI</b><ul><li>Fall detection</li><li>Anomaly alerts</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4zM16 9a4 4 0 010 6M18.5 6.5a8 8 0 010 11"/></svg></span><div><b>Public address system</b><ul><li>Public address and emergency alerts</li></ul></div></div></div>
+      </div>
+      <div class="vpanel" id="vp-industry" role="tabpanel" aria-labelledby="vt-industry" hidden>
+        <div class="vstage"><img src="img/sec-industry.jpg" alt="Industrial Estate" loading="lazy"><div class="vcap"><b>Industrial Estate</b><span>Industry · 10 systems</span></div></div>
+        <p class="vdesc">Industrial estates and large factories, including warehouses and distribution centers, managing large areas, transport vehicles and command centers in a single system</p>
+        <div class="nodes"><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 7h13v8H3zM16 10l5-2v6l-5-2M7 15v4h4"/></svg></span><div><b>CCTV and public address</b><ul><li>PPE and safety checks</li><li>Smoking and fall detection</li><li>Restricted area intrusion</li><li>Production process monitoring</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 21V7l2-3 2 3v14M10 21V7l2-3 2 3v14M16 21V7l2-3 2 3v14M3 11h18M3 17h18"/></svg></span><div><b>Perimeter fence system</b><ul><li>Intrusion Alarm</li><li>Detection CCTV</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3a2 2 0 00-2 2v9a4 4 0 104 0V5a2 2 0 00-2-2z"/><path d="M12 9v7"/></svg></span><div><b>Specialty cameras</b><ul><li>Thermal cameras</li><li>Explosion-proof cameras</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 12l6-6"/></svg></span><div><b>CCTV with LED display</b><ul><li>Radar speed measurement</li><li>LPR illegal parking enforcement</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M2 6h11v10H2zM13 10h4l4 4v2h-8"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><div><b>Fleet management</b><ul><li>Truck Management</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 8l9-5 9 5v8l-9 5-9-5zM3 8l9 5 9-5M12 13v8"/></svg></span><div><b>Warehouse</b><ul><li>Loading dock CCTV</li><li>Barcode and QR Code scanning</li><li>Dock status LED displays</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="11" rx="1"/><path d="M7 19h10M12 15v4M7 11l3-3 3 2 4-4"/></svg></span><div><b>Command center</b><ul><li>Dashboard and 3D E-Map</li><li>ACS, CCTV, VMS and Alarm</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M10 3v2h4V3"/><circle cx="12" cy="11" r="2.5"/><path d="M8.5 17a4 4 0 017 0"/></svg></span><div><b>Visitor management</b><ul><li>Desktop and Kiosk</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M6 21V4h12v17M6 9h12M10 13v4M14 13v4"/></svg></span><div><b>Metal detectors and ACS</b><ul><li>Turnstile</li><li>Face, fingerprint, card, QR and PIN</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="10" height="10" rx="1"/><path d="M8 11V5h2.5a2 2 0 010 4H8M9 13v8"/><path d="M13 17h8l-1.5-3h-5z"/></svg></span><div><b>Parking system</b><ul><li>Barrier Gate</li><li>Automatic card or QR</li><li>LPR</li></ul></div></div></div>
+      </div>
+      <div class="vpanel" id="vp-factory" role="tabpanel" aria-labelledby="vt-factory" hidden>
+        <div class="vstage"><img src="img/sec-factory.jpg" alt="Factory" loading="lazy"><div class="vcap"><b>Factory</b><span>Factory · 9 systems</span></div></div>
+        <p class="vdesc">Manufacturing plants, protecting employees, production lines, access, perimeters, parking and solar power</p>
+        <div class="nodes"><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 14h16l-2 6H6zM9 14l-1 6M15 14l1 6M12 3v3M5.5 5.5l2 2M18.5 5.5l-2 2"/></svg></span><div><b>Solar power</b><ul><li>Solar Rooftop</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 15a8 8 0 0116 0zM3 15h18v3H3zM12 7v8"/></svg></span><div><b>PPE detection CCTV</b><ul><li>Protective equipment compliance checks</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></span><div><b>AI person detection</b><ul><li>Human Detection</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="14" width="18" height="4" rx="2"/><path d="M7 14V9h4v5M13 14V6h4v8"/></svg></span><div><b>Production line cameras</b><ul><li>Line Production</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 4-3.5 7-8 8-4.5-1-8-4-8-8V7z"/><circle cx="12" cy="10" r="2.5"/><path d="M8.5 16a4 4 0 017 0"/></svg></span><div><b>Access control system</b><ul><li>Card readers and face scanners</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2"/><circle cx="12" cy="8" r="2"/><path d="M10 13h4M10 16h4"/></svg></span><div><b>Intercom and IP Phone</b><ul><li>Site-wide communication</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4zM16 9a4 4 0 010 6M18.5 6.5a8 8 0 010 11"/></svg></span><div><b>Public address system</b><ul><li>Public Address</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><path d="M6 17V11a6 6 0 0112 0v6M4 17h16M10 20h4M12 2v2M4.5 5.5l1.5 1.5M19.5 5.5L18 7"/></svg></span><div><b>Fences and intrusion alarms</b><ul><li>Perimeter</li><li>Intrusion Alarm</li></ul></div></div><div class="node"><span class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="10" height="10" rx="1"/><path d="M8 11V5h2.5a2 2 0 010 4H8M9 13v8"/><path d="M13 17h8l-1.5-3h-5z"/></svg></span><div><b>Parking system</b><ul><li>LPR</li><li>Barrier</li><li>Automatic ticket dispensers</li></ul></div></div></div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" data-pages="solutions">
+  <div class="wrap">
+    <div class="head"><span class="kick">New Solution 2026</span><h2>New Solution for 2026</h2></div>
+    <div class="proj"><div class="im"><img src="img/sol-home.jpg" alt="Premium Smart Home" loading="lazy"></div><div class="bd"><span class="pill">NEW 2026</span><h3>Smart AI Luxury House Solutions</h3><p class="sub">Hikvision AI CCTV · BroadLink Smart Home · Huawei Smart Energy</p><p>A complete premium smart home solution, designed and installed by Digital Focus engineers</p><ul class="flist" style="margin-top:18px"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>AI CCTV</b> — AI cameras around the home with mobile alerts</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Smart Home</b> — Control all home appliances via app and voice</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Smart Energy</b> — Solar power and home energy management</span></li></ul><div style="margin-top:22px"><a class="btn btn-p" href="#contact">Request a Consultation <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div></div>
+    <div class="proj"><div class="im"><img src="img/democenter.jpg" alt="Rendering of the DGF Smart AI Building demo center" loading="lazy"></div><div class="bd"><span class="pill">NEW 2026</span><h3>DGF Smart AI Building</h3><p class="sub">AI, Robotics and Green Energy Showcase Center · Headquarters, Soi Lat Phrao 130</p><p>A technology showcase center bringing together Hikvision AiIOT, BroadLink Smart AI, Huawei Digital Power, Keenon Robotics and Digital Focus solutions, so businesses, government agencies, SIs and partners can see them in real-world use</p><ul class="flist" style="margin-top:18px"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Smart Building, Smart Factory, Smart Transport and Smart City</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Smart security and energy management systems</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>AI Command &amp; Control Center</span></li></ul><p class="sub" style="margin-top:14px">Rendering · Opening soon</p></div></div>
+  </div>
+</section>
+
+<section class="sec dark" data-pages="solutions">
+  <div class="wrap split">
+    <div>
+      <span class="kick">New S-Curve 2027</span>
+      <h2 style="font-size:clamp(27px,3.4vw,40px)">Robotics Control Platform</h2>
+      <p style="margin-top:16px;color:#a9bcd6;font-size:17px">A centralized robot management platform that Digital Focus plans to develop with leading universities, supporting Keenon service robots, quadruped robots and humanoid robots, extending from distribution into platform and robotics service businesses</p>
+      <ul class="flist" style="margin-top:24px"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Centralized Management</b> — Manage every type of robot from one place</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Task Assignment &amp; Monitoring</b> — Assign tasks and track status in real time</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>AI &amp; IoT Integration</b> — Integrates with AI, IoT and smart building systems</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Target Industries</b> — Buildings, factories, hospitals, education, hotels and service businesses</span></li></ul>
+    </div>
+    <div class="frame"><img src="img/robotics.jpg" alt="Rendering of service robots, quadruped robots and humanoids" loading="lazy"><span class="cap">Rendering · 2027 plan</span></div>
+  </div>
+</section>
+
+<section class="sec bizd" id="biz-dist" data-pages="business">
+  <div class="wrap">
+    <div class="head"><span class="pill">DISTRIBUTION</span><h2>Equipment Distribution</h2><p>Thailand's first authorized Hikvision distributor since 2006, together with leading AiIOT, Smart Home, Smart Energy and Robotics brands, delivered to customers through a nationwide dealer network and online channels</p></div>
+    <div class="g2">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v5M12 12l-6 5M12 12l6 5"/></svg></div><h3>500+ dealer network</h3><p>Dealers and service technicians covering every region, with partner pricing and support</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 9l1.5-5h13L20 9M4 9v11h16V9M4 9h16M9 20v-6h6v6"/></svg></div><h3>Online Store</h3><p>Order on Shopee and inquire via LINE Official, for retail customers and contractors</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div><h3>Technician and Partner Training</h3><p>More than 3,000 CCTV technicians trained in partnership with the Department of Skill Development</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></svg></div><h3>Warranty and Claims</h3><p>Our after-sales service team handles repairs, claims and equipment replacement under warranty terms</p></div>
+    </div>
+    <div class="gal g3c">
+      <figure><div class="im"><img src="img/news-summit.jpg" alt="The Digital Focus team at Hikvision Commercial Summit" loading="lazy"></div><figcaption><span>Partner Projects</span>Hikvision Commercial Summit 2025</figcaption></figure>
+      <figure><div class="im"><img src="img/democenter.jpg" alt="Rendering of the product showroom" loading="lazy"></div><figcaption><span>Rendering</span>Smart Building and Smart Factory product showroom</figcaption></figure>
+      <figure><div class="im"><img src="img/soc-train1.jpg" alt="CCTV technician trainees" loading="lazy"></div><figcaption><span>Technician Development</span>CCTV technician training with the Department of Skill Development</figcaption></figure>
+    </div>
+    <div style="margin-top:30px"><a class="btn btn-o" href="#brands">View our brands <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+
+<section class="sec tint bizd" id="biz-si" data-pages="business">
+  <div class="wrap">
+    <div class="head"><span class="pill">INTEGRATION</span><h2>Design and System Integration</h2><p>Our engineering team handles every stage from site survey to handover for multi-branch organizations and government projects, connecting devices of any brand to a single management platform</p></div>
+    <div class="g2">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></div><h3>Survey and System Design</h3><p>We assess site risks and plan camera and device placement for full coverage without overinvesting</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div><h3>Installation and Testing</h3><p>Installation to ISO 9001:2015 standards, with every point tested before handover and full documentation and installation drawings</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 01-12 0zM12 17v4"/></svg></div><h3>Legacy System Integration</h3><p>Bring existing cameras, access control and sensors together in HikCentral and the command center</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 010 7M18 14.8c1.8.8 3 2.6 3.5 5.2"/></svg></div><h3>User Training</h3><p>We train staff to use the system and app, with manuals for every branch</p></div>
+    </div>
+    <div class="gal g3c">
+      <figure><div class="im"><img src="img/cpall.jpg" alt="7-Eleven store" loading="lazy"></div><figcaption><span>Retail</span>CP ALL (7-Eleven), 6,500+ branches</figcaption></figure>
+      <figure><div class="im"><img src="img/parliament.jpg" alt="The Parliament of Thailand" loading="lazy"></div><figcaption><span>Government</span>The Parliament of Thailand — license plate recognition cameras</figcaption></figure>
+      <figure><div class="im"><img src="img/exat.jpg" alt="Expressway" loading="lazy"></div><figcaption><span>Government</span>Expressway Authority of Thailand (EXAT) — 216 LPR cameras</figcaption></figure>
+    </div>
+    <div style="margin-top:30px"><a class="btn btn-o" href="#projects">View all projects <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+
+<section class="sec bizd" id="biz-platform" data-pages="business">
+  <div class="wrap">
+    <div class="head"><span class="pill">PLATFORM</span><h2>Platforms and Innovation</h2><p>Building on distribution with platforms that generate recurring revenue, from in-vehicle Smart Transport and the Smart AI Building showroom to a robot management platform</p></div>
+    <div class="g3">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 7h12v10H3z"/><path d="M15 10l6-3v10l-6-3"/></svg></div><h3>Smart Transport</h3><p>AI cameras + GPS tracking + card readers on trucks, buses and ambulances, all on a single SIM over 4G</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2M10 21v-3h4v3"/></svg></div><h3>DGF Smart AI Building</h3><p>AI, Robotics and Green Energy showroom at our headquarters, Soi Lat Phrao 130</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01M2 13v3M22 13v3"/></svg></div><h3>Robotics Control Platform</h3><p>Centralized robot management platform, under development for 2027 with leading universities</p></div>
+    </div>
+    <div class="gal g3c">
+      <figure><div class="im"><img src="img/ptt.jpg" alt="PTT fuel tanker truck" loading="lazy"></div><figcaption><span>Smart Transport</span>PTT — cameras on 1,500 fuel tanker vehicles</figcaption></figure>
+      <figure><div class="im"><img src="img/ambulance.jpg" alt="Ambulance" loading="lazy"></div><figcaption><span>Smart Transport</span>Ambulances equipped with camera and location tracking systems</figcaption></figure>
+      <figure><div class="im"><img src="img/robotics.jpg" alt="Rendering of robots" loading="lazy"></div><figcaption><span>Rendering · 2027 plan</span>Service robots, quadruped robots and humanoids</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" id="biz-service" data-pages="business">
+  <div class="wrap">
+    <div class="head"><span class="pill">SERVICE</span><h2>Monthly Service Plans and After-Sales Service</h2><p style="margin-top:10px;font-family:var(--display);font-weight:600;color:var(--navy-700)">Continuous care for your system, from installation day throughout its service life</p><p>Pay monthly instead of a large upfront investment, backed by our technician team and after-sales Call Center</p></div>
+    <div class="g2">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 7h13v8H3zM16 10l5-2v6l-5-2M7 15v4h4"/></svg></div><span class="pill">SECURITY AS A SERVICE</span><h3>Monthly CCTV Rental</h3><p>Includes equipment, installation and replacement of faulty units. Ideal for retail branches and businesses that want to avoid high upfront costs</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div><span class="pill">MANAGED MONITORING</span><h3>AI Monitoring from the Control Center</h3><p>AI screens camera feeds for incidents, then staff verify before notifying customers, reducing false alarms</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-3-3z"/></svg></div><span class="pill">MAINTENANCE</span><h3>Annual Maintenance Contract</h3><p>Scheduled inspections, firmware updates and guaranteed repair response times under a service level agreement (SLA)</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0116 0v2M4 14h3v5H5a1 1 0 01-1-1zM20 14h-3v5h2a1 1 0 001-1zM17 19a4 4 0 01-4 2h-1"/></svg></div><span class="pill">AFTER-SALES</span><h3>After-Sales Service</h3><p>24-hour Call Center and 500+ technicians and service dealers nationwide for repairs, claims and equipment replacement under warranty terms</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark" data-pages="business">
+  <div class="wrap split">
+    <div>
+      <span class="kick">Technology</span>
+      <h2 style="font-size:clamp(27px,3.4vw,40px)">AI Security — security systems that analyze on their own</h2>
+      <p style="margin-top:16px;color:#a9bcd6;font-size:17px">Turn camera footage into decision-ready data, from incident alerts and license plate recognition to behavior analytics, through a centralized management platform</p>
+      <ul class="flist" style="margin-top:26px">
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>AI cameras that detect people, vehicles and intrusions</span></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>License plate recognition (LPR / ANPR) managed via HikCentral</span></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>People counting and traffic analytics for retail stores</span></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>In-vehicle AI cameras + GPS with real-time reporting over 4G</span></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Public address, Smart Home and service robots, connected in one system</span></li>
+      </ul>
+      <div style="margin-top:30px"><a class="btn btn-g" href="#contact">Discuss a solution <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+    <div class="frame"><img src="img/democenter.jpg" alt="Rendering of the Smart Building and Smart Factory demo room" loading="lazy"><span class="cap">Rendering</span></div>
+  </div>
+</section>
+
+<section class="sec tint" id="projects" data-pages="home projects">
+  <div class="wrap">
+    <div data-only="home">
+      <div class="split">
+        <div><span class="kick">Projects & Clients</span><h2 class="h2">The continued trust of leading organizations</h2><p class="lead">From retailers with thousands of branches, department stores and fuel stations to government agencies and expressways, many customers have trusted us to maintain their systems for years</p><div style="margin-top:28px"><a class="btn btn-o" href="#projects">View all projects <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+        <div class="stats"><div><div class="stat-n">6,500<small>+</small></div><div class="stat-l">7-Eleven branches with AI and CCTV systems installed</div></div><div><div class="stat-n">100,000<small>+</small></div><div class="stat-l">Cameras in the CP ALL project</div></div><div><div class="stat-n">1,500<small>vehicles</small></div><div class="stat-l">PTT fuel tankers fitted with cameras</div></div><div><div class="stat-n">216</div><div class="stat-l">EXAT LPR cameras</div></div></div>
+      </div>
+      <h3 class="subh">Trusted by</h3>
+    <div class="logos">
+      <div><img src="img/cpall.jpg" alt="" loading="lazy"><span class="nm">CP ALL (7-Eleven)</span></div>
+      <div><img src="img/central.jpg" alt="" loading="lazy"><span class="nm">Central Department Store</span></div>
+      <div><img src="img/gowholesale.jpg" alt="" loading="lazy"><span class="nm">Central Food Retail</span></div>
+      <div><img src="img/centraltrading.jpg" alt="" loading="lazy"><span class="nm">Central Trading</span></div>
+      <div><img src="img/bigc.jpg" alt="" loading="lazy"><span class="nm">Big C and BJC</span></div>
+      <div><img src="img/parliament.jpg" alt="" loading="lazy"><span class="nm">The Parliament of Thailand</span></div>
+      <div><img src="img/exat.jpg" alt="" loading="lazy"><span class="nm">Expressway Authority of Thailand</span></div>
+      <div><img src="img/ptt.jpg" alt="" loading="lazy"><span class="nm">PTT</span></div>
+      <div><img src="img/banpu.jpg" alt="" loading="lazy"><span class="nm">Banpu</span></div>
+      <div><img src="img/gwm.jpg" alt="" loading="lazy"><span class="nm">GWM</span></div>
+      <div><img src="img/chatramue.jpg" alt="" loading="lazy"><span class="nm">ChaTraMue</span></div>
+      <div><img src="img/talaadthai.jpg" alt="" loading="lazy"><span class="nm">Talaad Thai</span></div>
+    </div>
+    </div>
+    <div data-only="projects">
+      <div class="head"><span class="kick">Featured Projects</span><h2>Projects we have delivered</h2></div>
+      <div class="proj"><div class="im"><img src="img/cpall.jpg" alt="7-Eleven store" loading="lazy"></div><div class="bd"><span class="pill">Delivered</span><h3>CP ALL (7-Eleven) nationwide</h3><p class="sub">Hikvision AI and CCTV systems · 2018–2023</p><p>Installed in 7-Eleven stores in Bangkok and the provinces, including distribution centers nationwide</p><ul class="spec"><li><b>6,500+</b><span>Branches</span></li><li><b>100,000+</b><span>Cameras</span></li><li><b>6 yrs</b><span>Project duration</span></li></ul></div></div>
+      <div class="proj"><div class="im"><img src="img/gowholesale.jpg" alt="Central GO Wholesale" loading="lazy"></div><div class="bd"><span class="pill">Delivered</span><h3>Central Food Retail and Central GO Wholesale</h3><p class="sub">CCTV systems at every branch · 2016–2025</p><p>Covering Tops Market, Tops Daily, Central Food Hall and Central GO Wholesale</p><ul class="spec"><li><b>All branches</b><span>Nationwide</span></li><li><b>4</b><span>Retail brands</span></li><li><b>10 yrs</b><span>Project duration</span></li></ul></div></div>
+      <div class="proj"><div class="im"><img src="img/exat.jpg" alt="Expressway" loading="lazy"></div><div class="bd"><span class="pill">Delivered</span><h3>Expressway Authority of Thailand and the Parliament of Thailand</h3><p class="sub">License plate recognition (LPR) systems · Government</p><p>Recording license plates on expressways and every vehicle entering the Parliament grounds (2022–2023)</p><ul class="spec"><li><b>216</b><span>LPR cameras (EXAT)</span></li><li><b>9MP</b><span>Maximum resolution</span></li><li><b>2</b><span>Government agencies</span></li></ul></div></div>
+      <div class="proj"><div class="im"><img src="img/bigc.jpg" alt="Big C" loading="lazy"></div><div class="bd"><span class="pill">Delivered</span><h3>Big C and BJC</h3><p class="sub">NVR and DVR replacement with Hikvision · Retail</p><p>Upgrading cameras across the network, with in-branch recording managed through HikCentral</p><ul class="spec"><li><b>20,000+</b><span>Cameras</span></li><li><b>1,500</b><span>Branches</span></li><li><b>HCP</b><span>Management platform</span></li></ul></div></div>
+      <div class="proj"><div class="im"><img src="img/ptt.jpg" alt="PTT fuel tanker truck" loading="lazy"></div><div class="bd"><span class="pill">Delivered</span><h3>PTT — cameras on fuel tankers</h3><p class="sub">In-vehicle camera systems · Energy · 2018</p><p>Camera systems installed across the entire fuel tanker fleet of PTT Public Company Limited</p><ul class="spec"><li><b>1,500</b><span>vehicles</span></li><li><b>2018</b><span>Year delivered</span></li><li><b>Fleet</b><span>Nationwide</span></li></ul></div></div>
+      <div class="proj"><div class="im"><img src="img/talaadthai.jpg" alt="Talaad Thai" loading="lazy"></div><div class="bd"><span class="pill">Delivered</span><h3>Talaad Thai and Simummuang Market</h3><p class="sub">License plate recognition (ANPR) · Markets</p><p>Reading the plates of vehicles entering and leaving the market area, managed through the HikCentral platform</p><ul class="spec"><li><b>ANPR</b><span>License plate recognition</span></li><li><b>HCP</b><span>Management platform</span></li><li><b>2</b><span>Wholesale markets</span></li></ul></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark" data-pages="projects">
+  <div class="wrap split" style="align-items:start">
+    <div>
+      <span class="kick">End-to-End Services</span>
+      <h2 class="h2">One team, from day one through the life of your system</h2>
+      <p class="lead">Customers work with the same team from the first consultation to after-sales service, so relationships last for years and systems grow with the business.</p>
+      <div class="stats two" style="margin-top:30px"><div><div class="stat-n">10<small>yrs</small></div><div class="stat-l">Maintaining CCTV systems for Central Food Retail (2016–2025)</div></div><div><div class="stat-n">6<small>yrs</small></div><div class="stat-l">CP ALL AI and CCTV project (2018–2023)</div></div><div><div class="stat-n">24<small>hrs</small></div><div class="stat-l">Call Center taking service requests every day</div></div><div><div class="stat-n">500<small>+</small></div><div class="stat-l">Dealers and service technicians nationwide</div></div></div>
+      <div style="margin-top:30px"><a class="btn btn-p" href="#contact">Talk to Our Team <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+    <ol class="vsteps">
+      <li><span class="n">01</span><div><h3>Consulting</h3><p>Understand requirements, survey the site and assess area risks</p></div></li>
+      <li><span class="n">02</span><div><h3>System Design</h3><p>Engineers design the system and device placement for cost-effectiveness and scalability</p></div></li>
+      <li><span class="n">03</span><div><h3>System Integration and Installation</h3><p>Installation to ISO 9001:2015 standards, connecting every system to a single platform</p></div></li>
+      <li><span class="n">04</span><div><h3>After-Sales Service</h3><p>24-hour Call Center, nationwide technician teams and maintenance contracts with SLAs</p></div></li>
+      <li class="hl"><span class="n">05</span><div><h3>Long-Term Relationships</h3><p>Upgrade and expand systems as customers grow, with continuous support over many years</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" data-pages="projects">
+  <div class="wrap">
+    <div class="head"><span class="kick">Our Clients</span><h2>Clients by industry</h2><p>Other projects include Central Trading, Robinson, Banpu, GWM, ChaTraMue, Bar B Q Plaza and 5G ambulances with depa</p></div>
+    <div class="g2">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg></div><h3>Government</h3><ul class="flist"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>The Parliament of Thailand</li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Expressway Authority of Thailand</li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Digital Economy Promotion Agency (depa)</li></ul></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 9l1.5-5h15L21 9M4 9v11h16V9M3 9h18M9 20v-6h6v6"/></svg></div><h3>Retail and Department Stores</h3><ul class="flist"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>CP ALL (7-Eleven)</li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Central Department Store, Central Food Retail, Central Trading, Robinson</li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Big C and BJC, CMG Group, Top Charoen Optical</li></ul></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Energy, Automotive and Finance</h3><ul class="flist"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>PTT, PT and PT Genergy</li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Banpu</li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>GWM, Toyota Buzz, TISCO, Somwang</li></ul></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 10h16l-1 10H5zM8 10V7a4 4 0 018 0v3"/></svg></div><h3>Restaurants, Markets and Parking</h3><ul class="flist"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>ChaTraMue, Bar B Q Plaza, Phanthai</li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Talaad Thai, Simummuang Market</li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>J-Park MRT parking</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" id="brands" data-pages="brands">
+  <div class="wrap">
+    <div class="head"><span class="kick">Products and Brands</span><h2>Products from world-leading brands</h2><p>Importer and distributor of security, AiIOT and Smart Home equipment, with design, installation and after-sales service</p></div>
+      <div class="proj"><div class="im"><img src="img/news-summit.jpg" alt="Hikvision" loading="lazy"></div><div class="bd"><span class="pill">HIKVISION</span><h3>Hikvision</h3><p class="sub">World No. 1 in CCTV and security systems</p><p>Founded in 2001 in Hangzhou, China, with revenue of USD 12.68 billion in 2023 and more than 58,000 employees, developing AiIOT solutions for smart cities, transportation, education and retail</p><ul class="flist" style="margin-top:18px"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>AI cameras and CCTV cameras of every type</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Turnstiles, face recognition and Video Intercom</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>HikCentral platform</span></li></ul><p class="sub" style="margin-top:14px;color:var(--accent);font-weight:600">Thailand's first authorized distributor</p></div></div>
+      <div class="proj"><div class="im"><img src="img/ambulance.jpg" alt="Smart Transport Solutions" loading="lazy"></div><div class="bd"><span class="pill">SMART TRANSPORT</span><h3>Smart Transport Solutions</h3><p class="sub">Developed by Digital Focus</p><p>Smart cameras for commercial transport vehicles, buses, ambulances and fleets, combining AI cameras, GPS tracking and card readers in one platform, all on a single SIM over 4G</p><ul class="flist" style="margin-top:18px"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Real-time route tracking</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Driver behavior detection (DMS / ADAS)</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Reporting via Cloud Platform and mobile app</span></li></ul><p class="sub" style="margin-top:14px;color:var(--accent);font-weight:600">Deployed on 5G ambulances in a depa project</p></div></div>
+      <div class="proj"><div class="im"><img src="img/sol-home.jpg" alt="BroadLink" loading="lazy"></div><div class="bd"><span class="pill">BROADLINK</span><h3>BroadLink</h3><p class="sub">No.1 AI Smart Home</p><p>Founded in 2013 in Hangzhou, a global leader in Smart Home and IoT, developing end-to-end smart control systems spanning hardware, cloud and applications</p><ul class="flist" style="margin-top:18px"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Wi-Fi remotes that control any home appliance</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Works with Whirlpool, Honeywell, Mitsubishi and Electrolux</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Packages for condos, townhomes, detached houses and Luxury Houses</span></li></ul></div></div>
+      <div class="proj"><div class="im"><img src="img/sol-solar.jpg" alt="Huawei Smart Energy" loading="lazy"></div><div class="bd"><span class="pill">HUAWEI</span><h3>Huawei Smart Energy · Huawei Digital Power</h3><p class="sub">Smart energy systems for homes and businesses</p><p>Solar and energy management solutions from Huawei Digital Power, used in the Smart AI Luxury House and the Green Energy showroom at DGF Smart AI Building</p><ul class="flist" style="margin-top:18px"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Solar Rooftop for homes and buildings</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Manage and monitor energy use via the app</span></li></ul></div></div>
+      <div class="proj"><div class="im"><img src="img/sol-access.jpg" alt="Xiaodu" loading="lazy"></div><div class="bd"><span class="pill">XIAODU</span><h3>Xiaodu</h3><p class="sub">A Baidu company · AI Smart Devices</p><p>A leader in Smart Displays, Smart Speakers and AI assistants powered by speech recognition and natural language processing</p><ul class="flist" style="margin-top:18px"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Voice-controlled smart displays and speakers</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Ideal for hotel rooms and smart homes</span></li></ul></div></div>
+      <div class="proj"><div class="im"><img src="img/sol-building.jpg" alt="Geeklink" loading="lazy"></div><div class="bd"><span class="pill">GEEKLINK</span><h3>Geeklink</h3><p class="sub">One-stop Smart Home Solution</p><p>Founded in 2014, researching, developing, manufacturing and distributing IoT-based Smart Home devices for safer, more convenient and more efficient living</p><ul class="flist" style="margin-top:18px"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Smart switches, sensors, cameras and plugs</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Home device control hub</span></li></ul></div></div>
+      <div class="proj"><div class="im"><img src="img/sol-education.jpg" alt="BrainCo and ICDL" loading="lazy"></div><div class="bd"><span class="pill">BRAINCO · ICDL</span><h3>BrainCo and ICDL</h3><p class="sub">Brain technology innovation and digital skills standards</p><p>BrainCo (founded 2015) is a leader in Brain-Computer Interface and EEG neurofeedback, while the ICDL Foundation (founded 1997) provides digital skills assessment, learning and certification in more than 100 countries</p><ul class="flist" style="margin-top:18px"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>BrainCo: Relax, Sleep, Focus and Tracker</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>ICDL: Assess · Learn · Certify</span></li></ul></div></div>
+    <div class="brands" style="margin-top:40px">
+      <div><b>DSPPA</b><span>Public address and sound systems</span></div>
+      <div><b>Keenon</b><span>Service robots for food and item delivery</span></div>
+      <div><b>ICT</b><span>[Product Category]</span></div>
+      <div><b>Shopee</b><span><a href="https://shopee.co.th/digitalfocus_thailand" target="_blank" rel="noopener" style="color:var(--accent)">Online Store →</a></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" data-pages="brands">
+  <div class="wrap split">
+    <div>
+      <span class="kick">BroadLink SmartHome Solutions</span>
+      <h2 style="font-size:clamp(26px,3.2vw,36px);color:var(--navy-800)">Smart Home packages for every type of residence</h2>
+      <p style="margin-top:16px;color:var(--ink-70);font-size:17px">From condos, townhomes and detached houses to Luxury Houses, our technicians design the equipment set, install it and configure it ready to use</p>
+      <div style="margin-top:28px"><a class="btn btn-p" href="#contact">Request a package quote <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+    <div class="frame"><img src="img/bl-packages.jpg" alt="Overview of BroadLink SmartHome packages for condos, townhomes, detached houses and Luxury House" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="sec" data-pages="about">
+  <div class="wrap split">
+    <div>
+      <span class="kick">Vision</span>
+      <blockquote class="quote">“To be ASEAN's leader in digital innovation and end-to-end security solutions, driven by AI and AiIOT Robotics, to sustainably improve quality of life and public safety in Thai society”<cite>Corporate Vision · Digital Focus Co., Ltd.</cite></blockquote>
+      <p style="margin-top:24px;color:var(--ink-70);font-size:16px">Since 2002, Digital Focus has grown from a CCTV distributor into a provider of end-to-end Smart Security Solutions &amp; AiIOT, combining equipment from the world's leading brands with an engineering team and after-sales service</p>
+    </div>
+    <div class="frame"><img src="img/hq.jpg" alt="Digital Focus headquarters, Soi Lat Phrao 130" loading="lazy"><span class="cap">Headquarters · Soi Lat Phrao 130</span></div>
+  </div>
+</section>
+
+<section class="sec tint" data-pages="about">
+  <div class="wrap">
+    <div class="head"><span class="kick">Mission</span><h2>Our Mission</h2><p>Import the best technology, develop it further, and care for customers through our team and nationwide network</p></div>
+    <ul class="flist">
+      <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Import</b> — leading security and AI / IoT technologies that meet international standards</span></li>
+      <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Develop</b> — our own platforms and innovations that add value for customers</span></li>
+      <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Service</b> — from consulting and system design to installation and after-sales, delivered by our engineering team</span></li>
+      <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Network</b> — partners and service technicians nationwide for fast service</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" data-pages="about">
+  <div class="wrap">
+    <div class="head"><span class="kick">Strengths</span><h2>Four Core Strengths</h2></div>
+    <div class="g2">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></svg></div><h3>Leader in End-to-End Smart Security Solutions</h3><p>Thailand's first authorized Hikvision distributor, with leading AiIOT brands and in-house developed platforms</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></div><h3>Consulting and Engineering Team</h3><p>Consulting, site surveys, design and system integration by our in-house engineering team</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div><h3>Installation and After-Sales Service</h3><p>Installation to ISO 9001:2015 standards, with a 24-hour Call Center and 500+ service technicians nationwide</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 11l4-4 4 3 3-2 4 3 3-1"/><path d="M7 7l-4 4 6 6 2-1 2 2 2-1 4-4M11 16l2-2M13 18l2-2"/></svg></div><h3>Long-Term Relationships</h3><p>Maintaining systems for years, such as Central Food Retail for more than 10 years and CP ALL for 6 years</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" data-pages="about">
+  <div class="wrap">
+    <div class="head"><span class="kick">Our Story</span><h2>A journey of 24+ years</h2></div>
+    <div class="tl" style="max-width:860px">
+      <div class="tl-item"><div class="tl-y">2002</div><p>Founded Digital Focus Co., Ltd., providing CCTV and security systems nationwide</p></div>
+      <div class="tl-item"><div class="tl-y">2006</div><p>Became Thailand's first authorized Hikvision distributor and achieved ISO 9001 certification</p></div>
+      <div class="tl-item"><div class="tl-y">2009</div><p>Expanded the dealer and service technician network to 500+, serving customers in every region</p></div>
+      <div class="tl-item"><div class="tl-y">2016</div><p>Trained more than 3,000 CCTV technicians with the Department of Skill Development</p></div>
+      <div class="tl-item"><div class="tl-y">2019</div><p>ASEAN Business Award, Family Business (Large) category</p></div>
+      <div class="tl-item"><div class="tl-y">2023</div><p>Expanded the AiIOT portfolio into intelligent robotics, automation and digital platforms</p></div>
+      <div class="tl-item"><div class="tl-y">2024 – Present</div><p>Driving AI-powered Smart City, Smart Factory and Smart Building innovation across ASEAN</p></div>
+      <div class="tl-item"><div class="tl-y">2026</div><p>Mr. Somchai Prajaksoot received the APEA 2026 Master Entrepreneur award as the company prepares to list on the Stock Exchange of Thailand</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark" data-pages="about">
+  <div class="wrap split">
+    <div class="frame"><img src="img/ceo.jpg" alt="Mr. Somchai Prajaksoot, Founder and Chief Executive Officer of Digital Focus" loading="lazy"></div>
+    <div>
+      <span class="kick">Management</span>
+      <h2 class="h2">Led by a founder with more than 24 years in the security business</h2>
+      <blockquote class="quote" style="margin-top:26px;font-size:clamp(18px,2vw,22px)">“Continuous learning, ethical leadership and innovation create lasting success for everyone”<cite>Mr. Somchai Prajaksoot · Founder and Chief Executive Officer</cite></blockquote>
+      <ul class="flist" style="margin-top:28px">
+                <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>24-hour Call Center</b> — receives issue reports and coordinates local technicians</span></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Continuous Team Development</b> — training with brands and the Department of Skill Development</span></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Long-Term Customer Care</b> — maintaining Central Food Retail's systems for more than 10 years</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" data-pages="about">
+  <div class="wrap">
+    <div class="head"><span class="kick">Awards and Certifications</span><h2>Awards and Standards</h2><p>Regional recognition and verifiable standards</p></div>
+    <div class="awards">
+      <div class="card aw-main"><div class="ico"><svg viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 01-8 0zM8 6H5a3 3 0 003 4M16 6h3a3 3 0 01-3 4M12 13v4M9 21h6M10 17h4"/></svg></div><div class="yr">2026</div><h3>APEA 2026 · Master Entrepreneur</h3><p>Asia Pacific Enterprise Awards, organized by Enterprise Asia, presented to Mr. Somchai Prajaksoot, Founder and Chief Executive Officer</p><a class="more" href="https://apea.asia/thailand/hall-of-fame-th-2026/master-entrepreneur-th-2026/digital-focus-company-limited-me-2026/" target="_blank" rel="noopener">View award announcement <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></div><div class="yr">2019</div><h3>ASEAN Business Award</h3><p>Family Business (Large) category</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M9 13.5L8 21l4-2 4 2-1-7.5"/></svg></div><div class="yr">Since 2006</div><h3>ISO 9001:2015</h3><p>Quality management system</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></svg></div><div class="yr">Governance</div><h3>Business Governance Standard</h3><p>Transparent and accountable corporate governance</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/></svg></div><div class="yr">Standards</div><h3>TIS-S</h3><p>SME Standard from the Thai Industrial Standards Institute (TISI)</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" data-pages="about">
+  <div class="wrap">
+    <div class="head"><span class="kick">Company Information</span><h2>General Information</h2></div>
+    <div class="split" style="align-items:start">
+      <dl class="info">
+        <div><dt>Company Name</dt><dd>Digital Focus Co., Ltd.<br>Digital Focus Co., Ltd.</dd></div>
+        <div><dt>Company registration no.</dt><dd>0105545026907</dd></div>
+        <div><dt>Year Established</dt><dd>2545 (2002)</dd></div>
+        <div><dt>Registered Capital</dt><dd>THB 60 million</dd></div>
+        <div><dt>Business Type</dt><dd>Import, distribution, design, installation and services for Smart Security and AiIOT systems</dd></div>
+        <div><dt>Headquarters</dt><dd>2782/4-6 Lat Phrao Road, Khlong Chan, Bang Kapi, Bangkok 10240</dd></div>
+        <div><dt>Status</dt><dd>Preparing to list on the Stock Exchange of Thailand (SET)</dd></div>
+      </dl>
+      <div class="stats">
+        <div><div class="stat-n">24<small>+ yrs</small></div><div class="stat-l">Experience in the security systems business</div></div>
+        <div><div class="stat-n">500<small>+</small></div><div class="stat-l">Dealers and service technicians nationwide</div></div>
+        <div><div class="stat-n">5,400<small>+ sq m</small></div><div class="stat-l">3-building headquarters on Soi Lat Phrao 130</div></div>
+        <div><div class="stat-n">3,000<small>+</small></div><div class="stat-l">Technicians trained with the Department of Skill Development</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" id="esg" data-pages="esg">
+  <div class="wrap">
+    <div class="head"><span class="kick">Environmental Dimension</span><h2>Energy-saving and environmental campaigns within the organization</h2><p>The company promotes energy conservation, environmental protection and global warming awareness through waste sorting, reducing paper use with IT Paperless systems and double-sided printing, taking the stairs instead of the elevator for 1–3 floors, and using tissue paper sparingly.</p></div>
+    <div class="gal"><figure><div class="im"><img src="img/env-stairs.jpg" alt="Take the stairs instead of the elevator for 1–3 floors" loading="lazy"></div><figcaption>Take the stairs instead of the elevator for 1–3 floors</figcaption></figure><figure><div class="im"><img src="img/env-waste.jpg" alt="Waste sorting campaign" loading="lazy"></div><figcaption>Waste sorting campaign</figcaption></figure><figure><div class="im"><img src="img/env-print.jpg" alt="Double-sided printing campaign" loading="lazy"></div><figcaption>Double-sided printing campaign</figcaption></figure><figure><div class="im"><img src="img/env-tissue.jpg" alt="Mindful tissue use campaign" loading="lazy"></div><figcaption>Mindful tissue use campaign</figcaption></figure></div>
+  </div>
+</section>
+
+<section class="sec" data-pages="esg">
+  <div class="wrap split" style="align-items:start">
+    <div>
+      <span class="kick">Social Dimension · Skill Development</span>
+      <h2 style="font-size:clamp(26px,3.2vw,36px);color:var(--navy-800)">Upskilling CCTV technicians nationwide</h2>
+      <p style="margin-top:16px;color:var(--ink-70);font-size:17px">Digital Focus funds training costs and provides instructors in partnership with the Department of Skill Development to develop the skills of CCTV technicians.</p>
+      <div class="stats" style="margin-top:28px"><div><div class="stat-n">3,000<small>+</small></div><div class="stat-l">Trainees</div></div><div><div class="stat-n">2015</div><div class="stat-l">Program launched in</div></div></div>
+    </div>
+    <div class="frame"><img src="img/soc-train1.jpg" alt="CCTV technician training graduates" loading="lazy"></div>
+  </div>
+  <div class="wrap" style="margin-top:28px"><div class="gal g3c"><figure><div class="im"><img src="img/soc-train1.jpg" alt="CCTV technician training" loading="lazy"></div></figure><figure><div class="im"><img src="img/soc-train2.jpg" alt="CCTV technician training" loading="lazy"></div></figure><figure><div class="im"><img src="img/soc-train4.jpg" alt="CCTV technician training" loading="lazy"></div></figure></div></div>
+</section>
+
+<section class="sec tint" data-pages="esg">
+  <div class="wrap">
+    <div class="head"><span class="kick">Social Dimension · Education</span><h2>Supporting education through technology and scholarships</h2><p>Donating CCTV equipment, technology equipment and dual-vocational scholarships to King Mongkut's Institute of Technology Ladkrabang, Lopburi Technical College, Prachinburi Technical College, Minburi Technical College and other institutions to develop talent in security and smart technology.</p></div>
+    <div class="gal g3c"><figure><div class="im"><img src="img/soc-edu1.jpg" alt="Pathumwan Institute of Technology" loading="lazy"></div><figcaption>Pathumwan Institute of Technology</figcaption></figure><figure><div class="im"><img src="img/soc-edu2.jpg" alt="Education cooperation agreement signing" loading="lazy"></div><figcaption>Education cooperation agreement signing</figcaption></figure><figure><div class="im"><img src="img/soc-edu3.jpg" alt="MOU: CCTV Talent Development Center, Lopburi Technical College (2020)" loading="lazy"></div><figcaption>MOU: CCTV Talent Development Center, Lopburi Technical College (2020)</figcaption></figure><figure><div class="im"><img src="img/soc-edu4.jpg" alt="THB 1,000,000 research grant with KMITL and Hikvision" loading="lazy"></div><figcaption>THB 1,000,000 research grant with KMITL and Hikvision</figcaption></figure><figure><div class="im"><img src="img/soc-edu5.jpg" alt="Scholarships, Lopburi Technical College" loading="lazy"></div><figcaption>Scholarships, Lopburi Technical College</figcaption></figure><figure><div class="im"><img src="img/soc-edu6.jpg" alt="CCTV donation, Minburi Technical College" loading="lazy"></div><figcaption>CCTV donation, Minburi Technical College</figcaption></figure></div>
+  </div>
+</section>
+
+<section class="sec" data-pages="esg">
+  <div class="wrap">
+    <div class="head"><span class="kick">Social Dimension · Agencies and Foundations</span><h2>Donating CCTV systems to government agencies and charitable organizations</h2><p>Including the Office of His Majesty's Privy Council, the Pra Dabos Foundation, the Immigration Bureau and the Thai Red Cross Society</p></div>
+    <div class="gal"><figure><div class="im"><img src="img/soc-don1.jpg" alt="Office of His Majesty's Privy Council" loading="lazy"></div><figcaption>Office of His Majesty's Privy Council</figcaption></figure><figure><div class="im"><img src="img/soc-don2.jpg" alt="Pra Dabos Foundation" loading="lazy"></div><figcaption>Pra Dabos Foundation</figcaption></figure><figure><div class="im"><img src="img/soc-don3.jpg" alt="Immigration Bureau" loading="lazy"></div><figcaption>Immigration Bureau</figcaption></figure><figure><div class="im"><img src="img/soc-don4.jpg" alt="Thai Red Cross Society" loading="lazy"></div><figcaption>Thai Red Cross Society</figcaption></figure></div>
+  </div>
+</section>
+
+<section class="sec tint" data-pages="esg">
+  <div class="wrap">
+    <div class="head"><span class="kick">Social Dimension · Community</span><h2>Giving back to communities, temples and care homes every year</h2><p>Donating CCTV cameras, funding and essential supplies to communities, temples, elderly care centers and foundations for greater safety and a better quality of life.</p></div>
+    <div class="gal"><figure><div class="im"><img src="img/soc-com1.jpg" alt="Donations to the community" loading="lazy"></div><figcaption>Donations to the community</figcaption></figure><figure><div class="im"><img src="img/soc-com2.jpg" alt="Ban Bang Lamung Social Welfare Development Center for Older Persons" loading="lazy"></div><figcaption>Ban Bang Lamung Social Welfare Development Center for Older Persons</figcaption></figure><figure><div class="im"><img src="img/soc-com3.jpg" alt="Team Digital Focus activities" loading="lazy"></div><figcaption>Team Digital Focus activities</figcaption></figure><figure><div class="im"><img src="img/soc-com4.jpg" alt="Donating jasmine rice and field beds to Wat Phra Bat Nam Phu during COVID-19" loading="lazy"></div><figcaption>Donating jasmine rice and field beds to Wat Phra Bat Nam Phu during COVID-19</figcaption></figure></div>
+  </div>
+</section>
+
+<section class="sec" data-pages="esg">
+  <div class="wrap">
+    <div class="g3">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 4-3.5 7-8 8-4.5-1-8-4-8-8V7z"/></svg></div><span class="pill">GOVERNANCE</span><h3>Business Governance</h3><p>Business Governance Standard from the Department of Business Development, 2020</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5L7 21l5-3 5 3-1.5-7.5"/></svg></div><span class="pill">QUALITY</span><h3>ISO 9001:2015 and TIS-S</h3><p>TÜV Nord quality management system since 2006 and Thai SMEs Standard, 2023</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H8l-4 4z"/></svg></div><span class="pill">WHISTLEBLOWING</span><h3>Whistleblowing Channel</h3><p>Report misconduct or fraud to <a href="mailto:info@digitalfocus.co.th" style="color:var(--accent)">info@digitalfocus.co.th</a> Subject line: “Whistleblowing”</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="news" data-pages="news">
+  <div class="wrap">
+    <div class="head"><span class="kick">Newsroom</span><h2>News & Activities</h2></div>
+    <div class="proj"><div class="im"><img src="img/ceo.jpg" alt="Mr. Somchai Prajaksoot, Founder and Chief Executive Officer of Digital Focus" loading="lazy"></div><div class="bd"><span class="pill">Featured News · 2026</span><h3>Asia Pacific Enterprise Awards (APEA) 2026</h3><p class="sub">Master Entrepreneur Category · Thailand · Organized by Enterprise Asia</p><p>Mr. Somchai Prajaksoot, Founder and Chief Executive Officer, received the Master Entrepreneur award as the leader who transformed Digital Focus from a CCTV distributor into an end-to-end technology solutions provider, with a strong focus on people development and governance.</p><a class="more" href="https://apea.asia/thailand/hall-of-fame-th-2026/master-entrepreneur-th-2026/digital-focus-company-limited-me-2026/" target="_blank" rel="noopener">View the award announcement on the APEA website <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+    <div class="gal" style="margin-top:24px">
+      <figure><div class="im"><img src="img/news-hospitality.jpg" alt="The AI-Powered Hospitality Era 2026" loading="lazy"></div><figcaption><span>2026 · [Date]</span>Joined The AI-Powered Hospitality Era 2026, showcasing AI solutions for hotels</figcaption></figure>
+      <figure><div class="im"><img src="img/news-summit.jpg" alt="Hikvision Commercial Summit 2025" loading="lazy"></div><figcaption><span>2025 · [Date]</span>Joined Hikvision Commercial Summit 2025 “Shaping Intelligence”</figcaption></figure>
+      <figure><div class="im"><img src="img/news-icdl.jpg" alt="Digital skills training" loading="lazy"></div><figcaption><span>[Date]</span>ICDL-standard digital skills training</figcaption></figure>
+      <figure><div class="im"><img src="img/news-pathumwan.jpg" alt="Delivering educational equipment" loading="lazy"></div><figcaption><span>[Date]</span>Supporting educational institutions with technology equipment for teaching and learning</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="contact" data-pages="contact">
+  <div class="wrap">
+    <div class="g3" style="margin-bottom:64px">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></div><h3>Business Partnerships</h3><p>Dealers, SIs, contractors or project owners seeking a security systems partner</p><a class="more" href="#partner">Fill in the application below <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div><h3>Solutions & Services Inquiries</h3><p>Planning a new installation, upgrading an existing system, or looking for monthly service plans and maintenance contracts</p><a class="more" href="https://lin.ee/Ajw1OZw" target="_blank" rel="noopener">Chat on LINE <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5"/></svg></div><h3>Investor Relations</h3><p>Company information, IPO preparation progress and investor news</p><a class="more" href="#ir">View investor information below <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+    <div class="split" style="align-items:start">
+      <div>
+        <span class="kick">Headquarters</span>
+        <h2 style="font-size:clamp(24px,3vw,32px);color:var(--navy-800);margin-bottom:22px">Contact Information</h2>
+        <dl class="info">
+          <div><dt>Company</dt><dd>Digital Focus Co., Ltd.</dd></div>
+          <div><dt>Address</dt><dd>2782/4-6 Lat Phrao Road, Khlong Chan, Bang Kapi, Bangkok 10240</dd></div>
+          <div><dt>Phone</dt><dd><a href="tel:021368989">02 136 8989</a> · Fax 02 733 9075</dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:info@digitalfocus.co.th">info@digitalfocus.co.th</a></dd></div>
+          <div><dt>Website</dt><dd><a href="https://www.digitalfocus.co.th/" target="_blank" rel="noopener">digitalfocus.co.th</a></dd></div>
+          <div><dt>Registration No.</dt><dd>0105545026907</dd></div>
+        </dl>
+        <div class="cbtns"><a class="btn btn-p" href="tel:021368989"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg>02 136 8989</a><a class="btn btn-o" href="mailto:info@digitalfocus.co.th"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>info@digitalfocus.co.th</a></div>
+      </div>
+      <div>
+        <span class="kick">Online Channels</span>
+        <h2 style="font-size:clamp(24px,3vw,32px);color:var(--navy-800);margin-bottom:22px">Follow us on all channels</h2>
+        <div class="g2" style="gap:12px" id="channels"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" id="partner" data-pages="contact">
+  <div class="wrap split" style="align-items:start">
+    <div>
+      <span class="kick">Become a Partner</span>
+      <h2 style="font-size:clamp(26px,3.2vw,36px);color:var(--navy-800)">Grow with a network of 500+ partners nationwide</h2>
+      <p style="margin-top:16px;color:var(--ink-70);font-size:17px">We welcome dealers and installation & service partners (SIs / contractors / technicians) to work with Thailand's first authorized Hikvision distributor.</p>
+      <div class="card" style="margin-top:28px"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 9l1.5-5h15L21 9M4 9v11h16V9M3 9h18M9 20v-6h6v6"/></svg></div><h3>Dealers</h3><ul class="flist"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Dealer pricing and partner-exclusive promotions</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Full product range from Hikvision, BroadLink, DSPPA, Keenon and other leading brands</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Marketing materials, datasheets and product training</span></li></ul></div>
+      <div class="card" style="margin-top:16px"><div class="ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-3-3z"/></svg></div><h3>Installation & Service Partners</h3><ul class="flist"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Take on installation and service jobs in your area from our projects</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Engineering team support for system design and on-site work</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Technician training with the Department of Skill Development</span></li></ul></div>
+    </div>
+    <form class="pform" id="partnerForm" novalidate>
+      <h3>Partner Application Form</h3>
+      <fieldset class="seg"><legend>Application type</legend>
+        <label><input type="radio" name="ptype" value="dealer" checked><span>Dealers</span></label>
+        <label><input type="radio" name="ptype" value="installer"><span>Installation & Service Partners</span></label>
+      </fieldset>
+      <div class="frow">
+        <div class="fld"><label for="pf-company">Company / Store Name *</label><input id="pf-company" required autocomplete="organization"></div>
+        <div class="fld"><label for="pf-tax">Tax ID</label><input id="pf-tax" inputmode="numeric" maxlength="13" placeholder="13 digits"></div>
+      </div>
+      <div class="frow">
+        <div class="fld"><label for="pf-name">Contact Name *</label><input id="pf-name" required autocomplete="name"></div>
+        <div class="fld"><label for="pf-pos">Position</label><input id="pf-pos" autocomplete="organization-title"></div>
+      </div>
+      <div class="frow">
+        <div class="fld"><label for="pf-tel">Phone *</label><input id="pf-tel" type="tel" required autocomplete="tel"></div>
+        <div class="fld"><label for="pf-email">Email *</label><input id="pf-email" type="email" required autocomplete="email"></div>
+      </div>
+      <div class="frow">
+        <div class="fld"><label for="pf-line">LINE ID</label><input id="pf-line"></div>
+        <div class="fld"><label for="pf-region">Service Area *</label><select id="pf-region" required><option value="">Select region</option><option>Bangkok and Metropolitan Region</option><option>Central</option><option>North</option><option>Northeast</option><option>East</option><option>West</option><option>South</option></select></div>
+      </div>
+      <div class="frow">
+        <div class="fld"><label for="pf-years">Business experience</label><select id="pf-years"><option>Less than 1 year</option><option>1–3 years</option><option>3–5 years</option><option>More than 5 years</option></select></div>
+        <div class="fld"><label for="pf-team">Number of technicians / staff</label><select id="pf-team"><option>1–3 people</option><option>4–10 people</option><option>11–30 people</option><option>More than 30 people</option></select></div>
+      </div>
+      <fieldset class="chks"><legend>Products & solutions of interest</legend><label class="chk"><input type="checkbox" name="prod" value="CCTV & AI"><span>CCTV & AI</span></label><label class="chk"><input type="checkbox" name="prod" value="Access Control"><span>Access Control</span></label><label class="chk"><input type="checkbox" name="prod" value="Smart Home"><span>Smart Home</span></label><label class="chk"><input type="checkbox" name="prod" value="Public address system"><span>Public address system</span></label><label class="chk"><input type="checkbox" name="prod" value="Service Robots"><span>Service Robots</span></label><label class="chk"><input type="checkbox" name="prod" value="Smart Transport"><span>Smart Transport</span></label><label class="chk"><input type="checkbox" name="prod" value="Solar power"><span>Solar power</span></label></fieldset>
+      <div class="fld"><label for="pf-msg">Additional details</label><textarea id="pf-msg" rows="3" placeholder="e.g. key customer segments, past projects"></textarea></div>
+      <label class="consent"><input type="checkbox" id="pf-consent" required><span>I consent to Digital Focus Co., Ltd. collecting and using the above information to review my application and contact me, in accordance with the Privacy Policy.</span></label>
+      <p class="ferr" id="pfErr" hidden></p>
+      <button class="btn btn-p" type="submit" style="justify-content:center">Submit Application <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <p class="fok" id="pfOk" hidden>Application received. Our business development team will contact you within 3 business days. (Prototype: this form is not yet connected to a back-end system.)</p>
+    </form>
+  </div>
+</section>
+
+<section class="sec dark" id="ir" data-pages="contact">
+  <div class="wrap">
+    <div class="head"><span class="kick">Investor Relations</span><h2>Investment Highlights <span class="flag" style="border-color:#5f7aa1;color:#93aac9">IPO in preparation</span></h2></div>
+    <div class="g3">
+      <div class="card-dark"><div class="kpi-n">24<small>yrs</small></div><h3 style="margin-top:14px;font-size:19px">Experience and Credibility</h3><p style="margin-top:8px">Thailand's first Hikvision distributor, with a track record serving leading public- and private-sector organizations</p></div>
+      <div class="card-dark"><div class="kpi-n">500<small>+</small></div><h3 style="margin-top:14px;font-size:19px">Nationwide Network</h3><p style="margin-top:8px">Dealers and service technicians covering every region, supporting multi-site projects</p></div>
+      <div class="card-dark"><div class="kpi-n">S<small>-Curve</small></div><h3 style="margin-top:14px;font-size:19px">Growth into Platforms and Services</h3><p style="margin-top:8px">Expanding from distribution into platforms, monthly service plans and Robotics</p></div>
+    </div>
+    <div class="g2" style="margin-top:24px">
+      <div class="card-dark"><h3 style="font-size:19px">Email Newsletter</h3><p style="margin-top:8px">Follow the company's latest updates and listing progress</p><form class="sub-form" id="irForm" novalidate><label for="irEmail" style="position:absolute;left:-9999px">Email</label><input type="email" id="irEmail" placeholder="Your email" autocomplete="email"><button class="btn btn-p" type="submit">Subscribe</button></form><p class="ok" id="irOk" hidden>This is a prototype. Newsletter subscription is not yet connected.</p></div>
+      <div class="card-dark"><h3 style="font-size:19px">Contact Investor Relations</h3><p style="margin-top:8px">Email <a href="mailto:info@digitalfocus.co.th" style="color:#fff">info@digitalfocus.co.th</a><br>Call 02 136 8989</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" data-pages="home business solutions projects brands esg news about">
+  <div class="wrap">
+    <div class="cta">
+      <div><h2>Have a space you want to make safer and smarter?</h2><p>Our engineering team will assess your site, analyze risks and propose a system that fits your budget, available as an outright purchase or a monthly service plan.</p></div>
+      <div class="btns"><a class="btn btn-p" href="#contact">Contact Sales <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-g" href="#partner">Apply as a Partner</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div>
+        <img class="logo-w" src="img/logo-white.png" alt="Digital Focus" width="773" height="347">
+        <p>Digital Focus Co., Ltd. — provider of end-to-end Smart Security Solutions &amp; AiIOT, with over 24 years of experience and a nationwide dealer network</p>
+        <div class="social" id="social"></div>
+      </div>
+      <div><h4>Company</h4><ul><li><a href="#about">About Us</a></li><li><a href="#esg">Sustainability</a></li><li><a href="#news">News</a></li><li><a href="#ir">Investor Relations</a></li><li><a href="#partner">Become a Partner</a></li><li><a href="#contact">Contact Us</a></li></ul></div>
+      <div><h4>Business</h4><ul><li><a href="#solutions">Solutions</a></li><li><a href="#brands">Products</a></li><li><a href="#projects">Design and System Integration</a></li><li><a href="#business">Monthly Service Plans and After-Sales Service</a></li><li><a href="#projects">Projects & Clients</a></li><li><a href="https://shopee.co.th/digitalfocus_thailand" target="_blank" rel="noopener">Online Store</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>2782/4-6 Lat Phrao Road, Khlong Chan, Bang Kapi, Bangkok 10240</li><li><a href="tel:021368989">02 136 8989</a></li><li><a href="mailto:info@digitalfocus.co.th">info@digitalfocus.co.th</a></li></ul></div>
+    </div>
+    <div class="ftr-bot"><span>© 2026 Digital Focus Co., Ltd. All rights reserved.</span><span>Registration No. 0105545026907 · Preparing to list on the Stock Exchange of Thailand (SET)</span></div>
+  </div>
+</footer>
+
+<div class="fchat" id="fchat">
+  <div class="fchat-list" id="fchatList" hidden>
+    <a href="https://lin.ee/Ajw1OZw" target="_blank" rel="noopener"><span class="ci line"><svg viewBox="0 0 24 24"><path d="M12 4C7 4 3 7.2 3 11.2c0 3.6 3.2 6.6 7.5 7.1l-.4 2.2 3.2-2.1C18 18 21 14.9 21 11.2 21 7.2 17 4 12 4z"/></svg></span>Chat on LINE</a>
+    <a href="https://m.me/61581609465585" target="_blank" rel="noopener"><span class="ci fb"><svg viewBox="0 0 24 24"><path d="M12 3.5c-4.8 0-8.5 3.5-8.5 8 0 2.5 1.2 4.7 3 6.1V21l2.9-1.6c.8.2 1.7.3 2.6.3 4.8 0 8.5-3.5 8.5-8s-3.7-8.2-8.5-8.2z"/><path d="M7.5 13.5l3-3 2 2 4-3.5-3 3.5-2-2z"/></svg></span>Facebook Messenger</a>
+    <a href="tel:021368989"><span class="ci tel"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg></span>Call 02 136 8989</a>
+    <a href="mailto:info@digitalfocus.co.th"><span class="ci mail"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>info@digitalfocus.co.th</a>
+  </div>
+  <button class="fchat-btn" id="fchatBtn" type="button" aria-expanded="false" aria-controls="fchatList"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg><span>Chat with us</span></button>
+</div>
+<div class="cookie" id="cookie" role="region" aria-label="Cookie settings" hidden><p>We use cookies essential to the website's operation, and analytics cookies with your consent, in accordance with the Personal Data Protection Act B.E. 2562 (2019) (PDPA).</p><div><button class="btn btn-p" type="button" data-c="all">Accept All</button><button class="btn btn-o" type="button" data-c="necessary">Essential Only</button></div></div>
+
+<script>
+(function(){
+  /* online channels: one list feeds the contact cards and the footer icons */
+  var I={
+    web:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/>',
+    fb:'<path d="M15 3h-2.5A3.5 3.5 0 009 6.5V9H6.5v3.5H9V21h3.5v-8.5H15l.5-3.5h-3V7a1 1 0 011-1H15z"/>',
+    line:'<path d="M12 4C7 4 3 7.2 3 11.2c0 3.6 3.2 6.6 7.5 7.1l-.4 2.2 3.2-2.1C18 18 21 14.9 21 11.2 21 7.2 17 4 12 4z"/>',
+    shop:'<path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 016 0v2"/>',
+    ig:'<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/>',
+    tt:'<path d="M14 3v11.5a3.5 3.5 0 11-3.5-3.5M14 3c.5 2.6 2.3 4.3 5 4.5"/>',
+    yt:'<rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="M10 9.5v5l4.5-2.5z"/>'
+  };
+  var CH=[['web','Website','www.digitalfocus.co.th','https://www.digitalfocus.co.th/'],['fb','Facebook','Digital Focus','https://www.facebook.com/profile.php?id=61581609465585'],['line','LINE Official','lin.ee/Ajw1OZw','https://lin.ee/Ajw1OZw'],['shop','Shopee','digitalfocus_thailand','https://shopee.co.th/digitalfocus_thailand'],['ig','Instagram','brainco.digitalfocus','https://www.instagram.com/brainco.digitalfocus'],['tt','TikTok','@brainco.by.digita','https://www.tiktok.com/@brainco.by.digita'],['yt','YouTube','Digital Focus','https://www.youtube.com/channel/UCzA12znBYsygJ5KW2JYhG2g']];
+  function svg(k){return '<svg viewBox="0 0 24 24" aria-hidden="true">'+I[k]+'</svg>'}
+  document.getElementById('channels').innerHTML=CH.map(function(c){return '<a class="ch" href="'+c[3]+'" target="_blank" rel="noopener"><span class="ico">'+svg(c[0])+'</span><span><b>'+c[1]+'</b><small>'+c[2]+'</small></span></a>'}).join('');
+  document.getElementById('social').innerHTML=CH.map(function(c){return '<a href="'+c[3]+'" target="_blank" rel="noopener" aria-label="'+c[1]+'">'+svg(c[0])+'</a>'}).join('');
+
+  /* page views */
+  var PAGES={
+    about:['About Us','From a CCTV distributor in 2002 to an end-to-end Smart Security Solutions & AiIOT provider delivering distribution, system integration and after-sales service nationwide','',1],
+    business:['Our Business','End-to-end, from equipment and system integration to services','Equipment distribution, design and system integration, platforms and monthly service plans that work together as one system'],
+    solutions:['Solutions','Solutions for Every Industry','Smart Security and AiIOT systems that work together across the organization, designed for buildings, healthcare, government, education, industrial estates and factories'],
+    projects:['Projects & Clients','Our Projects & Clients','Projects we have delivered for leading public- and private-sector organizations nationwide, from retailers with thousands of branches to government agencies'],
+    brands:['Products','Products & Brands We Distribute','Thailand\'s first authorized Hikvision distributor, with partners in AiIOT, Smart Home and Robotics'],
+    esg:['Sustainability','Sustainability Embedded in Every Process','Caring for the environment in our organization, developing workforce skills, supporting education, giving back to communities and practicing transparent corporate governance'],
+    news:['News','News & Activities','Latest updates, seminars, partner collaborations and social activities'],
+    contact:['Contact Us','Talk to us about your organization\'s security systems','Consult on a project, ask about services, apply as a partner or contact Investor Relations. Our team will get back to you.']
+  };
+  var secs=[].slice.call(document.querySelectorAll('main section[data-pages]')),phero=document.getElementById('phero');
+  var only=[].slice.call(document.querySelectorAll('[data-only]'));
+  var navLinks=[].slice.call(document.querySelectorAll('.nav a,.mnav a'));
+  var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function countUp(){
+    if(still) return;
+    [].forEach.call(document.querySelectorAll('[data-count]'),function(el){
+      if(el.offsetParent===null) return;
+      var target=+el.getAttribute('data-count'),t0=null;
+      function step(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/1100,1),v=Math.round(target*(1-Math.pow(1-p,3)));el.textContent=v.toLocaleString('en-US');if(p<1)requestAnimationFrame(step)}
+      requestAnimationFrame(step);
+    });
+  }
+  var ALIAS={clients:['projects'],partner:['contact','partner'],ir:['contact','ir'],'biz-dist':['business','biz-dist'],'biz-si':['business','biz-si'],'biz-platform':['business','biz-platform'],'biz-service':['business','biz-service']};
+  function go(page,scroll){
+    var target=null;
+    if(ALIAS[page]){target=ALIAS[page][1]||null;page=ALIAS[page][0]}
+    if(!PAGES[page]) page='home';
+    document.body.setAttribute('data-page',page);
+    secs.forEach(function(el){
+      if(el===phero){el.hidden=page==='home';return}
+      el.hidden=el.getAttribute('data-pages').split(' ').indexOf(page)<0;
+    });
+    only.forEach(function(el){el.hidden=el.getAttribute('data-only')!==page});
+    if(page!=='home'){var d=PAGES[page],pt=document.getElementById('ptitle'),pl=document.getElementById('plead');document.getElementById('pcrumb').textContent=d[0];pt.textContent=d[1];pt.classList.toggle('lead-t',!!d[3]);pl.textContent=d[2];pl.hidden=!!d[3]}
+    navLinks.forEach(function(a){var on=a.getAttribute('href')==='#'+page;a.classList.toggle('on',on);if(on)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+    document.title=(page==='home'?'':PAGES[page][0]+' | ')+'Digital Focus';
+    if(target){var el=document.getElementById(target);if(el)setTimeout(function(){el.scrollIntoView({block:'start'})},0)}
+    else if(scroll!==false) window.scrollTo(0,0);
+    countUp();
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="#"]'); if(!a) return;
+    var id=a.getAttribute('href').slice(1);
+    if(id!=='home'&&!PAGES[id]&&!ALIAS[id]) return;
+    e.preventDefault(); go(id);
+    var sv=a.getAttribute('data-sector');
+    if(sv){var tb=document.getElementById('vt-'+sv);if(tb){tb.click();setTimeout(function(){document.getElementById('showcase').scrollIntoView({block:'start'})},0)}}
+    try{history.pushState(null,'','#'+id)}catch(err){}
+  });
+  window.addEventListener('popstate',function(){go((location.hash||'#home').slice(1))});
+
+  var burger=document.getElementById('burger'),mnav=document.getElementById('mnav');
+  function menu(open){mnav.hidden=!open;burger.setAttribute('aria-expanded',open?'true':'false');burger.setAttribute('aria-label',open?'Close menu':'Open menu')}
+  burger.addEventListener('click',function(){menu(mnav.hidden)});
+  mnav.addEventListener('click',function(e){if(e.target.closest('a'))menu(false)});
+  window.addEventListener('resize',function(){if(window.innerWidth>=1240)menu(false)});
+
+  var hdr=document.getElementById('hdr');
+  function onScroll(){hdr.classList.toggle('stuck',window.scrollY>8)}
+  onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+
+  go((location.hash||'#home').slice(1),false);
+  var h0=(location.hash||'').slice(1);
+  if(h0&&!(ALIAS[h0]&&ALIAS[h0][1])){window.addEventListener('load',function(){window.scrollTo(0,0)});setTimeout(function(){window.scrollTo(0,0)},0)}
+
+  var VT=[].slice.call(document.querySelectorAll('.vtab'));
+  VT.forEach(function(b){b.addEventListener('click',function(){
+    VT.forEach(function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-selected',on?'true':'false');document.getElementById('vp-'+x.dataset.v).hidden=!on});
+  })});
+
+  var pf=document.getElementById('partnerForm');
+  pf.addEventListener('submit',function(e){
+    e.preventDefault();
+    var bad=[],err=document.getElementById('pfErr');
+    [].forEach.call(pf.querySelectorAll('[required]'),function(el){
+      var ok=el.type==='checkbox'?el.checked:el.value.trim()!==''&&(el.type!=='email'||/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value));
+      el.classList.toggle('bad',!ok&&el.type!=='checkbox'); if(!ok) bad.push(el);
+    });
+    var tax=document.getElementById('pf-tax'); if(tax.value&&!/^\d{13}$/.test(tax.value)){tax.classList.add('bad');bad.push(tax)}
+    if(bad.length){err.textContent=bad[0].id==='pf-consent'?'Please consent to data collection before submitting your application':'Please complete all fields marked * correctly';err.hidden=false;bad[0].focus();return}
+    err.hidden=true; document.getElementById('pfOk').hidden=false;
+  });
+
+  document.getElementById('irForm').addEventListener('submit',function(e){e.preventDefault();document.getElementById('irOk').hidden=false});
+  var fb=document.getElementById('fchatBtn'),fl=document.getElementById('fchatList');
+  fb.addEventListener('click',function(){var open=fl.hidden;fl.hidden=!open;fb.setAttribute('aria-expanded',open?'true':'false')});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!fl.hidden){fl.hidden=true;fb.setAttribute('aria-expanded','false');fb.focus()}});
+  [].forEach.call(document.querySelectorAll('.lang a'),function(a){a.addEventListener('click',function(e){if(a.classList.contains('on')){e.preventDefault();return}a.href=a.getAttribute('href').split('#')[0]+location.hash})});
+  var ck=document.getElementById('cookie'),saved=null;
+  try{saved=localStorage.getItem('df-cookie')}catch(e){}
+  if(!saved) ck.hidden=false;
+  ck.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;try{localStorage.setItem('df-cookie',b.dataset.c)}catch(err){}ck.hidden=true});
+})();
+</script>
+</body>
+</html>
