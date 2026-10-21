@@ -319,6 +319,58 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 .bizd h4{font-size:16px;color:var(--navy-800);margin-top:44px}
 body[data-page="solutions"] #solutions{background:var(--paper-2)}
 
+/* award badge on portrait */
+.frame.dk{background:#2a2d33}
+.badge-aw{position:absolute;left:16px;right:16px;bottom:16px;display:flex;gap:12px;align-items:center;background:rgba(5,20,44,.86);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#fff;border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:12px 16px;max-width:420px}
+.badge-aw svg{flex:none;width:30px;height:30px;fill:none;stroke:#fff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.badge-aw b{display:block;font:600 15px/1.3 var(--display)}
+.badge-aw span{display:block;font-size:12.5px;line-height:1.45;color:#a9bcd6}
+
+/* service lifecycle */
+.cycle{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+@media(max-width:1100px){.cycle{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.cycle{grid-template-columns:1fr 1fr}}
+@media(max-width:460px){.cycle{grid-template-columns:1fr}}
+.cycle li{position:relative;counter-increment:c;background:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:24px 22px}
+.cycle{counter-reset:c}
+.cycle li::after{content:"0" counter(c);position:absolute;top:24px;right:20px;font:700 13px/1 var(--display);letter-spacing:.08em;color:#6c87ab}
+.cycle .ico{background:rgba(255,255,255,.08);color:#fff}
+.cycle h3{font-size:17.5px;color:#fff;margin-bottom:8px}
+.cycle p{font-size:14.5px;color:#9fb4d0;line-height:1.65}
+.cycle li.hl{background:var(--accent);border-color:var(--accent)}
+.cycle li.hl .ico{background:rgba(255,255,255,.18)}
+.cycle li.hl p{color:#e3eeff}.cycle li.hl::after{color:#d4e4ff}
+.dark .stats{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.12)}
+.dark .stats>div{background:var(--navy-900)}
+.dark .stat-n{color:#fff}.dark .stat-n small{color:#9fb4d0}.dark .stat-l{color:#93aac9}
+
+/* awards */
+.awards{display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:16px}
+@media(max-width:1100px){.awards{grid-template-columns:repeat(2,1fr)}.awards .aw-main{grid-column:1/-1}}
+@media(max-width:560px){.awards{grid-template-columns:1fr}}
+.awards .card{display:flex;flex-direction:column}
+.awards .card p{flex:1}
+.awards .yr{font:600 12px/1 var(--body);letter-spacing:.12em;color:var(--ink-45);margin-bottom:10px}
+.aw-main{background:var(--navy-800)!important;border-color:var(--navy-800)!important}
+.aw-main h3{color:#fff}.aw-main p{color:#a9bcd6}.aw-main .yr{color:#a9bcd6}
+.aw-main .ico{background:rgba(255,255,255,.1);color:#fff}
+.aw-main .more{color:#fff}
+
+/* floating contact */
+.fchat{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:105;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.fchat-list{display:grid;gap:8px;justify-items:end}
+.fchat-list a{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 16px 7px 7px;box-shadow:var(--sh-1);font-size:14px;font-weight:600;color:var(--navy-800);white-space:nowrap}
+.fchat-list a:hover{border-color:#cddcf2}
+.ci{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff;flex:none}
+.ci svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ci.line{background:#06c755}.ci.fb{background:#1877f2}.ci.tel{background:var(--navy-700)}.ci.mail{background:var(--accent)}
+.fchat-btn{display:inline-flex;align-items:center;gap:8px;height:54px;padding:0 20px 0 16px;border-radius:999px;border:0;background:var(--accent);color:#fff;font:600 14.5px/1 var(--body);box-shadow:0 14px 30px -10px rgba(46,123,255,.8);cursor:pointer}
+.fchat-btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.fchat-btn[aria-expanded="true"]{background:var(--navy-800)}
+@media(max-width:560px){.fchat-btn span{display:none}.fchat-btn{width:54px;padding:0;justify-content:center}}
+.lang a{font:600 11.5px/1 var(--body);letter-spacing:.06em;color:var(--ink-45);padding:7px 11px;border-radius:999px}
+.lang a.on{background:var(--navy-700);color:#fff}
+
 /* partner form */
 .pform{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px;display:grid;gap:16px;box-shadow:var(--sh-1);min-width:0}
 .pform h3{font-size:21px;color:var(--navy-800)}
@@ -410,7 +462,7 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
     <div class="hdr-side">
       <a class="btn btn-p hdr-cta" href="#ir">นักลงทุนสัมพันธ์</a>
       <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="เปิดเมนู"><i></i></button>
-      <div class="lang"><span class="on">TH</span><span title="เวอร์ชันภาษาอังกฤษจะทำหลังสรุปดีไซน์">EN</span></div>
+      <div class="lang"><a class="on" href="listed.html" hreflang="th" aria-current="true">TH</a><a href="listed-en.html" hreflang="en" lang="en">EN</a></div>
     </div>
   </div>
   <nav class="mnav" id="mnav" aria-label="เมนู" hidden><div class="wrap">
@@ -435,8 +487,8 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
   <div class="wrap hero-in">
     <span class="eyebrow"><span class="dot"></span>เตรียมเข้าจดทะเบียนในตลาดหลักทรัพย์ฯ · DIGITAL FOCUS</span>
     <h1>ผู้นำ Smart Security Solutions<br>&amp; AiIOT ครบวงจร</h1>
-    <p class="hero-lead"><b>บริษัท ดิจิตอลโฟกัส จำกัด</b> ผู้นำเข้า จัดจำหน่าย และวางระบบ ด้วยประสบการณ์กว่า 24 ปี ในฐานะตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย</p>
-    <div class="hero-cta"><a class="btn btn-p" href="#business">ดูธุรกิจของเรา <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-g" href="#contact">ติดต่อทีมขาย</a></div>
+    <p class="hero-lead"><b>บริษัท ดิจิตอลโฟกัส จำกัด</b> ทีมที่ปรึกษา ออกแบบ วางระบบ ติดตั้ง และบริการหลังการขาย ที่ดูแลองค์กรชั้นนำมากว่า 24 ปี ในฐานะตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย</p>
+    <div class="hero-cta"><a class="btn btn-p" href="#business">ดูธุรกิจของเรา <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-g" href="#contact">ปรึกษาทีมของเรา</a></div>
     <div class="kpis">
       <div><div class="kpi-n"><span data-count="24">24</span><small>+</small></div><div class="kpi-l">ปีของประสบการณ์<br>ในธุรกิจระบบรักษาความปลอดภัย</div></div>
       <div><div class="kpi-n"><span data-count="500">500</span><small>+</small></div><div class="kpi-l">ตัวแทนจำหน่ายและช่างบริการ<br>ครอบคลุมทุกภูมิภาค</div></div>
@@ -448,18 +500,17 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
 <section class="sec" data-pages="home">
   <div class="wrap split">
     <div>
-      <span class="kick">เกี่ยวกับ DIGITAL FOCUS</span>
-      <p style="color:var(--ink-70);font-size:17px">ตั้งแต่ปี 2002 Digital Focus เติบโตจากผู้จำหน่ายกล้องวงจรปิด สู่ผู้ให้บริการ Smart Security Solutions &amp; AiIOT ครบวงจร ที่ผสานอุปกรณ์จากแบรนด์ชั้นนำของโลกเข้ากับทีมวิศวกรและบริการหลังการขาย เพื่อให้องค์กรทั้งภาครัฐและเอกชนปลอดภัยและบริหารงานได้อย่างมีประสิทธิภาพ</p>
+      <span class="kick">ผู้นำโซลูชัน</span>
+      <h2 class="h2">ผู้นำ Smart Security Solutions ที่อยู่เคียงข้างลูกค้าตลอดอายุการใช้งาน</h2>
+      <p class="lead">ตั้งแต่ปี 2002 Digital Focus เติบโตจากผู้จำหน่ายกล้องวงจรปิด สู่ผู้ให้บริการ Smart Security Solutions &amp; AiIOT ครบวงจร นำโดยคุณสมชาย ประจักษ์สูตร ผู้ได้รับรางวัล Master Entrepreneur จาก APEA 2026</p>
       <ul class="flist" style="margin-top:26px">
-        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>ครบทั้งอุปกรณ์และบริการ</b> — จัดจำหน่าย ออกแบบ ติดตั้ง และดูแลหลังการขายในที่เดียว</span></li>
-        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>ตัวแทน Hikvision รายแรกของไทย</b> — ได้รับแต่งตั้งอย่างเป็นทางการตั้งแต่ปี 2006</span></li>
-        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>เครือข่ายทั่วประเทศ</b> — ตัวแทนจำหน่ายและช่างบริการกว่า 500 ราย และ Call Center 24 ชั่วโมง</span></li>
-        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>มาตรฐานที่ตรวจสอบได้</b> — ISO 9001:2015, มาตรฐานธรรมาภิบาลธุรกิจ และ มอก.S</span></li>
-        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>รางวัล APEA 2026</b> — คุณสมชาย ประจักษ์สูตร ได้รับรางวัล Master Entrepreneur จาก Asia Pacific Enterprise Awards</span></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>ทีมเดียวครบทุกขั้นตอน</b> — ที่ปรึกษา ออกแบบ วางระบบ ติดตั้ง และบริการหลังการขาย</span></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>ตัวแทน Hikvision อย่างเป็นทางการรายแรกของไทย</b> — ตั้งแต่ปี 2006</span></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>ดูแลต่อเนื่องระยะยาว</b> — Call Center 24 ชั่วโมง และเครือข่ายช่างกว่า 500 รายทั่วประเทศ</span></li>
       </ul>
-      <div style="margin-top:30px" data-only="home"><a class="btn btn-o" href="#about">เรื่องราวของเรา <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <div style="margin-top:30px"><a class="btn btn-o" href="#about">เรื่องราวของเรา <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     </div>
-    <div class="frame"><img src="img/executives.jpg" alt="คุณสมชาย ประจักษ์สูตร และคุณศักดิพัฒน์ ประจักษ์สูตร ผู้บริหาร Digital Focus" loading="lazy"></div>
+    <div class="frame dk"><img src="img/ceo.jpg" alt="คุณสมชาย ประจักษ์สูตร ผู้ก่อตั้งและประธานเจ้าหน้าที่บริหาร Digital Focus" loading="lazy"><div class="badge-aw"><svg viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 01-8 0zM8 6H5a3 3 0 003 4M16 6h3a3 3 0 01-3 4M12 13v4M9 21h6M10 17h4"/></svg><div><b>APEA 2026 · Master Entrepreneur</b><span>คุณสมชาย ประจักษ์สูตร · ผู้ก่อตั้งและประธานเจ้าหน้าที่บริหาร</span></div></div></div>
   </div>
 </section>
 
@@ -476,20 +527,22 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
 </section>
 
 <section class="sec dark" data-pages="home">
-  <div class="wrap split">
-    <div>
-      <span class="kick">เทคโนโลยี</span>
-      <h2 class="h2">Smart Security &amp; AiIOT — ทุกระบบในอาคารเชื่อมเป็นหนึ่งเดียว</h2>
-      <p class="lead">กล้อง AI ระบบควบคุมการเข้าออก เซนเซอร์ AiIOT และระบบที่จอดรถ ทำงานร่วมกันบนแพลตฟอร์มบริหารแบบรวมศูนย์ ออกแบบและติดตั้งโดยทีมวิศวกรของ Digital Focus</p>
-      <ul class="flist" style="margin-top:26px">
-        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>กล้อง AI และอ่านป้ายทะเบียน</b> — ตรวจจับคน ยานพาหนะ และการบุกรุกพื้นที่แบบเรียลไทม์</span></li>
-        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>ควบคุมการเข้าออกและผู้มาติดต่อ</b> — สแกนใบหน้า บัตร และควบคุมลิฟต์ตามสิทธิ์</span></li>
-        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>เซนเซอร์ AiIOT</b> — ตรวจจับควัน แก๊ส อุณหภูมิ และคุณภาพอากาศ พร้อมควบคุมแสงสว่าง</span></li>
-        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>ศูนย์สั่งการรวมศูนย์</b> — ดูทุกสาขาและทุกอาคารจากหน้าจอเดียว</span></li>
-      </ul>
-      <div style="margin-top:30px"><a class="btn btn-g" href="#solutions">ดูโซลูชันทั้งหมด <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  <div class="wrap">
+    <div class="head mid"><span class="kick">บริการครบวงจร</span><h2>ทีมเดียว ดูแลครบทุกขั้นตอน</h2><p>ตั้งแต่วันแรกที่ปรึกษา จนถึงวันที่ระบบทำงานมาหลายปี ลูกค้าทำงานกับทีมเดียวกันตลอด</p></div>
+    <ol class="cycle">
+      <li><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg></div><h3>ที่ปรึกษา</h3><p>รับฟังโจทย์ สำรวจหน้างาน และประเมินความเสี่ยงของพื้นที่</p></li>
+      <li><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></div><h3>ออกแบบระบบ</h3><p>วิศวกรออกแบบระบบและตำแหน่งอุปกรณ์ ให้คุ้มค่าและขยายต่อได้</p></li>
+      <li><div class="ico"><svg viewBox="0 0 24 24"><path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 01-12 0zM12 17v4"/></svg></div><h3>วางระบบและติดตั้ง</h3><p>ติดตั้งตามมาตรฐาน ISO 9001:2015 และเชื่อมทุกระบบเข้าแพลตฟอร์มเดียว</p></li>
+      <li><div class="ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div><h3>บริการหลังการขาย</h3><p>Call Center 24 ชั่วโมง ทีมช่างทั่วประเทศ และสัญญาดูแลพร้อม SLA</p></li>
+      <li class="hl"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 11l4-4 4 3 3-2 4 3 3-1"/><path d="M7 7l-4 4 6 6 2-1 2 2 2-1 4-4M11 16l2-2M13 18l2-2"/></svg></div><h3>ความสัมพันธ์ระยะยาว</h3><p>อัปเกรดและขยายระบบไปพร้อมการเติบโตของลูกค้า ดูแลต่อเนื่องหลายปี</p></li>
+    </ol>
+    <div class="stats" style="margin-top:28px">
+      <div><div class="stat-n">10<small>ปี</small></div><div class="stat-l">ดูแลระบบ CCTV ให้ Central Food Retail (2016–2025)</div></div>
+      <div><div class="stat-n">6<small>ปี</small></div><div class="stat-l">โครงการ AI และ CCTV ของ CP ALL (2018–2023)</div></div>
+      <div><div class="stat-n">24<small>ชม.</small></div><div class="stat-l">Call Center รับแจ้งปัญหาทุกวัน</div></div>
+      <div><div class="stat-n">500<small>+</small></div><div class="stat-l">ตัวแทนและช่างบริการทั่วประเทศ</div></div>
     </div>
-    <div class="frame white"><img src="img/sec-building.jpg" alt="ภาพจำลองอาคารอัจฉริยะพร้อมตำแหน่งระบบความปลอดภัยและ AiIOT" loading="lazy"><span class="cap">ภาพจำลอง · Smart Building</span></div>
+    <div style="margin-top:34px;text-align:center"><a class="btn btn-p" href="#contact">ปรึกษาทีมของเรา <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </div>
 </section>
 
@@ -681,7 +734,7 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
   <div class="wrap">
     <div data-only="home">
       <div class="split">
-        <div><span class="kick">ผลงานและลูกค้า</span><h2 class="h2">ระบบของเราดูแลองค์กรชั้นนำทั่วประเทศ</h2><p class="lead">ตั้งแต่ร้านค้าปลีกหลายพันสาขา ห้างสรรพสินค้า สถานีบริการน้ำมัน จนถึงหน่วยงานภาครัฐและทางพิเศษ ทีมของเราออกแบบ ติดตั้ง และดูแลระบบให้ทำงานได้ทุกวัน</p><div style="margin-top:28px"><a class="btn btn-o" href="#projects">ดูผลงานทั้งหมด <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+        <div><span class="kick">ผลงานและลูกค้า</span><h2 class="h2">ความไว้วางใจต่อ⁠เนื่องจากองค์กรชั้นนำ</h2><p class="lead">ตั้งแต่ร้านค้าปลีกหลายพันสาขา ห้างสรรพสินค้า สถานีบริการน้ำมัน จนถึงหน่วยงานภาครัฐและทางพิเศษ ลูกค้าหลายรายเลือกให้เราดูแลระบบต่อเนื่องหลายปี</p><div style="margin-top:28px"><a class="btn btn-o" href="#projects">ดูผลงานทั้งหมด <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
         <div class="stats"><div><div class="stat-n">6,500<small>+</small></div><div class="stat-l">สาขา 7-Eleven ที่ติดตั้งระบบ AI และ CCTV</div></div><div><div class="stat-n">100,000<small>+</small></div><div class="stat-l">กล้องในโครงการ CP ALL</div></div><div><div class="stat-n">1,500<small>คัน</small></div><div class="stat-l">รถขนส่งน้ำมัน ปตท. ที่ติดตั้งกล้อง</div></div><div><div class="stat-n">216</div><div class="stat-l">กล้อง LPR การทางพิเศษแห่งประเทศไทย</div></div></div>
       </div>
       <h3 class="subh">ได้รับความไว้วางใจจาก</h3>
@@ -708,16 +761,6 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
       <div class="proj"><div class="im"><img src="img/bigc.jpg" alt="Big C" loading="lazy"></div><div class="bd"><span class="pill">ส่งมอบแล้ว</span><h3>Big C และ BJC</h3><p class="sub">เปลี่ยนระบบ NVR และ DVR เป็น Hikvision · ค้าปลีก</p><p>ยกระดับระบบกล้องทั่วเครือข่าย บันทึกภาพในสาขาและบริหารผ่าน HikCentral</p><ul class="spec"><li><b>20,000+</b><span>กล้อง</span></li><li><b>1,500</b><span>สาขา</span></li><li><b>HCP</b><span>แพลตฟอร์มบริหาร</span></li></ul></div></div>
       <div class="proj"><div class="im"><img src="img/ptt.jpg" alt="รถขนส่งน้ำมัน ปตท." loading="lazy"></div><div class="bd"><span class="pill">ส่งมอบแล้ว</span><h3>ปตท. — กล้องบนรถขนส่งน้ำมัน</h3><p class="sub">ระบบกล้องบนยานพาหนะ · พลังงาน · 2018</p><p>ติดตั้งระบบกล้องบนรถขนส่งน้ำมันของ บริษัท ปตท. จำกัด (มหาชน) ทั้งกองรถ</p><ul class="spec"><li><b>1,500</b><span>คัน</span></li><li><b>2018</b><span>ปีที่ส่งมอบ</span></li><li><b>กองรถ</b><span>ทั่วประเทศ</span></li></ul></div></div>
       <div class="proj"><div class="im"><img src="img/talaadthai.jpg" alt="ตลาดไท" loading="lazy"></div><div class="bd"><span class="pill">ส่งมอบแล้ว</span><h3>ตลาดไท และตลาดสี่มุมเมือง</h3><p class="sub">ระบบอ่านป้ายทะเบียน (ANPR) · ตลาด</p><p>อ่านป้ายทะเบียนรถเข้าออกพื้นที่ตลาด บริหารจัดการผ่านแพลตฟอร์ม HikCentral</p><ul class="spec"><li><b>ANPR</b><span>อ่านป้ายทะเบียน</span></li><li><b>HCP</b><span>แพลตฟอร์มบริหาร</span></li><li><b>2</b><span>ตลาดค้าส่ง</span></li></ul></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" data-pages="home">
-  <div class="wrap">
-    <div class="head"><span class="kick">ผลงานล่าสุด</span><h2>โครงการที่ส่งมอบแล้ว</h2></div>
-    <div class="g2">
-      <a class="svc" href="#projects"><div class="svc-img"><img src="img/parliament.jpg" alt="รัฐสภา" loading="lazy"></div><div class="svc-body"><span class="pill">ส่งมอบแล้ว</span><h3>รัฐสภา — ระบบกล้องอ่านป้ายทะเบียน</h3><p>ตรวจจับและบันทึกป้ายทะเบียนรถทุกคันที่เข้าพื้นที่ ดำเนินโครงการปี 2022–2023</p><span class="more">ดูโครงการ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-      <a class="svc" href="#projects"><div class="svc-img"><img src="img/gowholesale.jpg" alt="Central GO Wholesale" loading="lazy"></div><div class="svc-body"><span class="pill">ส่งมอบแล้ว</span><h3>Central Food Retail และ Central GO Wholesale</h3><p>ระบบ CCTV ทุกสาขาของ Tops Market, Tops Daily, Central Food Hall และ Central GO Wholesale ปี 2016–2025</p><span class="more">ดูโครงการ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
     </div>
   </div>
 </section>
@@ -792,10 +835,10 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
   <div class="wrap">
     <div class="head"><span class="kick">จุดแข็ง</span><h2>จุดแข็งหลักสี่ด้าน</h2></div>
     <div class="g2">
-      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>ประสบการณ์กว่า 24 ปี</h3><p>ดำเนินธุรกิจระบบรักษาความปลอดภัยตั้งแต่ปี 2002 และเป็นตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทยตั้งแต่ปี 2006</p></div>
-      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v5M12 12l-6 5M12 12l6 5"/></svg></div><h3>เครือข่ายทั่วประเทศ</h3><p>ตัวแทนจำหน่ายและช่างบริการกว่า 500 ราย พร้อม Call Center ตลอด 24 ชั่วโมง ดูแลลูกค้าได้ทุกภูมิภาค</p></div>
-      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></svg></div><h3>มาตรฐานที่ตรวจสอบได้</h3><p>ได้รับรอง ISO 9001:2015 มาตรฐานธรรมาภิบาลธุรกิจ และ มอก.S พร้อมเตรียมความพร้อมเข้าจดทะเบียนในตลาดหลักทรัพย์ฯ</p></div>
-      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/></svg></div><h3>นวัตกรรมต่อเนื่อง</h3><p>ต่อยอดจากการจัดจำหน่ายสู่ Smart Transport, ศูนย์สาธิต DGF Smart AI Building และแพลตฟอร์มหุ่นยนต์ปี 2027</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></svg></div><h3>ผู้นำ Smart Security Solutions</h3><p>ตัวแทน Hikvision อย่างเป็นทางการรายแรกของไทย พร้อมแบรนด์ AiIOT ชั้นนำ และแพลตฟอร์มที่บริษัทพัฒนาเอง</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></div><h3>ทีมที่ปรึกษาและวิศวกร</h3><p>ให้คำปรึกษา สำรวจหน้างาน ออกแบบ และวางระบบ โดยทีมวิศวกรของบริษัท</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div><h3>ติดตั้งและบริการหลังการขาย</h3><p>ติดตั้งตามมาตรฐาน ISO 9001:2015 พร้อม Call Center 24 ชั่วโมง และช่างบริการกว่า 500 รายทั่วประเทศ</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 11l4-4 4 3 3-2 4 3 3-1"/><path d="M7 7l-4 4 6 6 2-1 2 2 2-1 4-4M11 16l2-2M13 18l2-2"/></svg></div><h3>ความสัมพันธ์ระยะยาว</h3><p>ดูแลระบบต่อเนื่องหลายปี เช่น Central Food Retail กว่า 10 ปี และ CP ALL 6 ปี</p></div>
     </div>
   </div>
 </section>
@@ -804,29 +847,29 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
   <div class="wrap">
     <div class="head"><span class="kick">เรื่องราวของเรา</span><h2>เส้นทางกว่า 24 ปี</h2></div>
     <div class="tl" style="max-width:860px">
-      <div class="tl-item"><div class="tl-y">2002</div><p>ก่อตั้ง บริษัท ดิจิตอลโฟกัส จำกัด ในธุรกิจระบบรักษาความปลอดภัยและกล้องวงจรปิด</p></div>
+      <div class="tl-item"><div class="tl-y">2002</div><p>ก่อตั้ง บริษัท ดิจิตอลโฟกัส จำกัด ให้บริการระบบกล้องวงจรปิดและระบบรักษาความปลอดภัยทั่วประเทศ</p></div>
       <div class="tl-item"><div class="tl-y">2006</div><p>ตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย และได้รับรอง ISO 9001</p></div>
-      <div class="tl-item"><div class="tl-y">2009</div><p>ขยายเครือข่ายตัวแทนจำหน่ายกว่า 500 รายทั่วประเทศ</p></div>
-      <div class="tl-item"><div class="tl-y">2016</div><p>อบรมช่างกล้องวงจรปิดกว่า 3,000 คนร่วมกับกรมพัฒนาฝีมือแรงงาน</p></div>
+      <div class="tl-item"><div class="tl-y">2009</div><p>ขยายเครือข่ายตัวแทนจำหน่ายและช่างบริการกว่า 500 ราย ดูแลลูกค้าได้ทุกภูมิภาค</p></div>
+      <div class="tl-item"><div class="tl-y">2016</div><p>อบรมช่างกล้องวงจรปิดกว่า 3,000 คน ร่วมกับกรมพัฒนาฝีมือแรงงาน</p></div>
       <div class="tl-item"><div class="tl-y">2019</div><p>รางวัล ASEAN Business Award สาขา Family Business ขนาดใหญ่</p></div>
-      <div class="tl-item"><div class="tl-y">2020–2024</div><p>โครงการทั่วประเทศกับ 7-Eleven, Central Group, CMG, J-Park และ PT พร้อมมาตรฐานธรรมาภิบาลธุรกิจและ มอก.S</p></div>
-      <div class="tl-item"><div class="tl-y">2026</div><p>คุณสมชาย ประจักษ์สูตร ได้รับรางวัล APEA 2026 สาขา Master Entrepreneur เปิดตัวโซลูชันใหม่ Smart AI Luxury House และศูนย์สาธิต DGF Smart AI Building พร้อมเตรียมเข้าจดทะเบียนในตลาดหลักทรัพย์ฯ</p></div>
+      <div class="tl-item"><div class="tl-y">2023</div><p>ขยายพอร์ตโฟลิโอ AiIOT สู่หุ่นยนต์อัจฉริยะ ระบบอัตโนมัติ และแพลตฟอร์มดิจิทัล</p></div>
+      <div class="tl-item"><div class="tl-y">2024 – ปัจจุบัน</div><p>ขับเคลื่อนนวัตกรรม Smart City, Smart Factory และ Smart Building ด้วย AI ทั่วอาเซียน</p></div>
+      <div class="tl-item"><div class="tl-y">2026</div><p>คุณสมชาย ประจักษ์สูตร ได้รับรางวัล APEA 2026 สาขา Master Entrepreneur พร้อมเตรียมเข้าจดทะเบียนในตลาดหลักทรัพย์ฯ</p></div>
     </div>
   </div>
 </section>
 
 <section class="sec dark" data-pages="about">
   <div class="wrap split">
-    <div class="frame"><img src="img/executives.jpg" alt="คุณสมชาย ประจักษ์สูตร และคุณศักดิพัฒน์ ประจักษ์สูตร ผู้บริหาร Digital Focus" loading="lazy"></div>
+    <div class="frame"><img src="img/ceo.jpg" alt="คุณสมชาย ประจักษ์สูตร ผู้ก่อตั้งและประธานเจ้าหน้าที่บริหาร Digital Focus" loading="lazy"></div>
     <div>
       <span class="kick">ผู้บริหาร</span>
       <h2 class="h2">นำโดยผู้ก่อตั้งที่อยู่กับธุรกิจความปลอดภัยมากว่า 24 ปี</h2>
       <blockquote class="quote" style="margin-top:26px;font-size:clamp(18px,2vw,22px)">“การเรียนรู้อย่างต่อเนื่อง ภาวะผู้นำที่มีจริยธรรม และนวัตกรรม สร้างความสำเร็จที่ยั่งยืนให้กับทุกคน”<cite>คุณสมชาย ประจักษ์สูตร · ผู้ก่อตั้งและประธานเจ้าหน้าที่บริหาร</cite></blockquote>
       <ul class="flist" style="margin-top:28px">
-        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>รางวัล APEA 2026</b> — Master Entrepreneur จาก Asia Pacific Enterprise Awards</span></li>
-        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Call Center ตลอด 24 ชั่วโมง</b> — รับแจ้งปัญหาและประสานช่างในพื้นที่</span></li>
+                <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Call Center ตลอด 24 ชั่วโมง</b> — รับแจ้งปัญหาและประสานช่างในพื้นที่</span></li>
         <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>พัฒนาทีมอย่างต่อเนื่อง</b> — อบรมร่วมกับแบรนด์และกรมพัฒนาฝีมือแรงงาน</span></li>
-        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>รางวัล ASEAN Business Award 2019</b> — สาขา Family Business ขนาดใหญ่</span></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>ดูแลลูกค้าระยะยาว</b> — ดูแลระบบของ Central Food Retail ต่อเนื่องกว่า 10 ปี</span></li>
       </ul>
     </div>
   </div>
@@ -834,13 +877,13 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
 
 <section class="sec" data-pages="about">
   <div class="wrap">
-    <div class="head"><span class="kick">รางวัลและการรับรอง</span><h2>รางวัลและมาตรฐานที่ได้รับ</h2></div>
-    <div class="proj"><div class="im"><img src="img/award-apea.jpg" alt="คุณสมชาย ประจักษ์สูตร ผู้ก่อตั้งและประธานเจ้าหน้าที่บริหาร Digital Focus" loading="lazy"></div><div class="bd"><span class="pill">รางวัลปี 2026</span><h3>Asia Pacific Enterprise Awards (APEA) 2026</h3><p class="sub">Master Entrepreneur Category · ประเทศไทย · จัดโดย Enterprise Asia</p><p>คุณสมชาย ประจักษ์สูตร ผู้ก่อตั้งและประธานเจ้าหน้าที่บริหาร ได้รับรางวัล Master Entrepreneur ในฐานะผู้นำที่เปลี่ยน Digital Focus จากผู้จำหน่ายกล้องวงจรปิด สู่ผู้ให้บริการโซลูชันเทคโนโลยีครบวงจร พร้อมให้ความสำคัญกับการพัฒนาบุคลากรและธรรมาภิบาล</p><a class="more" href="https://apea.asia/thailand/hall-of-fame-th-2026/master-entrepreneur-th-2026/digital-focus-company-limited-me-2026/" target="_blank" rel="noopener">ดูประกาศรางวัลบนเว็บไซต์ APEA <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
-    <div class="g4" style="margin-top:24px">
-      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 01-8 0zM8 6H5a3 3 0 003 4M16 6h3a3 3 0 01-3 4M12 13v4M9 21h6M10 17h4"/></svg></div><h3>ASEAN Business Award 2019</h3><p>สาขา Family Business ขนาดใหญ่</p></div>
-      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M9 13.5L8 21l4-2 4 2-1-7.5"/></svg></div><h3>ISO 9001:2015</h3><p>ระบบบริหารงานคุณภาพ ตั้งแต่ปี 2006</p></div>
-      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></svg></div><h3>มาตรฐานธรรมาภิบาลธุรกิจ</h3><p>การกำกับดูแลกิจการที่โปร่งใสและตรวจสอบได้</p></div>
-      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/></svg></div><h3>มอก.S</h3><p>มาตรฐาน SME จากสำนักงานมาตรฐานผลิตภัณฑ์อุตสาหกรรม</p></div>
+    <div class="head"><span class="kick">รางวัลและการรับรอง</span><h2>รางวัลและมาตรฐานที่ได้รับ</h2><p>การยอมรับจากเวทีระดับภูมิภาค และมาตรฐานที่ตรวจสอบได้</p></div>
+    <div class="awards">
+      <div class="card aw-main"><div class="ico"><svg viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 01-8 0zM8 6H5a3 3 0 003 4M16 6h3a3 3 0 01-3 4M12 13v4M9 21h6M10 17h4"/></svg></div><div class="yr">2026</div><h3>APEA 2026 · Master Entrepreneur</h3><p>Asia Pacific Enterprise Awards จัดโดย Enterprise Asia มอบให้คุณสมชาย ประจักษ์สูตร ผู้ก่อตั้งและประธานเจ้าหน้าที่บริหาร</p><a class="more" href="https://apea.asia/thailand/hall-of-fame-th-2026/master-entrepreneur-th-2026/digital-focus-company-limited-me-2026/" target="_blank" rel="noopener">ดูประกาศรางวัล <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></div><div class="yr">2019</div><h3>ASEAN Business Award</h3><p>สาขา Family Business ขนาดใหญ่</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M9 13.5L8 21l4-2 4 2-1-7.5"/></svg></div><div class="yr">ตั้งแต่ 2006</div><h3>ISO 9001:2015</h3><p>ระบบบริหารงานคุณภาพ</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></svg></div><div class="yr">ธรรมาภิบาล</div><h3>มาตรฐานธรรมาภิบาลธุรกิจ</h3><p>การกำกับดูแลกิจการที่โปร่งใสและตรวจสอบได้</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/></svg></div><div class="yr">มาตรฐาน</div><h3>มอก.S</h3><p>มาตรฐาน SME จากสำนักงานมาตรฐานผลิตภัณฑ์อุตสาหกรรม</p></div>
     </div>
   </div>
 </section>
@@ -922,7 +965,7 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
 <section class="sec" id="news" data-pages="news">
   <div class="wrap">
     <div class="head"><span class="kick">ห้องข่าว</span><h2>ข่าวสารและกิจกรรม</h2></div>
-    <div class="proj"><div class="im"><img src="img/award-apea.jpg" alt="คุณสมชาย ประจักษ์สูตร ผู้ก่อตั้งและประธานเจ้าหน้าที่บริหาร Digital Focus" loading="lazy"></div><div class="bd"><span class="pill">ข่าวเด่น · 2026</span><h3>Asia Pacific Enterprise Awards (APEA) 2026</h3><p class="sub">Master Entrepreneur Category · ประเทศไทย · จัดโดย Enterprise Asia</p><p>คุณสมชาย ประจักษ์สูตร ผู้ก่อตั้งและประธานเจ้าหน้าที่บริหาร ได้รับรางวัล Master Entrepreneur ในฐานะผู้นำที่เปลี่ยน Digital Focus จากผู้จำหน่ายกล้องวงจรปิด สู่ผู้ให้บริการโซลูชันเทคโนโลยีครบวงจร พร้อมให้ความสำคัญกับการพัฒนาบุคลากรและธรรมาภิบาล</p><a class="more" href="https://apea.asia/thailand/hall-of-fame-th-2026/master-entrepreneur-th-2026/digital-focus-company-limited-me-2026/" target="_blank" rel="noopener">ดูประกาศรางวัลบนเว็บไซต์ APEA <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+    <div class="proj"><div class="im"><img src="img/ceo.jpg" alt="คุณสมชาย ประจักษ์สูตร ผู้ก่อตั้งและประธานเจ้าหน้าที่บริหาร Digital Focus" loading="lazy"></div><div class="bd"><span class="pill">ข่าวเด่น · 2026</span><h3>Asia Pacific Enterprise Awards (APEA) 2026</h3><p class="sub">Master Entrepreneur Category · ประเทศไทย · จัดโดย Enterprise Asia</p><p>คุณสมชาย ประจักษ์สูตร ผู้ก่อตั้งและประธานเจ้าหน้าที่บริหาร ได้รับรางวัล Master Entrepreneur ในฐานะผู้นำที่เปลี่ยน Digital Focus จากผู้จำหน่ายกล้องวงจรปิด สู่ผู้ให้บริการโซลูชันเทคโนโลยีครบวงจร พร้อมให้ความสำคัญกับการพัฒนาบุคลากรและธรรมาภิบาล</p><a class="more" href="https://apea.asia/thailand/hall-of-fame-th-2026/master-entrepreneur-th-2026/digital-focus-company-limited-me-2026/" target="_blank" rel="noopener">ดูประกาศรางวัลบนเว็บไซต์ APEA <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
     <div class="gal" style="margin-top:24px">
       <figure><div class="im"><img src="img/news-hospitality.jpg" alt="งาน The AI-Powered Hospitality Era 2026" loading="lazy"></div><figcaption><span>2026 · [วันที่]</span>ร่วมงาน The AI-Powered Hospitality Era 2026 นำเสนอโซลูชัน AI สำหรับโรงแรม</figcaption></figure>
       <figure><div class="im"><img src="img/news-summit.jpg" alt="Hikvision Commercial Summit 2025" loading="lazy"></div><figcaption><span>2025 · [วันที่]</span>ร่วมงาน Hikvision Commercial Summit 2025 “Shaping Intelligence”</figcaption></figure>
@@ -1048,6 +1091,15 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
   </div>
 </footer>
 
+<div class="fchat" id="fchat">
+  <div class="fchat-list" id="fchatList" hidden>
+    <a href="https://lin.ee/Ajw1OZw" target="_blank" rel="noopener"><span class="ci line"><svg viewBox="0 0 24 24"><path d="M12 4C7 4 3 7.2 3 11.2c0 3.6 3.2 6.6 7.5 7.1l-.4 2.2 3.2-2.1C18 18 21 14.9 21 11.2 21 7.2 17 4 12 4z"/></svg></span>แชทผ่าน LINE</a>
+    <a href="https://m.me/61581609465585" target="_blank" rel="noopener"><span class="ci fb"><svg viewBox="0 0 24 24"><path d="M12 3.5c-4.8 0-8.5 3.5-8.5 8 0 2.5 1.2 4.7 3 6.1V21l2.9-1.6c.8.2 1.7.3 2.6.3 4.8 0 8.5-3.5 8.5-8s-3.7-8.2-8.5-8.2z"/><path d="M7.5 13.5l3-3 2 2 4-3.5-3 3.5-2-2z"/></svg></span>Facebook Messenger</a>
+    <a href="tel:021368989"><span class="ci tel"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg></span>โทร 02 136 8989</a>
+    <a href="mailto:info@digitalfocus.co.th"><span class="ci mail"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>info@digitalfocus.co.th</a>
+  </div>
+  <button class="fchat-btn" id="fchatBtn" type="button" aria-expanded="false" aria-controls="fchatList"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg><span>แชทกับเรา</span></button>
+</div>
 <div class="cookie" id="cookie" role="region" aria-label="การตั้งค่าคุกกี้" hidden><p>เราใช้คุกกี้ที่จำเป็นต่อการทำงานของเว็บไซต์ และใช้คุกกี้เพื่อการวิเคราะห์เมื่อคุณยินยอม ตาม พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562</p><div><button class="btn btn-p" type="button" data-c="all">ยอมรับทั้งหมด</button><button class="btn btn-o" type="button" data-c="necessary">เฉพาะที่จำเป็น</button></div></div>
 
 <script>
@@ -1153,6 +1205,10 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
   });
 
   document.getElementById('irForm').addEventListener('submit',function(e){e.preventDefault();document.getElementById('irOk').hidden=false});
+  var fb=document.getElementById('fchatBtn'),fl=document.getElementById('fchatList');
+  fb.addEventListener('click',function(){var open=fl.hidden;fl.hidden=!open;fb.setAttribute('aria-expanded',open?'true':'false')});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!fl.hidden){fl.hidden=true;fb.setAttribute('aria-expanded','false');fb.focus()}});
+  [].forEach.call(document.querySelectorAll('.lang a'),function(a){a.addEventListener('click',function(e){if(a.classList.contains('on')){e.preventDefault();return}a.href=a.getAttribute('href').split('#')[0]+location.hash})});
   var ck=document.getElementById('cookie'),saved=null;
   try{saved=localStorage.getItem('df-cookie')}catch(e){}
   if(!saved) ck.hidden=false;
