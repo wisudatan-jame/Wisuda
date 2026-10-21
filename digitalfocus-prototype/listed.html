@@ -302,14 +302,6 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 .capc ul{list-style:none;margin-top:16px;padding-top:16px;border-top:1px dashed var(--line);display:flex;flex-wrap:wrap;gap:6px}
 .capc li{font-size:12.5px;color:var(--navy-700);background:var(--paper-2);border:1px solid var(--line-soft);border-radius:999px;padding:4px 10px}
 
-/* process steps */
-.psteps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
-@media(max-width:1000px){.psteps{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.psteps{grid-template-columns:1fr}}
-.psteps li{counter-increment:s;position:relative;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px}
-.psteps li::before{content:counter(s,decimal-leading-zero);display:block;width:40px;height:40px;border-radius:10px;background:var(--navy-800);color:#fff;font:700 14px/40px var(--display);text-align:center;margin-bottom:16px}
-.psteps h3{font-size:17.5px;color:var(--navy-800);margin-bottom:8px}
-.psteps p{font-size:14.5px;color:var(--ink-70)}
 
 /* business detail */
 .bizd .g2{margin-top:30px}
@@ -326,20 +318,6 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
 .badge-aw b{display:block;font:600 15px/1.3 var(--display)}
 .badge-aw span{display:block;font-size:12.5px;line-height:1.45;color:#a9bcd6}
 
-/* service lifecycle */
-.cycle{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-@media(max-width:1100px){.cycle{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:700px){.cycle{grid-template-columns:1fr 1fr}}
-@media(max-width:460px){.cycle{grid-template-columns:1fr}}
-.cycle li{position:relative;counter-increment:c;background:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:24px 22px}
-.cycle{counter-reset:c}
-.cycle li::after{content:"0" counter(c);position:absolute;top:24px;right:20px;font:700 13px/1 var(--display);letter-spacing:.08em;color:#6c87ab}
-.cycle .ico{background:rgba(255,255,255,.08);color:#fff}
-.cycle h3{font-size:17.5px;color:#fff;margin-bottom:8px}
-.cycle p{font-size:14.5px;color:#9fb4d0;line-height:1.65}
-.cycle li.hl{background:var(--accent);border-color:var(--accent)}
-.cycle li.hl .ico{background:rgba(255,255,255,.18)}
-.cycle li.hl p{color:#e3eeff}.cycle li.hl::after{color:#d4e4ff}
 .dark .stats{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.12)}
 .dark .stats>div{background:var(--navy-900)}
 .dark .stat-n{color:#fff}.dark .stat-n small{color:#9fb4d0}.dark .stat-l{color:#93aac9}
@@ -370,6 +348,20 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
 @media(max-width:560px){.fchat-btn span{display:none}.fchat-btn{width:54px;padding:0;justify-content:center}}
 .lang a{font:600 11.5px/1 var(--body);letter-spacing:.06em;color:var(--ink-45);padding:7px 11px;border-radius:999px}
 .lang a.on{background:var(--navy-700);color:#fff}
+
+/* full-service stepper (projects page) */
+.vsteps{list-style:none;margin:0;padding:0}
+.vsteps li{position:relative;display:grid;grid-template-columns:46px 1fr;gap:18px;padding-bottom:24px}
+.vsteps li:last-child{padding-bottom:0}
+.vsteps li::before{content:"";position:absolute;left:22px;top:46px;bottom:0;width:2px;background:rgba(255,255,255,.14)}
+.vsteps li:last-child::before{display:none}
+.vsteps .n{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.24);background:var(--navy-900);color:#fff;font:700 14px/1 var(--display)}
+.vsteps h3{font-size:18px;color:#fff;margin:10px 0 4px}
+.vsteps p{font-size:15px;color:#9fb4d0;line-height:1.65}
+.vsteps li.hl .n{background:var(--accent);border-color:var(--accent)}
+.vsteps li.hl>div{background:rgba(46,123,255,.14);border:1px solid rgba(46,123,255,.4);border-radius:var(--r);padding:0 18px 16px;margin-top:-2px}
+.stats.two{grid-template-columns:1fr 1fr}
+@media(max-width:560px){.stats.two>div{padding:22px 18px}.stats.two .stat-n{font-size:28px}}
 
 /* partner form */
 .pform{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px;display:grid;gap:16px;box-shadow:var(--sh-1);min-width:0}
@@ -526,26 +518,6 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
   </div>
 </section>
 
-<section class="sec dark" data-pages="home">
-  <div class="wrap">
-    <div class="head mid"><span class="kick">บริการครบวงจร</span><h2>ทีมเดียว ดูแลครบทุกขั้นตอน</h2><p>ตั้งแต่วันแรกที่ปรึกษา จนถึงวันที่ระบบทำงานมาหลายปี ลูกค้าทำงานกับทีมเดียวกันตลอด</p></div>
-    <ol class="cycle">
-      <li><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg></div><h3>ที่ปรึกษา</h3><p>รับฟังโจทย์ สำรวจหน้างาน และประเมินความเสี่ยงของพื้นที่</p></li>
-      <li><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></div><h3>ออกแบบระบบ</h3><p>วิศวกรออกแบบระบบและตำแหน่งอุปกรณ์ ให้คุ้มค่าและขยายต่อได้</p></li>
-      <li><div class="ico"><svg viewBox="0 0 24 24"><path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 01-12 0zM12 17v4"/></svg></div><h3>วางระบบและติดตั้ง</h3><p>ติดตั้งตามมาตรฐาน ISO 9001:2015 และเชื่อมทุกระบบเข้าแพลตฟอร์มเดียว</p></li>
-      <li><div class="ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div><h3>บริการหลังการขาย</h3><p>Call Center 24 ชั่วโมง ทีมช่างทั่วประเทศ และสัญญาดูแลพร้อม SLA</p></li>
-      <li class="hl"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 11l4-4 4 3 3-2 4 3 3-1"/><path d="M7 7l-4 4 6 6 2-1 2 2 2-1 4-4M11 16l2-2M13 18l2-2"/></svg></div><h3>ความสัมพันธ์ระยะยาว</h3><p>อัปเกรดและขยายระบบไปพร้อมการเติบโตของลูกค้า ดูแลต่อเนื่องหลายปี</p></li>
-    </ol>
-    <div class="stats" style="margin-top:28px">
-      <div><div class="stat-n">10<small>ปี</small></div><div class="stat-l">ดูแลระบบ CCTV ให้ Central Food Retail (2016–2025)</div></div>
-      <div><div class="stat-n">6<small>ปี</small></div><div class="stat-l">โครงการ AI และ CCTV ของ CP ALL (2018–2023)</div></div>
-      <div><div class="stat-n">24<small>ชม.</small></div><div class="stat-l">Call Center รับแจ้งปัญหาทุกวัน</div></div>
-      <div><div class="stat-n">500<small>+</small></div><div class="stat-l">ตัวแทนและช่างบริการทั่วประเทศ</div></div>
-    </div>
-    <div style="margin-top:34px;text-align:center"><a class="btn btn-p" href="#contact">ปรึกษาทีมของเรา <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-  </div>
-</section>
-
 <section class="sec" data-pages="solutions">
   <div class="wrap">
     <div class="head mid"><span class="kick">โซลูชันแบบเชื่อมต่อ</span><h2>ระบบความปลอดภัยที่ทำงานร่วมกันทั้งองค์กร</h2><p>เชื่อมเครือข่าย กล้อง AI อุปกรณ์ IoT และศูนย์สั่งการเข้าด้วยกัน ให้ทุกระบบส่งข้อมูลถึงกันและบริหารได้จากที่เดียว</p></div>
@@ -611,19 +583,6 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="sec" data-pages="solutions">
-  <div class="wrap">
-    <div class="head mid"><span class="kick">ขั้นตอนการทำงาน</span><h2>จากหน้างานจริง สู่ระบบที่ใช้งานได้ทุกวัน</h2></div>
-    <ol class="psteps">
-      <li><h3>สำรวจหน้างาน</h3><p>วิศวกรเข้าสำรวจพื้นที่ ประเมินความเสี่ยง และรับฟังโจทย์ขององค์กร</p></li>
-      <li><h3>ออกแบบและเสนอราคา</h3><p>ออกแบบตำแหน่งอุปกรณ์และระบบ พร้อมทางเลือกทั้งซื้อขาดและบริการรายเดือน</p></li>
-      <li><h3>ติดตั้งและทดสอบ</h3><p>ติดตั้งตามมาตรฐาน ISO 9001:2015 ทดสอบระบบ และอบรมผู้ใช้งานก่อนส่งมอบ</p></li>
-      <li><h3>ดูแลหลังการขาย</h3><p>Call Center ตลอด 24 ชั่วโมง ทีมช่างทั่วประเทศ และสัญญาดูแลรักษาพร้อม SLA</p></li>
-    </ol>
-    <div style="margin-top:36px;text-align:center"><a class="btn btn-p" href="#contact">นัดสำรวจหน้างาน <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </div>
 </section>
 
@@ -762,6 +721,25 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
       <div class="proj"><div class="im"><img src="img/ptt.jpg" alt="รถขนส่งน้ำมัน ปตท." loading="lazy"></div><div class="bd"><span class="pill">ส่งมอบแล้ว</span><h3>ปตท. — กล้องบนรถขนส่งน้ำมัน</h3><p class="sub">ระบบกล้องบนยานพาหนะ · พลังงาน · 2018</p><p>ติดตั้งระบบกล้องบนรถขนส่งน้ำมันของ บริษัท ปตท. จำกัด (มหาชน) ทั้งกองรถ</p><ul class="spec"><li><b>1,500</b><span>คัน</span></li><li><b>2018</b><span>ปีที่ส่งมอบ</span></li><li><b>กองรถ</b><span>ทั่วประเทศ</span></li></ul></div></div>
       <div class="proj"><div class="im"><img src="img/talaadthai.jpg" alt="ตลาดไท" loading="lazy"></div><div class="bd"><span class="pill">ส่งมอบแล้ว</span><h3>ตลาดไท และตลาดสี่มุมเมือง</h3><p class="sub">ระบบอ่านป้ายทะเบียน (ANPR) · ตลาด</p><p>อ่านป้ายทะเบียนรถเข้าออกพื้นที่ตลาด บริหารจัดการผ่านแพลตฟอร์ม HikCentral</p><ul class="spec"><li><b>ANPR</b><span>อ่านป้ายทะเบียน</span></li><li><b>HCP</b><span>แพลตฟอร์มบริหาร</span></li><li><b>2</b><span>ตลาดค้าส่ง</span></li></ul></div></div>
     </div>
+  </div>
+</section>
+
+<section class="sec dark" data-pages="projects">
+  <div class="wrap split" style="align-items:start">
+    <div>
+      <span class="kick">บริการครบวงจร</span>
+      <h2 class="h2">ทีมเดียว ดูแลตั้งแต่วันแรกจนตลอดอายุการใช้งาน</h2>
+      <p class="lead">ลูกค้าทำงานกับทีมเดียวกันตั้งแต่ขั้นปรึกษาจนถึงหลังการขาย ความสัมพันธ์จึงต่อเนื่องหลายปี และระบบเติบโตไปพร้อมธุรกิจของลูกค้า</p>
+      <div class="stats two" style="margin-top:30px"><div><div class="stat-n">10<small>ปี</small></div><div class="stat-l">ดูแลระบบ CCTV ให้ Central Food Retail (2016–2025)</div></div><div><div class="stat-n">6<small>ปี</small></div><div class="stat-l">โครงการ AI และ CCTV ของ CP ALL (2018–2023)</div></div><div><div class="stat-n">24<small>ชม.</small></div><div class="stat-l">Call Center รับแจ้งปัญหาทุกวัน</div></div><div><div class="stat-n">500<small>+</small></div><div class="stat-l">ตัวแทนและช่างบริการทั่วประเทศ</div></div></div>
+      <div style="margin-top:30px"><a class="btn btn-p" href="#contact">ปรึกษาทีมของเรา <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+    <ol class="vsteps">
+      <li><span class="n">01</span><div><h3>ที่ปรึกษา</h3><p>รับฟังโจทย์ สำรวจหน้างาน และประเมินความเสี่ยงของพื้นที่</p></div></li>
+      <li><span class="n">02</span><div><h3>ออกแบบระบบ</h3><p>วิศวกรออกแบบระบบและตำแหน่งอุปกรณ์ ให้คุ้มค่าและขยายต่อได้</p></div></li>
+      <li><span class="n">03</span><div><h3>วางระบบและติดตั้ง</h3><p>ติดตั้งตามมาตรฐาน ISO 9001:2015 และเชื่อมทุกระบบเข้าแพลตฟอร์มเดียว</p></div></li>
+      <li><span class="n">04</span><div><h3>บริการหลังการขาย</h3><p>Call Center 24 ชั่วโมง ทีมช่างทั่วประเทศ และสัญญาดูแลพร้อม SLA</p></div></li>
+      <li class="hl"><span class="n">05</span><div><h3>ความสัมพันธ์ระยะยาว</h3><p>อัปเกรดและขยายระบบไปพร้อมการเติบโตของลูกค้า ดูแลต่อเนื่องหลายปี</p></div></li>
+    </ol>
   </div>
 </section>
 
