@@ -9,14 +9,14 @@ add_action('customize_register', function (WP_Customize_Manager $c) {
     $c->add_panel('df', ['title' => 'Digital Focus', 'priority' => 30]);
 
     $c->add_section('df_look', ['title' => 'โทนสี', 'panel' => 'df']);
-    $c->add_setting('df_palette', ['default' => 'a', 'sanitize_callback' => function ($v) {
-        return $v === 'b' ? 'b' : 'a';
+    $c->add_setting('df_palette', ['default' => 'b', 'sanitize_callback' => function ($v) {
+        return $v === 'a' ? 'a' : 'b';
     }]);
     $c->add_control('df_palette', [
         'label'   => 'โทนสีของเว็บไซต์',
         'section' => 'df_look',
         'type'    => 'radio',
-        'choices' => ['a' => 'แบบ A · น้ำเงินกรมท่า', 'b' => 'แบบ B · น้ำเงินครามและแดง (สีเว็บเดิม)'],
+        'choices' => ['b' => 'แบบ B · น้ำเงินครามและแดง (ผู้บริหารเลือก)', 'a' => 'แบบ A · น้ำเงินกรมท่า'],
     ]);
 
     $c->add_section('df_contact', ['title' => 'ข้อมูลติดต่อและปุ่มแชท', 'panel' => 'df']);

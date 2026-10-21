@@ -29,7 +29,7 @@ add_action('after_setup_theme', function () {
 });
 
 add_action('wp_enqueue_scripts', function () {
-    $palette = get_theme_mod('df_palette', 'a') === 'b' ? 'b' : 'a';
+    $palette = get_theme_mod('df_palette', 'b') === 'a' ? 'a' : 'b';
     wp_enqueue_style('df-fonts', 'https://fonts.googleapis.com/css2?family=Anuphan:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap', [], null);
     wp_enqueue_style('df-site', DF_URI . "/assets/css/site-{$palette}.css", ['df-fonts'], DF_VERSION);
     wp_enqueue_script('df-site', DF_URI . '/assets/js/site.js', [], DF_VERSION, true);
