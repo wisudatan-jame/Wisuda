@@ -72,7 +72,7 @@ figure{margin:0;background:var(--surface);border:1px solid var(--line);border-ra
 figure .tag{display:flex;align-items:center;gap:8px;padding:10px 14px;font:600 13px/1.2 var(--display);border-bottom:1px solid var(--line)}
 figure .tag::before{content:"";width:9px;height:9px;border-radius:50%;background:currentColor}
 figure.o .tag{color:var(--old)} figure.n .tag{color:var(--new)}
-figure .img{background:#fff;max-height:560px;overflow:auto}
+figure .img{background:#fff}
 figure figcaption{padding:12px 14px 14px;font-size:14px;color:var(--muted);border-top:1px solid var(--line)}
 figure figcaption ul{margin:0;padding-left:18px;display:grid;gap:4px}
 
@@ -89,37 +89,65 @@ figure figcaption ul{margin:0;padding-left:18px;display:grid;gap:4px}
 .steps span{color:var(--muted);font-size:15px}
 .note{margin-top:28px;font-size:13.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
 :focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
-</style>
 
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+@media(max-width:760px){.opts{grid-template-columns:1fr}}
+.opt figure .tag{color:var(--indigo)}
+.opt h3{font-size:19px;font-weight:600;margin-bottom:4px}
+.opt p{color:var(--muted);font-size:14.5px;margin-bottom:12px}
+.sw{display:flex;gap:6px;margin-bottom:12px}
+.sw i{width:26px;height:26px;border-radius:7px;border:1px solid var(--line)}
+.mobrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:18px}
+@media(max-width:760px){.mobrow{grid-template-columns:1fr 1fr}}
+@media print{
+  @page{size:A4;margin:12mm}
+  body{background:#fff;font-size:12.5px}
+  section{padding-block:22px}
+  .top{padding-block:20px}
+  .pair,.opt,figure,.vc,tr,.steps li{break-inside:avoid}
+  .pair{break-before:auto}
+  .links{display:none}
+  .shots{grid-template-columns:1fr 1fr}
+  .verdict{grid-template-columns:repeat(3,1fr)}
+  .opts{grid-template-columns:1fr 1fr}
+  .mobrow{grid-template-columns:repeat(4,1fr)}
+  .tbl{overflow:visible}
+  .pb{break-before:page}
+  h2,.lede,.pair h3,.pair .why{break-after:avoid}
+  .pair{margin-top:22px}
+  .shots.mob{max-width:none}
+  .mobrow figure .img img,.shots.mob .img img{max-height:118mm;width:auto;margin:0 auto}
+  table{min-width:0}
+}
+</style>
 <header class="top">
   <div class="wrap">
     <span class="tri" aria-hidden="true"></span>
     <p class="label">ข้อเสนอปรับปรุงเว็บไซต์</p>
     <h1 style="margin-top:10px">Digital Focus เว็บไซต์ใหม่ เทียบกับเว็บไซต์เดิม</h1>
-    <div class="meta"><span>บริษัท ดิจิตอลโฟกัส จำกัด</span><span>จัดทำ 20 ตุลาคม 2026</span><span>สำหรับผู้บริหารและทีมการตลาด</span></div>
+    <div class="meta"><span>บริษัท ดิจิตอลโฟกัส จำกัด</span><span>จัดทำ 21 ตุลาคม 2026</span><span>สำหรับการพิจารณาของผู้บริหาร</span></div>
     <div class="links">
-      <a class="pri" href="https://claude.ai/artifact/BRgZNTvFB3RrW1BjYrYDVP" target="_blank" rel="noopener">เปิดต้นแบบเว็บใหม่ ↗</a>
-      <a href="https://www.digitalfocus.co.th/" target="_blank" rel="noopener">เปิดเว็บเดิม digitalfocus.co.th ↗</a>
+      <a class="pri" href="https://claude.ai/artifact/BRgZNTvFB3RrW1BjYrYDVP" target="_blank" rel="noopener">เว็บใหม่ แบบ A โทนน้ำเงินกรมท่า ↗</a>
+      <a class="pri" href="https://claude.ai/artifact/QrcBssnY9F5qVhNSudFMjc" target="_blank" rel="noopener">เว็บใหม่ แบบ B โทนสีเว็บเดิม ↗</a>
+      <a href="https://www.digitalfocus.co.th/" target="_blank" rel="noopener">เว็บเดิม digitalfocus.co.th ↗</a>
     </div>
   </div>
 </header>
-
 <main>
 <section>
   <div class="wrap">
     <div class="narrow">
       <span class="tri" aria-hidden="true"></span>
       <h2>สรุปสำหรับผู้บริหาร</h2>
-      <p class="lede">เว็บใหม่เปลี่ยนภาพจาก “ผู้จำหน่ายกล้องวงจรปิด” เป็น “ผู้นำ AI &amp; AIoT ที่เตรียมเข้าตลาดหลักทรัพย์” และแสดงหลักฐานความน่าเชื่อถือที่เว็บเดิมไม่ได้ใช้ ส่วนที่เว็บเดิมยังทำได้ดีกว่าคือระบบหลังบ้านและหน้ารายละเอียดเชิงลึก ซึ่งแก้ได้ด้วยการนำดีไซน์ใหม่ไปติดตั้งบน WordPress เดิม</p>
+      <p class="lede">เว็บใหม่เปลี่ยนภาพของบริษัทจาก “ผู้จำหน่ายกล้องวงจรปิด” เป็น “ผู้นำ Smart Security Solutions &amp; AiIOT ครบวงจร” ที่เตรียมเข้าตลาดหลักทรัพย์ฯ ใช้รูปแบบเว็บไซต์ของบริษัทจดทะเบียน ชูผู้บริหาร รางวัล ผลงาน และการดูแลลูกค้าระยะยาว พร้อมภาษาไทยและอังกฤษ</p>
     </div>
     <div class="verdict">
-      <div class="vc g"><b>11 ด้าน</b><span>เว็บใหม่ดีกว่า จาก 14 ด้านที่ประเมิน</span></div>
-      <div class="vc a"><b>3 ด้าน</b><span>เว็บเดิมยังได้เปรียบ (ระบบหลังบ้าน หน้ารายละเอียด และเครื่องคำนวณโซลาร์)</span></div>
-      <div class="vc r"><b>5 จุด</b><span>ข้อผิดพลาดบนเว็บเดิมที่ผู้เข้าชมเห็นได้ทันที</span></div>
+      <div class="vc g"><b>14 ด้าน</b><span>ที่เว็บใหม่ดีกว่าเว็บเดิม จากการเปรียบเทียบด้านล่าง</span></div>
+      <div class="vc a"><b>2 แบบ</b><span>โทนสีให้ผู้บริหารเลือก เนื้อหาและโครงสร้างเหมือนกันทุกหน้า</span></div>
+      <div class="vc r"><b>5 จุด</b><span>ที่ลดความน่าเชื่อถือบนเว็บเดิม: ตัวเลขปีไม่ตรงกัน ข่าวว่างเปล่า ไม่มีผลงาน อีเมล Gmail และชื่อแบรนด์เก่าในผลค้นหา</span></div>
     </div>
   </div>
 </section>
-
 <section style="padding-top:0">
   <div class="wrap">
     <span class="tri" aria-hidden="true"></span>
@@ -128,106 +156,106 @@ figure figcaption ul{margin:0;padding-left:18px;display:grid;gap:4px}
       <table>
         <thead><tr><th>ด้าน</th><th>เว็บเดิม</th><th>เว็บใหม่</th><th>ผล</th></tr></thead>
         <tbody>
-          <tr><td>ข้อความหลัก</td><td>“ผู้นำด้านระบบรักษาความปลอดภัย” ไม่พูดถึง AI</td><td>“ผู้นำระบบรักษาความปลอดภัย AI &amp; AIoT ของไทย”</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
-          <tr><td>ภาพลักษณ์</td><td>ผู้ขายอุปกรณ์ แถบสีแดงข้อความแน่น ภาพ stock</td><td>บริษัทเทคโนโลยี สีจากโลโก้ ภาพผลงานและอาคารจริง</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
-          <tr><td>ชื่อเว็บใน Google</td><td>ยังระบุแบรนด์เก่า Jigami, Wulian, Max View, iHorn</td><td>ตั้งใหม่ตอนขึ้นเว็บจริง</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
-          <tr><td>ตัวเลขความน่าเชื่อถือ</td><td>24 ปี, 23 ปี และ 19 ปี ในหน้าเดียวกัน</td><td>24+ ปี, 500+ ราย, 6,500+ สาขา ตรงกันทั้งเว็บ</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
-          <tr><td>เมนู</td><td>บนมือถือไม่เห็นเมนูชัดเจน</td><td>8 เมนู คลิกแล้วเปลี่ยนหน้า มีปุ่มเมนูบนมือถือ</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
-          <tr><td>โซลูชัน</td><td>Carousel ประมาณ 24 สไลด์ คำอธิบายสั้น</td><td>6 อุตสาหกรรม ภาพอาคารจำลองพร้อมรายการระบบ</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
-          <tr><td>ผลิตภัณฑ์</td><td>หัวข้อ “แบรนด์ของเรา” แสดงภาพผู้บริหาร</td><td>การ์ดแบรนด์ละใบ และแพ็กเกจ BroadLink</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
-          <tr><td>ผลงานและลูกค้า</td><td>ไม่มี</td><td>6 โครงการพร้อมตัวเลข และลูกค้าแยกตามอุตสาหกรรม</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
-          <tr><td>ข่าวสาร</td><td>ส่วนข่าวว่างเปล่า</td><td>4 ข่าวพร้อมภาพจริง</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
-          <tr><td>ความยั่งยืนและนักลงทุน</td><td>ไม่มี</td><td>E / S / G พร้อมภาพกิจกรรม 22 ภาพ และข้อมูลนักลงทุนช่วงเตรียม IPO</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
-          <tr><td>สมัครตัวแทนและติดต่อ</td><td>แบนเนอร์เชิญชวน อีเมล Gmail</td><td>ฟอร์มสมัคร 2 ประเภท อีเมลบริษัท และช่องทางออนไลน์ 7 ช่องทาง</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
-          <tr><td>ระบบจัดการเนื้อหา</td><td>WordPress ทีมเพิ่มข่าวเองได้</td><td>ไฟล์ HTML ต้องแก้โค้ด</td><td><span class="chip a">เดิมได้เปรียบ</span></td></tr>
-          <tr><td>หน้ารายละเอียด</td><td>หน้าแยกต่อโซลูชัน เช่น Smart Hospital</td><td>ยังรวมอยู่ในหน้าโซลูชัน</td><td><span class="chip a">เดิมได้เปรียบ</span></td></tr>
-          <tr><td>เครื่องมือ</td><td>เครื่องคำนวณโซลาร์รูฟท็อป</td><td>ยังไม่มี</td><td><span class="chip a">เดิมได้เปรียบ</span></td></tr>
+          <tr><td>ข้อความหลัก</td><td>“ผู้นำด้านระบบรักษาความปลอดภัย” ไม่พูดถึงเทคโนโลยี AI</td><td>“ผู้นำ Smart Security Solutions &amp; AiIOT ครบวงจร”</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
+          <tr><td>ภาพลักษณ์</td><td>ผู้จำหน่ายอุปกรณ์ แถบสีแดงข้อความแน่น ภาพ stock</td><td>รูปแบบเว็บบริษัทจดทะเบียน ภาพผลงานและภาพผู้บริหารจริง มี 2 โทนสีให้เลือก</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
+          <tr><td>ผู้บริหารและรางวัล</td><td>ภาพผู้บริหารอยู่ในหัวข้อ “แบรนด์ของเรา”</td><td>วิสัยทัศน์ พันธกิจ ผู้บริหาร และรางวัล APEA 2026 Master Entrepreneur</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
+          <tr><td>ตัวเลขความน่าเชื่อถือ</td><td>24 ปี, 23 ปี และ 19 ปี ปนกันในหน้าเดียว</td><td>24+ ปี, 500+ ราย, 6,500+ สาขา ตรงกันทุกหน้า</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
+          <tr><td>ธุรกิจและบริการ</td><td>ไม่ได้อธิบายว่าบริษัททำธุรกิจอะไรบ้าง</td><td>4 ธุรกิจ บริการรายเดือนและหลังการขาย และทีมเดียวดูแลครบทุกขั้นตอน</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
+          <tr><td>โซลูชัน</td><td>Carousel ประมาณ 24 สไลด์ คำอธิบายสั้น</td><td>6 กลุ่มเทคโนโลยี และ 6 อุตสาหกรรม พร้อมภาพอาคารจำลองที่ระบุระบบทุกจุด</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
+          <tr><td>ผลิตภัณฑ์</td><td>หัวข้อ “แบรนด์ของเรา” แต่แสดงภาพผู้บริหาร</td><td>การ์ดแบรนด์ละใบ Hikvision, BroadLink, Huawei และพันธมิตรอื่น</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
+          <tr><td>ผลงานและลูกค้า</td><td>ไม่มี</td><td>6 โครงการพร้อมตัวเลข ลูกค้าแยกตามอุตสาหกรรม และความสัมพันธ์ระยะยาว</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
+          <tr><td>ข่าวสาร</td><td>ส่วนข่าวว่างเปล่า</td><td>ข่าวเด่นรางวัล APEA 2026 และข่าวกิจกรรมพร้อมภาพจริง</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
+          <tr><td>ความยั่งยืน</td><td>ไม่มี</td><td>สิ่งแวดล้อม สังคม และธรรมาภิบาล พร้อมภาพกิจกรรม</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
+          <tr><td>นักลงทุนสัมพันธ์</td><td>ไม่มี</td><td>ปุ่มนักลงทุนสัมพันธ์บนเมนู จุดเด่นการลงทุน และข้อมูลทั่วไปของบริษัท</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
+          <tr><td>ติดต่อและพันธมิตร</td><td>แบนเนอร์เชิญชวน และอีเมล Gmail</td><td>ฟอร์มสมัครพันธมิตร 2 ประเภท อีเมลบริษัท ช่องทางออนไลน์ 7 ช่องทาง</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
+          <tr><td>มือถือและแชท</td><td>เมนูบนมือถือไม่ชัดเจน</td><td>เมนูสามขีด ปุ่มแชทลอยไป LINE, Messenger, โทร และอีเมล</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
+          <tr><td>ภาษา</td><td>ภาษาไทยเป็นหลัก</td><td>ไทยและอังกฤษครบทุกหน้า สลับภาษาได้จากเมนูด้านบน</td><td><span class="chip g">ใหม่ดีกว่า</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
 </section>
-
-<section style="padding-top:0">
+<section style="padding-top:0" class="pb">
   <div class="wrap">
     <span class="tri" aria-hidden="true"></span>
     <h2>ภาพก่อนและหลัง</h2>
-    <p class="lede">ภาพเว็บเดิมบนคอมพิวเตอร์บันทึกจากเว็บจริงวันที่ 20 ตุลาคม 2026 ภาพมือถือของเว็บเดิมมาจากหน้าจอ iPhone ที่ทีมส่งมา ภาพเลื่อนดูภายในกรอบได้</p>
-
+    <p class="lede">ภาพเว็บใหม่ในส่วนนี้คือแบบ A โทนน้ำเงินกรมท่า ภาพเว็บเดิมบันทึกจาก digitalfocus.co.th วันที่ 20 ตุลาคม 2026 และจากโทรศัพท์มือถือ ภาพเคลื่อนไหวและวิดีโอบางส่วนอาจไม่แสดงในภาพ</p>
     <div class="pair">
       <h3>1. หน้าแรก ส่วนบนสุด</h3>
-      <p class="why">ผู้เข้าชมตัดสินใจภายในไม่กี่วินาทีจากส่วนนี้ เว็บใหม่บอกทันทีว่าบริษัททำอะไร และพิสูจน์ด้วยตัวเลข</p>
+      <p class="why">ผู้เข้าชมตัดสินใจภายในไม่กี่วินาทีจากส่วนนี้ เว็บใหม่บอกทันทีว่าบริษัทเป็นใคร ทำอะไร และพิสูจน์ด้วยตัวเลข</p>
       <div class="shots">
-        <figure class="o"><span class="tag">เว็บเดิม</span><div class="img"><img src="img/compare/old-hero.jpg" alt="ส่วนบนของหน้าแรกเว็บเดิม" loading="lazy"></div><figcaption><ul><li>มีเพียงคำว่า SMART LIFE SMART SOLUTION บนวิดีโอวงแหวน (วิดีโอไม่แสดงในภาพนิ่ง)</li><li>ไม่มีปุ่มให้ทำอะไรต่อ</li></ul></figcaption></figure>
-        <figure class="n"><span class="tag">เว็บใหม่</span><div class="img"><img src="img/compare/new-hero.jpg" alt="ส่วนบนของหน้าแรกเว็บใหม่" loading="lazy"></div><figcaption><ul><li>พาดหัวชัดเรื่อง AI &amp; AIoT และสถานะเตรียมเข้าตลาดหลักทรัพย์</li><li>ปุ่ม 2 ปุ่ม และตัวเลข 24+ / 500+ / 6,500+</li></ul></figcaption></figure>
+        <figure class="o"><span class="tag">เว็บเดิม</span><div class="img"><img src="img/compare/old-hero.jpg" alt="ส่วนบนของหน้าแรกเว็บเดิม" loading="lazy"></div><figcaption><ul><li>มีเพียงคำว่า SMART LIFE SMART SOLUTION บนพื้นสีน้ำเงิน</li><li>ไม่บอกว่าบริษัททำธุรกิจอะไร</li></ul></figcaption></figure>
+        <figure class="n"><span class="tag">เว็บใหม่</span><div class="img"><img src="img/compare/new-hero.jpg" alt="ส่วนบนของหน้าแรกเว็บใหม่" loading="lazy"></div><figcaption><ul><li>พาดหัว “ผู้นำ Smart Security Solutions &amp; AiIOT ครบวงจร”</li><li>ตัวเลข 24+ ปี / 500+ ราย / 6,500+ สาขา</li><li>ปุ่มนักลงทุนสัมพันธ์และสถานะเตรียมเข้าตลาดหลักทรัพย์ฯ</li></ul></figcaption></figure>
       </div>
     </div>
-
     <div class="pair">
-      <h3>2. โซลูชัน</h3>
-      <p class="why">ลูกค้าองค์กรต้องการเห็นว่าระบบใดใช้ตรงไหนของพื้นที่ ไม่ใช่รายชื่อหมวดสินค้า</p>
+      <h3>2. ผู้บริหาร รางวัล และมาตรฐาน</h3>
+      <p class="why">นักลงทุนและลูกค้าองค์กรดูความน่าเชื่อถือจากผู้นำองค์กร รางวัล และมาตรฐานที่ตรวจสอบได้</p>
       <div class="shots">
-        <figure class="o"><span class="tag">เว็บเดิม</span><div class="img"><img src="img/compare/old-sol.jpg" alt="ส่วนโซลูชันเว็บเดิม" loading="lazy"></div><figcaption><ul><li>Carousel ประมาณ 24 สไลด์ เห็นทีละ 4 ใบ</li><li>ภาพ stock และคำอธิบาย 1–2 บรรทัด</li></ul></figcaption></figure>
-        <figure class="n"><span class="tag">เว็บใหม่</span><div class="img"><img src="img/compare/new-sol.jpg" alt="หน้าโซลูชันเว็บใหม่ แท็บโรงงาน" loading="lazy"></div><figcaption><ul><li>เลือกอุตสาหกรรม 6 กลุ่ม เห็นภาพพื้นที่พร้อมตำแหน่งระบบ</li><li>รายการระบบใต้ภาพ เช่น โรงงาน 9 ระบบ</li></ul></figcaption></figure>
+        <figure class="o"><span class="tag">เว็บเดิม</span><div class="img"><img src="img/compare/old-brand.jpg" alt="ส่วนแบรนด์ของเราและแถบตัวแทนจำหน่ายบนเว็บเดิม" loading="lazy"></div><figcaption><ul><li>ภาพผู้บริหารอยู่ใต้หัวข้อ “แบรนด์ของเรา”</li><li>แถบสีแดงข้อความแน่น อ่านยาก</li></ul></figcaption></figure>
+        <figure class="n"><span class="tag">เว็บใหม่</span><div class="img"><img src="img/compare/new-about.jpg" alt="ส่วนผู้บริหารและรางวัลในหน้าเกี่ยวกับเรา" loading="lazy"></div><figcaption><ul><li>คำกล่าวของคุณสมชาย ประจักษ์สูตร ผู้ก่อตั้งและประธานเจ้าหน้าที่บริหาร</li><li>รางวัล APEA 2026, ASEAN Business Award 2019, ISO 9001:2015, ธรรมาภิบาลธุรกิจ, มอก.S</li></ul></figcaption></figure>
       </div>
     </div>
-
     <div class="pair">
-      <h3>3. แบรนด์และผลิตภัณฑ์</h3>
-      <p class="why">ตัวแทนจำหน่ายและ SI ต้องรู้ว่าบริษัทขายแบรนด์อะไรบ้าง</p>
+      <h3>3. โซลูชัน</h3>
+      <p class="why">ลูกค้าองค์กรต้องการเห็นว่าระบบใดติดตั้งตรงไหนของพื้นที่ ไม่ใช่แค่รายชื่อหมวดสินค้า</p>
       <div class="shots">
-        <figure class="o"><span class="tag">เว็บเดิม</span><div class="img"><img src="img/compare/old-brand.jpg" alt="ส่วนแบรนด์ของเราและแถบตัวแทนจำหน่ายเว็บเดิม" loading="lazy"></div><figcaption><ul><li>หัวข้อ “แบรนด์ของเรา” แต่แสดงภาพผู้บริหาร</li><li>แถบสีแดงข้อความแน่น อ่านยาก</li></ul></figcaption></figure>
-        <figure class="n"><span class="tag">เว็บใหม่</span><div class="img"><img src="img/compare/new-brands.jpg" alt="หน้าผลิตภัณฑ์เว็บใหม่" loading="lazy"></div><figcaption><ul><li>การ์ดแบรนด์ละใบ พร้อมจุดเด่นและสินค้าหลัก</li><li>แยก Hikvision, Smart Transport, BroadLink, Huawei และอื่น ๆ</li></ul></figcaption></figure>
+        <figure class="o"><span class="tag">เว็บเดิม</span><div class="img"><img src="img/compare/old-sol.jpg" alt="ส่วนโซลูชันเว็บเดิม" loading="lazy"></div><figcaption><ul><li>Carousel ประมาณ 24 สไลด์ เลื่อนดูทีละ 4 ใบ</li><li>ภาพ stock และคำอธิบาย 1–2 บรรทัด</li></ul></figcaption></figure>
+        <figure class="n"><span class="tag">เว็บใหม่</span><div class="img"><img src="img/compare/new-sol.jpg" alt="หน้าโซลูชันเว็บใหม่" loading="lazy"></div><figcaption><ul><li>เลือกได้ 6 อุตสาหกรรม แต่ละแบบมีภาพอาคารจำลอง</li><li>ระบุทุกระบบพร้อมตำแหน่งติดตั้ง เช่น อาคาร 8 ระบบ</li><li>หน้าเดียวกันมีการ์ด 6 กลุ่มเทคโนโลยีที่เชื่อมต่อกันทั้งองค์กร</li></ul></figcaption></figure>
       </div>
     </div>
-
     <div class="pair">
-      <h3>4. ผลงาน ข่าวสาร และการสมัครตัวแทน</h3>
-      <p class="why">หลักฐานผลงานและข่าวสารที่สม่ำเสมอ ทำให้บริษัทดูมีชีวิตและน่าเชื่อถือ</p>
+      <h3>4. ผลงาน ลูกค้า และบริการครบวงจร</h3>
+      <p class="why">หลักฐานผลงานและความสัมพันธ์กับลูกค้าระยะยาว คือเหตุผลที่องค์กรเลือกผู้ให้บริการ</p>
       <div class="shots">
-        <figure class="o"><span class="tag">เว็บเดิม</span><div class="img"><img src="img/compare/old-news.jpg" alt="ส่วนข่าวสารว่างเปล่าและแบนเนอร์สมัครตัวแทนเว็บเดิม" loading="lazy"></div><figcaption><ul><li>ส่วน “ข่าวสารและกิจกรรม” ว่างเปล่า</li><li>ไม่มีผลงานลูกค้าบนหน้าแรก มีเพียงแบนเนอร์สมัครตัวแทน</li></ul></figcaption></figure>
-        <figure class="n"><span class="tag">เว็บใหม่</span><div class="img"><img src="img/compare/new-proj.jpg" alt="ส่วนผลงานและลูกค้าบนหน้าแรกเว็บใหม่" loading="lazy"></div><figcaption><ul><li>โครงการเด่นและผนังรูปลูกค้า 12 ราย</li><li>มีหน้าข่าวสาร 4 ข่าว และฟอร์มสมัครพันธมิตรในหน้าติดต่อเรา</li></ul></figcaption></figure>
+        <figure class="o"><span class="tag">เว็บเดิม</span><div class="img"><img src="img/compare/old-news.jpg" alt="ส่วนข่าวสารว่างเปล่าและแบนเนอร์สมัครตัวแทนบนเว็บเดิม" loading="lazy"></div><figcaption><ul><li>ไม่มีส่วนผลงานและรายชื่อลูกค้า</li><li>ส่วนข่าวสารว่างเปล่า</li></ul></figcaption></figure>
+        <figure class="n"><span class="tag">เว็บใหม่</span><div class="img"><img src="img/compare/new-proj1.jpg" alt="โครงการเด่นในหน้าผลงานและลูกค้า" loading="lazy"></div><figcaption><ul><li>6 โครงการ เช่น CP ALL 6,500+ สาขา, Central, การทางพิเศษฯ, ปตท.</li><li>ตัวเลขของแต่ละโครงการ</li></ul></figcaption></figure>
       </div>
     </div>
-
     <div class="pair">
-      <h3>5. บนมือถือ</h3>
+      <h3>5. ทีมเดียว ดูแลครบทุกขั้นตอน (หน้าผลงานและลูกค้า)</h3>
+      <p class="why">ส่วนใหม่ที่เว็บเดิมไม่มี ชูจุดเด่นของบริษัทตั้งแต่ที่ปรึกษา ออกแบบ วางระบบ ติดตั้ง บริการหลังการขาย จนถึงความสัมพันธ์ระยะยาว</p>
+      <div class="shots" style="grid-template-columns:1fr">
+        <figure class="n"><span class="tag">เว็บใหม่</span><div class="img"><img src="img/compare/new-proj2.jpg" alt="ส่วนบริการครบวงจรในหน้าผลงานและลูกค้า" loading="lazy"></div><figcaption><ul><li>5 ขั้นตอนบริการ เน้นขั้น “ความสัมพันธ์ระยะยาว”</li><li>ดูแล Central Food Retail 10 ปี, CP ALL 6 ปี, Call Center 24 ชั่วโมง, ช่างบริการ 500+ ราย</li></ul></figcaption></figure>
+      </div>
+    </div>
+    <div class="pair">
+      <h3>6. บนมือถือ</h3>
       <p class="why">ผู้เข้าชมส่วนใหญ่เปิดจากมือถือ โดยเฉพาะลิงก์จาก LINE และ Facebook</p>
       <div class="shots mob">
-        <figure class="o"><span class="tag">เว็บเดิม</span><div class="img"><img src="img/compare/old-mob5.jpg" alt="หน้าแรกเว็บเดิมบนมือถือ" loading="lazy"></div><figcaption>ปุ่มแชตลอยบังเนื้อหา</figcaption></figure>
-        <figure class="o"><span class="tag">เว็บเดิม</span><div class="img"><img src="img/compare/old-mob1.jpg" alt="ส่วนข่าวสารและ footer เว็บเดิมบนมือถือ" loading="lazy"></div><figcaption>ข่าวว่าง, 23rd ใน footer และอีเมล Gmail</figcaption></figure>
-        <figure class="n"><span class="tag">เว็บใหม่</span><div class="img"><img src="img/compare/new-mob.jpg" alt="หน้าแรกเว็บใหม่บนมือถือ" loading="lazy"></div><figcaption>เมนูสามขีด พาดหัวชัด และตัวเลขสำคัญ</figcaption></figure>
+        <figure class="o"><span class="tag">เว็บเดิม</span><div class="img"><img src="img/compare/old-mob5.jpg" alt="หน้าแรกเว็บเดิมบนมือถือ" loading="lazy"></div><figcaption>ภาพแรกเป็นวงแหวนข้อความ ไม่บอกว่าบริษัททำอะไร</figcaption></figure>
+        <figure class="o"><span class="tag">เว็บเดิม</span><div class="img"><img src="img/compare/old-mob1.jpg" alt="ส่วนข่าวสารและ footer เว็บเดิมบนมือถือ" loading="lazy"></div><figcaption>ส่วนข่าวว่าง และใช้อีเมล Gmail</figcaption></figure>
+        <figure class="n"><span class="tag">เว็บใหม่</span><div class="img"><img src="img/compare/new-mob.jpg" alt="หน้าแรกเว็บใหม่บนมือถือ" loading="lazy"></div><figcaption>เมนูสามขีด ปุ่มเปลี่ยนภาษา และปุ่มแชทลอย</figcaption></figure>
       </div>
     </div>
   </div>
 </section>
-
-<section style="padding-top:0">
+<section style="padding-top:0" class="pb">
   <div class="wrap">
     <span class="tri" aria-hidden="true"></span>
-    <h2>สิ่งที่เว็บเดิมยังทำได้ดีกว่า</h2>
-    <p class="lede">ทั้งหมดนี้แก้ได้ในขั้นพัฒนาจริง ไม่ใช่ข้อจำกัดของดีไซน์ใหม่</p>
-    <div class="cards">
-      <div class="card"><h3>ระบบจัดการเนื้อหา</h3><p>เว็บเดิมเป็น WordPress ทีมการตลาดเพิ่มข่าวและแก้ข้อความเองได้ ต้นแบบใหม่ต้องแก้โค้ด</p></div>
-      <div class="card"><h3>หน้ารายละเอียดโซลูชัน</h3><p>เว็บเดิมมีหน้าแยก เช่น Smart Building และ Smart Hospital ซึ่งช่วยให้ Google ค้นเจอ</p></div>
-      <div class="card"><h3>เครื่องคำนวณโซลาร์รูฟท็อป</h3><p>เครื่องมือที่ลูกค้าใช้ประเมินความคุ้มค่าเองได้ ควรย้ายมาไว้ในหน้าโซลูชัน Smart Solar</p></div>
-      <div class="card"><h3>ภาษาอังกฤษและฟอร์มที่ส่งข้อมูลจริง</h3><p>ต้นแบบยังเป็นภาษาไทยอย่างเดียว และฟอร์มยังไม่ได้เชื่อมกับอีเมลหรือ CRM</p></div>
+    <h2>ทางเลือกโทนสีสำหรับการพิจารณา</h2>
+    <p class="lede">ทั้งสองแบบมีเนื้อหา โครงสร้าง และภาษาเหมือนกันทุกหน้า ต่างกันเฉพาะโทนสี</p>
+    <div class="opts">
+      <div class="opt"><h3>แบบ A · น้ำเงินกรมท่าและฟ้า</h3><p>โทนเดียวกับเว็บบริษัทจดทะเบียนสายเทคโนโลยี ดูทันสมัยและเป็นสากล สีของบริษัทอยู่ที่โลโก้</p><div class="sw"><i style="background:#05142c"></i><i style="background:#0c2c56"></i><i style="background:#2e7bff"></i><i style="background:#f5f8fc"></i></div><figure class="n"><span class="tag">แบบ A</span><div class="img"><img src="img/compare/opt-a.jpg" alt="หน้าแรกแบบ A" loading="lazy"></div></figure></div>
+      <div class="opt"><h3>แบบ B · น้ำเงินครามและแดง (สีเว็บเดิม)</h3><p>ใช้สีน้ำเงินคราม #262679 และแดงตามเว็บไซต์เดิม ต่อเนื่องกับภาพจำของลูกค้าและตัวแทนจำหน่าย</p><div class="sw"><i style="background:#15155a"></i><i style="background:#262679"></i><i style="background:#e3262b"></i><i style="background:#1a1a1a"></i></div><figure class="n"><span class="tag">แบบ B</span><div class="img"><img src="img/compare/opt-b.jpg" alt="หน้าแรกแบบ B" loading="lazy"></div></figure></div>
+    </div>
+    <div class="mobrow">
+      <figure class="n"><span class="tag">แบบ A · มือถือ</span><div class="img"><img src="img/compare/new-mob.jpg" alt="แบบ A บนมือถือ" loading="lazy"></div></figure>
+      <figure class="n"><span class="tag">แบบ B · มือถือ</span><div class="img"><img src="img/compare/df-mob.jpg" alt="แบบ B บนมือถือ" loading="lazy"></div></figure>
+      <figure class="n" style="grid-column:span 2"><span class="tag">แบบ B · หน้าเกี่ยวกับเรา</span><div class="img"><img src="img/compare/df-about.jpg" alt="ส่วนผู้บริหารและรางวัลแบบ B" loading="lazy"></div></figure>
     </div>
   </div>
 </section>
-
 <section style="padding-top:0">
   <div class="wrap narrow">
     <span class="tri" aria-hidden="true"></span>
-    <h2>ขั้นตอนต่อไปที่แนะนำ</h2>
+    <h2>สิ่งที่ขอให้ผู้บริหารพิจารณา</h2>
     <ol class="steps">
-      <li><div><b>อนุมัติแนวดีไซน์และเนื้อหา</b><span>ผู้บริหารและฝ่ายขายตรวจข้อความ ตัวเลข และรายชื่อลูกค้า พร้อมขออนุญาตใช้โลโก้ลูกค้า</span></div></li>
-      <li><div><b>เตรียมภาพและไฟล์ต้นฉบับ</b><span>โลโก้ความละเอียดสูง ภาพผลงานจริง และภาพสินค้าจากแบรนด์</span></div></li>
-      <li><div><b>ทำธีมใหม่บน WordPress เดิม</b><span>คงระบบหลังบ้านและหน้ารายละเอียดเดิม เพิ่มเครื่องคำนวณโซลาร์ และเชื่อมฟอร์มกับอีเมลหรือ CRM</span></div></li>
-      <li><div><b>ทำเวอร์ชันภาษาอังกฤษและตั้งค่า SEO</b><span>ชื่อเว็บ คำอธิบาย และหน้าแยกต่อภาษา</span></div></li>
-      <li><div><b>ทดสอบและขึ้นระบบ</b><span>ทดสอบบนมือถือและคอมพิวเตอร์ ตั้ง redirect จากลิงก์เดิม แล้วเปิดใช้งาน</span></div></li>
+      <li><div><b>เลือกโทนสี แบบ A หรือแบบ B</b><span>เนื้อหาเหมือนกันทั้งสองแบบ เลือกจากภาพลักษณ์ที่ต้องการสื่อ</span></div></li>
+      <li><div><b>ยืนยันข้อมูลบริษัทและตัวเลข</b><span>ตำแหน่งผู้บริหาร ตัวเลขผลงาน รายชื่อลูกค้า และข้อความเรื่องการเตรียมเข้าตลาดหลักทรัพย์ฯ</span></div></li>
+      <li><div><b>เตรียมภาพเพิ่มเติม</b><span>ภาพทีมวิศวกรและช่างขณะทำงาน ภาพผลงานจริง และภาพคู่ผู้บริหารที่ระบุตำแหน่งล่าสุด</span></div></li>
+      <li><div><b>อนุมัติเพื่อเปิดใช้งาน</b><span>เมื่อเลือกแบบและยืนยันเนื้อหาแล้ว ทีมจะเตรียมเปิดใช้เว็บไซต์ใหม่แทนเว็บเดิม</span></div></li>
     </ol>
-    <p class="note">ภาพเว็บเดิมบนคอมพิวเตอร์บันทึกด้วยเบราว์เซอร์ทดสอบ ภาพเคลื่อนไหวและวิดีโอบางส่วนจึงไม่แสดง ตัวเลขในเว็บใหม่มาจาก Company Profile ของบริษัท</p>
   </div>
 </section>
 </main>
