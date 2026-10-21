@@ -3,28 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Digital Focus Listed-Style</title>
+<title>Digital Focus</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@500;600;700&family=Noto+Sans+Thai:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* Layout: listed-company site in the jpark.co pattern. Full-bleed navy photo hero with an eyebrow pill, large lead headline and a KPI strip; split sections with check lists and framed photos; photo service cards with code pills; a dark technology band; a photo logo wall; a rounded navy CTA band and a navy footer. Inner pages swap in a navy page hero with breadcrumb. Single light look, Digital Focus logo colours only in the logo. */
+/* Layout: listed-company site built on the jpark.co design system (tokens, type, components). Full-bleed navy photo hero with eyebrow pill and a ruled KPI strip; split sections with check lists and framed photos; photo service cards with code pills; dark technology bands; sector tiles and capability cards for solutions; photo logo wall; rounded navy CTA band; navy footer. Inner pages swap in a navy page hero with breadcrumb. Digital Focus colours appear only in the logo. */
 :root{
-  --navy-900:#0b1240; --navy-800:#151d5a; --navy-700:#283c96;
-  --accent:#2f4fd1; --accent-600:#2340a8; --accent-soft:rgba(47,79,209,.09); --cyan:#3ccf7a;
+  --navy-900:#05142c; --navy-800:#08203f; --navy-700:#0c2c56; --navy-600:#123a6d;
+  --accent:#2e7bff; --accent-600:#1a63e0; --accent-soft:rgba(46,123,255,.1); --cyan:#24d3ee;
   --df-blue:#283c96; --df-red:#e3262b; --df-green:#1f9a4b;
   --ink:#0d1726; --ink-70:#4a586c; --ink-45:#7c8798; --line:#e2e8f0; --line-soft:#eef2f7;
   --paper:#ffffff; --paper-2:#f5f8fc; --paper-3:#eaf0f8;
-  --r-sm:8px; --r:12px; --r-lg:18px;
-  --sh-1:0 1px 2px rgba(15,22,80,.05),0 8px 24px -12px rgba(15,22,80,.12);
-  --sh-2:0 24px 60px -28px rgba(15,22,80,.35);
-  --display:"Prompt","Noto Sans Thai",system-ui,sans-serif;
-  --body:"Noto Sans Thai","Prompt",system-ui,sans-serif;
+  --r-sm:10px; --r:16px; --r-lg:24px;
+  --sh-1:0 1px 2px rgba(8,32,63,.05),0 8px 24px -12px rgba(8,32,63,.12);
+  --sh-2:0 24px 60px -28px rgba(8,32,63,.35);
+  --display:"Anuphan","IBM Plex Sans Thai",system-ui,sans-serif;
+  --body:"IBM Plex Sans Thai","Anuphan",system-ui,sans-serif;
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-#partner,#ir{scroll-margin-top:72px}
+#partner,#ir,#showcase,[id^="biz-"]{scroll-margin-top:72px}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{margin:0;font:16px/1.75 var(--body);color:var(--ink);background:var(--paper);overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:120;background:#fff}
@@ -39,7 +39,7 @@ ul{margin:0;padding:0}
 
 /* header */
 .hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:100;background:rgba(255,255,255,.88);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid var(--line-soft);transition:box-shadow .2s}
-.hdr.stuck{box-shadow:0 6px 24px -16px rgba(15,22,80,.4)}
+.hdr.stuck{box-shadow:0 6px 24px -16px rgba(8,32,63,.4)}
 .hdr-row{display:flex;align-items:center;gap:20px;height:72px}
 .brand{flex:none;display:flex;align-items:center}
 .brand img{height:44px;width:auto}
@@ -50,10 +50,10 @@ ul{margin:0;padding:0}
 .nav a.on{color:var(--accent);background:var(--accent-soft);font-weight:600}
 .hdr-side{display:flex;align-items:center;gap:10px;flex:none;margin-left:auto}
 @media(min-width:1240px){.nav{display:block}.hdr-side{margin-left:0}}
-.lang{display:inline-flex;background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:2px}
-.lang span{font:600 11.5px/1 var(--body);letter-spacing:.06em;color:var(--ink-45);padding:7px 11px;border-radius:8px}
+.lang{display:inline-flex;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:2px}
+.lang span{font:600 11.5px/1 var(--body);letter-spacing:.06em;color:var(--ink-45);padding:7px 11px;border-radius:999px}
 .lang .on{background:var(--navy-700);color:#fff}
-.burger{display:inline-flex;width:44px;height:44px;flex:none;border:1px solid var(--line);border-radius:12px;background:var(--paper);cursor:pointer;padding:0;align-items:center;justify-content:center}
+.burger{display:inline-flex;width:44px;height:44px;flex:none;border:1px solid var(--line);border-radius:10px;background:var(--paper);cursor:pointer;padding:0;align-items:center;justify-content:center}
 .burger i{display:block;width:18px;height:2px;background:var(--navy-700);position:relative;transition:background .2s}
 .burger i::before,.burger i::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--navy-700);transition:transform .2s,top .2s}
 .burger i::before{top:-6px}.burger i::after{top:6px}
@@ -68,9 +68,9 @@ ul{margin:0;padding:0}
 @media(min-width:1240px){.burger,.mnav{display:none!important}}
 
 /* buttons */
-.btn{display:inline-flex;align-items:center;gap:8px;font:600 14.5px/1 var(--body);padding:14px 22px;border-radius:10px;border:1px solid transparent;cursor:pointer;white-space:nowrap;transition:transform .16s,background .16s,box-shadow .16s,color .16s}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 14.5px/1 var(--body);padding:14px 22px;border-radius:999px;border:1px solid transparent;cursor:pointer;white-space:nowrap;transition:transform .16s,background .16s,box-shadow .16s,color .16s}
 .btn:hover{transform:translateY(-1px)}
-.btn-p{background:var(--accent);color:#fff;box-shadow:0 10px 26px -12px rgba(64,92,230,.8)}
+.btn-p{background:var(--accent);color:#fff;box-shadow:0 10px 26px -12px rgba(46,123,255,.8)}
 .btn-p:hover{background:var(--accent-600)}
 .btn-g{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.3)}
 .btn-g:hover{background:rgba(255,255,255,.2)}
@@ -86,8 +86,8 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 .tint{background:var(--paper-2)}
 .dark{background:var(--navy-900);color:#dce6f4}
 .dark h2,.dark h3{color:#fff}
-.kick{display:inline-flex;align-items:center;gap:10px;font:600 12.5px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-.kick::before{content:"";width:30px;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--df-blue) 0 33%,var(--df-red) 33% 66%,var(--df-green) 66%)}
+.kick{display:inline-flex;align-items:center;gap:8px;font:600 12px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.kick::before{content:"";width:22px;height:2px;border-radius:2px;background:currentColor}
 .dark .kick{color:var(--cyan)}
 .head{max-width:760px;margin-bottom:48px}
 .head.mid{margin-inline:auto;text-align:center}
@@ -100,18 +100,19 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 .hero{position:relative;background:var(--navy-900);color:#fff;overflow:hidden}
 .hero-bg{position:absolute;inset:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.5}
-.hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(900px 520px at 12% 8%,rgba(64,92,230,.34),transparent 70%),linear-gradient(105deg,rgba(11,18,64,.96) 0%,rgba(11,18,64,.84) 44%,rgba(11,18,64,.5) 100%)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(900px 520px at 12% 8%,rgba(46,123,255,.34),transparent 70%),linear-gradient(105deg,rgba(5,20,44,.96) 0%,rgba(5,20,44,.84) 44%,rgba(5,20,44,.5) 100%)}
 .hero-in{position:relative;padding-block:clamp(72px,10vw,118px) 0}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:22px;font-size:12.5px;font-weight:600;letter-spacing:.08em;color:#93b4e4;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:7px 16px}
-.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 4px rgba(60,207,122,.22)}
-.hero h1{max-width:18ch;font-weight:700;font-size:clamp(34px,5.2vw,58px);line-height:1.15;color:#fff}
-.hero h1 .hl{background:linear-gradient(90deg,#8fa6ff,#6fe0a2);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero-lead{margin-top:20px;max-width:58ch;font-size:clamp(16px,1.6vw,18px);color:#c5cdf0}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:22px;font-size:12.5px;font-weight:600;letter-spacing:.12em;color:#93b4e4;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:7px 16px}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 4px rgba(36,211,238,.22)}
+.hero h1{max-width:none;font-weight:700;font-size:clamp(34px,5.6vw,62px);line-height:1.12;letter-spacing:-.02em;color:#fff}
+.hero h1 .hl{color:var(--cyan)}
+.hero-lead{margin-top:22px;max-width:56ch;font-size:clamp(16px,1.6vw,17.5px);color:#b9cbe4}
 .hero-lead b{color:#fff;font-weight:600}
-.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--df-blue) 0 33.3%,var(--df-red) 33.3% 66.6%,var(--df-green) 66.6%)}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-.kpis{margin-top:56px;padding-bottom:64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;max-width:900px}
-.kpis>div{padding:22px 22px 24px;border:1px solid rgba(255,255,255,.14);border-radius:var(--r);background:rgba(255,255,255,.06);backdrop-filter:blur(6px)}
+.kpis{margin-top:72px;display:grid;grid-template-columns:repeat(3,1fr);max-width:900px;border-top:1px solid rgba(255,255,255,.14)}
+.kpis>div{padding:26px 24px 34px;border-right:1px solid rgba(255,255,255,.12)}
+.kpis>div:first-child{padding-left:0}.kpis>div:last-child{border-right:0}
+@media(max-width:640px){.kpis{grid-template-columns:1fr;margin-top:48px}.kpis>div{border-right:0;border-bottom:1px solid rgba(255,255,255,.12);padding:20px 0}.kpis>div:last-child{border-bottom:0}}
 .kpi-n{font-family:var(--display);font-size:clamp(26px,3.2vw,38px);font-weight:700;color:#fff;line-height:1;font-variant-numeric:tabular-nums}
 .kpi-n small{font-size:.5em;font-weight:600;color:var(--cyan);margin-left:3px}
 .kpi-l{margin-top:8px;font-size:13.5px;color:#93aac9;line-height:1.5}
@@ -121,12 +122,11 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 .phero{position:relative;background:var(--navy-900);color:#fff;overflow:hidden}
 .phero-bg{position:absolute;inset:0}
 .phero-bg img{width:100%;height:100%;object-fit:cover;opacity:.34}
-.phero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 6% 0%,rgba(64,92,230,.32),transparent 70%),linear-gradient(180deg,rgba(11,18,64,.9),rgba(11,18,64,.82))}
+.phero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 6% 0%,rgba(46,123,255,.32),transparent 70%),linear-gradient(180deg,rgba(5,20,44,.9),rgba(5,20,44,.82))}
 .phero-in{position:relative;padding-block:78px 82px}
-.phero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--df-blue) 0 33.3%,var(--df-red) 33.3% 66.6%,var(--df-green) 66.6%)}
 .crumb{font-size:13px;color:#7f9dc6;margin-bottom:18px;letter-spacing:.04em}
 .crumb a:hover{color:#fff}
-.phero h1{font-size:clamp(30px,4.6vw,50px);max-width:20ch;letter-spacing:-.02em}
+.phero h1{font-size:clamp(30px,4.6vw,50px);max-width:900px;letter-spacing:-.02em}
 .phero p{margin-top:18px;max-width:60ch;color:#b9cbe4;font-size:17px}
 
 /* grids and cards */
@@ -143,20 +143,20 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 .card h3{font-size:19px;color:var(--navy-800);margin-bottom:10px}
 .card p{color:var(--ink-70);font-size:15px;line-height:1.7}
 .card-dark{background:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:28px;transition:border-color .2s,transform .2s}
-.card-dark:hover{border-color:rgba(60,207,122,.45);transform:translateY(-3px)}
+.card-dark:hover{border-color:rgba(36,211,238,.45);transform:translateY(-3px)}
 .card-dark p{color:#9fb4d0;font-size:15px}
 .ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);margin-bottom:18px}
 .ico svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.card-dark .ico{background:rgba(60,207,122,.13);color:var(--cyan)}
+.card-dark .ico{background:rgba(36,211,238,.13);color:var(--cyan)}
 .pill{display:inline-block;font:700 11.5px/1 var(--body);letter-spacing:.12em;padding:6px 11px;border-radius:6px;background:var(--accent-soft);color:var(--accent);margin-bottom:16px}
-.dark .pill,.card-dark .pill{background:rgba(60,207,122,.14);color:var(--cyan)}
+.dark .pill,.card-dark .pill{background:rgba(36,211,238,.14);color:var(--cyan)}
 .svc{border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--paper);display:flex;flex-direction:column;transition:box-shadow .25s,transform .25s}
 .svc:hover{box-shadow:var(--sh-2);transform:translateY(-4px)}
 .svc-img{aspect-ratio:16/10;overflow:hidden;background:var(--paper-3)}
 .svc-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .svc:hover .svc-img img{transform:scale(1.05)}
 .svc-body{padding:26px 26px 28px;flex:1;display:flex;flex-direction:column}
-.svc-body .pill{align-self:flex-start;display:block;width:100%}
+.svc-body .pill{align-self:flex-start}
 .svc-body h3{font-size:20px;color:var(--navy-800);margin-bottom:10px}
 .svc-body p{color:var(--ink-70);font-size:15px;flex:1}
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
@@ -171,13 +171,21 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 .tick svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 .dark .flist li{color:#a9bcd6}
 .dark .flist li b{color:#fff}
-.dark .tick{background:rgba(60,207,122,.15);color:var(--cyan)}
+.dark .tick{background:rgba(36,211,238,.15);color:var(--cyan)}
 .frame{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);background:var(--paper-3);box-shadow:var(--sh-2);position:relative}
 .frame img{width:100%;display:block}
-.frame .cap{position:absolute;left:14px;bottom:14px;font-size:12px;color:#fff;background:rgba(11,18,64,.7);padding:5px 10px;border-radius:8px}
+.frame .cap{position:absolute;left:14px;bottom:14px;font-size:12px;color:#fff;background:rgba(5,20,44,.74);padding:5px 10px;border-radius:8px}
+.frame.white{background:#fff}
+.quote{border-left:3px solid var(--accent);padding:4px 0 4px 26px;margin:0;font-family:var(--display);font-weight:600;font-size:clamp(21px,2.5vw,28px);line-height:1.45;color:var(--navy-800)}
+.quote cite{display:block;margin-top:16px;font:500 14px/1.5 var(--body);color:var(--ink-45);font-style:normal}
+.h2{font-size:clamp(27px,3.4vw,40px);color:var(--navy-800)}
+.dark .h2{color:#fff}
+.lead{margin-top:16px;color:var(--ink-70);font-size:17px}
+.dark .lead{color:#a9bcd6}
+.subh{text-align:center;font-size:22px;color:var(--navy-800);margin:64px 0 24px}
 .dark .frame{border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.04);box-shadow:none}
 .tl{position:relative;padding-left:34px}
-.tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--accent),rgba(64,92,230,.12))}
+.tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--accent),rgba(46,123,255,.12))}
 .tl-item{position:relative;padding-bottom:34px}
 .tl-item:last-child{padding-bottom:0}
 .tl-item::before{content:"";position:absolute;left:-34px;top:9px;width:16px;height:16px;border-radius:50%;background:var(--paper);border:3px solid var(--accent)}
@@ -188,7 +196,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 @media(max-width:560px){.logos{grid-template-columns:repeat(2,1fr)}}
 .logos>div{position:relative;aspect-ratio:3/2;overflow:hidden;background:var(--navy-800);display:flex;align-items:flex-end;padding:14px 15px}
 .logos>div img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.logos>div::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,18,64,.1) 0%,rgba(11,18,64,.45) 48%,rgba(11,18,64,.88) 100%)}
+.logos>div::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,20,44,.1) 0%,rgba(5,20,44,.45) 48%,rgba(5,20,44,.88) 100%)}
 .logos .nm{position:relative;z-index:1;font-size:13px;font-weight:600;color:#fff;line-height:1.35;text-shadow:0 1px 8px rgba(0,0,0,.55)}
 .logos>div:hover img{transform:scale(1.07)}
 .proj{display:grid;grid-template-columns:1.15fr 1fr;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--paper)}
@@ -240,7 +248,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 .vpanel{min-width:0}
 .vstage{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:1672/941;max-width:100%;background:#f3f3f2;border:1px solid var(--line);box-shadow:var(--sh-1)}
 .vstage img{width:100%;height:100%;object-fit:contain}
-.vcap{position:absolute;left:16px;top:16px;z-index:1;color:#fff;display:grid;background:rgba(15,22,80,.88);border-radius:12px;padding:10px 14px}
+.vcap{position:absolute;left:16px;top:16px;z-index:1;color:#fff;display:grid;background:rgba(8,32,63,.88);border-radius:12px;padding:10px 14px}
 .vcap b{font:700 18px/1.2 var(--display)}
 .vcap span{font-size:13px;color:#b9cbe4;letter-spacing:.04em}
 .vdesc{margin:22px 0 18px;color:var(--ink-70);font-size:16.5px;max-width:70ch}
@@ -251,6 +259,62 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 .node ul{list-style:none;margin-top:6px;display:grid;gap:3px}
 .node li{font-size:13.5px;color:var(--ink-70);padding-left:12px;position:relative;line-height:1.5}
 .node li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+
+/* header CTA */
+.hdr-cta{padding:11px 18px;font-size:13.5px}
+@media(max-width:1379px){.hdr-cta{display:none}}
+
+/* sector tiles */
+.sectors{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+@media(max-width:1000px){.sectors{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.sectors{grid-template-columns:repeat(2,1fr);gap:10px}}
+.sector{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end;aspect-ratio:3/4.2;border-radius:var(--r);overflow:hidden;background:var(--navy-800);color:#fff;padding:18px 16px 20px;transition:transform .25s,box-shadow .25s}
+.sector img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .6s}
+.sector::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,20,44,0) 25%,rgba(5,20,44,.55) 60%,rgba(5,20,44,.92))}
+.sector:hover{transform:translateY(-4px);box-shadow:var(--sh-2)}
+.sector:hover img{transform:scale(1.07)}
+.sector .sico{position:absolute;top:16px;left:16px;width:46px;height:46px;border-radius:50%;background:#fff;color:var(--navy-700);display:grid;place-items:center;box-shadow:0 6px 18px -6px rgba(5,20,44,.5)}
+.sector .sico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.sector b{font:600 18px/1.3 var(--display)}
+.sector small{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#8fe6f5;margin-top:3px}
+.sector .n{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:13px;color:#cbd8ec}
+.sector .n svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.sector:hover .n svg{transform:translateX(4px)}
+
+/* capability cards */
+.caps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:1000px){.caps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.caps{grid-template-columns:1fr}}
+.capc{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--paper);transition:box-shadow .25s,transform .25s}
+.capc:hover{box-shadow:var(--sh-2);transform:translateY(-4px)}
+.capc .im{aspect-ratio:16/9;overflow:hidden;background:var(--paper-3)}
+.capc .im img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.capc:hover .im img{transform:scale(1.05)}
+.capc .bd{position:relative;padding:0 26px 26px;flex:1;display:flex;flex-direction:column}
+.capc .code{width:52px;height:52px;margin:-26px 0 16px;border-radius:14px;background:var(--navy-800);color:#fff;display:grid;place-items:center;box-shadow:0 0 0 5px var(--paper)}
+.capc .code svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.capc .tag{font:700 11px/1 var(--body);letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:8px}
+.capc h3{font-size:20px;color:var(--navy-800);margin-bottom:10px}
+.capc p{color:var(--ink-70);font-size:15px}
+.capc ul{list-style:none;margin-top:16px;padding-top:16px;border-top:1px dashed var(--line);display:flex;flex-wrap:wrap;gap:6px}
+.capc li{font-size:12.5px;color:var(--navy-700);background:var(--paper-2);border:1px solid var(--line-soft);border-radius:999px;padding:4px 10px}
+
+/* process steps */
+.psteps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+@media(max-width:1000px){.psteps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.psteps{grid-template-columns:1fr}}
+.psteps li{counter-increment:s;position:relative;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px}
+.psteps li::before{content:counter(s,decimal-leading-zero);display:block;width:40px;height:40px;border-radius:10px;background:var(--navy-800);color:#fff;font:700 14px/40px var(--display);text-align:center;margin-bottom:16px}
+.psteps h3{font-size:17.5px;color:var(--navy-800);margin-bottom:8px}
+.psteps p{font-size:14.5px;color:var(--ink-70)}
+
+/* business detail */
+.bizd .g2{margin-top:30px}
+.bizd .card{padding:24px}
+.bizd .card h3{font-size:17.5px}
+.bizd .gal{margin-top:26px}
+.bizd h4{font-size:16px;color:var(--navy-800);margin-top:44px}
+body[data-page="solutions"] #solutions{background:var(--paper-2)}
 
 /* partner form */
 .pform{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px;display:grid;gap:16px;box-shadow:var(--sh-1);min-width:0}
@@ -284,7 +348,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 .fok{background:#e8f8ef;border:1px solid #b6e6c8;color:#17653a;border-radius:var(--r-sm);padding:12px 14px;font-size:14px}
 
 /* CTA band */
-.cta{position:relative;overflow:hidden;border-radius:var(--r-lg);padding:clamp(32px,5vw,48px) clamp(26px,4vw,52px);background:radial-gradient(600px 300px at 90% 100%,rgba(60,207,122,.22),transparent 70%),linear-gradient(120deg,var(--navy-800),#123a6d);color:#fff;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.cta{position:relative;overflow:hidden;border-radius:var(--r-lg);padding:clamp(32px,5vw,54px) clamp(24px,4vw,48px);background:radial-gradient(600px 300px at 88% 110%,rgba(36,211,238,.26),transparent 70%),radial-gradient(500px 260px at 8% -10%,rgba(46,123,255,.32),transparent 70%),var(--navy-800);color:#fff;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
 .cta h2{font-size:clamp(24px,3vw,32px);color:#fff;max-width:20ch}
 .cta p{margin-top:10px;color:#b9cbe4;max-width:54ch}
 .cta .btns{display:flex;flex-wrap:wrap;gap:12px}
@@ -322,7 +386,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 .ftr a:hover{color:#fff}
 .social{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
 .social a{width:38px;height:38px;border-radius:10px;border:1px solid rgba(255,255,255,.14);display:grid;place-items:center}
-.social a:hover{border-color:rgba(60,207,122,.6);background:rgba(255,255,255,.04)}
+.social a:hover{border-color:rgba(36,211,238,.6);background:rgba(255,255,255,.04)}
 .social svg{width:18px;height:18px;fill:none;stroke:#c9d6ea;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .ftr-bot{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;font-size:13px;color:#5f7aa1}
 .cookie{position:fixed;z-index:110;left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));max-width:940px;margin-inline:auto;background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh-2);padding:16px 20px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between}
@@ -341,6 +405,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
       <li><a href="#home">หน้าแรก</a></li><li><a href="#about">เกี่ยวกับเรา</a></li><li><a href="#business">ธุรกิจของเรา</a></li><li><a href="#solutions">โซลูชัน</a></li><li><a href="#brands">ผลิตภัณฑ์</a></li><li><a href="#projects">ผลงานและลูกค้า</a></li><li><a href="#esg">ความยั่งยืน</a></li><li><a href="#contact">ติดต่อเรา</a></li>
     </ul></nav>
     <div class="hdr-side">
+      <a class="btn btn-p hdr-cta" href="#ir">นักลงทุนสัมพันธ์</a>
       <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="เปิดเมนู"><i></i></button>
       <div class="lang"><span class="on">TH</span><span title="เวอร์ชันภาษาอังกฤษจะทำหลังสรุปดีไซน์">EN</span></div>
     </div>
@@ -366,7 +431,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
   <div class="hero-bg"><img src="img/hq.jpg" alt=""></div>
   <div class="wrap hero-in">
     <span class="eyebrow"><span class="dot"></span>เตรียมเข้าจดทะเบียนในตลาดหลักทรัพย์ฯ · DIGITAL FOCUS</span>
-    <h1>ผู้นำระบบรักษาความปลอดภัย <span class="hl">AI &amp; AIoT</span> ของไทย</h1>
+    <h1>ผู้นำระบบรักษาความปลอดภัย<br><span class="hl">AI &amp; AIoT</span> ของไทย</h1>
     <p class="hero-lead"><b>บริษัท ดิจิตอลโฟกัส จำกัด</b> ผู้นำเข้า จัดจำหน่าย และวางระบบ ด้วยประสบการณ์กว่า 24 ปี ในฐานะตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย</p>
     <div class="hero-cta"><a class="btn btn-p" href="#business">ดูธุรกิจของเรา <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-g" href="#contact">ติดต่อทีมขาย</a></div>
     <div class="kpis">
@@ -398,25 +463,60 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
   <div class="wrap">
     <div class="head mid"><span class="kick">ธุรกิจของเรา</span><h2>4 ธุรกิจที่เสริมกันเป็นระบบ</h2></div>
     <div class="g4">
-      <a class="svc" href="#brands"><div class="svc-img"><img src="img/sol-access.jpg" alt="Digital Focus ที่งาน Hikvision Commercial Summit" loading="lazy"></div><div class="svc-body"><span class="pill">DISTRIBUTION</span><h3>จัดจำหน่ายอุปกรณ์</h3><p>ตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย และแบรนด์ AIoT ชั้นนำ ผ่านเครือข่ายตัวแทนกว่า 500 ราย</p><span class="more">ดูผลิตภัณฑ์ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-      <a class="svc" href="#projects"><div class="svc-img"><img src="img/exat.jpg" alt="ทางพิเศษ" loading="lazy"></div><div class="svc-body"><span class="pill">INTEGRATION</span><h3>ออกแบบและวางระบบ</h3><p>ทีมวิศวกรให้คำปรึกษา ออกแบบ ติดตั้ง และทดสอบระบบสำหรับโครงการภาครัฐและเอกชนทั่วประเทศ</p><span class="more">ดูผลงาน <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-      <a class="svc" href="#business"><div class="svc-img"><img src="img/ambulance.jpg" alt="รถพยาบาล 5G" loading="lazy"></div><div class="svc-body"><span class="pill">PLATFORM</span><h3>แพลตฟอร์มและนวัตกรรม</h3><p>Smart Transport กล้อง AI + GPS บนยานพาหนะ ต่อยอดสู่ Smart Building และ Robotics</p><span class="more">ดูรายละเอียด <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-      <a class="svc" href="#business"><div class="svc-img"><img src="img/command.jpg" alt="ภาพจำลองศูนย์เฝ้าระวัง" loading="lazy"></div><div class="svc-body"><span class="pill">SERVICE</span><h3>บริการรายเดือนและหลังการขาย</h3><p>เช่าระบบกล้อง เฝ้าระวังด้วย AI สัญญาดูแลรักษาพร้อม SLA และ Call Center ตลอด 24 ชั่วโมง</p><span class="more">ดูรายละเอียด <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="svc" href="#biz-dist"><div class="svc-img"><img src="img/news-summit.jpg" alt="ทีม Digital Focus ที่งาน Hikvision Commercial Summit" loading="lazy"></div><div class="svc-body"><span class="pill">DISTRIBUTION</span><h3>จัดจำหน่ายอุปกรณ์</h3><p>ตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย และแบรนด์ AIoT ชั้นนำ ผ่านเครือข่ายตัวแทนกว่า 500 ราย</p><span class="more">ดูผลิตภัณฑ์ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="svc" href="#biz-si"><div class="svc-img"><img src="img/exat.jpg" alt="ทางพิเศษ" loading="lazy"></div><div class="svc-body"><span class="pill">INTEGRATION</span><h3>ออกแบบและวางระบบ</h3><p>ทีมวิศวกรให้คำปรึกษา ออกแบบ ติดตั้ง และทดสอบระบบสำหรับโครงการภาครัฐและเอกชนทั่วประเทศ</p><span class="more">ดูรายละเอียด <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="svc" href="#biz-platform"><div class="svc-img"><img src="img/ambulance.jpg" alt="รถพยาบาล 5G" loading="lazy"></div><div class="svc-body"><span class="pill">PLATFORM</span><h3>แพลตฟอร์มและนวัตกรรม</h3><p>Smart Transport กล้อง AI + GPS บนยานพาหนะ ต่อยอดสู่ Smart Building และ Robotics</p><span class="more">ดูรายละเอียด <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="svc" href="#biz-service"><div class="svc-img"><img src="img/command.jpg" alt="ภาพจำลองศูนย์เฝ้าระวัง" loading="lazy"></div><div class="svc-body"><span class="pill">SERVICE</span><h3>บริการรายเดือนและหลังการขาย</h3><p>เช่าระบบกล้อง เฝ้าระวังด้วย AI สัญญาดูแลรักษาพร้อม SLA และ Call Center ตลอด 24 ชั่วโมง</p><span class="more">ดูรายละเอียด <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark" data-pages="home">
+  <div class="wrap split">
+    <div>
+      <span class="kick">เทคโนโลยี</span>
+      <h2 class="h2">AI &amp; AIoT Security — ทุกระบบในอาคารเชื่อมเป็นหนึ่งเดียว</h2>
+      <p class="lead">กล้อง AI ระบบควบคุมการเข้าออก เซนเซอร์ AIoT และระบบที่จอดรถ ทำงานร่วมกันบนแพลตฟอร์มบริหารแบบรวมศูนย์ ออกแบบและติดตั้งโดยทีมวิศวกรของ Digital Focus</p>
+      <ul class="flist" style="margin-top:26px">
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>กล้อง AI และอ่านป้ายทะเบียน</b> — ตรวจจับคน ยานพาหนะ และการบุกรุกพื้นที่แบบเรียลไทม์</span></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>ควบคุมการเข้าออกและผู้มาติดต่อ</b> — สแกนใบหน้า บัตร และควบคุมลิฟต์ตามสิทธิ์</span></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>เซนเซอร์ AIoT</b> — ตรวจจับควัน แก๊ส อุณหภูมิ และคุณภาพอากาศ พร้อมควบคุมแสงสว่าง</span></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>ศูนย์สั่งการรวมศูนย์</b> — ดูทุกสาขาและทุกอาคารจากหน้าจอเดียว</span></li>
+      </ul>
+      <div style="margin-top:30px"><a class="btn btn-g" href="#solutions">ดูโซลูชันทั้งหมด <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+    <div class="frame white"><img src="img/sec-building.jpg" alt="ภาพจำลองอาคารอัจฉริยะพร้อมตำแหน่งระบบความปลอดภัยและ AIoT" loading="lazy"><span class="cap">ภาพจำลอง · Smart Building</span></div>
+  </div>
+</section>
+
+<section class="sec" data-pages="solutions">
+  <div class="wrap">
+    <div class="head mid"><span class="kick">โซลูชันแบบเชื่อมต่อ</span><h2>ระบบความปลอดภัยที่ทำงานร่วมกันทั้งองค์กร</h2><p>เชื่อมเครือข่าย กล้อง AI อุปกรณ์ IoT และศูนย์สั่งการเข้าด้วยกัน ให้ทุกระบบส่งข้อมูลถึงกันและบริหารได้จากที่เดียว</p></div>
+    <div class="caps">
+      <div class="capc"><div class="im"><img src="img/sol-platform.jpg" alt="" loading="lazy"></div><div class="bd"><span class="code" title="IT"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="6" rx="1"/><rect x="5" y="11" width="14" height="6" rx="1"/><path d="M8 6h.01M8 14h.01M12 21v-4"/></svg></span><span class="tag">IT Security Infrastructure</span><h3>โครงสร้างพื้นฐานไอทีเพื่อความปลอดภัย</h3><p>เครือข่าย เซิร์ฟเวอร์ และระบบจัดเก็บข้อมูลที่รองรับกล้องและอุปกรณ์จำนวนมาก เชื่อมทุกสาขาเข้ากับระบบเดิมขององค์กร</p><ul><li>Network</li><li>Server Room</li><li>Storage</li><li>Cyber Security</li></ul></div></div>
+      <div class="capc"><div class="im"><img src="img/sol-city.jpg" alt="" loading="lazy"></div><div class="bd"><span class="code" title="AI"><svg viewBox="0 0 24 24"><path d="M3 7h12v10H3z"/><path d="M15 10l6-3v10l-6-3"/></svg></span><span class="tag">AI Video Analytics</span><h3>กล้อง AI และวิเคราะห์ภาพ</h3><p>เปลี่ยนการเฝ้าดูแบบตั้งรับเป็นการแจ้งเตือนเชิงรุก ตรวจจับเหตุผิดปกติ อ่านป้ายทะเบียน และนับคนให้ทีมโฟกัสเฉพาะเรื่องสำคัญ</p><ul><li>CCTV</li><li>LPR / ANPR</li><li>People Counting</li><li>Smart Pole</li></ul></div></div>
+      <div class="capc"><div class="im"><img src="img/sol-access.jpg" alt="" loading="lazy"></div><div class="bd"><span class="code" title="AC"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M8 17c1-2 2.5-3 4-3s3 1 4 3"/></svg></span><span class="tag">Access Control &amp; Identity</span><h3>ควบคุมการเข้าออกและยืนยันตัวตน</h3><p>กำหนดสิทธิ์เข้าพื้นที่ให้ถูกคน บันทึกการเข้าออกและผู้มาติดต่ออย่างเป็นระบบ ทั้งสแกนใบหน้า บัตร และ QR</p><ul><li>Face Scan</li><li>Visitor</li><li>Lift Control</li><li>Barrier Gate</li></ul></div></div>
+      <div class="capc"><div class="im"><img src="img/sol-solar.jpg" alt="" loading="lazy"></div><div class="bd"><span class="code" title="IoT"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span><span class="tag">AIoT &amp; Smart Energy</span><h3>เซนเซอร์ AIoT และพลังงาน</h3><p>เฝ้าดูอุปกรณ์และสภาพแวดล้อมแบบเรียลไทม์ ตรวจจับควัน แก๊ส อุณหภูมิ พร้อมระบบพลังงานแสงอาทิตย์และ Smart Home</p><ul><li>Smoke / Gas</li><li>Air Quality</li><li>Solar · Huawei</li><li>Smart Home</li></ul></div></div>
+      <div class="capc"><div class="im"><img src="img/command.jpg" alt="" loading="lazy"></div><div class="bd"><span class="code" title="SOC"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><span class="tag">Security Command Center</span><h3>ศูนย์สั่งการและเฝ้าระวัง</h3><p>รวมภาพกล้อง ระบบเข้าออก และสัญญาณเตือนจากทุกพื้นที่ไว้ในจอเดียว ติดตามเหตุและสั่งการได้ทันที</p><ul><li>Video Wall</li><li>HikCentral</li><li>Alarm</li><li>Mobile App</li></ul></div></div>
+      <div class="capc"><div class="im"><img src="img/sol-robot.jpg" alt="" loading="lazy"></div><div class="bd"><span class="code" title="RB"><svg viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01M2 13v3M22 13v3"/></svg></span><span class="tag">Service Robotics</span><h3>หุ่นยนต์บริการและระบบอัตโนมัติ</h3><p>หุ่นยนต์ส่งของและต้อนรับสำหรับโรงพยาบาล โรงแรม และอาคาร ต่อยอดสู่แพลตฟอร์มบริหารหุ่นยนต์ในปี 2027</p><ul><li>Delivery Robot</li><li>Reception</li><li>Patrol</li><li>Robotics Platform</li></ul></div></div>
     </div>
   </div>
 </section>
 
 <section class="sec" id="solutions" data-pages="home solutions">
   <div class="wrap">
-    <div class="head mid" data-only="home"><span class="kick">โซลูชัน</span><h2>โซลูชันสำหรับทุกอุตสาหกรรม</h2><p>ออกแบบและวางระบบให้เหมาะกับธุรกิจของคุณ จากอุปกรณ์แบรนด์ชั้นนำ</p></div>
-    <div class="g4" data-only="home">
-      <a class="svc" href="#solutions"><div class="svc-img"><img src="img/sol-building.jpg" alt="Smart Building" loading="lazy"></div><div class="svc-body"><span class="pill">SMART BUILDING</span><h3>อาคารอัจฉริยะ</h3><p>รวมกล้อง AI ระบบควบคุมการเข้าออก ลิฟต์ และอุปกรณ์ IoT ของอาคารไว้ในระบบบริหารเดียว</p></div></a>
-      <a class="svc" href="#solutions"><div class="svc-img"><img src="img/sol-city.jpg" alt="Smart City" loading="lazy"></div><div class="svc-body"><span class="pill">SMART CITY</span><h3>เมืองอัจฉริยะ</h3><p>กล้องและระบบวิเคราะห์ภาพสำหรับพื้นที่สาธารณะ ศูนย์สั่งการ และความปลอดภัยของเมือง</p></div></a>
-      <a class="svc" href="#solutions"><div class="svc-img"><img src="img/sol-traffic.jpg" alt="Smart Traffic" loading="lazy"></div><div class="svc-body"><span class="pill">SMART TRAFFIC</span><h3>จราจรอัจฉริยะ</h3><p>กล้องอ่านป้ายทะเบียน (LPR / ANPR) ตรวจจับการจราจร และระบบบริหารลานจอด</p></div></a>
-      <a class="svc" href="#solutions"><div class="svc-img"><img src="img/sol-transport.jpg" alt="Smart Transport" loading="lazy"></div><div class="svc-body"><span class="pill">SMART TRANSPORT</span><h3>ขนส่งอัจฉริยะ</h3><p>กล้อง AI + GPS Tracking + เครื่องอ่านบัตร บนรถบรรทุก รถโดยสาร และรถพยาบาล ใช้ซิมเดียวผ่าน 4G</p></div></a>
+    <div data-only="home">
+      <div class="head mid"><span class="kick">โซลูชันตามอุตสาหกรรม</span><h2>ระบบความปลอดภัยสำหรับทุกอุตสาหกรรม</h2><p>เลือกอุตสาหกรรมของคุณ แล้วดูว่าแต่ละระบบติดตั้งอยู่ตรงไหนและทำหน้าที่อะไร</p></div>
+      <div class="sectors">
+      <a class="sector" href="#solutions" data-sector="building"><img src="img/sol-building.jpg" alt="" loading="lazy"><span class="sico"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2M10 21v-3h4v3"/></svg></span><b>อาคาร</b><small>Building</small><span class="n">8 ระบบ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="sector" href="#solutions" data-sector="healthcare"><img src="img/ambulance.jpg" alt="" loading="lazy"><span class="sico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/></svg></span><b>โรงพยาบาล</b><small>Healthcare</small><span class="n">6 ระบบ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="sector" href="#solutions" data-sector="government"><img src="img/parliament.jpg" alt="" loading="lazy"><span class="sico"><svg viewBox="0 0 24 24"><path d="M3 10l9-6 9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 21h18"/></svg></span><b>หน่วยงานภาครัฐ</b><small>Government</small><span class="n">10 ระบบ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="sector" href="#solutions" data-sector="education"><img src="img/sol-education.jpg" alt="" loading="lazy"><span class="sico"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></span><b>สถาบันการศึกษา</b><small>Education</small><span class="n">7 ระบบ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="sector" href="#solutions" data-sector="industry"><img src="img/sol-transport.jpg" alt="" loading="lazy"><span class="sico"><svg viewBox="0 0 24 24"><path d="M3 21V10l5 3V10l5 3V10l5 3V4h3v17z"/></svg></span><b>นิคมอุตสาหกรรม</b><small>Industry</small><span class="n">10 ระบบ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="sector" href="#solutions" data-sector="factory"><img src="img/sol-factory.jpg" alt="" loading="lazy"><span class="sico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1L7 17M17 7l2.1-2.1"/></svg></span><b>โรงงาน</b><small>Factory</small><span class="n">9 ระบบ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      </div>
     </div>
-    <div style="margin-top:36px;text-align:center" data-only="home"><a class="btn btn-o" href="#solutions">ดูโซลูชันทั้งหมด <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-    <div data-only="solutions">
+    <div data-only="solutions" id="showcase">
       <div class="head"><span class="kick">6 กลุ่มอุตสาหกรรมหลัก</span><h2>เลือกอุตสาหกรรมของคุณ</h2><p>ทีมวิศวกรของเราจับคู่เทคโนโลยีให้เหมาะกับข้อจำกัดของแต่ละพื้นที่ ทุกอุปกรณ์และทุกระบบมีหน้าที่ชัดเจนในภาพรวมของโซลูชัน</p></div>
       <div class="vshow">
         <div class="vtabs" role="tablist" aria-label="เลือกอุตสาหกรรม"><button class="vtab on" type="button" role="tab" id="vt-building" aria-selected="true" aria-controls="vp-building" data-v="building"><strong>อาคาร</strong><small>Building</small></button><button class="vtab" type="button" role="tab" id="vt-healthcare" aria-selected="false" aria-controls="vp-healthcare" data-v="healthcare"><strong>โรงพยาบาล</strong><small>Healthcare</small></button><button class="vtab" type="button" role="tab" id="vt-government" aria-selected="false" aria-controls="vp-government" data-v="government"><strong>หน่วยงานภาครัฐ</strong><small>Government</small></button><button class="vtab" type="button" role="tab" id="vt-education" aria-selected="false" aria-controls="vp-education" data-v="education"><strong>สถาบันการศึกษา</strong><small>Education</small></button><button class="vtab" type="button" role="tab" id="vt-industry" aria-selected="false" aria-controls="vp-industry" data-v="industry"><strong>นิคมอุตสาหกรรม</strong><small>Industry</small></button><button class="vtab" type="button" role="tab" id="vt-factory" aria-selected="false" aria-controls="vp-factory" data-v="factory"><strong>โรงงาน</strong><small>Factory</small></button></div>
@@ -457,6 +557,19 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
   </div>
 </section>
 
+<section class="sec" data-pages="solutions">
+  <div class="wrap">
+    <div class="head mid"><span class="kick">ขั้นตอนการทำงาน</span><h2>จากหน้างานจริง สู่ระบบที่ใช้งานได้ทุกวัน</h2></div>
+    <ol class="psteps">
+      <li><h3>สำรวจหน้างาน</h3><p>วิศวกรเข้าสำรวจพื้นที่ ประเมินความเสี่ยง และรับฟังโจทย์ขององค์กร</p></li>
+      <li><h3>ออกแบบและเสนอราคา</h3><p>ออกแบบตำแหน่งอุปกรณ์และระบบ พร้อมทางเลือกทั้งซื้อขาดและบริการรายเดือน</p></li>
+      <li><h3>ติดตั้งและทดสอบ</h3><p>ติดตั้งตามมาตรฐาน ISO 9001:2015 ทดสอบระบบ และอบรมผู้ใช้งานก่อนส่งมอบ</p></li>
+      <li><h3>ดูแลหลังการขาย</h3><p>Call Center ตลอด 24 ชั่วโมง ทีมช่างทั่วประเทศ และสัญญาดูแลรักษาพร้อม SLA</p></li>
+    </ol>
+    <div style="margin-top:36px;text-align:center"><a class="btn btn-p" href="#contact">นัดสำรวจหน้างาน <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+
 <section class="sec tint" data-pages="solutions">
   <div class="wrap">
     <div class="head"><span class="kick">New Solution 2026</span><h2>โซลูชันใหม่ปี 2026</h2></div>
@@ -477,9 +590,61 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
   </div>
 </section>
 
-<section class="sec" data-pages="business">
+<section class="sec bizd" id="biz-dist" data-pages="business">
   <div class="wrap">
-    <div class="head"><span class="kick">บริการรายเดือนและบริการหลังการขาย</span><h2>ดูแลระบบของคุณต่อเนื่อง ตั้งแต่วันติดตั้งตลอดอายุการใช้งาน</h2><p>เลือกจ่ายเป็นรายเดือนแทนการลงทุนก้อนใหญ่ พร้อมทีมช่างและ Call Center ที่ดูแลหลังการขาย</p></div>
+    <div class="head"><span class="pill">DISTRIBUTION</span><h2>ธุรกิจจัดจำหน่ายอุปกรณ์</h2><p>ตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทยตั้งแต่ปี 2006 พร้อมแบรนด์ AIoT, Smart Home, Smart Energy และ Robotics ชั้นนำ ส่งถึงมือลูกค้าผ่านเครือข่ายตัวแทนและช่องทางออนไลน์ทั่วประเทศ</p></div>
+    <div class="g2">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v5M12 12l-6 5M12 12l6 5"/></svg></div><h3>เครือข่ายตัวแทนกว่า 500 ราย</h3><p>ตัวแทนจำหน่ายและช่างบริการครอบคลุมทุกภูมิภาค พร้อมราคาและการสนับสนุนสำหรับพาร์ทเนอร์</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 9l1.5-5h13L20 9M4 9v11h16V9M4 9h16M9 20v-6h6v6"/></svg></div><h3>ร้านค้าออนไลน์</h3><p>สั่งซื้อสินค้าได้ทาง Shopee และสอบถามผ่าน LINE Official สำหรับลูกค้ารายย่อยและผู้รับเหมา</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div><h3>ฝึกอบรมช่างและพาร์ทเนอร์</h3><p>อบรมช่างกล้องวงจรปิดแล้วกว่า 3,000 คน ร่วมกับกรมพัฒนาฝีมือแรงงาน</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></svg></div><h3>รับประกันและเคลมสินค้า</h3><p>ทีมบริการหลังการขายดูแลการซ่อม เคลม และเปลี่ยนอุปกรณ์ตามเงื่อนไขรับประกัน</p></div>
+    </div>
+    <div class="gal g3c">
+      <figure><div class="im"><img src="img/news-summit.jpg" alt="ทีม Digital Focus ที่งาน Hikvision Commercial Summit" loading="lazy"></div><figcaption><span>งานพันธมิตร</span>Hikvision Commercial Summit 2025</figcaption></figure>
+      <figure><div class="im"><img src="img/democenter.jpg" alt="ภาพจำลองศูนย์สาธิตสินค้า" loading="lazy"></div><figcaption><span>ภาพจำลอง</span>ศูนย์สาธิตสินค้า Smart Building และ Smart Factory</figcaption></figure>
+      <figure><div class="im"><img src="img/soc-train1.jpg" alt="ผู้เข้าอบรมช่างกล้องวงจรปิด" loading="lazy"></div><figcaption><span>การพัฒนาช่าง</span>อบรมช่างกล้องวงจรปิดร่วมกับกรมพัฒนาฝีมือแรงงาน</figcaption></figure>
+    </div>
+    <div style="margin-top:30px"><a class="btn btn-o" href="#brands">ดูแบรนด์ที่จัดจำหน่าย <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+
+<section class="sec tint bizd" id="biz-si" data-pages="business">
+  <div class="wrap">
+    <div class="head"><span class="pill">INTEGRATION</span><h2>ธุรกิจออกแบบและวางระบบ</h2><p>ทีมวิศวกรรับงานตั้งแต่สำรวจหน้างานจนส่งมอบ สำหรับองค์กรที่มีหลายสาขาและโครงการภาครัฐ เชื่อมอุปกรณ์ทุกยี่ห้อเข้าสู่แพลตฟอร์มบริหารเดียว</p></div>
+    <div class="g2">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></div><h3>สำรวจและออกแบบระบบ</h3><p>ประเมินความเสี่ยงของพื้นที่ ออกแบบตำแหน่งกล้องและอุปกรณ์ให้ครอบคลุมโดยไม่ลงทุนเกินจำเป็น</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div><h3>ติดตั้งและทดสอบ</h3><p>ติดตั้งตามมาตรฐาน ISO 9001:2015 ทดสอบทุกจุดก่อนส่งมอบ พร้อมเอกสารและแบบติดตั้ง</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 01-12 0zM12 17v4"/></svg></div><h3>เชื่อมระบบเดิม</h3><p>รวมกล้อง ระบบเข้าออก และเซนเซอร์ที่มีอยู่เข้ากับ HikCentral และศูนย์สั่งการ</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 010 7M18 14.8c1.8.8 3 2.6 3.5 5.2"/></svg></div><h3>อบรมผู้ใช้งาน</h3><p>สอนเจ้าหน้าที่ใช้งานระบบและแอป พร้อมคู่มือสำหรับทุกสาขา</p></div>
+    </div>
+    <div class="gal g3c">
+      <figure><div class="im"><img src="img/cpall.jpg" alt="ร้าน 7-Eleven" loading="lazy"></div><figcaption><span>ค้าปลีก</span>CP ALL (7-Eleven) กว่า 6,500 สาขา</figcaption></figure>
+      <figure><div class="im"><img src="img/parliament.jpg" alt="รัฐสภา" loading="lazy"></div><figcaption><span>ภาครัฐ</span>รัฐสภา — ระบบกล้องอ่านป้ายทะเบียน</figcaption></figure>
+      <figure><div class="im"><img src="img/exat.jpg" alt="ทางพิเศษ" loading="lazy"></div><figcaption><span>ภาครัฐ</span>การทางพิเศษแห่งประเทศไทย — กล้อง LPR 216 ตัว</figcaption></figure>
+    </div>
+    <div style="margin-top:30px"><a class="btn btn-o" href="#projects">ดูผลงานทั้งหมด <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+
+<section class="sec bizd" id="biz-platform" data-pages="business">
+  <div class="wrap">
+    <div class="head"><span class="pill">PLATFORM</span><h2>ธุรกิจแพลตฟอร์มและนวัตกรรม</h2><p>ต่อยอดจากการจัดจำหน่ายสู่แพลตฟอร์มที่สร้างรายได้ต่อเนื่อง ตั้งแต่ Smart Transport บนยานพาหนะ ศูนย์สาธิต Smart AI Building จนถึงแพลตฟอร์มบริหารหุ่นยนต์</p></div>
+    <div class="g3">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 7h12v10H3z"/><path d="M15 10l6-3v10l-6-3"/></svg></div><h3>Smart Transport</h3><p>กล้อง AI + GPS Tracking + เครื่องอ่านบัตร บนรถบรรทุก รถโดยสาร และรถพยาบาล ใช้ซิมเดียวผ่าน 4G</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2M10 21v-3h4v3"/></svg></div><h3>DGF Smart AI Building</h3><p>ศูนย์สาธิต AI, Robotics และ Green Energy ที่สำนักงานใหญ่ ซอยลาดพร้าว 130</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01M2 13v3M22 13v3"/></svg></div><h3>Robotics Control Platform</h3><p>แพลตฟอร์มบริหารหุ่นยนต์แบบรวมศูนย์ แผนพัฒนาปี 2027 ร่วมกับมหาวิทยาลัยชั้นนำ</p></div>
+    </div>
+    <div class="gal g3c">
+      <figure><div class="im"><img src="img/ptt.jpg" alt="รถขนส่งน้ำมัน ปตท." loading="lazy"></div><figcaption><span>Smart Transport</span>ปตท. — กล้องบนรถขนส่งน้ำมัน 1,500 คัน</figcaption></figure>
+      <figure><div class="im"><img src="img/ambulance.jpg" alt="รถพยาบาล" loading="lazy"></div><figcaption><span>Smart Transport</span>รถพยาบาลพร้อมระบบกล้องและติดตามตำแหน่ง</figcaption></figure>
+      <figure><div class="im"><img src="img/robotics.jpg" alt="ภาพจำลองหุ่นยนต์" loading="lazy"></div><figcaption><span>ภาพจำลอง · แผนปี 2027</span>หุ่นยนต์บริการ หุ่นยนต์สี่ขา และฮิวแมนนอยด์</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" id="biz-service" data-pages="business">
+  <div class="wrap">
+    <div class="head"><span class="pill">SERVICE</span><h2>บริการรายเดือนและบริการหลังการขาย</h2><p style="margin-top:10px;font-family:var(--display);font-weight:600;color:var(--navy-700)">ดูแลระบบของคุณต่อเนื่อง ตั้งแต่วันติดตั้งตลอดอายุการใช้งาน</p><p>เลือกจ่ายเป็นรายเดือนแทนการลงทุนก้อนใหญ่ พร้อมทีมช่างและ Call Center ที่ดูแลหลังการขาย</p></div>
     <div class="g2">
       <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 7h13v8H3zM16 10l5-2v6l-5-2M7 15v4h4"/></svg></div><span class="pill">SECURITY AS A SERVICE</span><h3>เช่าระบบกล้องรายเดือน</h3><p>รวมอุปกรณ์ ติดตั้ง และเปลี่ยนเครื่องเมื่อชำรุด เหมาะกับสาขาค้าปลีกและธุรกิจที่ไม่อยากลงทุนก้อนแรกสูง</p></div>
       <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div><span class="pill">MANAGED MONITORING</span><h3>เฝ้าระวังด้วย AI จากศูนย์ควบคุม</h3><p>AI คัดกรองเหตุผิดปกติจากกล้อง แล้วเจ้าหน้าที่ตรวจสอบก่อนแจ้งลูกค้า ลดการแจ้งเตือนผิดพลาด</p></div>
@@ -511,12 +676,12 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 <section class="sec tint" id="projects" data-pages="home projects">
   <div class="wrap">
     <div data-only="home">
-      <div class="head mid"><span class="kick">ผลงานและลูกค้า</span><h2>ได้รับความไว้วางใจจากองค์กรชั้นนำ</h2><p>ระบบ AI และ CCTV ใน 7-Eleven กว่า 6,500 สาขา และโครงการของหน่วยงานรัฐ ค้าปลีก และพลังงานทั่วประเทศ</p></div>
-    <div class="g2" >
-      <a class="svc" href="#projects"><div class="svc-img"><img src="img/parliament.jpg" alt="รัฐสภา" loading="lazy"></div><div class="svc-body"><span class="pill">ส่งมอบแล้ว</span><h3>รัฐสภา — ระบบกล้องอ่านป้ายทะเบียน</h3><p>ตรวจจับและบันทึกป้ายทะเบียนรถทุกคันที่เข้าพื้นที่ ดำเนินโครงการปี 2022–2023</p><span class="more">ดูโครงการ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-      <a class="svc" href="#projects"><div class="svc-img"><img src="img/gowholesale.jpg" alt="Central GO Wholesale" loading="lazy"></div><div class="svc-body"><span class="pill">ส่งมอบแล้ว</span><h3>Central Food Retail และ Central GO Wholesale</h3><p>ระบบ CCTV ทุกสาขาของ Tops Market, Tops Daily, Central Food Hall และ Central GO Wholesale ปี 2016–2025</p><span class="more">ดูโครงการ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-    </div>
-    <div class="logos" style="margin-top:24px">
+      <div class="split">
+        <div><span class="kick">ผลงานและลูกค้า</span><h2 class="h2">ระบบของเราดูแลองค์กรชั้นนำทั่วประเทศ</h2><p class="lead">ตั้งแต่ร้านค้าปลีกหลายพันสาขา ห้างสรรพสินค้า สถานีบริการน้ำมัน จนถึงหน่วยงานภาครัฐและทางพิเศษ ทีมของเราออกแบบ ติดตั้ง และดูแลระบบให้ทำงานได้ทุกวัน</p><div style="margin-top:28px"><a class="btn btn-o" href="#projects">ดูผลงานทั้งหมด <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+        <div class="stats"><div><div class="stat-n">6,500<small>+</small></div><div class="stat-l">สาขา 7-Eleven ที่ติดตั้งระบบ AI และ CCTV</div></div><div><div class="stat-n">100,000<small>+</small></div><div class="stat-l">กล้องในโครงการ CP ALL</div></div><div><div class="stat-n">1,500<small>คัน</small></div><div class="stat-l">รถขนส่งน้ำมัน ปตท. ที่ติดตั้งกล้อง</div></div><div><div class="stat-n">216</div><div class="stat-l">กล้อง LPR การทางพิเศษแห่งประเทศไทย</div></div></div>
+      </div>
+      <h3 class="subh">ได้รับความไว้วางใจจาก</h3>
+    <div class="logos">
       <div><img src="img/cpall.jpg" alt="" loading="lazy"><span class="nm">CP ALL (7-Eleven)</span></div>
       <div><img src="img/central.jpg" alt="" loading="lazy"><span class="nm">Central Department Store</span></div>
       <div><img src="img/gowholesale.jpg" alt="" loading="lazy"><span class="nm">Central Food Retail</span></div>
@@ -530,7 +695,6 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
       <div><img src="img/chatramue.jpg" alt="" loading="lazy"><span class="nm">ชาตรามือ</span></div>
       <div><img src="img/talaadthai.jpg" alt="" loading="lazy"><span class="nm">ตลาดไท</span></div>
     </div>
-      <div style="margin-top:36px;text-align:center"><a class="btn btn-o" href="#projects">ดูผลงานและลูกค้าทั้งหมด <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     </div>
     <div data-only="projects">
       <div class="head"><span class="kick">โครงการเด่น</span><h2>โครงการที่เราวางระบบ</h2></div>
@@ -540,6 +704,16 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
       <div class="proj"><div class="im"><img src="img/bigc.jpg" alt="Big C" loading="lazy"></div><div class="bd"><span class="pill">ส่งมอบแล้ว</span><h3>Big C และ BJC</h3><p class="sub">เปลี่ยนระบบ NVR และ DVR เป็น Hikvision · ค้าปลีก</p><p>ยกระดับระบบกล้องทั่วเครือข่าย บันทึกภาพในสาขาและบริหารผ่าน HikCentral</p><ul class="spec"><li><b>20,000+</b><span>กล้อง</span></li><li><b>1,500</b><span>สาขา</span></li><li><b>HCP</b><span>แพลตฟอร์มบริหาร</span></li></ul></div></div>
       <div class="proj"><div class="im"><img src="img/ptt.jpg" alt="รถขนส่งน้ำมัน ปตท." loading="lazy"></div><div class="bd"><span class="pill">ส่งมอบแล้ว</span><h3>ปตท. — กล้องบนรถขนส่งน้ำมัน</h3><p class="sub">ระบบกล้องบนยานพาหนะ · พลังงาน · 2018</p><p>ติดตั้งระบบกล้องบนรถขนส่งน้ำมันของ บริษัท ปตท. จำกัด (มหาชน) ทั้งกองรถ</p><ul class="spec"><li><b>1,500</b><span>คัน</span></li><li><b>2018</b><span>ปีที่ส่งมอบ</span></li><li><b>กองรถ</b><span>ทั่วประเทศ</span></li></ul></div></div>
       <div class="proj"><div class="im"><img src="img/talaadthai.jpg" alt="ตลาดไท" loading="lazy"></div><div class="bd"><span class="pill">ส่งมอบแล้ว</span><h3>ตลาดไท และตลาดสี่มุมเมือง</h3><p class="sub">ระบบอ่านป้ายทะเบียน (ANPR) · ตลาด</p><p>อ่านป้ายทะเบียนรถเข้าออกพื้นที่ตลาด บริหารจัดการผ่านแพลตฟอร์ม HikCentral</p><ul class="spec"><li><b>ANPR</b><span>อ่านป้ายทะเบียน</span></li><li><b>HCP</b><span>แพลตฟอร์มบริหาร</span></li><li><b>2</b><span>ตลาดค้าส่ง</span></li></ul></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" data-pages="home">
+  <div class="wrap">
+    <div class="head"><span class="kick">ผลงานล่าสุด</span><h2>โครงการที่ส่งมอบแล้ว</h2></div>
+    <div class="g2">
+      <a class="svc" href="#projects"><div class="svc-img"><img src="img/parliament.jpg" alt="รัฐสภา" loading="lazy"></div><div class="svc-body"><span class="pill">ส่งมอบแล้ว</span><h3>รัฐสภา — ระบบกล้องอ่านป้ายทะเบียน</h3><p>ตรวจจับและบันทึกป้ายทะเบียนรถทุกคันที่เข้าพื้นที่ ดำเนินโครงการปี 2022–2023</p><span class="more">ดูโครงการ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="svc" href="#projects"><div class="svc-img"><img src="img/gowholesale.jpg" alt="Central GO Wholesale" loading="lazy"></div><div class="svc-body"><span class="pill">ส่งมอบแล้ว</span><h3>Central Food Retail และ Central GO Wholesale</h3><p>ระบบ CCTV ทุกสาขาของ Tops Market, Tops Daily, Central Food Hall และ Central GO Wholesale ปี 2016–2025</p><span class="more">ดูโครงการ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
     </div>
   </div>
 </section>
@@ -587,28 +761,61 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
   </div>
 </section>
 
-<section class="sec" data-pages="about">
-  <div class="wrap split" style="align-items:start">
+<section class="sec tint" data-pages="about">
+  <div class="wrap split">
     <div>
       <span class="kick">วิสัยทัศน์</span>
-      <h2 style="font-size:clamp(24px,3vw,34px);color:var(--navy-800);line-height:1.4">มุ่งเป็นผู้นำด้านนวัตกรรมดิจิทัลและโซลูชันความปลอดภัยครบวงจรในอาเซียน ขับเคลื่อนด้วย AI และ AIoT Robotic เพื่อยกระดับคุณภาพชีวิตและความปลอดภัยสาธารณะของสังคมไทยอย่างยั่งยืน</h2>
-      <div class="stats" style="margin-top:36px">
-        <div><div class="stat-n">2002</div><div class="stat-l">ปีที่ก่อตั้งบริษัท</div></div>
-        <div><div class="stat-n">60<small>ลบ.</small></div><div class="stat-l">ทุนจดทะเบียน</div></div>
-        <div><div class="stat-n">5,400<small>+ ตร.ม.</small></div><div class="stat-l">สำนักงานใหญ่ 3 อาคาร ซอยลาดพร้าว 130</div></div>
-        <div><div class="stat-n">3,000<small>+</small></div><div class="stat-l">ช่างที่ผ่านการอบรมร่วมกับกรมพัฒนาฝีมือแรงงาน</div></div>
-      </div>
+      <blockquote class="quote">“มุ่งเป็นผู้นำด้านนวัตกรรมดิจิทัลและโซลูชันความปลอดภัยครบวงจรในอาเซียน ขับเคลื่อนด้วย AI และ AIoT Robotic เพื่อยกระดับคุณภาพชีวิตและความปลอดภัยสาธารณะของสังคมไทยอย่างยั่งยืน”<cite>วิสัยทัศน์องค์กร · บริษัท ดิจิตอลโฟกัส จำกัด</cite></blockquote>
     </div>
+    <div class="frame"><img src="img/hq.jpg" alt="สำนักงานใหญ่ Digital Focus ซอยลาดพร้าว 130" loading="lazy"><span class="cap">สำนักงานใหญ่ · ซอยลาดพร้าว 130</span></div>
+  </div>
+</section>
+
+<section class="sec" data-pages="about">
+  <div class="wrap">
+    <div class="head"><span class="kick">จุดแข็งของเรา</span><h2>4 จุดแข็งที่องค์กรชั้นนำไว้วางใจ</h2></div>
+    <div class="g2">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>ประสบการณ์กว่า 24 ปี</h3><p>ดำเนินธุรกิจระบบรักษาความปลอดภัยตั้งแต่ปี 2002 และเป็นตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทยตั้งแต่ปี 2006</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v5M12 12l-6 5M12 12l6 5"/></svg></div><h3>เครือข่ายทั่วประเทศ</h3><p>ตัวแทนจำหน่ายและช่างบริการกว่า 500 ราย พร้อม Call Center ตลอด 24 ชั่วโมง ดูแลลูกค้าได้ทุกภูมิภาค</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></svg></div><h3>มาตรฐานที่ตรวจสอบได้</h3><p>ได้รับรอง ISO 9001:2015 มาตรฐานธรรมาภิบาลธุรกิจ และ มอก.S พร้อมเตรียมความพร้อมเข้าจดทะเบียนในตลาดหลักทรัพย์ฯ</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/></svg></div><h3>นวัตกรรมต่อเนื่อง</h3><p>ต่อยอดจากการจัดจำหน่ายสู่ Smart Transport, ศูนย์สาธิต DGF Smart AI Building และแพลตฟอร์มหุ่นยนต์ปี 2027</p></div>
+    </div>
+    <div class="stats" style="margin-top:28px">
+      <div><div class="stat-n">2002</div><div class="stat-l">ปีที่ก่อตั้งบริษัท</div></div>
+      <div><div class="stat-n">60<small>ลบ.</small></div><div class="stat-l">ทุนจดทะเบียน</div></div>
+      <div><div class="stat-n">5,400<small>+ ตร.ม.</small></div><div class="stat-l">สำนักงานใหญ่ 3 อาคาร ซอยลาดพร้าว 130</div></div>
+      <div><div class="stat-n">3,000<small>+</small></div><div class="stat-l">ช่างที่ผ่านการอบรมร่วมกับกรมพัฒนาฝีมือแรงงาน</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" data-pages="about">
+  <div class="wrap">
+    <div class="head"><span class="kick">เส้นทางของเรา</span><h2>เส้นทางกว่า 24 ปี</h2></div>
+    <div class="tl" style="max-width:860px">
+      <div class="tl-item"><div class="tl-y">2002</div><p>ก่อตั้ง บริษัท ดิจิตอลโฟกัส จำกัด ในธุรกิจระบบรักษาความปลอดภัยและกล้องวงจรปิด</p></div>
+      <div class="tl-item"><div class="tl-y">2006</div><p>ตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย และได้รับรอง ISO 9001</p></div>
+      <div class="tl-item"><div class="tl-y">2009</div><p>ขยายเครือข่ายตัวแทนจำหน่ายกว่า 500 รายทั่วประเทศ</p></div>
+      <div class="tl-item"><div class="tl-y">2016</div><p>อบรมช่างกล้องวงจรปิดกว่า 3,000 คนร่วมกับกรมพัฒนาฝีมือแรงงาน</p></div>
+      <div class="tl-item"><div class="tl-y">2019</div><p>รางวัล ASEAN Business Award สาขา Family Business ขนาดใหญ่</p></div>
+      <div class="tl-item"><div class="tl-y">2020–2024</div><p>โครงการทั่วประเทศกับ 7-Eleven, Central Group, CMG, J-Park และ PT พร้อมมาตรฐานธรรมาภิบาลธุรกิจและ มอก.S</p></div>
+      <div class="tl-item"><div class="tl-y">2026</div><p>เปิดตัวโซลูชันใหม่ Smart AI Luxury House และศูนย์สาธิต DGF Smart AI Building พร้อมเตรียมเข้าจดทะเบียนในตลาดหลักทรัพย์ฯ</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark" data-pages="about">
+  <div class="wrap split">
+    <div class="frame"><img src="img/soc-train1.jpg" alt="ทีม Digital Focus กับผู้เข้าอบรมช่างกล้องวงจรปิด" loading="lazy"></div>
     <div>
-      <span class="kick">เส้นทางของเรา</span>
-      <div class="tl" style="margin-top:8px">
-        <div class="tl-item"><div class="tl-y">2002</div><p>ก่อตั้ง บริษัท ดิจิตอลโฟกัส จำกัด ในธุรกิจระบบรักษาความปลอดภัยและกล้องวงจรปิด</p></div>
-        <div class="tl-item"><div class="tl-y">2006</div><p>ตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย และได้รับรอง ISO 9001</p></div>
-        <div class="tl-item"><div class="tl-y">2009</div><p>ขยายเครือข่ายตัวแทนจำหน่ายกว่า 500 รายทั่วประเทศ</p></div>
-        <div class="tl-item"><div class="tl-y">2016</div><p>อบรมช่างกล้องวงจรปิดกว่า 3,000 คนร่วมกับกรมพัฒนาฝีมือแรงงาน</p></div>
-        <div class="tl-item"><div class="tl-y">2019</div><p>รางวัล ASEAN Business Award สาขา Family Business ขนาดใหญ่</p></div>
-        <div class="tl-item"><div class="tl-y">2020–2024</div><p>โครงการทั่วประเทศกับ 7-Eleven, Central Group, CMG, J-Park และ PT พร้อมมาตรฐานธรรมาภิบาลธุรกิจและ มอก.S</p></div>
-      </div>
+      <span class="kick">ทีมงาน</span>
+      <h2 class="h2">หัวใจของระบบที่ดีคือทีมที่ดูแลต่อเนื่อง</h2>
+      <p class="lead">ทีมวิศวกร ช่างเทคนิค และเจ้าหน้าที่บริการของ Digital Focus ทำงานร่วมกับเครือข่ายพาร์ทเนอร์ทั่วประเทศ เพื่อให้ระบบของลูกค้าพร้อมใช้งานทุกวัน</p>
+      <ul class="flist" style="margin-top:26px">
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Call Center ตลอด 24 ชั่วโมง</b> — รับแจ้งปัญหาและประสานช่างในพื้นที่</span></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>พัฒนาทักษะอย่างต่อเนื่อง</b> — อบรมร่วมกับแบรนด์และกรมพัฒนาฝีมือแรงงาน</span></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>รางวัล ASEAN Business Award 2019</b> — สาขา Family Business ขนาดใหญ่</span></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -813,9 +1020,9 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 
   /* page views */
   var PAGES={
-    about:['เกี่ยวกับเรา','จากผู้จำหน่ายกล้องวงจรปิด สู่ผู้นำ Security & Smart Solutions','ธุรกิจครอบครัวไทยที่เติบโตมากว่า 24 ปี ด้วยคุณภาพสินค้า ทีมวิศวกร และบริการหลังการขาย'],
-    business:['ธุรกิจของเรา','ครบตั้งแต่อุปกรณ์ วางระบบ จนถึงบริการ','จัดจำหน่ายอุปกรณ์ ออกแบบและวางระบบ แพลตฟอร์ม และบริการรายเดือน ที่เสริมกันเป็นระบบเดียว'],
-    solutions:['โซลูชัน','โซลูชันสำหรับทุกอุตสาหกรรม','ออกแบบและวางระบบให้เหมาะกับธุรกิจของคุณ ทั้งอาคาร เมือง การจราจร การขนส่ง โรงงาน ค้าปลีก การศึกษา และบ้าน'],
+    about:['เกี่ยวกับเรา','จากผู้จำหน่ายกล้อง⁠วงจรปิด สู่⁠ผู้นำ Security & Smart Solutions','ธุรกิจครอบครัวไทยที่เติบโตมากว่า 24 ปี ด้วยคุณภาพสินค้า ทีมวิศวกร และบริการหลังการขาย'],
+    business:['ธุรกิจของเรา','ครบตั้งแต่อุปกรณ์ วาง⁠ระบบ จนถึงบริการ','จัดจำหน่ายอุปกรณ์ ออกแบบและวางระบบ แพลตฟอร์ม และบริการรายเดือน ที่เสริมกันเป็นระบบเดียว'],
+    solutions:['โซลูชัน','โซลูชันสำหรับทุกอุตสาหกรรม','ระบบความปลอดภัย AI และ AIoT ที่ทำงานร่วมกันทั้งองค์กร ออกแบบให้เหมาะกับอาคาร โรงพยาบาล หน่วยงานภาครัฐ สถาบันการศึกษา นิคมอุตสาหกรรม และโรงงาน'],
     projects:['ผลงานและลูกค้า','ผลงานและลูกค้าของเรา','โครงการที่เราวางระบบให้องค์กรชั้นนำทั้งภาครัฐและเอกชนทั่วประเทศ ตั้งแต่ค้าปลีกหลายพันสาขาถึงหน่วยงานรัฐ'],
     brands:['ผลิตภัณฑ์','ผลิตภัณฑ์และแบรนด์ที่เราจัดจำหน่าย','ตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย พร้อมพันธมิตรด้าน AIoT, Smart Home และ Robotics'],
     esg:['ความยั่งยืน','ความยั่งยืนที่อยู่ในทุกกระบวนการดำเนินงาน','ดูแลสิ่งแวดล้อมในองค์กร พัฒนาฝีมือแรงงาน สนับสนุนการศึกษา คืนสู่ชุมชน และกำกับดูแลกิจการอย่างโปร่งใส'],
@@ -835,11 +1042,12 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
       requestAnimationFrame(step);
     });
   }
-  var ALIAS={clients:['projects'],partner:['contact','partner'],ir:['contact','ir']};
+  var ALIAS={clients:['projects'],partner:['contact','partner'],ir:['contact','ir'],'biz-dist':['business','biz-dist'],'biz-si':['business','biz-si'],'biz-platform':['business','biz-platform'],'biz-service':['business','biz-service']};
   function go(page,scroll){
     var target=null;
     if(ALIAS[page]){target=ALIAS[page][1]||null;page=ALIAS[page][0]}
     if(!PAGES[page]) page='home';
+    document.body.setAttribute('data-page',page);
     secs.forEach(function(el){
       if(el===phero){el.hidden=page==='home';return}
       el.hidden=el.getAttribute('data-pages').split(' ').indexOf(page)<0;
@@ -857,6 +1065,8 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
     var id=a.getAttribute('href').slice(1);
     if(id!=='home'&&!PAGES[id]&&!ALIAS[id]) return;
     e.preventDefault(); go(id);
+    var sv=a.getAttribute('data-sector');
+    if(sv){var tb=document.getElementById('vt-'+sv);if(tb){tb.click();setTimeout(function(){document.getElementById('showcase').scrollIntoView({block:'start'})},0)}}
     try{history.pushState(null,'','#'+id)}catch(err){}
   });
   window.addEventListener('popstate',function(){go((location.hash||'#home').slice(1))});
@@ -872,7 +1082,8 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
   onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
 
   go((location.hash||'#home').slice(1),false);
-  if(location.hash&&location.hash!=='#partner'&&location.hash!=='#ir'){window.addEventListener('load',function(){window.scrollTo(0,0)});setTimeout(function(){window.scrollTo(0,0)},0)}
+  var h0=(location.hash||'').slice(1);
+  if(h0&&!(ALIAS[h0]&&ALIAS[h0][1])){window.addEventListener('load',function(){window.scrollTo(0,0)});setTimeout(function(){window.scrollTo(0,0)},0)}
 
   var VT=[].slice.call(document.querySelectorAll('.vtab'));
   VT.forEach(function(b){b.addEventListener('click',function(){
