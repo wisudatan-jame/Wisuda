@@ -88,7 +88,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 .dark h2,.dark h3{color:#fff}
 .kick{display:inline-flex;align-items:center;gap:8px;font:600 12px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
 .kick::before{content:"";width:22px;height:2px;border-radius:2px;background:currentColor}
-.dark .kick{color:var(--cyan)}
+.dark .kick{color:#a9bcd6}
 .head{max-width:760px;margin-bottom:48px}
 .head.mid{margin-inline:auto;text-align:center}
 .head h2{font-size:clamp(27px,3.4vw,40px);color:var(--navy-800)}
@@ -105,7 +105,6 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:22px;font-size:12.5px;font-weight:600;letter-spacing:.12em;color:#93b4e4;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:7px 16px}
 .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 4px rgba(36,211,238,.22)}
 .hero h1{max-width:none;font-weight:700;font-size:clamp(34px,5.6vw,62px);line-height:1.12;letter-spacing:-.02em;color:#fff}
-.hero h1 .hl{color:var(--cyan)}
 .hero-lead{margin-top:22px;max-width:56ch;font-size:clamp(16px,1.6vw,17.5px);color:#b9cbe4}
 .hero-lead b{color:#fff;font-weight:600}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
@@ -114,7 +113,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 .kpis>div:first-child{padding-left:0}.kpis>div:last-child{border-right:0}
 @media(max-width:640px){.kpis{grid-template-columns:1fr;margin-top:48px}.kpis>div{border-right:0;border-bottom:1px solid rgba(255,255,255,.12);padding:20px 0}.kpis>div:last-child{border-bottom:0}}
 .kpi-n{font-family:var(--display);font-size:clamp(26px,3.2vw,38px);font-weight:700;color:#fff;line-height:1;font-variant-numeric:tabular-nums}
-.kpi-n small{font-size:.5em;font-weight:600;color:var(--cyan);margin-left:3px}
+.kpi-n small{font-size:.5em;font-weight:600;color:#9fb4d0;margin-left:3px}
 .kpi-l{margin-top:8px;font-size:13.5px;color:#93aac9;line-height:1.5}
 
 
@@ -128,6 +127,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 .crumb a:hover{color:#fff}
 .phero h1{font-size:clamp(30px,4.6vw,50px);max-width:900px;letter-spacing:-.02em}
 .phero p{margin-top:18px;max-width:60ch;color:#b9cbe4;font-size:17px}
+.phero h1.lead-t{max-width:58ch;font-weight:500;font-size:clamp(21px,2.5vw,29px);line-height:1.5;letter-spacing:0;color:#d3e2f6}
 
 /* grids and cards */
 .g2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
@@ -149,7 +149,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 .ico svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .card-dark .ico{background:rgba(36,211,238,.13);color:var(--cyan)}
 .pill{display:inline-block;font:700 11.5px/1 var(--body);letter-spacing:.12em;padding:6px 11px;border-radius:6px;background:var(--accent-soft);color:var(--accent);margin-bottom:16px}
-.dark .pill,.card-dark .pill{background:rgba(36,211,238,.14);color:var(--cyan)}
+.dark .pill,.card-dark .pill{background:rgba(255,255,255,.1);color:#dce6f4}
 .svc{border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--paper);display:flex;flex-direction:column;transition:box-shadow .25s,transform .25s}
 .svc:hover{box-shadow:var(--sh-2);transform:translateY(-4px)}
 .svc-img{aspect-ratio:16/10;overflow:hidden;background:var(--paper-3)}
@@ -177,7 +177,9 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 .frame .cap{position:absolute;left:14px;bottom:14px;font-size:12px;color:#fff;background:rgba(5,20,44,.74);padding:5px 10px;border-radius:8px}
 .frame.white{background:#fff}
 .quote{border-left:3px solid var(--accent);padding:4px 0 4px 26px;margin:0;font-family:var(--display);font-weight:600;font-size:clamp(21px,2.5vw,28px);line-height:1.45;color:var(--navy-800)}
+.dark .quote{color:#fff;border-color:var(--accent)}
 .quote cite{display:block;margin-top:16px;font:500 14px/1.5 var(--body);color:var(--ink-45);font-style:normal}
+.dark .quote cite{color:#93aac9}
 .h2{font-size:clamp(27px,3.4vw,40px);color:var(--navy-800)}
 .dark .h2{color:#fff}
 .lead{margin-top:16px;color:var(--ink-70);font-size:17px}
@@ -244,7 +246,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 .vtab small{font-size:12.5px;color:var(--ink-45);letter-spacing:.06em;text-transform:uppercase}
 .vtab:hover{border-color:#cddcf2}
 .vtab.on{background:var(--navy-800);border-color:var(--navy-800);box-shadow:var(--sh-2)}
-.vtab.on strong{color:#fff}.vtab.on small{color:var(--cyan)}
+.vtab.on strong{color:#fff}.vtab.on small{color:#a9bcd6}
 .vpanel{min-width:0}
 .vstage{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:1672/941;max-width:100%;background:#f3f3f2;border:1px solid var(--line);box-shadow:var(--sh-1)}
 .vstage img{width:100%;height:100%;object-fit:contain}
@@ -276,7 +278,7 @@ a:hover .more svg,.more:hover svg{transform:translateX(4px)}
 .sector .sico{position:absolute;top:16px;left:16px;width:46px;height:46px;border-radius:50%;background:#fff;color:var(--navy-700);display:grid;place-items:center;box-shadow:0 6px 18px -6px rgba(5,20,44,.5)}
 .sector .sico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .sector b{font:600 18px/1.3 var(--display)}
-.sector small{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#8fe6f5;margin-top:3px}
+.sector small{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#cbd8ec;margin-top:3px}
 .sector .n{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:13px;color:#cbd8ec}
 .sector .n svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
 .sector:hover .n svg{transform:translateX(4px)}
@@ -431,7 +433,7 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
   <div class="hero-bg"><img src="img/hq.jpg" alt=""></div>
   <div class="wrap hero-in">
     <span class="eyebrow"><span class="dot"></span>เตรียมเข้าจดทะเบียนในตลาดหลักทรัพย์ฯ · DIGITAL FOCUS</span>
-    <h1>ผู้นำระบบรักษาความปลอดภัย<br><span class="hl">AI &amp; AIoT</span> ของไทย</h1>
+    <h1>ผู้นำ Smart Security Solutions<br>&amp; AIoT ครบวงจร</h1>
     <p class="hero-lead"><b>บริษัท ดิจิตอลโฟกัส จำกัด</b> ผู้นำเข้า จัดจำหน่าย และวางระบบ ด้วยประสบการณ์กว่า 24 ปี ในฐานะตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย</p>
     <div class="hero-cta"><a class="btn btn-p" href="#business">ดูธุรกิจของเรา <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-g" href="#contact">ติดต่อทีมขาย</a></div>
     <div class="kpis">
@@ -442,11 +444,11 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
   </div>
 </section>
 
-<section class="sec" data-pages="home about">
+<section class="sec" data-pages="home">
   <div class="wrap split">
     <div>
       <span class="kick">เกี่ยวกับ DIGITAL FOCUS</span>
-      <p style="color:var(--ink-70);font-size:17px">ตั้งแต่ปี 2002 Digital Focus เติบโตจากผู้จำหน่ายกล้องวงจรปิด สู่ผู้ให้บริการ Security &amp; Smart Solutions ครบวงจร ที่ผสานอุปกรณ์จากแบรนด์ชั้นนำของโลกเข้ากับทีมวิศวกรและบริการหลังการขาย เพื่อให้องค์กรทั้งภาครัฐและเอกชนปลอดภัยและบริหารงานได้อย่างมีประสิทธิภาพ</p>
+      <p style="color:var(--ink-70);font-size:17px">ตั้งแต่ปี 2002 Digital Focus เติบโตจากผู้จำหน่ายกล้องวงจรปิด สู่ผู้ให้บริการ Smart Security Solutions &amp; AIoT ครบวงจร ที่ผสานอุปกรณ์จากแบรนด์ชั้นนำของโลกเข้ากับทีมวิศวกรและบริการหลังการขาย เพื่อให้องค์กรทั้งภาครัฐและเอกชนปลอดภัยและบริหารงานได้อย่างมีประสิทธิภาพ</p>
       <ul class="flist" style="margin-top:26px">
         <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>ครบทั้งอุปกรณ์และบริการ</b> — จัดจำหน่าย ออกแบบ ติดตั้ง และดูแลหลังการขายในที่เดียว</span></li>
         <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>ตัวแทน Hikvision รายแรกของไทย</b> — ได้รับแต่งตั้งอย่างเป็นทางการตั้งแต่ปี 2006</span></li>
@@ -475,7 +477,7 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
   <div class="wrap split">
     <div>
       <span class="kick">เทคโนโลยี</span>
-      <h2 class="h2">AI &amp; AIoT Security — ทุกระบบในอาคารเชื่อมเป็นหนึ่งเดียว</h2>
+      <h2 class="h2">Smart Security &amp; AIoT — ทุกระบบในอาคารเชื่อมเป็นหนึ่งเดียว</h2>
       <p class="lead">กล้อง AI ระบบควบคุมการเข้าออก เซนเซอร์ AIoT และระบบที่จอดรถ ทำงานร่วมกันบนแพลตฟอร์มบริหารแบบรวมศูนย์ ออกแบบและติดตั้งโดยทีมวิศวกรของ Digital Focus</p>
       <ul class="flist" style="margin-top:26px">
         <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>กล้อง AI และอ่านป้ายทะเบียน</b> — ตรวจจับคน ยานพาหนะ และการบุกรุกพื้นที่แบบเรียลไทม์</span></li>
@@ -761,37 +763,44 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
   </div>
 </section>
 
-<section class="sec tint" data-pages="about">
+<section class="sec" data-pages="about">
   <div class="wrap split">
     <div>
       <span class="kick">วิสัยทัศน์</span>
       <blockquote class="quote">“มุ่งเป็นผู้นำด้านนวัตกรรมดิจิทัลและโซลูชันความปลอดภัยครบวงจรในอาเซียน ขับเคลื่อนด้วย AI และ AIoT Robotic เพื่อยกระดับคุณภาพชีวิตและความปลอดภัยสาธารณะของสังคมไทยอย่างยั่งยืน”<cite>วิสัยทัศน์องค์กร · บริษัท ดิจิตอลโฟกัส จำกัด</cite></blockquote>
+      <p style="margin-top:24px;color:var(--ink-70);font-size:16px">ตั้งแต่ปี 2002 Digital Focus เติบโตจากผู้จำหน่ายกล้องวงจรปิด สู่ผู้ให้บริการ Smart Security Solutions &amp; AIoT ครบวงจร ที่ผสานอุปกรณ์จากแบรนด์ชั้นนำของโลกเข้ากับทีมวิศวกรและบริการหลังการขาย</p>
     </div>
     <div class="frame"><img src="img/hq.jpg" alt="สำนักงานใหญ่ Digital Focus ซอยลาดพร้าว 130" loading="lazy"><span class="cap">สำนักงานใหญ่ · ซอยลาดพร้าว 130</span></div>
   </div>
 </section>
 
+<section class="sec tint" data-pages="about">
+  <div class="wrap">
+    <div class="head"><span class="kick">พันธกิจ</span><h2>พันธกิจ 4 ด้าน</h2><p>นำเข้าเทคโนโลยีที่ดีที่สุด พัฒนาต่อยอด และดูแลลูกค้าผ่านทีมและเครือข่ายทั่วประเทศ</p></div>
+    <ul class="flist">
+      <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>นำเข้า</b> — เทคโนโลยีความปลอดภัยและระบบ AI / IoT ชั้นนำที่ได้มาตรฐานสากล</span></li>
+      <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>พัฒนา</b> — แพลตฟอร์มและนวัตกรรมของตัวเอง เพื่อสร้างมูลค่าเพิ่มให้ลูกค้า</span></li>
+      <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>บริการ</b> — ตั้งแต่ให้คำปรึกษา ออกแบบระบบ ติดตั้ง จนถึงหลังการขาย โดยทีมวิศวกร</span></li>
+      <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>เครือข่าย</b> — พาร์ทเนอร์และช่างบริการทั่วประเทศ เพื่อบริการที่รวดเร็ว</span></li>
+    </ul>
+  </div>
+</section>
+
 <section class="sec" data-pages="about">
   <div class="wrap">
-    <div class="head"><span class="kick">จุดแข็งของเรา</span><h2>4 จุดแข็งที่องค์กรชั้นนำไว้วางใจ</h2></div>
+    <div class="head"><span class="kick">จุดแข็ง</span><h2>จุดแข็งหลักสี่ด้าน</h2></div>
     <div class="g2">
       <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>ประสบการณ์กว่า 24 ปี</h3><p>ดำเนินธุรกิจระบบรักษาความปลอดภัยตั้งแต่ปี 2002 และเป็นตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทยตั้งแต่ปี 2006</p></div>
       <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v5M12 12l-6 5M12 12l6 5"/></svg></div><h3>เครือข่ายทั่วประเทศ</h3><p>ตัวแทนจำหน่ายและช่างบริการกว่า 500 ราย พร้อม Call Center ตลอด 24 ชั่วโมง ดูแลลูกค้าได้ทุกภูมิภาค</p></div>
       <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></svg></div><h3>มาตรฐานที่ตรวจสอบได้</h3><p>ได้รับรอง ISO 9001:2015 มาตรฐานธรรมาภิบาลธุรกิจ และ มอก.S พร้อมเตรียมความพร้อมเข้าจดทะเบียนในตลาดหลักทรัพย์ฯ</p></div>
       <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/></svg></div><h3>นวัตกรรมต่อเนื่อง</h3><p>ต่อยอดจากการจัดจำหน่ายสู่ Smart Transport, ศูนย์สาธิต DGF Smart AI Building และแพลตฟอร์มหุ่นยนต์ปี 2027</p></div>
     </div>
-    <div class="stats" style="margin-top:28px">
-      <div><div class="stat-n">2002</div><div class="stat-l">ปีที่ก่อตั้งบริษัท</div></div>
-      <div><div class="stat-n">60<small>ลบ.</small></div><div class="stat-l">ทุนจดทะเบียน</div></div>
-      <div><div class="stat-n">5,400<small>+ ตร.ม.</small></div><div class="stat-l">สำนักงานใหญ่ 3 อาคาร ซอยลาดพร้าว 130</div></div>
-      <div><div class="stat-n">3,000<small>+</small></div><div class="stat-l">ช่างที่ผ่านการอบรมร่วมกับกรมพัฒนาฝีมือแรงงาน</div></div>
-    </div>
   </div>
 </section>
 
 <section class="sec tint" data-pages="about">
   <div class="wrap">
-    <div class="head"><span class="kick">เส้นทางของเรา</span><h2>เส้นทางกว่า 24 ปี</h2></div>
+    <div class="head"><span class="kick">เรื่องราวของเรา</span><h2>เส้นทางกว่า 24 ปี</h2></div>
     <div class="tl" style="max-width:860px">
       <div class="tl-item"><div class="tl-y">2002</div><p>ก่อตั้ง บริษัท ดิจิตอลโฟกัส จำกัด ในธุรกิจระบบรักษาความปลอดภัยและกล้องวงจรปิด</p></div>
       <div class="tl-item"><div class="tl-y">2006</div><p>ตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย และได้รับรอง ISO 9001</p></div>
@@ -806,16 +815,39 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
 
 <section class="sec dark" data-pages="about">
   <div class="wrap split">
-    <div class="frame"><img src="img/soc-train1.jpg" alt="ทีม Digital Focus กับผู้เข้าอบรมช่างกล้องวงจรปิด" loading="lazy"></div>
+    <div class="frame"><img src="img/executives.jpg" alt="คุณสมชาย ประจักษ์สูตร และคุณศักดิพัฒน์ ประจักษ์สูตร ผู้บริหาร Digital Focus" loading="lazy"></div>
     <div>
-      <span class="kick">ทีมงาน</span>
-      <h2 class="h2">หัวใจของระบบที่ดีคือทีมที่ดูแลต่อเนื่อง</h2>
-      <p class="lead">ทีมวิศวกร ช่างเทคนิค และเจ้าหน้าที่บริการของ Digital Focus ทำงานร่วมกับเครือข่ายพาร์ทเนอร์ทั่วประเทศ เพื่อให้ระบบของลูกค้าพร้อมใช้งานทุกวัน</p>
-      <ul class="flist" style="margin-top:26px">
+      <span class="kick">ผู้บริหาร</span>
+      <h2 class="h2">นำโดยผู้ก่อตั้งที่อยู่กับธุรกิจความปลอดภัยมากว่า 24 ปี</h2>
+      <blockquote class="quote" style="margin-top:26px;font-size:clamp(18px,2vw,22px)">“การเรียนรู้อย่างต่อเนื่อง ภาวะผู้นำที่มีจริยธรรม และนวัตกรรม สร้างความสำเร็จที่ยั่งยืนให้กับทุกคน”<cite>คุณสมชาย ประจักษ์สูตร · ผู้ก่อตั้ง</cite></blockquote>
+      <ul class="flist" style="margin-top:28px">
         <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Call Center ตลอด 24 ชั่วโมง</b> — รับแจ้งปัญหาและประสานช่างในพื้นที่</span></li>
-        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>พัฒนาทักษะอย่างต่อเนื่อง</b> — อบรมร่วมกับแบรนด์และกรมพัฒนาฝีมือแรงงาน</span></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>พัฒนาทีมอย่างต่อเนื่อง</b> — อบรมร่วมกับแบรนด์และกรมพัฒนาฝีมือแรงงาน</span></li>
         <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>รางวัล ASEAN Business Award 2019</b> — สาขา Family Business ขนาดใหญ่</span></li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" data-pages="about">
+  <div class="wrap">
+    <div class="head"><span class="kick">ข้อมูลบริษัท</span><h2>ข้อมูลทั่วไป</h2></div>
+    <div class="split" style="align-items:start">
+      <dl class="info">
+        <div><dt>ชื่อบริษัท</dt><dd>บริษัท ดิจิตอลโฟกัส จำกัด<br>Digital Focus Co., Ltd.</dd></div>
+        <div><dt>เลขทะเบียนนิติบุคคล</dt><dd>0105545026907</dd></div>
+        <div><dt>ปีที่ก่อตั้ง</dt><dd>2545 (2002)</dd></div>
+        <div><dt>ทุนจดทะเบียน</dt><dd>60 ล้านบาท</dd></div>
+        <div><dt>ประเภทธุรกิจ</dt><dd>นำเข้า จัดจำหน่าย ออกแบบ ติดตั้ง และบริการระบบ Smart Security และ AIoT</dd></div>
+        <div><dt>สำนักงานใหญ่</dt><dd>2782/4-6 ถนนลาดพร้าว แขวงคลองจั่น เขตบางกะปิ กรุงเทพมหานคร 10240</dd></div>
+        <div><dt>สถานะ</dt><dd>เตรียมเข้าจดทะเบียนในตลาดหลักทรัพย์แห่งประเทศไทย</dd></div>
+      </dl>
+      <div class="stats">
+        <div><div class="stat-n">24<small>+ ปี</small></div><div class="stat-l">ประสบการณ์ในธุรกิจระบบรักษาความปลอดภัย</div></div>
+        <div><div class="stat-n">500<small>+</small></div><div class="stat-l">ตัวแทนจำหน่ายและช่างบริการทั่วประเทศ</div></div>
+        <div><div class="stat-n">5,400<small>+ ตร.ม.</small></div><div class="stat-l">สำนักงานใหญ่ 3 อาคาร ซอยลาดพร้าว 130</div></div>
+        <div><div class="stat-n">3,000<small>+</small></div><div class="stat-l">ช่างที่ผ่านการอบรมร่วมกับกรมพัฒนาฝีมือแรงงาน</div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -988,7 +1020,7 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
     <div class="ftr-grid">
       <div>
         <img class="logo-w" src="img/logo-white.png" alt="Digital Focus" width="773" height="347">
-        <p>บริษัท ดิจิตอลโฟกัส จำกัด — ผู้ให้บริการ Security &amp; Smart Solutions ครบวงจร ด้วยประสบการณ์กว่า 24 ปี และเครือข่ายตัวแทนทั่วประเทศ</p>
+        <p>บริษัท ดิจิตอลโฟกัส จำกัด — ผู้ให้บริการ Smart Security Solutions &amp; AIoT ครบวงจร ด้วยประสบการณ์กว่า 24 ปี และเครือข่ายตัวแทนทั่วประเทศ</p>
         <div class="social" id="social"></div>
       </div>
       <div><h4>บริษัท</h4><ul><li><a href="#about">เกี่ยวกับเรา</a></li><li><a href="#esg">ความยั่งยืน</a></li><li><a href="#news">ข่าวสาร</a></li><li><a href="#ir">นักลงทุนสัมพันธ์</a></li><li><a href="#partner">ร่วมเป็นพันธมิตร</a></li><li><a href="#contact">ติดต่อเรา</a></li></ul></div>
@@ -1020,9 +1052,9 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
 
   /* page views */
   var PAGES={
-    about:['เกี่ยวกับเรา','จากผู้จำหน่ายกล้อง⁠วงจรปิด สู่⁠ผู้นำ Security & Smart Solutions','ธุรกิจครอบครัวไทยที่เติบโตมากว่า 24 ปี ด้วยคุณภาพสินค้า ทีมวิศวกร และบริการหลังการขาย'],
+    about:['เกี่ยวกับเรา','จากผู้จำหน่ายกล้อง⁠วงจรปิดในปี 2002 สู่ผู้ให้บริการ Smart Security Solutions & AIoT ครบวงจร ที่ทั้งจัดจำหน่าย วาง⁠ระบบ และดูแลหลังการขายทั่วประเทศ','',1],
     business:['ธุรกิจของเรา','ครบตั้งแต่อุปกรณ์ วาง⁠ระบบ จนถึงบริการ','จัดจำหน่ายอุปกรณ์ ออกแบบและวางระบบ แพลตฟอร์ม และบริการรายเดือน ที่เสริมกันเป็นระบบเดียว'],
-    solutions:['โซลูชัน','โซลูชันสำหรับทุกอุตสาหกรรม','ระบบความปลอดภัย AI และ AIoT ที่ทำงานร่วมกันทั้งองค์กร ออกแบบให้เหมาะกับอาคาร โรงพยาบาล หน่วยงานภาครัฐ สถาบันการศึกษา นิคมอุตสาหกรรม และโรงงาน'],
+    solutions:['โซลูชัน','โซลูชันสำหรับทุกอุตสาหกรรม','ระบบ Smart Security และ AIoT ที่ทำงานร่วมกันทั้งองค์กร ออกแบบให้เหมาะกับอาคาร โรงพยาบาล หน่วยงานภาครัฐ สถาบันการศึกษา นิคมอุตสาหกรรม และโรงงาน'],
     projects:['ผลงานและลูกค้า','ผลงานและลูกค้าของเรา','โครงการที่เราวางระบบให้องค์กรชั้นนำทั้งภาครัฐและเอกชนทั่วประเทศ ตั้งแต่ค้าปลีกหลายพันสาขาถึงหน่วยงานรัฐ'],
     brands:['ผลิตภัณฑ์','ผลิตภัณฑ์และแบรนด์ที่เราจัดจำหน่าย','ตัวแทนจำหน่าย Hikvision อย่างเป็นทางการรายแรกของไทย พร้อมพันธมิตรด้าน AIoT, Smart Home และ Robotics'],
     esg:['ความยั่งยืน','ความยั่งยืนที่อยู่ในทุกกระบวนการดำเนินงาน','ดูแลสิ่งแวดล้อมในองค์กร พัฒนาฝีมือแรงงาน สนับสนุนการศึกษา คืนสู่ชุมชน และกำกับดูแลกิจการอย่างโปร่งใส'],
@@ -1053,7 +1085,7 @@ body[data-page="solutions"] #solutions{background:var(--paper-2)}
       el.hidden=el.getAttribute('data-pages').split(' ').indexOf(page)<0;
     });
     only.forEach(function(el){el.hidden=el.getAttribute('data-only')!==page});
-    if(page!=='home'){var d=PAGES[page];document.getElementById('pcrumb').textContent=d[0];document.getElementById('ptitle').textContent=d[1];document.getElementById('plead').textContent=d[2]}
+    if(page!=='home'){var d=PAGES[page],pt=document.getElementById('ptitle'),pl=document.getElementById('plead');document.getElementById('pcrumb').textContent=d[0];pt.textContent=d[1];pt.classList.toggle('lead-t',!!d[3]);pl.textContent=d[2];pl.hidden=!!d[3]}
     navLinks.forEach(function(a){var on=a.getAttribute('href')==='#'+page;a.classList.toggle('on',on);if(on)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
     document.title=(page==='home'?'':PAGES[page][0]+' | ')+'Digital Focus';
     if(target){var el=document.getElementById(target);if(el)setTimeout(function(){el.scrollIntoView({block:'start'})},0)}
